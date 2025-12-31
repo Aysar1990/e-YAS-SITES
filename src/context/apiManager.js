@@ -15,7 +15,23 @@ const isCloudMode = () => {
 
 // Get cloud API URL
 const getCloudApiUrl = () => {
-  return import.meta.env.VITE_API_URL || 'https://e-yas-sites-api.onrender.com/api'
+  // First check environment variable
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL
+  }
+
+  // Fallback: construct URL from current hostname for Render/Vercel
+  const hostname = window.location.hostname
+  if (hostname.includes('vercel.app')) {
+    // If on Vercel, try to use the corresponding Render backend
+    // Format: appname.vercel.app -> appname-api.onrender.com
+    const appName = hostname.split('.')[0].replace('-app', '').replace('app', '')
+    return `https://${appName}-api.onrender.com/api`
+  }
+
+  // Last resort fallback
+  console.warn('[API Manager] No VITE_API_URL set, using default')
+  return 'https://tssr-monitor-api.onrender.com/api'
 }
 
 // Empty API - returns empty data instead of mock

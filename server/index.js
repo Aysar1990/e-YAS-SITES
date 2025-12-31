@@ -135,12 +135,77 @@ app.use('/api/login', authRoutes(supabase));
 // Protected routes - require authentication
 const auth = authenticateToken;
 
+// Sites routes (includes /phases inside)
 app.use('/api/sites', auth, sitesRoutes(supabase));
-app.use('/api/phases', auth, sitesRoutes(supabase));
+
+// Direct /api/phases endpoint - GET phases directly
+app.get('/api/phases', auth, async (req, res) => {
+  try {
+    const { data, error } = await supabase
+      .from('sites')
+      .select('phase_name')
+      .not('phase_name', 'is', null);
+
+    if (error) throw error;
+
+    // Count by phase
+    const phaseCounts = {};
+    (data || []).forEach(row => {
+      const phase = row.phase_name;
+      phaseCounts[phase] = (phaseCounts[phase] || 0) + 1;
+    });
+
+    const phases = Object.entries(phaseCounts).map(([phase_name, count]) => ({
+      phase_name,
+      count
+    })).sort((a, b) => a.phase_name.localeCompare(b.phase_name));
+
+    res.json(phases);
+  } catch (error) {
+    console.error('Get phases error:', error);
+    res.status(500).json({ error: 'Failed to fetch phases' });
+  }
+});
+
 app.use('/api/stats', auth, statsRoutes(supabase));
 app.use('/api/users', auth, usersRoutes(supabase));
 app.use('/api/contractors', auth, contractorsRoutes(supabase));
 app.use('/api/audit-logs', auth, auditLogsRoutes(supabase));
+
+// Rejections endpoint - sites with rejection status
+app.get('/api/rejections', auth, async (req, res) => {
+  try {
+    const { phase, contractor } = req.query;
+    const user = req.user;
+
+    let query = supabase
+      .from('sites')
+      .select('*')
+      .or('tssr_overall_status.ilike.%reject%,tssr_overall_status.ilike.%fail%,tssr_overall_status.ilike.%rfi%');
+
+    if (phase && phase !== 'ALL') {
+      query = query.eq('phase_name', phase);
+    }
+
+    // Contractor filter
+    if (user.role === 'contractor' && user.contractor_name) {
+      query = query.eq('tssr_subcon', user.contractor_name);
+    } else if (contractor) {
+      query = query.eq('tssr_subcon', contractor);
+    }
+
+    query = query.order('updated_at', { ascending: false }).limit(100);
+
+    const { data, error } = await query;
+
+    if (error) throw error;
+
+    res.json(data || []);
+  } catch (error) {
+    console.error('Get rejections error:', error);
+    res.status(500).json({ error: 'Failed to fetch rejections' });
+  }
+});
 
 // Settings endpoint
 app.get('/api/settings', auth, async (req, res) => {
