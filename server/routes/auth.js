@@ -108,11 +108,11 @@ async function handleLogin(req, res, supabase) {
       });
     }
 
-    // Fetch user from Supabase
+    // Fetch user from Supabase (case-insensitive)
     const { data: user, error } = await supabase
       .from('users')
       .select('*')
-      .eq('username', username.toLowerCase().trim())
+      .ilike('username', username.trim())
       .single();
 
     if (error || !user) {

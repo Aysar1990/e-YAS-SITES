@@ -1,33 +1,33 @@
 {
   "startTime": 1767220711883,
-  "lastUpdated": 1767220711892,
+  "lastUpdated": 1767221011889,
   "system": {
-    "timestamp": 1767220711884,
+    "timestamp": 1767221011886,
     "platform": "win32",
     "arch": "x64",
     "nodeVersion": "v18.18.2",
-    "uptime": 26529.5,
+    "uptime": 26829.5,
     "cpu": {
       "count": 12,
       "model": "AMD Ryzen 5 5600X 6-Core Processor             ",
-      "usage": 2.44
+      "usage": 2.55
     },
     "memory": {
       "total": 32714,
-      "free": 18965,
-      "used": 13749,
-      "usagePercent": 42.03
+      "free": 19176,
+      "used": 13538,
+      "usagePercent": 41.38
     },
     "process": {
       "pid": 5760,
-      "heapUsed": 24,
-      "heapTotal": 41,
-      "rss": 126
+      "heapUsed": 31,
+      "heapTotal": 50,
+      "rss": 162
     }
   },
   "performance": {
-    "timestamp": 1767220711884,
-    "uptime": 1,
+    "timestamp": 1767221011886,
+    "uptime": 300003,
     "thresholds": {
       "slowQuery": 500,
       "highMemory": 500,
@@ -42,10 +42,16 @@
       "failed": 0
     },
     "memory": {
-      "samples": 0,
-      "avgHeapUsed": 0,
-      "maxHeapUsed": 0,
-      "current": null
+      "samples": 4,
+      "avgHeapUsed": 29,
+      "maxHeapUsed": 34,
+      "current": {
+        "timestamp": 1767220951901,
+        "heapUsed": 30,
+        "heapTotal": 50,
+        "rss": 156,
+        "external": 36
+      }
     },
     "renders": {
       "total": 0,
@@ -62,7 +68,7 @@
       "byType": {}
     },
     "bundleSize": {
-      "timestamp": 1767220711891,
+      "timestamp": 1767221011889,
       "totalSizeMB": 5.96,
       "fileCount": 46,
       "largestFiles": [
@@ -119,10 +125,19 @@
         "threshold": 5
       },
       "id": "mjull0b8iz797"
+    },
+    {
+      "type": "largeBundleSize",
+      "timestamp": 1767221011889,
+      "data": {
+        "size": 5.960071563720703,
+        "threshold": 5
+      },
+      "id": "mjulrfshscy8c"
     }
   ],
   "summary": {
-    "timestamp": 1767220711892,
+    "timestamp": 1767221011889,
     "healthScore": 100,
     "overallHealth": "good",
     "components": {
