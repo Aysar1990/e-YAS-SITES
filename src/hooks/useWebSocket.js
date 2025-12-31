@@ -1,6 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useAuth } from '../context/AuthContext'
 
+// Check if running in cloud mode
+const isCloudMode = () => {
+    return import.meta.env.VITE_API_URL || 
+           window.location.hostname.includes('vercel.app') ||
+           window.location.hostname.includes('netlify.app')
+}
+
 const WS_URL = 'ws://localhost:3002'
 const RECONNECT_DELAY = 3000
 
@@ -15,6 +22,12 @@ export const useWebSocket = () => {
     const reconnectTimeoutRef = useRef(null)
 
     const connect = useCallback(() => {
+        // Skip WebSocket in cloud mode (use Supabase Realtime instead)
+        if (isCloudMode()) {
+            console.log('[WebSocket] Skipped - running in cloud mode')
+            return
+        }
+
         if (loading) return
         if (wsRef.current?.readyState === WebSocket.OPEN) return
 
@@ -36,10 +49,6 @@ export const useWebSocket = () => {
             if (token) {
                 ws.send(JSON.stringify({ type: 'auth', token }))
             } else if (user) {
-                // If we are in Electron/Mock mode without a token, we might send user info directly 
-                // OR rely on the server being lenient. 
-                // Based on server code, it expects a token. 
-                // For development/mock, we might need a workaround or just skip auth if no token.
                 console.warn('[WebSocket] No auth token found, sending mock auth')
                 ws.send(JSON.stringify({ type: 'auth', token: 'mock-token' }))
             }
@@ -49,8 +58,6 @@ export const useWebSocket = () => {
             try {
                 const message = JSON.parse(event.data)
                 setLastMessage(message)
-
-                // Handle ping/pong if needed (not implemented in server yet)
             } catch (e) {
                 console.error('[WebSocket] Message parse error', e)
             }
@@ -61,10 +68,12 @@ export const useWebSocket = () => {
             setIsConnected(false)
             wsRef.current = null
 
-            // Attempt reconnect
-            reconnectTimeoutRef.current = setTimeout(() => {
-                connect()
-            }, RECONNECT_DELAY)
+            // Attempt reconnect only in local mode
+            if (!isCloudMode()) {
+                reconnectTimeoutRef.current = setTimeout(() => {
+                    connect()
+                }, RECONNECT_DELAY)
+            }
         }
 
         ws.onerror = (error) => {
