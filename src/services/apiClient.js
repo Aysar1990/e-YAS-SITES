@@ -316,6 +316,12 @@ class ApiClient {
   // ============================================
 
   connectWebSocket(onMessage) {
+    // Skip WebSocket for cloud mode (wsURL is null)
+    if (!this.wsURL) {
+      console.log('[WS Client] Skipped - cloud mode (using Supabase Realtime)')
+      return
+    }
+
     if (this.ws && this.ws.readyState === WebSocket.OPEN) return
 
     try {
@@ -412,6 +418,9 @@ class ApiClient {
 
   // Schedule reconnection with exponential backoff
   scheduleReconnect(onMessage) {
+    // Skip reconnect for cloud mode
+    if (!this.wsURL) return
+
     if (this.reconnectAttempts >= this.maxReconnectAttempts) {
       console.log('[WS Client] Max reconnect attempts reached')
       return
