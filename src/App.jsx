@@ -12,6 +12,13 @@ import SyncIndicator from './components/SyncIndicator'
 import './styles/global.css'
 import './styles/themes.css'
 
+// Check if running in Cloud Mode (Vercel)
+const isCloudMode = () => {
+  return import.meta.env.VITE_API_URL || 
+         window.location.hostname.includes('vercel.app') ||
+         window.location.hostname.includes('netlify.app')
+}
+
 function App() {
   const [appMode, setAppMode] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -30,6 +37,14 @@ function App() {
   }, [])
 
   const checkMode = async () => {
+    // Cloud Mode - skip setup
+    if (isCloudMode()) {
+      console.log('[App] Cloud mode detected, skipping setup')
+      setAppMode('cloud')
+      setLoading(false)
+      return
+    }
+
     const savedMode = localStorage.getItem('tssr_mode')
     const serverIP = localStorage.getItem('tssr_server_ip')
 
@@ -83,7 +98,7 @@ function App() {
     )
   }
 
-  // Show client setup for browser users
+  // Show client setup for browser users (not cloud mode)
   if (appMode === 'needs-setup') {
     return (
       <ThemeProvider>
@@ -94,7 +109,7 @@ function App() {
     )
   }
 
-  // Normal app (standalone or client mode)
+  // Normal app (standalone, client, or cloud mode)
   return (
     <GlobalErrorBoundary>
       <ThemeProvider>

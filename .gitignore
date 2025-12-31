@@ -77,3 +77,5 @@ FIX_CHOKIDAR_ISSUE.md
 firebase-sync/server/config/firebase-key.json
 
 firebase-sync/server/config/firebase-key.json
+.vercel
+.env*.local
