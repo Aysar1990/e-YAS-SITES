@@ -1,33 +1,33 @@
 {
-  "startTime": 1767172048695,
-  "lastUpdated": 1767185248737,
+  "startTime": 1767220711883,
+  "lastUpdated": 1767220711892,
   "system": {
-    "timestamp": 1767185248734,
+    "timestamp": 1767220711884,
     "platform": "win32",
     "arch": "x64",
     "nodeVersion": "v18.18.2",
-    "uptime": 88509.343,
+    "uptime": 26529.5,
     "cpu": {
       "count": 12,
       "model": "AMD Ryzen 5 5600X 6-Core Processor             ",
-      "usage": 7.04
+      "usage": 2.44
     },
     "memory": {
       "total": 32714,
-      "free": 20153,
-      "used": 12561,
-      "usagePercent": 38.4
+      "free": 18965,
+      "used": 13749,
+      "usagePercent": 42.03
     },
     "process": {
-      "pid": 6036,
-      "heapUsed": 50,
-      "heapTotal": 111,
-      "rss": 247
+      "pid": 5760,
+      "heapUsed": 24,
+      "heapTotal": 41,
+      "rss": 126
     }
   },
   "performance": {
-    "timestamp": 1767185248734,
-    "uptime": 13200039,
+    "timestamp": 1767220711884,
+    "uptime": 1,
     "thresholds": {
       "slowQuery": 500,
       "highMemory": 500,
@@ -42,16 +42,10 @@
       "failed": 0
     },
     "memory": {
-      "samples": 219,
-      "avgHeapUsed": 60,
-      "maxHeapUsed": 96,
-      "current": {
-        "timestamp": 1767185188965,
-        "heapUsed": 50,
-        "heapTotal": 113,
-        "rss": 249,
-        "external": 40
-      }
+      "samples": 0,
+      "avgHeapUsed": 0,
+      "maxHeapUsed": 0,
+      "current": null
     },
     "renders": {
       "total": 0,
@@ -68,7 +62,7 @@
       "byType": {}
     },
     "bundleSize": {
-      "timestamp": 1767185248737,
+      "timestamp": 1767220711891,
       "totalSizeMB": 5.96,
       "fileCount": 46,
       "largestFiles": [
@@ -119,412 +113,16 @@
   "alerts": [
     {
       "type": "largeBundleSize",
-      "timestamp": 1767172048700,
+      "timestamp": 1767220711891,
       "data": {
         "size": 5.960071563720703,
         "threshold": 5
       },
-      "id": "mjtslzjzu7rv4"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767172348699,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtssf176b44e"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767172648699,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtsyuijwvmc5"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767172948700,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtt59zwf2u47"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767173248701,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjttbph9dj7v5"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767173548702,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtti4ym1pscx"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767173848703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjttokfzr8tmf"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767174148704,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjttuzxco0fm1"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767174448703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtu1fen3qzk7"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767174748703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtu7uvzeuhqu"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767175048705,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtueaddvu069"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767175348703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtukpunfzwzm"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767175648702,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtur5by5ja2u"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767175948703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtuxktb2h1k0"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767176248704,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtv40aoj1oht"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767176548703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtvafrzsdrzf"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767176848703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtvgv9be04zq"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767177148703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtvnaqnez20w"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767177448703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtvtq7z86ahm"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767177748703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtw05pbj93na"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767178048703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtw6l6oqv6hy"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767178348703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtwd0o07zkxd"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767178648704,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtwjg5dh0ypl"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767178948703,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtwpvmo48zj3"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767179248704,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtwwb40087qa"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767179548704,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtx2qlcc6snu"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767179848717,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtx9631dch4x"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767180148717,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtxflkd2o8sw"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767180448722,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtxm11v8hz1c"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767180748722,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtxsgj6grd7t"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767181048733,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtxyw0tdc051"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767181348733,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjty5bi5r8921"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767181648732,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtybqzgsf5hm"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767181948733,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtyi6gul27zf"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767182248739,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtyolycn1gz2"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767182548737,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtyv1flk73sk"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767182848737,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtz1gwxfte6d"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767183148737,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtz7we928n72"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767183448738,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtzebvmyartm"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767183748737,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtzkrcxbbtgu"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767184048738,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtzr6ua13zlz"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767184348736,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mjtzxmbl40s1o"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767184648738,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mju041sywm4an"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767184948736,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mju0aha9m5stu"
-    },
-    {
-      "type": "largeBundleSize",
-      "timestamp": 1767185248737,
-      "data": {
-        "size": 5.960071563720703,
-        "threshold": 5
-      },
-      "id": "mju0gwrlprfnt"
+      "id": "mjull0b8iz797"
     }
   ],
   "summary": {
-    "timestamp": 1767185248737,
+    "timestamp": 1767220711892,
     "healthScore": 100,
     "overallHealth": "good",
     "components": {

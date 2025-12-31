@@ -9,8 +9,8 @@ const { generateToken, authenticateToken } = require('../middleware/auth');
 
 // Rate limiting for login attempts
 const loginAttempts = new Map();
-const MAX_ATTEMPTS = 5;
-const BLOCK_DURATION = 15 * 60 * 1000; // 15 minutes
+const MAX_ATTEMPTS = 20;
+const BLOCK_DURATION = 2 * 60 * 1000; // 2 minutes
 
 function isBlocked(ip) {
   const attempts = loginAttempts.get(ip);

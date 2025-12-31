@@ -1,55 +1,5 @@
 [
   {
-    "timestamp": 1767160742431,
-    "summary": {
-      "timestamp": 1767160562199,
-      "healthScore": 100,
-      "overallHealth": "good",
-      "components": {
-        "memory": "good",
-        "queries": "good",
-        "errors": "good"
-      },
-      "recommendations": [
-        {
-          "type": "bundle",
-          "severity": "medium",
-          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-          "value": 5.96
-        }
-      ]
-    },
-    "system": {
-      "heapUsed": 23,
-      "cpuUsage": 3.86
-    }
-  },
-  {
-    "timestamp": 1767160802446,
-    "summary": {
-      "timestamp": 1767160562199,
-      "healthScore": 100,
-      "overallHealth": "good",
-      "components": {
-        "memory": "good",
-        "queries": "good",
-        "errors": "good"
-      },
-      "recommendations": [
-        {
-          "type": "bundle",
-          "severity": "medium",
-          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-          "value": 5.96
-        }
-      ]
-    },
-    "system": {
-      "heapUsed": 23,
-      "cpuUsage": 3.86
-    }
-  },
-  {
     "timestamp": 1767160862452,
     "summary": {
       "timestamp": 1767160862202,
@@ -7197,6 +7147,56 @@
     "system": {
       "heapUsed": 50,
       "cpuUsage": 7.04
+    }
+  },
+  {
+    "timestamp": 1767220771886,
+    "summary": {
+      "timestamp": 1767220711892,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.96
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.44
+    }
+  },
+  {
+    "timestamp": 1767220831887,
+    "summary": {
+      "timestamp": 1767220711892,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.96
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.44
     }
   }
 ]
