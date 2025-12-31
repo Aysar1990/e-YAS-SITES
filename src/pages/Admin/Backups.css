@@ -1,0 +1,188 @@
+.backups-page {
+  padding: 24px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.message {
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.message-success {
+  background: rgba(143, 217, 217, 0.2);
+  border: 1px solid #8FD9D9;
+  color: #8FD9D9;
+}
+
+.message-error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+/* Backup Settings */
+.backup-settings {
+  padding: 16px 0;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.setting-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting-row select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.setting-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #FF8566;
+}
+
+.last-backup-info {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(255, 133, 102, 0.1);
+  border-radius: 8px;
+  color: #FF8566;
+  font-size: 14px;
+}
+
+/* Create Backup Button */
+.btn-create-backup {
+  background: linear-gradient(135deg, #8FD9D9, #6FBFBF);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-create-backup:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(143, 217, 217, 0.4);
+}
+
+.btn-create-backup:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Backups Table */
+.backups-table-container {
+  overflow-x: auto;
+}
+
+.backups-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.backups-table th,
+.backups-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.backups-table th {
+  background: rgba(255, 133, 102, 0.1);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.backups-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.backup-name {
+  font-family: monospace;
+  font-size: 13px;
+  color: #FF8566;
+}
+
+.backup-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-restore {
+  background: rgba(255, 133, 102, 0.2);
+  border: 1px solid #FF8566;
+  color: #FF8566;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-restore:hover {
+  background: #FF8566;
+  color: white;
+}
+
+.btn-delete {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.loading,
+.no-backups {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.no-backups p:first-child {
+  font-size: 18px;
+  margin-bottom: 8px;
+}

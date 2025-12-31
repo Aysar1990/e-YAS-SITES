@@ -1,0 +1,161 @@
+/* Connection Indicator Styles */
+
+.connection-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(30, 41, 59, 0.4);
+  transition: all 0.3s ease;
+}
+
+.connection-indicator:hover {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.connection-indicator.small {
+  padding: 2px 6px;
+  gap: 4px;
+}
+
+.connection-indicator.small .connection-dot {
+  width: 8px;
+  height: 8px;
+}
+
+.connection-indicator.small .connection-label {
+  font-size: 0.7rem;
+}
+
+/* Connection Dot */
+.connection-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.connection-dot.online {
+  background: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.connection-dot.offline {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
+/* Pulse Animation */
+.connection-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.connection-dot.online .connection-pulse {
+  background: rgba(16, 185, 129, 0.4);
+}
+
+.connection-dot.offline .connection-pulse {
+  background: rgba(245, 158, 11, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Connection Label */
+.connection-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.connection-label.online {
+  color: #10b981;
+}
+
+.connection-label.offline {
+  color: #f59e0b;
+}
+
+/* Tooltip */
+.connection-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1000;
+  animation: tooltipFadeIn 0.2s ease;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tooltip-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.tooltip-status {
+  font-size: 1.4rem;
+}
+
+.tooltip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tooltip-text strong {
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.tooltip-text span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
+
+.tooltip-status.online + .tooltip-text strong {
+  color: #10b981;
+}
+
+.tooltip-status.offline + .tooltip-text strong {
+  color: #f59e0b;
+}

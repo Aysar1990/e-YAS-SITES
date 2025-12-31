@@ -1,0 +1,18 @@
+/**
+ * Reports Page Styles
+ *
+ * This file has been refactored into modular stylesheets.
+ * All styles are now in the styles/reports/ directory:
+ * - base.css - Page layout, header, toggle, phase select
+ * - tabs.css - Tab navigation
+ * - stats.css - Stats grid and cards
+ * - charts.css - Charts grid and quick export
+ * - builder.css - Report builder sections
+ * - preview.css - Preview table
+ * - templates.css - Templates grid
+ * - states.css - Loading state
+ * - responsive.css - Media queries
+ * - recharts.css - Chart customization
+ */
+
+@import './styles/reports/index.css';

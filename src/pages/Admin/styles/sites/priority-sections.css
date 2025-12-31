@@ -1,0 +1,68 @@
+/**
+ * Sites Page - Priority Sections
+ */
+
+.priority-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.priority-section {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.priority-section__header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* Priority Number Badge */
+.priority-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #FF8566, #8B5CF6);
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.priority-text {
+  color: #94A3B8;
+  font-size: 0.9rem;
+}
+
+.priority-count {
+  margin-right: auto;
+  background: rgba(51, 65, 85, 0.6);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  width: 100%;
+  direction: ltr;
+}

@@ -1,0 +1,232 @@
+/* ===============================================
+   STATS WIDGET - Quick Stats Dashboard
+   =============================================== */
+
+.stats-widget {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  width: 280px;
+  background: #141e30;
+  border: 1px solid rgba(143, 217, 217, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Header */
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.stats-widget h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--primary-color, #8fd9d9);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-widget h3::before {
+  content: '';
+}
+
+.stats-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.stats-close:hover {
+  background: rgba(255, 133, 102, 0.2);
+  color: #ff8566;
+}
+
+/* Stat Grid */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stat-card {
+  background: rgba(143, 217, 217, 0.05);
+  border: 1px solid rgba(143, 217, 217, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-card:hover {
+  background: rgba(143, 217, 217, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card.total {
+  border-color: rgba(143, 217, 217, 0.4);
+}
+
+.stat-card.approved {
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+.stat-card.approved:hover {
+  background: rgba(76, 175, 80, 0.15);
+}
+
+.stat-card.pending {
+  border-color: rgba(255, 193, 7, 0.5);
+}
+
+.stat-card.pending:hover {
+  background: rgba(255, 193, 7, 0.15);
+}
+
+.stat-card.rejected {
+  border-color: rgba(244, 67, 54, 0.5);
+}
+
+.stat-card.rejected:hover {
+  background: rgba(244, 67, 54, 0.15);
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color, #8fd9d9);
+  line-height: 1.2;
+}
+
+.stat-card.approved .stat-value {
+  color: #4CAF50;
+}
+
+.stat-card.pending .stat-value {
+  color: #FFC107;
+}
+
+.stat-card.rejected .stat-value {
+  color: #F44336;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-percent {
+  font-size: 0.8rem;
+  color: #4CAF50;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* Top Governorates */
+.top-govs {
+  border-top: 1px solid rgba(143, 217, 217, 0.2);
+  padding-top: 12px;
+}
+
+.top-govs h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.gov-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  background: rgba(143, 217, 217, 0.03);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gov-item:hover {
+  background: rgba(143, 217, 217, 0.12);
+}
+
+.gov-name {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.gov-bar-container {
+  flex: 1;
+  height: 6px;
+  background: rgba(143, 217, 217, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gov-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color, #8fd9d9), var(--accent-color, #ff8566));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.gov-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-color, #8fd9d9);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-widget {
+    position: fixed;
+    top: auto;
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    max-width: 100%;
+  }
+}

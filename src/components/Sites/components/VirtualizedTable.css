@@ -1,0 +1,201 @@
+/**
+ * VirtualizedTable Styles
+ * Optimized table with virtual scrolling
+ */
+
+.virtualized-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 400px);
+  min-height: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Header */
+.virtualized-table__header {
+  display: flex;
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(143, 217, 217, 0.3);
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+.virtualized-table__header-cell {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #8FD9D9;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.virtualized-table__header-cell:last-child {
+  border-right: none;
+}
+
+/* Body (Scrollable) */
+.virtualized-table__body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Performance optimizations */
+  will-change: scroll-position;
+  contain: layout style paint;
+}
+
+/* Inner container */
+.virtualized-table__inner {
+  position: relative;
+  width: 100%;
+  /* Height set dynamically */
+}
+
+/* Row */
+.virtualized-table__row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.virtualized-table__row:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.virtualized-table__row--selected {
+  background: rgba(143, 217, 217, 0.15);
+  border-color: rgba(143, 217, 217, 0.3);
+}
+
+/* Cell */
+.virtualized-table__cell {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.virtualized-table__cell:last-child {
+  border-right: none;
+}
+
+/* Footer */
+.virtualized-table__footer {
+  padding: 0.75rem 1rem;
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Custom scrollbar */
+.virtualized-table__body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.virtualized-table__body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.virtualized-table__body::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-radius: 10px;
+}
+
+.virtualized-table__body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #6bc5c5 0%, #8FD9D9 100%);
+}
+
+/* Firefox scrollbar */
+.virtualized-table__body {
+  scrollbar-width: thin;
+  scrollbar-color: #8FD9D9 rgba(255, 255, 255, 0.05);
+}
+
+/* Loading state */
+.virtualized-table--loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.virtualized-table--loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(143, 217, 217, 0.3);
+  border-top-color: #8FD9D9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 100;
+}
+
+/* Animations */
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .virtualized-table {
+    height: calc(100vh - 300px);
+    min-height: 400px;
+  }
+
+  .virtualized-table__header-cell,
+  .virtualized-table__cell {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .virtualized-table__body::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .virtualized-table {
+    height: auto;
+    overflow: visible;
+  }
+
+  .virtualized-table__body {
+    overflow: visible;
+  }
+
+  .virtualized-table__footer {
+    display: none;
+  }
+}

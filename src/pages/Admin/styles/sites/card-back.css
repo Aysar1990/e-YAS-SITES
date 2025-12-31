@@ -1,0 +1,152 @@
+/**
+ * Sites Page - Card Back Side
+ */
+
+.priority-card__back {
+  transform: rotateY(180deg);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-priority {
+  background: linear-gradient(135deg, #FF8566, #8B5CF6);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.back-site-id {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.back-status {
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+/* Edit Button on Card */
+.card-edit-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: #8FD9D9;
+  color: white;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card-edit-btn:hover {
+  background: #6FBFBF;
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(143, 217, 217, 0.4);
+}
+
+.back-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+}
+
+.info-label {
+  color: #64748B;
+}
+
+.info-value {
+  color: #E2E8F0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 65%;
+}
+
+/* Back Department Row */
+.back-dept-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: auto;
+  padding-top: 0.3rem;
+}
+
+.back-dept-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 22px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border-radius: 4px;
+  background: rgba(100, 116, 139, 0.3);
+  color: #64748B;
+  border: 1px solid rgba(100, 116, 139, 0.5);
+  transition: all 0.2s ease;
+}
+
+.back-dept-item.approved {
+  background: rgba(143, 217, 217, 0.15);
+  color: #8FD9D9;
+  border-color: #8FD9D9;
+}
+
+.back-dept-item.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border-color: #EF4444;
+  animation: pulse-dept 1.5s infinite;
+}
+
+.back-dept-item.pending {
+  background: rgba(234, 179, 8, 0.15);
+  color: #EAB308;
+  border-color: #EAB308;
+}
+
+.back-dept-item.released {
+  background: rgba(180, 83, 9, 0.15);
+  color: #D97706;
+  border-color: #D97706;
+}
+
+@keyframes pulse-dept {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  }
+}

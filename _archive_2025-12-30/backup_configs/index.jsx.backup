@@ -1,0 +1,599 @@
+/**
+ * Settings Page - Main Component
+ * Coordinates all settings sections and sub-components
+ */
+
+import { useEffect } from 'react'
+import { MainLayout } from '../../../components/Layout'
+import useSettings from './hooks/useSettings'
+import GeneralSettings from './components/GeneralSettings'
+import ServerModeSettings from './components/ServerModeSettings'
+import DatabaseSettings from './components/DatabaseSettings'
+import UserManagement from './components/UserManagement'
+import RolePermissions from './components/RolePermissions'
+import NotificationSettings from './components/NotificationSettings'
+import FirebaseSettings from './components/FirebaseSettings'
+import SettingsFooter from './components/SettingsFooter'
+import '../Settings.css'
+
+const Settings = () => {
+  const settings = useSettings()
+  const {
+    t,
+    phases,
+    canImport,
+    message,
+    showMessage,
+    setMessage,
+
+    // General Settings
+    formData,
+    setFormData,
+    saving,
+    setSaving,
+    updateSettings,
+
+    // Server Mode
+    serverMode,
+    setServerMode,
+    serverIP,
+    setServerIP,
+    connectedClients,
+    setConnectedClients,
+    serverLoading,
+    setServerLoading,
+
+    // User Management
+    users,
+    setUsers,
+    contractorsList,
+    setContractorsList,
+    newUser,
+    setNewUser,
+    userLoading,
+    setUserLoading,
+    fetchUsers,
+
+    // Role Permissions
+    permissions,
+    setPermissions,
+    permissionsSaving,
+    setPermissionsSaving,
+
+    // Notifications
+    notificationSettings,
+    setNotificationSettings,
+    notificationSaving,
+    setNotificationSaving,
+
+    // Firebase
+    firebaseConfig,
+    setFirebaseConfig,
+    firebaseStatus,
+    setFirebaseStatus,
+    firebaseSyncing,
+    setFirebaseSyncing,
+    firebaseSaving,
+    setFirebaseSaving,
+    firebaseSites,
+    firebaseConnected,
+    updateFirebaseSite,
+    addFirebaseSite,
+
+    // Import
+    fileInputRef,
+    importStep,
+    setImportStep,
+    importFile,
+    setImportFile,
+    importComparison,
+    setImportComparison,
+    importProgress,
+    setImportProgress,
+    importError,
+    setImportError,
+    parseExcelFile,
+    compareData
+  } = settings
+
+  // Check Server Status
+  useEffect(() => {
+    const checkServerStatus = async () => {
+      try {
+        if (window.electron?.getServerInfo) {
+          const info = await window.electron.getServerInfo()
+          if (info && info.addresses && info.addresses.length > 0) {
+            setServerMode(true)
+            setServerIP(info.addresses[0].address)
+          }
+        }
+        if (window.electron?.getConnectedClients) {
+          const clients = await window.electron.getConnectedClients()
+          setConnectedClients(clients?.count || 0)
+        }
+      } catch (error) {
+        setServerMode(false)
+      }
+    }
+    checkServerStatus()
+    const interval = setInterval(checkServerStatus, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Fetch Users and Contractors
+  useEffect(() => {
+    const fetchUsersAndContractors = async () => {
+      await fetchUsers()
+      try {
+        if (window.electron?.getContractors) {
+          const result = await window.electron.getContractors()
+          if (result.success) {
+            const contractors = result.uniqueFromSites || []
+            setContractorsList(Array.isArray(contractors) ? contractors : [])
+          }
+        }
+        if (window.electron?.getPermissions) {
+          const result = await window.electron.getPermissions()
+          if (result.success && result.permissions) {
+            setPermissions(result.permissions)
+          }
+        }
+        if (window.electron?.getNotificationSettings) {
+          const notifSettings = await window.electron.getNotificationSettings()
+          if (notifSettings) {
+            setNotificationSettings(notifSettings)
+          }
+        }
+        if (window.electron?.getFirebaseConfig) {
+          const result = await window.electron.getFirebaseConfig()
+          if (result.success && result.config) {
+            setFirebaseConfig(result.config)
+          }
+        }
+        if (window.electron?.getFirebaseSyncStatus) {
+          const statusResult = await window.electron.getFirebaseSyncStatus()
+          if (statusResult.success && statusResult.status) {
+            setFirebaseStatus(statusResult.status)
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching users/contractors:', error)
+      }
+    }
+    fetchUsersAndContractors()
+  }, [])
+
+  // Handlers
+  const handleSelectFile = async () => {
+    try {
+      const result = await window.electron.selectExcelFile()
+      if (result.success) {
+        setFormData({ ...formData, excel_path: result.filePath })
+      }
+    } catch (error) {
+      console.error('File selection error:', error)
+    }
+  }
+
+  const handleToggleServer = async () => {
+    setServerLoading(true)
+    try {
+      if (serverMode) {
+        await window.electron.stopServers()
+        setServerMode(false)
+        setServerIP('')
+        setConnectedClients(0)
+      } else {
+        const result = await window.electron.startServers()
+        if (result && (result.success || result.apiRunning)) {
+          setServerMode(true)
+          const info = await window.electron.getServerInfo()
+          if (info && info.addresses && info.addresses.length > 0) {
+            setServerIP(info.addresses[0].address)
+          }
+        } else {
+          showMessage('error', 'Failed to start server')
+        }
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setServerLoading(false)
+  }
+
+  const copyIP = () => {
+    if (serverIP) {
+      navigator.clipboard.writeText(`${serverIP}:3001`)
+      showMessage('success', t('settings.ipCopied', 'IP copied to clipboard!'), 2000)
+    }
+  }
+
+  const handleSave = async () => {
+    setSaving(true)
+    setMessage(null)
+    try {
+      const result = await updateSettings(formData)
+      if (result.success) {
+        showMessage('success', t('settings.saved'))
+      } else {
+        showMessage('error', result.error)
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleCreateUser = async () => {
+    if (!newUser.password) {
+      showMessage('error', 'Password is required')
+      return
+    }
+    if (newUser.role === 'Contractor' && !newUser.contractor_name) {
+      showMessage('error', 'Please select a contractor')
+      return
+    }
+    if (newUser.role !== 'Contractor' && !newUser.username) {
+      showMessage('error', 'Username is required')
+      return
+    }
+
+    setUserLoading(true)
+    try {
+      const username = newUser.role === 'Contractor' ? newUser.contractor_name : newUser.username
+      const result = await window.electron.createUser({
+        username,
+        password: newUser.password,
+        role: newUser.role.toLowerCase().replace(' ', '_'),
+        contractorName: newUser.role === 'Contractor' ? newUser.contractor_name : null
+      })
+
+      if (result.success) {
+        showMessage('success', 'User created successfully')
+        setNewUser({ role: 'Contractor', username: '', contractor_name: '', password: '' })
+        const usersResult = await window.electron.getUsers()
+        if (usersResult.success) {
+          setUsers(usersResult.users || [])
+        }
+      } else {
+        showMessage('error', result.error || 'Failed to create user')
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setUserLoading(false)
+  }
+
+  const handleDeleteUser = async (userId) => {
+    if (userId === 1) {
+      showMessage('error', 'Cannot delete admin user!')
+      return
+    }
+    if (!confirm('Are you sure you want to delete this user?')) return
+
+    try {
+      try {
+        const response = await fetch(`http://localhost:3001/api/users/${userId}`, { method: 'DELETE' })
+        if (response.ok) {
+          await fetchUsers()
+          showMessage('success', 'User deleted successfully')
+          return
+        }
+      } catch (apiError) {
+        console.log('API not available, trying Electron IPC...')
+      }
+
+      const result = await window.electron.deleteUser({ id: userId })
+      if (result.success) {
+        setUsers(users.filter(u => u.id !== userId))
+        showMessage('success', 'User deleted successfully')
+      } else {
+        showMessage('error', result.error || 'Failed to delete user')
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+  }
+
+  const handleTogglePermission = (role, page) => {
+    setPermissions(prev => ({
+      ...prev,
+      [role]: { ...prev[role], [page]: !prev[role][page] }
+    }))
+  }
+
+  const handleSavePermissions = async () => {
+    setPermissionsSaving(true)
+    try {
+      if (window.electron?.savePermissions) {
+        const result = await window.electron.savePermissions(permissions)
+        if (result.success) {
+          showMessage('success', 'Permissions saved successfully')
+        } else {
+          showMessage('error', result.error || 'Failed to save permissions')
+        }
+      } else {
+        localStorage.setItem('rolePermissions', JSON.stringify(permissions))
+        showMessage('success', 'Permissions saved successfully')
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setPermissionsSaving(false)
+  }
+
+  const handleToggleNotification = (key) => {
+    setNotificationSettings(prev => ({ ...prev, [key]: !prev[key] }))
+  }
+
+  const handleSaveNotificationSettings = async () => {
+    setNotificationSaving(true)
+    try {
+      if (window.electron?.updateNotificationSettings) {
+        const result = await window.electron.updateNotificationSettings(notificationSettings)
+        if (result.success) {
+          showMessage('success', 'Notification settings saved successfully')
+        } else {
+          showMessage('error', result.error || 'Failed to save notification settings')
+        }
+      } else {
+        localStorage.setItem('notificationSettings', JSON.stringify(notificationSettings))
+        showMessage('success', 'Notification settings saved successfully')
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setNotificationSaving(false)
+  }
+
+  const handleTestNotification = async () => {
+    try {
+      if (window.electron?.testNotification) {
+        await window.electron.testNotification()
+        showMessage('success', 'Test notification sent!')
+      } else {
+        if ('Notification' in window && Notification.permission === 'granted') {
+          new Notification('Test Notification', { body: 'Notifications are working correctly!' })
+          showMessage('success', 'Test notification sent!')
+        } else if ('Notification' in window) {
+          const permission = await Notification.requestPermission()
+          if (permission === 'granted') {
+            new Notification('Test Notification', { body: 'Notifications are working correctly!' })
+            showMessage('success', 'Test notification sent!')
+          } else {
+            showMessage('error', 'Notification permission denied')
+          }
+        }
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+  }
+
+  const handleFirebaseSync = async () => {
+    setFirebaseSyncing(true)
+    showMessage('info', 'Triggering Firebase sync...', 0)
+    try {
+      if (window.electron?.triggerFirebaseSync) {
+        const result = await window.electron.triggerFirebaseSync()
+        if (result.success) {
+          showMessage('success', 'Firebase sync completed successfully!', 5000)
+          const statusResult = await window.electron.getFirebaseSyncStatus()
+          if (statusResult.success && statusResult.status) {
+            setFirebaseStatus(statusResult.status)
+          }
+        } else {
+          showMessage('error', result.error || 'Sync failed')
+        }
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setFirebaseSyncing(false)
+  }
+
+  const handleSaveFirebaseConfig = async () => {
+    setFirebaseSaving(true)
+    try {
+      if (window.electron?.updateFirebaseConfig) {
+        const result = await window.electron.updateFirebaseConfig(firebaseConfig)
+        if (result.success) {
+          showMessage('success', 'Firebase configuration saved!')
+        } else {
+          showMessage('error', result.error || 'Failed to save config')
+        }
+      }
+    } catch (error) {
+      showMessage('error', error.message)
+    }
+    setFirebaseSaving(false)
+  }
+
+  const handleSelectFirebaseExcelFile = async () => {
+    try {
+      const result = await window.electron.selectExcelFile()
+      if (result.success) {
+        setFirebaseConfig({
+          ...firebaseConfig,
+          excel: { ...firebaseConfig.excel, filePath: result.filePath }
+        })
+      }
+    } catch (error) {
+      console.error('File selection error:', error)
+    }
+  }
+
+  const handleImportFileSelect = async (e) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setImportFile(file)
+    setImportStep('parsing')
+    setImportError(null)
+
+    try {
+      const result = await parseExcelFile(file, {
+        sheetName: firebaseConfig.excel?.sheetName || 'Master',
+        headerRowIndex: firebaseConfig.excel?.headerRowIndex || 2
+      })
+
+      if (result.success) {
+        const comparison = compareData(result.data, firebaseSites)
+        setImportComparison(comparison)
+        setImportStep('preview')
+      } else {
+        setImportError(result.error)
+        setImportStep('idle')
+      }
+    } catch (error) {
+      setImportError(error.message)
+      setImportStep('idle')
+    }
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
+
+  const handleCancelImport = () => {
+    setImportStep('idle')
+    setImportFile(null)
+    setImportComparison(null)
+    setImportError(null)
+    setImportProgress({ current: 0, total: 0, message: '' })
+  }
+
+  const handleConfirmImport = async () => {
+    if (!importComparison || !canImport) return
+
+    setImportStep('importing')
+    setImportError(null)
+
+    const { newSites, updatedSites } = importComparison
+    const total = newSites.length + updatedSites.length
+    let current = 0
+
+    try {
+      for (const update of updatedSites) {
+        current++
+        setImportProgress({ current, total, message: `Updating ${update.siteId}...` })
+        const result = await updateFirebaseSite(update.firebaseId, update.newData)
+        if (!result.success) {
+          console.error(`Failed to update ${update.siteId}:`, result.error)
+        }
+      }
+
+      for (const site of newSites) {
+        current++
+        setImportProgress({ current, total, message: `Adding ${site.siteId}...` })
+        if (addFirebaseSite) {
+          const result = await addFirebaseSite(site)
+          if (!result.success) {
+            console.error(`Failed to add ${site.siteId}:`, result.error)
+          }
+        }
+      }
+
+      setImportProgress({
+        current: total,
+        total,
+        message: `Import complete! Updated ${updatedSites.length}, Added ${newSites.length} sites.`
+      })
+      setImportStep('complete')
+      showMessage('success', `Import complete! Updated ${updatedSites.length}, Added ${newSites.length} sites.`)
+
+      setTimeout(() => handleCancelImport(), 5000)
+    } catch (error) {
+      setImportError(error.message)
+      setImportStep('preview')
+    }
+  }
+
+  return (
+    <MainLayout>
+      <div className="settings-page">
+        <h1 className="page-title">{t('settings.title')}</h1>
+
+        <GeneralSettings
+          t={t}
+          formData={formData}
+          setFormData={setFormData}
+          phases={phases}
+          saving={saving}
+          message={message}
+          onSave={handleSave}
+          onSelectFile={handleSelectFile}
+        />
+
+        <ServerModeSettings
+          t={t}
+          serverMode={serverMode}
+          serverIP={serverIP}
+          connectedClients={connectedClients}
+          serverLoading={serverLoading}
+          onToggleServer={handleToggleServer}
+          onCopyIP={copyIP}
+        />
+
+        <DatabaseSettings
+          onShowMessage={showMessage}
+        />
+
+        <UserManagement
+          users={users}
+          contractorsList={contractorsList}
+          newUser={newUser}
+          setNewUser={setNewUser}
+          userLoading={userLoading}
+          onCreateUser={handleCreateUser}
+          onDeleteUser={handleDeleteUser}
+        />
+
+        <RolePermissions
+          permissions={permissions}
+          permissionsSaving={permissionsSaving}
+          onTogglePermission={handleTogglePermission}
+          onSavePermissions={handleSavePermissions}
+        />
+
+        <NotificationSettings
+          notificationSettings={notificationSettings}
+          notificationSaving={notificationSaving}
+          onToggleNotification={handleToggleNotification}
+          onSaveSettings={handleSaveNotificationSettings}
+          onTestNotification={handleTestNotification}
+        />
+
+        <FirebaseSettings
+          firebaseConfig={firebaseConfig}
+          setFirebaseConfig={setFirebaseConfig}
+          firebaseStatus={firebaseStatus}
+          firebaseSyncing={firebaseSyncing}
+          firebaseSaving={firebaseSaving}
+          firebaseConnected={firebaseConnected}
+          firebaseSites={firebaseSites}
+          canImport={canImport}
+          importState={{
+            importStep,
+            importFile,
+            importComparison,
+            importProgress,
+            importError
+          }}
+          onSync={handleFirebaseSync}
+          onSaveConfig={handleSaveFirebaseConfig}
+          onSelectFile={handleSelectFirebaseExcelFile}
+          onFileSelect={handleImportFileSelect}
+          onCancelImport={handleCancelImport}
+          onConfirmImport={handleConfirmImport}
+          fileInputRef={fileInputRef}
+        />
+
+        <SettingsFooter />
+      </div>
+    </MainLayout>
+  )
+}
+
+export default Settings

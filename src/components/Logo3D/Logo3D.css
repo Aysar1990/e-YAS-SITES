@@ -1,0 +1,14 @@
+.logo-3d-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.logo-3d-container:active {
+  cursor: grabbing;
+}
+
+.logo-3d-container canvas {
+  background: transparent !important;
+}

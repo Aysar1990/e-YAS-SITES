@@ -1,0 +1,335 @@
+/* =============================================
+   Dashboard Responsive Styles
+   - All @media queries
+   - Mobile styles
+   - Tablet styles
+   - Large screen styles
+   ============================================= */
+
+/* ===== LARGE SCREENS (1400px+) ===== */
+
+@media (min-width: 1400px) {
+  .stats-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== DESKTOP (1200px - 1400px) ===== */
+
+@media (max-width: 1400px) {
+  .stats-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid-new.six-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .department-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== MEDIUM DESKTOP (992px - 1200px) ===== */
+
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .department-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .overview-table {
+    font-size: var(--text-xs);
+  }
+
+  .overview-table th,
+  .overview-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .stats-card-table th {
+    font-size: 0.6rem;
+  }
+}
+
+/* ===== TABLET (768px - 992px) ===== */
+
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .status-item {
+    grid-template-columns: 140px 1fr 50px 50px;
+  }
+
+  .approval-content {
+    flex-wrap: wrap;
+  }
+
+  .approval-bar {
+    width: 100%;
+    flex: none;
+  }
+
+  /* 3D Cards Responsive */
+  .stats-card-3d .card-value {
+    font-size: 36px;
+  }
+
+  .stats-card-3d .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .breakdown-table .breakdown-value {
+    font-size: 16px;
+  }
+}
+
+/* ===== MOBILE LANDSCAPE / SMALL TABLET (768px) ===== */
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .department-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .department-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .status-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .overview-pivot-table {
+    font-size: var(--text-xs);
+  }
+
+  .overview-pivot-table th,
+  .overview-pivot-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .approval-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* 3D Cards Grid */
+  .stats-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ===== MOBILE (576px) ===== */
+
+@media (max-width: 576px) {
+  .overview-table-container {
+    margin: 0 calc(-1 * var(--spacing-md));
+  }
+
+  .overview-table {
+    font-size: 0.65rem;
+  }
+
+  .overview-table th,
+  .overview-table td {
+    padding: var(--spacing-xs);
+  }
+
+  .stats-card-table {
+    font-size: 0.6rem;
+  }
+
+  .department-card .card-stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* 3D Cards Mobile */
+  .stats-card-3d {
+    padding: 20px;
+  }
+
+  .stats-card-3d .card-value {
+    font-size: 32px;
+  }
+
+  .stats-card-3d .breakdown-table {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .breakdown-table .breakdown-header {
+    font-size: 9px;
+  }
+
+  .breakdown-table .breakdown-value {
+    font-size: 14px;
+  }
+}
+
+/* ===== VERY SMALL MOBILE (480px) ===== */
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: var(--text-xl);
+  }
+
+  .phase-selector {
+    width: 100%;
+  }
+
+  .phase-selector select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .stat-card {
+    padding: var(--spacing-md);
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+  }
+
+  .contractor-name {
+    max-width: 120px;
+  }
+
+  .contractor-stats {
+    gap: var(--spacing-sm);
+    font-size: var(--text-xs);
+  }
+
+  .dept-stat-item .stat-num {
+    font-size: var(--text-base);
+  }
+
+  .approval-value {
+    font-size: var(--text-3xl);
+  }
+
+  .approval-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+  .dashboard {
+    animation: none;
+  }
+
+  .stats-card-3d {
+    animation: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .stats-card-3d::before,
+  .stats-card-3d::after {
+    display: none;
+  }
+
+  .stats-card-3d:hover {
+    transform: none;
+  }
+
+  .phase-selector {
+    display: none;
+  }
+
+  .approval-bar-fill,
+  .status-bar-fill,
+  .rate-bar-fill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* ===== LANDSCAPE ORIENTATION ===== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .stats-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== HIGH DPI SCREENS ===== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .stats-card-3d {
+    /* Ensure crisp rendering on retina displays */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ===== DARK MODE SPECIFIC ===== */
+
+@media (prefers-color-scheme: dark) {
+  .overview-table tbody tr:hover {
+    background: rgba(255, 133, 102, 0.08);
+  }
+
+  .overview-pivot-table tbody tr:hover {
+    background: rgba(255, 133, 102, 0.05);
+  }
+}
+
+/* ===== TOUCH DEVICE ADJUSTMENTS ===== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .stats-card-3d:hover {
+    transform: none;
+    animation-play-state: running;
+  }
+
+  .stat-card-new:hover,
+  .dept-card:hover,
+  .department-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Make touch targets larger */
+  .phase-selector select {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--text-base);
+  }
+}

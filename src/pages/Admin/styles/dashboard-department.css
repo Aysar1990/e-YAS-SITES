@@ -1,0 +1,291 @@
+/* =============================================
+   Dashboard Department Styles
+   - Department section
+   - Department cards
+   - Department grid
+   - Progress rings
+   ============================================= */
+
+/* Basic Department Card */
+.department-card {
+  padding: var(--spacing-lg);
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-md);
+}
+
+.department-item {
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.dept-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  margin: 0 0 var(--spacing-md);
+}
+
+.dept-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.dept-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+}
+
+.dept-stat .value {
+  font-weight: var(--font-semibold);
+}
+
+.dept-stat.approved .value {
+  color: var(--success);
+}
+
+.dept-stat.rejected .value {
+  color: var(--error);
+}
+
+.dept-stat.pending .value {
+  color: var(--warning);
+}
+
+.dept-stat .label {
+  color: var(--text-muted);
+}
+
+/* Modern Department Section */
+.department-section {
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.department-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* Modern Department Card */
+.dept-card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dept-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.dept-card.ti::before {
+  background: linear-gradient(90deg, #FF8566, #1d4ed8);
+}
+
+.dept-card.rf-plan::before {
+  background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+}
+
+.dept-card.rf-opt::before {
+  background: linear-gradient(90deg, #06b6d4, #0891b2);
+}
+
+.dept-card.civil::before {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.dept-card.mw::before {
+  background: linear-gradient(90deg, #8FD9D9, #6ECECE);
+}
+
+.dept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dept-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.dept-icon {
+  font-size: 1.5rem;
+}
+
+.dept-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  margin: 0;
+}
+
+/* Department Progress Ring Colors */
+.dept-card.ti .circle-fill {
+  stroke: #FF8566;
+}
+
+.dept-card.rf-plan .circle-fill {
+  stroke: #8b5cf6;
+}
+
+.dept-card.rf-opt .circle-fill {
+  stroke: #06b6d4;
+}
+
+.dept-card.civil .circle-fill {
+  stroke: #f59e0b;
+}
+
+.dept-card.mw .circle-fill {
+  stroke: #8FD9D9;
+}
+
+/* Department Stats Row */
+.dept-stats-row {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--spacing-xs);
+}
+
+.dept-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dept-stat-item .stat-num {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+
+.dept-stat-item .stat-lbl {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.dept-stat-item.approved .stat-num {
+  color: var(--success);
+}
+
+.dept-stat-item.rejected .stat-num {
+  color: var(--error);
+}
+
+.dept-stat-item.pending .stat-num {
+  color: var(--warning);
+}
+
+/* Modern Department Card - Alternative Style */
+.department-card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.department-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark, #0ea5e9));
+}
+
+.department-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.department-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.department-card .card-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+}
+
+.department-card .card-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  margin: 0;
+}
+
+.department-card .card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  text-align: center;
+}
+
+.department-card .stat-box {
+  padding: var(--spacing-sm);
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+}
+
+.department-card .stat-box .number {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  display: block;
+}
+
+.department-card .stat-box .label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.department-card .stat-box.approved .number {
+  color: var(--success);
+}
+
+.department-card .stat-box.rejected .number {
+  color: var(--error);
+}
+
+.department-card .stat-box.pending .number {
+  color: var(--warning);
+}

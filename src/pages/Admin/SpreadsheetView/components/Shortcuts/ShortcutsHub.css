@@ -1,0 +1,239 @@
+/**
+ * ShortcutsHub Styles
+ * Phase 8: Power Features
+ */
+
+/* Overlay */
+.shortcuts-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Panel */
+.shortcuts-panel {
+  background: #1F2937;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid #374151;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.shortcuts-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(143, 217, 217, 0.15), rgba(255, 133, 102, 0.1));
+  border-bottom: 1px solid #374151;
+}
+
+.shortcuts-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #F9FAFB;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shortcuts-header .close-btn {
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.shortcuts-header .close-btn:hover {
+  background: #374151;
+  color: #F9FAFB;
+}
+
+/* Content */
+.shortcuts-content {
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+/* Category */
+.shortcut-category h3 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: #8FD9D9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(143, 217, 217, 0.2);
+}
+
+/* Shortcut List */
+.shortcut-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Shortcut Item */
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.shortcut-item:hover {
+  background: rgba(143, 217, 217, 0.08);
+}
+
+/* Keys Container */
+.shortcut-keys {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 80px;
+}
+
+/* Keyboard Key Style */
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 26px;
+  padding: 0 8px;
+  background: linear-gradient(180deg, #374151 0%, #1F2937 100%);
+  border: 1px solid #4B5563;
+  border-bottom-width: 3px;
+  border-radius: 6px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #E5E7EB;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.plus {
+  color: #6B7280;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+/* Shortcut Info */
+.shortcut-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shortcut-action {
+  font-size: 13px;
+  font-weight: 600;
+  color: #F9FAFB;
+}
+
+.shortcut-desc {
+  font-size: 11px;
+  color: #9CA3AF;
+}
+
+/* Footer */
+.shortcuts-footer {
+  padding: 16px 24px;
+  background: #111827;
+  border-top: 1px solid #374151;
+  text-align: center;
+}
+
+.shortcuts-footer p {
+  margin: 0;
+  font-size: 12px;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.shortcuts-footer .kbd {
+  min-width: 20px;
+  height: 22px;
+  font-size: 14px;
+}
+
+/* Scrollbar */
+.shortcuts-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shortcuts-content::-webkit-scrollbar-track {
+  background: rgba(143, 217, 217, 0.05);
+  border-radius: 4px;
+}
+
+.shortcuts-content::-webkit-scrollbar-thumb {
+  background: rgba(143, 217, 217, 0.3);
+  border-radius: 4px;
+}
+
+.shortcuts-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 217, 217, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .shortcuts-panel {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .shortcuts-content {
+    grid-template-columns: 1fr;
+  }
+
+  .shortcut-keys {
+    min-width: 70px;
+  }
+}

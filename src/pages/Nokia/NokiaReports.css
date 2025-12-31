@@ -1,0 +1,11 @@
+/* =============================================
+   NokiaReports.css - Nokia Engineer Reports
+
+   Imports styles from Admin Reports for consistent
+   styling across all report views.
+   ============================================= */
+
+/* Import Admin Reports styles */
+@import '../Admin/Reports.css';
+
+/* Additional Nokia-specific styles can be added below */

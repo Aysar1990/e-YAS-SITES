@@ -1,0 +1,150 @@
+{
+  "app": {
+    "name": "مراقب TSSR",
+    "welcome": "مرحباً",
+    "version": "الإصدار 1.0.0"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "submit": "دخول",
+    "error": "بيانات غير صحيحة",
+    "rememberMe": "تذكرني"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "sites": "المواقع",
+    "rejections": "المرفوضات",
+    "contractors": "المقاولون",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج",
+    "users": "المستخدمون",
+    "reports": "التقارير"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "totalSites": "إجمالي المواقع",
+    "approved": "معتمد",
+    "pending": "قيد الانتظار",
+    "rejected": "مرفوض",
+    "underReview": "قيد المراجعة",
+    "notSurveyed": "لم يتم المسح",
+    "overview": "نظرة عامة",
+    "byDepartment": "حسب القسم",
+    "byContractor": "حسب المقاول",
+    "byGovernorate": "حسب المحافظة",
+    "recentActivity": "النشاط الأخير",
+    "quickStats": "إحصائيات سريعة"
+  },
+  "departments": {
+    "ti": "التكامل التقني",
+    "rfPlan": "تخطيط RF",
+    "rfOpt": "تحسين RF",
+    "civil": "المدني",
+    "mw": "الميكروويف"
+  },
+  "status": {
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "pending": "قيد الانتظار",
+    "underZain": "قيد تحقق زين",
+    "underRom": "قيد مراجعة ROM",
+    "underNokiaNpo": "قيد نوكيا NPO",
+    "underNokiaGsd": "قيد نوكيا GSD",
+    "underSubcon": "قيد تحقق المقاول",
+    "notSurveyed": "لم يتم المسح",
+    "needAccess": "يحتاج وصول"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "general": "عام",
+    "excelPath": "مسار ملف Excel",
+    "selectFile": "اختر ملف",
+    "syncInterval": "فترة المزامنة (دقائق)",
+    "activePhase": "المرحلة النشطة",
+    "language": "اللغة",
+    "theme": "السمة",
+    "save": "حفظ الإعدادات",
+    "saved": "تم حفظ الإعدادات بنجاح"
+  },
+  "contractors": {
+    "title": "المقاولون",
+    "name": "اسم المقاول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "status": "الحالة",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "sites": "المواقع",
+    "add": "إضافة مقاول",
+    "edit": "تعديل مقاول",
+    "delete": "حذف مقاول",
+    "confirmDelete": "هل أنت متأكد من حذف هذا المقاول؟"
+  },
+  "rejections": {
+    "title": "المرفوضات",
+    "siteId": "رقم الموقع",
+    "siteName": "اسم الموقع",
+    "department": "القسم",
+    "comment": "التعليق",
+    "date": "التاريخ",
+    "new": "جديد",
+    "viewed": "تمت المشاهدة",
+    "markViewed": "تحديد كمقروء",
+    "noRejections": "لا توجد مرفوضات"
+  },
+  "table": {
+    "siteId": "رقم الموقع",
+    "siteName": "اسم الموقع",
+    "phase": "المرحلة",
+    "priority": "الأولوية",
+    "contractor": "المقاول",
+    "overallStatus": "الحالة العامة",
+    "governorate": "المحافظة",
+    "actions": "الإجراءات",
+    "noData": "لا توجد بيانات",
+    "loading": "جاري التحميل...",
+    "search": "بحث...",
+    "export": "تصدير"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "export": "تصدير",
+    "refresh": "تحديث",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجاح",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "search": "بحث",
+    "filter": "فلترة",
+    "all": "الكل",
+    "yes": "نعم",
+    "no": "لا",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق"
+  },
+  "sync": {
+    "title": "حالة المزامنة",
+    "lastSync": "آخر مزامنة",
+    "syncing": "جاري المزامنة...",
+    "syncNow": "مزامنة الآن",
+    "syncSuccess": "تمت المزامنة بنجاح",
+    "syncError": "فشلت المزامنة",
+    "records": "سجل تمت مزامنته"
+  },
+  "errors": {
+    "loadFailed": "فشل تحميل البيانات",
+    "saveFailed": "فشل الحفظ",
+    "syncFailed": "فشلت المزامنة",
+    "unauthorized": "وصول غير مصرح",
+    "notFound": "غير موجود",
+    "serverError": "خطأ في الخادم"
+  }
+}

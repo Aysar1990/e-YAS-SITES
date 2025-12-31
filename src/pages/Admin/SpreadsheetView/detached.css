@@ -1,0 +1,107 @@
+/**
+ * Detached Spreadsheet Window Styles
+ */
+
+.spreadsheet-detached-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.detached-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+  border-bottom: 1px solid rgba(143, 217, 217, 0.2);
+  min-height: 48px;
+}
+
+.detached-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #8FD9D9;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detached-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detached-info {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  background: rgba(143, 217, 217, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.btn-close-detached {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-close-detached:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.spreadsheet-content-full {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.spreadsheet-content-full .spreadsheet-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spreadsheet-content-full .spreadsheet-grid {
+  flex: 1;
+}
+
+.spreadsheet-content-full .ag-root-wrapper {
+  height: 100% !important;
+}
+
+/* Detach button in toolbar */
+.btn-detach {
+  background: linear-gradient(135deg, rgba(143, 217, 217, 0.15), rgba(143, 217, 217, 0.05)) !important;
+  border: 1px solid rgba(143, 217, 217, 0.3) !important;
+  color: #8FD9D9 !important;
+}
+
+.btn-detach:hover {
+  background: linear-gradient(135deg, rgba(143, 217, 217, 0.25), rgba(143, 217, 217, 0.15)) !important;
+  border-color: #8FD9D9 !important;
+  transform: scale(1.02);
+}
+
+/* Hide sidebar elements in detached mode */
+.spreadsheet-detached-container .sidebar,
+.spreadsheet-detached-container .main-header,
+.spreadsheet-detached-container .main-layout-header {
+  display: none !important;
+}

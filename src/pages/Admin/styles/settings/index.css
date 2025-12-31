@@ -1,0 +1,12 @@
+/**
+ * Settings Page - All Styles (Compact Version)
+ */
+
+@import './base.css';
+@import './server-mode.css';
+@import './footer.css';
+@import './user-management.css';
+@import './permissions.css';
+@import './notifications.css';
+@import './database.css';
+@import './import.css';

@@ -1,0 +1,446 @@
+/* =============================================
+   Dashboard Base Styles
+   - Page layout
+   - Header styles
+   - Container styles
+   - Typography
+   - Basic utilities
+   ============================================= */
+
+.dashboard {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+}
+
+.dashboard-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--text);
+  margin: 0;
+}
+
+.dashboard-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: var(--spacing-xs) 0 0;
+}
+
+.phase-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.phase-selector label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.phase-selector select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.phase-selector select:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Three Tables Grid - Part Of + Status + Contractor */
+.dashboard-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dashboard-tables-grid .overview-pivot-card,
+.dashboard-tables-grid .status-card,
+.dashboard-tables-grid .contractors-card {
+  margin-bottom: 0;
+  height: 100%;
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Basic Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+  padding: var(--spacing-lg);
+  transition: all var(--transition-base);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card.success {
+  border-color: var(--success);
+}
+
+.stat-card.warning {
+  border-color: var(--warning);
+}
+
+.stat-card.primary {
+  border-color: var(--primary);
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-black);
+  color: var(--text);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   UNIFIED CARDS - All Match Status Card Style
+   ============================================= */
+
+/* Status Card */
+.status-card {
+  padding: var(--spacing-lg);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+}
+
+/* Status List */
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Status Item */
+.status-item {
+  display: grid;
+  grid-template-columns: 180px 1fr 60px 60px;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all 0.2s ease;
+}
+
+/* Status Dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: var(--spacing-sm);
+}
+
+/* Status Name */
+.status-name {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+/* Status Bar */
+.status-bar {
+  height: 8px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.status-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* Status Count */
+.status-count {
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-align: right;
+  color: #8FD9D9;
+}
+
+/* Status Percent */
+.status-percent {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Contractors Card - SAME STYLE AS STATUS */
+.contractors-card {
+  padding: var(--spacing-lg);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+}
+
+.contractors-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.contractor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.contractor-item:hover {
+  background: var(--surface-light);
+}
+
+.contractor-name {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contractor-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* YAS COLORS - Match Status Count */
+.contractor-stats .approved,
+.contractor-stats .pending,
+.contractor-stats .rejected,
+.contractor-stats .total {
+  color: #8FD9D9;
+}
+
+/* Part Of Category Colors */
+.partof-thinlayer {
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+}
+
+.partof-fullswap {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+}
+
+.partof-swapexisting {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.partof-notspecified {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-secondary);
+}
+
+/* Empty/Null Value Styling */
+.value-empty,
+.value-null {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.value-empty::before {
+  content: '—';
+}
+
+/* Arabic RTL Support */
+[dir="rtl"] .stats-card-table td:first-child,
+[dir="rtl"] .overview-table td:first-child {
+  text-align: right;
+}
+
+[dir="rtl"] .department-card .card-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .stat-card-header {
+  flex-direction: row-reverse;
+}
+
+/* Firebase Toggle Styles */
+.firebase-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.firebase-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.firebase-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.firebase-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-tertiary);
+  transition: 0.3s;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+}
+
+.firebase-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--text-secondary);
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.firebase-switch input:checked+.firebase-slider {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  border-color: #ff9800;
+}
+
+.firebase-switch input:checked+.firebase-slider:before {
+  transform: translateX(20px);
+  background-color: white;
+}
+
+.firebase-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.firebase-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.firebase-status.connected {
+  background: var(--success);
+  box-shadow: 0 0 6px rgba(0, 255, 136, 0.5);
+}
+
+.firebase-status.disconnected {
+  background: var(--error);
+  animation: none;
+}
+
+.firebase-last-update {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-left: var(--spacing-sm);
+}

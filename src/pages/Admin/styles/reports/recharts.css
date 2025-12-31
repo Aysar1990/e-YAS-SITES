@@ -1,0 +1,16 @@
+/* Reports Page - Recharts Customization */
+
+.recharts-legend-item-text {
+  color: var(--text-primary) !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+.recharts-default-tooltip {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+}

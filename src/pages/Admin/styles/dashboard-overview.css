@@ -1,0 +1,448 @@
+/* =============================================
+   Dashboard Overview Table Styles
+   - Overview pivot table
+   - Status badges
+   - Table styling
+   - Table hover effects
+   IMPROVED: Better readability, larger numbers, clearer separation
+   ============================================= */
+
+/* =============================================
+   UNIFIED CARD DESIGN - All 3 Tables Match
+   Part Of, Status, Contractor - Same Style
+   ============================================= */
+
+/* Overview Pivot Card - Glass Overhaul */
+.overview-pivot-card {
+  padding: var(--spacing-lg);
+  margin-bottom: 16px;
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+/* Card Header - SAME STYLE */
+.overview-pivot-card .card-header {
+  background: transparent;
+  border-bottom: none;
+  padding: 0 0 var(--spacing-md) 0;
+  margin: 0;
+}
+
+/* Card Title - SAME STYLE AS STATUS */
+.overview-pivot-card .card-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+/* =============================================
+   UNIFIED TABLE DESIGN - Match Status List Style
+   ============================================= */
+
+/* Table Container - Remove extra background */
+.overview-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  padding: 0;
+  background: transparent;
+}
+
+/* Table - Clean Design Like Status List */
+.overview-pivot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table Headers - Solid Gray Like HTML Example */
+.overview-pivot-table th {
+  padding: 15px 20px;
+  text-align: center;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  background: #6B7280;
+  color: #F9FAFB;
+}
+
+.overview-pivot-table th:first-child {
+  text-align: left;
+  padding-left: 0;
+  border-top-left-radius: 0;
+}
+
+.overview-pivot-table th:last-child {
+  border-top-right-radius: 0;
+}
+
+.overview-pivot-table th.status-col {
+  text-align: left;
+  min-width: 180px;
+  padding-left: 20px;
+}
+
+.overview-pivot-table th.total-col {
+  color: #F9FAFB;
+  font-weight: 700;
+}
+
+/* Table Cells - Clean Layout */
+.overview-pivot-table td {
+  padding: var(--spacing-sm) var(--spacing-sm);
+  text-align: right;
+  border: none;
+  transition: all 0.2s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: transparent;
+}
+
+/* Status Cell - Turquoise Primary Column */
+.overview-pivot-table .status-cell {
+  text-align: left;
+  background: transparent !important;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 15px 20px;
+  color: #8FD9D9;
+}
+
+/* Row Styling - Like Status Items */
+.overview-pivot-table tbody tr {
+  display: table-row;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.overview-pivot-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Fix for background radius on table rows */
+.overview-pivot-table tbody tr td:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+  padding-left: var(--spacing-md);
+}
+
+.overview-pivot-table tbody tr td:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  padding-right: var(--spacing-md);
+}
+
+.overview-pivot-table tbody tr:hover {
+  background: rgba(143, 217, 217, 0.08) !important;
+}
+
+/* Data Cells - Match Status Count Style */
+.overview-pivot-table .data-cell {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #8FD9D9;
+  /* YAS Turquoise like Status count */
+  background: transparent;
+  text-align: right;
+}
+
+/* Total Column - Consistent with Data Cells */
+.overview-pivot-table .data-cell.total {
+  background: transparent !important;
+  color: #8FD9D9;
+  font-weight: 700;
+  border-radius: 0;
+  padding: var(--spacing-sm) var(--spacing-sm);
+}
+
+/* TOTAL ROW - Like other items but with extra emphasis */
+.overview-pivot-table .totals-row {
+  background: var(--surface-hover);
+}
+
+.overview-pivot-table .totals-row td {
+  font-weight: 700;
+  font-size: 13px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: var(--spacing-sm) var(--spacing-sm);
+  border-top: none;
+  color: #8FD9D9;
+}
+
+.overview-pivot-table .totals-row td:first-child {
+  color: var(--text);
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 0;
+  padding-left: var(--spacing-md);
+}
+
+.overview-pivot-table .totals-row:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* =============================================
+   Overview Table - Alternative Styles
+   ============================================= */
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.overview-table th {
+  background: #6B7280;
+  color: #F9FAFB;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  padding: 16px 20px;
+}
+
+/* Status-specific header colors */
+.overview-table th.approved,
+.overview-table th.status-approved {
+  background: rgba(34, 197, 94, 0.25);
+  color: var(--success);
+}
+
+.overview-table th.need-access,
+.overview-table th.status-need-access {
+  background: rgba(239, 68, 68, 0.25);
+  color: var(--error);
+}
+
+.overview-table th.pending,
+.overview-table th.status-pending {
+  background: rgba(245, 158, 11, 0.25);
+  color: var(--warning);
+}
+
+.overview-table th.rejected,
+.overview-table th.status-rejected {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--error);
+}
+
+.overview-table th.submitted,
+.overview-table th.status-submitted {
+  background: rgba(139, 92, 246, 0.25);
+  color: #8b5cf6;
+}
+
+.overview-table th.rfi,
+.overview-table th.status-rfi {
+  background: rgba(6, 182, 212, 0.25);
+  color: #06b6d4;
+}
+
+/* Data cells - larger numbers */
+.overview-table td {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Alternate row colors */
+.overview-table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.overview-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Total Row - Distinct styling */
+.overview-table tr.total-row,
+.overview-table tr.totals-row {
+  background: rgba(255, 133, 102, 0.2) !important;
+  position: relative;
+}
+
+.overview-table tr.total-row td,
+.overview-table tr.totals-row td {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  border-top: 2px solid rgba(255, 133, 102, 0.5);
+  padding: 20px;
+}
+
+.overview-table tr.total-row td:first-child,
+.overview-table tr.totals-row td:first-child {
+  color: var(--primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Data cells styling */
+.overview-table td.value-high {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.overview-table td.value-low {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.overview-table td.value-zero {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* Hover effect */
+.overview-table tbody tr:hover {
+  background: rgba(143, 217, 217, 0.1) !important;
+  transition: all 0.2s ease;
+}
+
+/* Overview Table Container */
+.overview-table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* =============================================
+   Status Badges - Match Status List Dots
+   ============================================= */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  /* Match gap between dot and name */
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: inherit;
+  transform: none !important;
+}
+
+/* Status Dot - Like Status List */
+.status-badge::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.status-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Status dot indicator - MINI */
+.status-badge::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* YAS Colors ONLY - Turquoise for active, Gray for others */
+.status-badge--approved,
+.status-badge.approved {
+  background: rgba(143, 217, 217, 0.15);
+  color: #8FD9D9;
+  border: 1px solid rgba(143, 217, 217, 0.3);
+}
+
+.status-badge--pending,
+.status-badge.pending,
+.status-badge--submitted,
+.status-badge.submitted,
+.status-badge--rfi,
+.status-badge.rfi,
+.status-badge--under-review,
+.status-badge.under-zain,
+.status-badge.under-rom,
+.status-badge.under-nokia,
+.status-badge.under-subcon {
+  background: rgba(143, 217, 217, 0.1);
+  color: #8FD9D9;
+  border: 1px solid rgba(143, 217, 217, 0.2);
+}
+
+.status-badge--rejected,
+.status-badge.rejected,
+.status-badge--need-access,
+.status-badge.need-access {
+  background: rgba(255, 133, 102, 0.12);
+  color: #FF8566;
+  border: 1px solid rgba(255, 133, 102, 0.25);
+}
+
+.status-badge--not-surveyed,
+.status-badge.not-surveyed,
+.status-badge--default {
+  background: rgba(107, 114, 128, 0.12);
+  color: #9CA3AF;
+  border: 1px solid rgba(107, 114, 128, 0.25);
+}
+
+/* Status badge in table cells - ULTRA COMPACT */
+.overview-table .status-badge,
+.overview-pivot-table .status-badge {
+  padding: 2px 6px;
+  font-size: 7px;
+  letter-spacing: 0.2px;
+}
+
+/* Remove dot in compact view */
+.overview-table .status-badge::before,
+.overview-pivot-table .status-badge::before {
+  width: 3px;
+  height: 3px;
+}
+
+/* =============================================
+   Phase/Category column styling
+   ============================================= */
+.overview-table td.phase-cell,
+.overview-pivot-table td.phase-cell {
+  font-weight: 500;
+  text-align: left;
+  padding-left: 24px;
+}
+
+.overview-table td.contractor-cell,
+.overview-pivot-table td.contractor-cell {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}

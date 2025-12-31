@@ -1,0 +1,184 @@
+/**
+ * BatchProgress Styles
+ */
+
+.batch-progress {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 400px;
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(143, 217, 217, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: slide-up 0.3s ease;
+}
+
+.batch-progress--complete {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* Header */
+.batch-progress__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.batch-progress__info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.batch-progress__icon {
+  font-size: 1.5rem;
+  animation: pulse 2s ease infinite;
+}
+
+.batch-progress--complete .batch-progress__icon {
+  animation: bounce 0.6s ease;
+}
+
+.batch-progress__title {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.batch-progress__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.batch-progress__cancel {
+  padding: 0.5rem 1rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.batch-progress__cancel:hover {
+  background: rgba(239, 68, 68, 0.25);
+  transform: scale(1.05);
+}
+
+.batch-progress__cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Progress Bar */
+.batch-progress__bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.batch-progress__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-radius: 8px;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  position: relative;
+}
+
+.batch-progress--complete .batch-progress__bar {
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+}
+
+.batch-progress__percentage {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Status */
+.batch-progress__status {
+  color: #22c55e;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  animation: fade-in 0.3s ease;
+}
+
+/* Animations */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .batch-progress {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    padding: 1rem;
+  }
+
+  .batch-progress__title {
+    font-size: 0.9rem;
+  }
+
+  .batch-progress__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .batch-progress__cancel {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}

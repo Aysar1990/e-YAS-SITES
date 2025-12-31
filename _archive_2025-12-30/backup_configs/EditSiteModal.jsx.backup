@@ -1,0 +1,524 @@
+/**
+ * EditSiteModal Component
+ * Modal for editing site data with Firebase update support
+ * Features: Department statuses, Comments, Edit History, Workflow Validation
+ */
+
+import { useState, useEffect, useMemo } from 'react'
+import { useAuth } from '../../context/AuthContext'
+import { Button } from '../UI'
+import {
+  DEPARTMENTS,
+  STATUS_OPTIONS,
+  OVERALL_STATUS_OPTIONS,
+  calculateOverallStatus,
+  calculateActionAge,
+  calculateWorkflowProgress,
+  validateField,
+  validateStatusChange,
+  getWorkflowSummary,
+  recalculateAll,
+  getStatusClass as getStatusClassName
+} from '../../utils/calculations'
+import './EditSiteModal.css'
+
+const EditSiteModal = ({ site, onClose, onSave, isOpen }) => {
+  const { user } = useAuth()
+  const [activeTab, setActiveTab] = useState('status')
+  const [formData, setFormData] = useState({})
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState(null)
+  const [successMessage, setSuccessMessage] = useState(null)
+  const [changes, setChanges] = useState({})
+  const [newComment, setNewComment] = useState('')
+  const [addingComment, setAddingComment] = useState(false)
+  const [fieldErrors, setFieldErrors] = useState({})
+  const [workflowWarnings, setWorkflowWarnings] = useState({})
+
+  // Check if user has edit permission (Admin only)
+  const canEdit = user?.role === 'admin' || user?.role === 'Admin'
+
+  // Calculate workflow summary
+  const workflowInfo = useMemo(() => {
+    return getWorkflowSummary(formData)
+  }, [formData])
+
+  useEffect(() => {
+    if (site) {
+      setFormData({ ...site })
+      setChanges({})
+      setError(null)
+      setSuccessMessage(null)
+      setNewComment('')
+      setActiveTab('status')
+      setFieldErrors({})
+      setWorkflowWarnings({})
+    }
+  }, [site])
+
+  if (!isOpen || !site) return null
+
+  const handleChange = (key, value) => {
+    const newFormData = { ...formData, [key]: value }
+    setFormData(newFormData)
+
+    // Track changes
+    if (site[key] !== value) {
+      setChanges(prev => ({ ...prev, [key]: value }))
+    } else {
+      setChanges(prev => {
+        const newChanges = { ...prev }
+        delete newChanges[key]
+        return newChanges
+      })
+    }
+
+    // Validate field on change
+    const validation = validateField(key, value)
+    if (!validation.valid) {
+      setFieldErrors(prev => ({ ...prev, [key]: validation.error }))
+    } else {
+      setFieldErrors(prev => {
+        const newErrors = { ...prev }
+        delete newErrors[key]
+        return newErrors
+      })
+    }
+
+    // Check workflow validation for department status changes
+    const dept = DEPARTMENTS.find(d => d.statusField === key)
+    if (dept) {
+      const workflowCheck = validateStatusChange(formData, dept.key, value)
+      if (!workflowCheck.allowed) {
+        setWorkflowWarnings(prev => ({ ...prev, [key]: workflowCheck.reason }))
+      } else {
+        setWorkflowWarnings(prev => {
+          const newWarnings = { ...prev }
+          delete newWarnings[key]
+          return newWarnings
+        })
+      }
+
+      // Auto-calculate overall status when department status changes
+      const newOverallStatus = calculateOverallStatus(newFormData)
+      if (newOverallStatus !== formData.tssrOverallStatus) {
+        setFormData(prev => ({ ...prev, tssrOverallStatus: newOverallStatus }))
+        setChanges(prev => ({ ...prev, tssrOverallStatus: newOverallStatus }))
+      }
+    }
+  }
+
+  const handleSave = async () => {
+    if (!canEdit) {
+      setError('You do not have permission to edit sites')
+      return
+    }
+
+    if (Object.keys(changes).length === 0) {
+      setError('No changes to save')
+      return
+    }
+
+    // Check for validation errors
+    if (Object.keys(fieldErrors).length > 0) {
+      setError('Please fix validation errors before saving')
+      return
+    }
+
+    // Check for workflow warnings (optional - can be bypassed)
+    if (Object.keys(workflowWarnings).length > 0) {
+      const proceed = window.confirm(
+        'There are workflow warnings:\n\n' +
+        Object.values(workflowWarnings).join('\n') +
+        '\n\nDo you want to proceed anyway?'
+      )
+      if (!proceed) return
+    }
+
+    setSaving(true)
+    setError(null)
+
+    try {
+      // Recalculate all fields before saving
+      const recalculated = recalculateAll(site, changes)
+
+      // Add edit history entry
+      const historyEntry = {
+        user: user?.username || 'unknown',
+        timestamp: new Date().toISOString(),
+        changes: Object.entries(changes).map(([field, newValue]) => ({
+          field,
+          oldValue: site[field] || '',
+          newValue
+        }))
+      }
+
+      const updatesWithHistory = {
+        ...changes,
+        // Include recalculated fields
+        tssrOverallStatus: recalculated.tssrOverallStatus,
+        actionAge: recalculated.actionAge,
+        workflowProgress: recalculated.workflowProgress,
+        // History and metadata
+        editHistory: [...(site.editHistory || []), historyEntry],
+        lastModifiedBy: user?.username,
+        lastModifiedAt: new Date().toISOString()
+      }
+
+      const result = await onSave(site.id, updatesWithHistory)
+      if (result.success) {
+        setSuccessMessage('Changes saved successfully!')
+        setTimeout(() => {
+          onClose()
+        }, 1500)
+      } else {
+        setError(result.error || 'Failed to save changes')
+      }
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleAddComment = async () => {
+    if (!newComment.trim()) return
+    if (!canEdit) {
+      setError('You do not have permission to add comments')
+      return
+    }
+
+    setAddingComment(true)
+    try {
+      const newCommentObj = {
+        user: user?.username || 'unknown',
+        text: newComment.trim(),
+        timestamp: new Date().toISOString()
+      }
+
+      const updatedComments = [...(site.comments || []), newCommentObj]
+
+      const result = await onSave(site.id, { comments: updatedComments })
+      if (result.success) {
+        setFormData(prev => ({ ...prev, comments: updatedComments }))
+        setNewComment('')
+        setSuccessMessage('Comment added!')
+        setTimeout(() => setSuccessMessage(null), 2000)
+      } else {
+        setError(result.error || 'Failed to add comment')
+      }
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setAddingComment(false)
+    }
+  }
+
+  const hasChanges = Object.keys(changes).length > 0
+  const comments = formData.comments || []
+  const editHistory = formData.editHistory || []
+
+  // Use imported getStatusClass
+  const getStatusClass = getStatusClassName
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="edit-site-modal" onClick={e => e.stopPropagation()}>
+        {/* Header */}
+        <div className="modal-header">
+          <div className="modal-title">
+            <h2>Edit Site</h2>
+            <span className="site-id">{site.siteId}</span>
+          </div>
+          <button className="close-btn" onClick={onClose}>&times;</button>
+        </div>
+
+        {/* Site Info Bar */}
+        <div className="site-info-bar">
+          <div className="info-item">
+            <span className="info-label">Site Name:</span>
+            <span className="info-value">{site.finalSiteName}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Contractor:</span>
+            <span className="info-value">{site.tssrSubcon || 'N/A'}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Governorate:</span>
+            <span className="info-value">{site.governorate || 'N/A'}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Phase:</span>
+            <span className="info-value">{site.phaseName || 'N/A'}</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">Age:</span>
+            <span className="info-value">{calculateActionAge(site)} days</span>
+          </div>
+        </div>
+
+        {/* Workflow Progress Bar */}
+        <div className="workflow-progress-bar">
+          <div className="workflow-progress-header">
+            <span>Workflow Progress: {workflowInfo.percentage}%</span>
+            {workflowInfo.hasRejection && <span className="rejection-badge">Has Rejection</span>}
+          </div>
+          <div className="workflow-progress-track">
+            <div
+              className="workflow-progress-fill"
+              style={{ width: `${workflowInfo.percentage}%` }}
+            />
+          </div>
+          <div className="workflow-steps">
+            {workflowInfo.steps.map(step => (
+              <div
+                key={step.key}
+                className={`workflow-step ${step.isComplete ? 'complete' : ''} ${step.isCurrent ? 'current' : ''} ${step.status === 'rejected' ? 'rejected' : ''}`}
+                title={`${step.label}: ${step.status}`}
+              >
+                <span className="step-icon">{step.icon}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="modal-tabs">
+          <button
+            className={`tab-btn ${activeTab === 'status' ? 'active' : ''}`}
+            onClick={() => setActiveTab('status')}
+          >
+            📋 Status
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'comments' ? 'active' : ''}`}
+            onClick={() => setActiveTab('comments')}
+          >
+            💬 Comments {comments.length > 0 && <span className="badge">{comments.length}</span>}
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'history' ? 'active' : ''}`}
+            onClick={() => setActiveTab('history')}
+          >
+            📜 History {editHistory.length > 0 && <span className="badge">{editHistory.length}</span>}
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        <div className="modal-body">
+          {!canEdit && (
+            <div className="permission-warning">
+              ⚠️ Only Admin users can edit site data
+            </div>
+          )}
+
+          {/* Status Tab */}
+          {activeTab === 'status' && (
+            <div className="status-tab">
+              {/* Overall Status */}
+              <div className="overall-status-section">
+                <h3>Overall Status</h3>
+                <div className="overall-status-field">
+                  <select
+                    value={formData.tssrOverallStatus || ''}
+                    onChange={e => handleChange('tssrOverallStatus', e.target.value)}
+                    disabled={!canEdit}
+                    className={`status-select ${getStatusClass(formData.tssrOverallStatus)} ${changes.tssrOverallStatus ? 'changed' : ''}`}
+                  >
+                    <option value="">-- Select Status --</option>
+                    {OVERALL_STATUS_OPTIONS.map(opt => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                  {changes.tssrOverallStatus && <span className="change-badge">Modified</span>}
+                </div>
+              </div>
+
+              {/* Department Statuses */}
+              <div className="departments-section">
+                <h3>Department Statuses</h3>
+                <div className="departments-grid">
+                  {DEPARTMENTS.map(dept => (
+                    <div key={dept.key} className="department-card">
+                      <div className="dept-header">
+                        <span className="dept-icon">{dept.icon}</span>
+                        <span className="dept-label">{dept.label}</span>
+                      </div>
+                      <div className="dept-status">
+                        <select
+                          value={formData[dept.statusField] || ''}
+                          onChange={e => handleChange(dept.statusField, e.target.value)}
+                          disabled={!canEdit}
+                          className={`${getStatusClass(formData[dept.statusField])} ${changes[dept.statusField] ? 'changed' : ''}`}
+                        >
+                          <option value="">-- Select --</option>
+                          {STATUS_OPTIONS.map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="dept-comment">
+                        <textarea
+                          placeholder="Comment..."
+                          value={formData[dept.commentField] || ''}
+                          onChange={e => handleChange(dept.commentField, e.target.value)}
+                          disabled={!canEdit}
+                          rows={2}
+                          className={changes[dept.commentField] ? 'changed' : ''}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Other Fields */}
+              <div className="other-fields-section">
+                <h3>Other Information</h3>
+                <div className="other-fields-grid">
+                  <div className="form-field">
+                    <label>RFI Status</label>
+                    <input
+                      type="text"
+                      value={formData.rfiStatus || ''}
+                      onChange={e => handleChange('rfiStatus', e.target.value)}
+                      disabled={!canEdit}
+                      className={changes.rfiStatus ? 'changed' : ''}
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Version</label>
+                    <input
+                      type="text"
+                      value={formData.version || ''}
+                      onChange={e => handleChange('version', e.target.value)}
+                      disabled={!canEdit}
+                      className={changes.version ? 'changed' : ''}
+                    />
+                  </div>
+                  <div className="form-field full-width">
+                    <label>TSSR Remark</label>
+                    <textarea
+                      value={formData.tssrRemark || ''}
+                      onChange={e => handleChange('tssrRemark', e.target.value)}
+                      disabled={!canEdit}
+                      rows={3}
+                      className={changes.tssrRemark ? 'changed' : ''}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Comments Tab */}
+          {activeTab === 'comments' && (
+            <div className="comments-tab">
+              {/* Add Comment */}
+              {canEdit && (
+                <div className="add-comment-section">
+                  <textarea
+                    placeholder="Write a comment..."
+                    value={newComment}
+                    onChange={e => setNewComment(e.target.value)}
+                    rows={3}
+                  />
+                  <button
+                    className="add-comment-btn"
+                    onClick={handleAddComment}
+                    disabled={!newComment.trim() || addingComment}
+                  >
+                    {addingComment ? 'Adding...' : '➕ Add Comment'}
+                  </button>
+                </div>
+              )}
+
+              {/* Comments List */}
+              <div className="comments-list">
+                {comments.length === 0 ? (
+                  <div className="no-comments">No comments yet</div>
+                ) : (
+                  [...comments].reverse().map((comment, idx) => (
+                    <div key={idx} className="comment-item">
+                      <div className="comment-header">
+                        <span className="comment-user">👤 {comment.user}</span>
+                        <span className="comment-time">
+                          {new Date(comment.timestamp).toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="comment-text">{comment.text}</div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* History Tab */}
+          {activeTab === 'history' && (
+            <div className="history-tab">
+              {editHistory.length === 0 ? (
+                <div className="no-history">No edit history</div>
+              ) : (
+                <div className="history-list">
+                  {[...editHistory].reverse().map((entry, idx) => (
+                    <div key={idx} className="history-entry">
+                      <div className="history-header">
+                        <span className="history-user">👤 {entry.user}</span>
+                        <span className="history-time">
+                          {new Date(entry.timestamp).toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="history-changes">
+                        {entry.changes.map((change, cIdx) => (
+                          <div key={cIdx} className="history-change">
+                            <span className="change-field">{change.field}:</span>
+                            <span className="change-old">{change.oldValue || '(empty)'}</span>
+                            <span className="change-arrow">→</span>
+                            <span className="change-new">{change.newValue}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="modal-footer">
+          {error && <div className="error-message">❌ {error}</div>}
+          {successMessage && <div className="success-message">✅ {successMessage}</div>}
+
+          <div className="footer-info">
+            {hasChanges && (
+              <span className="changes-count">
+                {Object.keys(changes).length} field(s) modified
+              </span>
+            )}
+          </div>
+
+          <div className="footer-actions">
+            <Button variant="secondary" onClick={onClose}>
+              Cancel
+            </Button>
+            {activeTab === 'status' && (
+              <Button
+                variant="primary"
+                onClick={handleSave}
+                disabled={!canEdit || !hasChanges || saving}
+                loading={saving}
+              >
+                {saving ? 'Saving...' : 'Save Changes'}
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default EditSiteModal

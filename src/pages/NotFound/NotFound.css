@@ -1,0 +1,124 @@
+﻿/* NotFound Page Styles */
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 2rem;
+}
+
+.not-found__content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.not-found__code {
+  font-size: 8rem;
+  font-weight: 800;
+  color: #8FD9D9;
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 40px rgba(143, 217, 217, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.not-found__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem 0;
+}
+
+.not-found__message {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.not-found__illustration {
+  color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 2rem;
+}
+
+.not-found__illustration svg {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.not-found__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.not-found__button {
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.not-found__button--primary {
+  background: #8FD9D9;
+  color: #fff;
+}
+
+.not-found__button--primary:hover {
+  background: #6FBFBF;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(143, 217, 217, 0.3);
+}
+
+.not-found__button--secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.not-found__button--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .not-found__code {
+    font-size: 5rem;
+  }
+
+  .not-found__title {
+    font-size: 1.5rem;
+  }
+
+  .not-found__message {
+    font-size: 1rem;
+  }
+
+  .not-found__illustration svg {
+    width: 150px;
+    height: 150px;
+  }
+}

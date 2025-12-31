@@ -1,0 +1,137 @@
+/* Reports Filters Component Styles */
+
+.reports-filters-card {
+  background: #6B7280;
+  border: 1px solid rgba(143, 217, 217, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.filters-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #F9FAFB;
+  margin: 0 0 16px 0;
+}
+
+.filters-container {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #F9FAFB;
+}
+
+.filter-select {
+  padding: 10px 14px;
+  background: #1F2937;
+  border: 1px solid #6B7280;
+  border-radius: 8px;
+  color: #F9FAFB;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-select option {
+  background: #374151;
+  color: #F9FAFB;
+  padding: 8px;
+}
+
+.filter-select:hover {
+  border-color: #8FD9D9;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8FD9D9;
+  box-shadow: 0 0 0 3px rgba(143, 217, 217, 0.1);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-reset,
+.btn-export {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-reset {
+  background: #6B7280;
+  color: #F9FAFB;
+}
+
+.btn-reset:hover {
+  background: #8B9FAF;
+  transform: translateY(-1px);
+}
+
+.btn-export {
+  background: #8FD9D9;
+  color: #1F2937;
+}
+
+.btn-export:hover:not(:disabled) {
+  background: #A5E6E6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(143, 217, 217, 0.4);
+}
+
+.btn-export:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filter-result {
+  margin: 16px 0 0 0;
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    min-width: auto;
+  }
+
+  .filter-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .btn-reset,
+  .btn-export {
+    flex: 1;
+  }
+}

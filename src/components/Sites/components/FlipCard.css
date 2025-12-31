@@ -1,0 +1,322 @@
+/**
+ * FlipCard CSS - Premium 3D Flip Styles
+ * Imported into FlipCard.jsx
+ */
+
+/* Base already in Sites.css, this is for component-specific overrides if needed */
+.flip-card {
+  perspective: 1000px;
+  height: 220px;
+  cursor: pointer;
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card.flipped .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card__back {
+  transform: rotateY(180deg);
+  padding: 16px;
+}
+
+.flip-card__front {
+  padding: 16px;
+  justify-content: space-between;
+}
+
+/* Status-Based Card Colors */
+
+/* Approved - Green */
+.flip-card--approved .flip-card__front {
+  border-color: rgba(34, 197, 94, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(34, 197, 94, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.2);
+}
+
+/* Zain Validation - Purple */
+.flip-card--zain .flip-card__front {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(168, 85, 247, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+/* ROM Review - Light Blue */
+.flip-card--rom .flip-card__front {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(56, 189, 248, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+/* Nokia NPO Validation - Dark Navy */
+.flip-card--nokia-npo .flip-card__front {
+  border-color: rgba(30, 58, 138, 0.6);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(30, 58, 138, 0.25) 100%);
+  box-shadow: 0 0 25px rgba(30, 58, 138, 0.3);
+}
+
+/* Nokia ROM Validation - Yellow */
+.flip-card--nokia-rom .flip-card__front {
+  border-color: rgba(234, 179, 8, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(234, 179, 8, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+}
+
+/* Nokia GSD Validation - Orange */
+.flip-card--nokia-gsd .flip-card__front {
+  border-color: rgba(249, 115, 22, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(249, 115, 22, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.2);
+}
+
+/* Subcon Validation - Turquoise */
+.flip-card--subcon .flip-card__front {
+  border-color: rgba(20, 184, 166, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(20, 184, 166, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(20, 184, 166, 0.2);
+}
+
+/* Need Access - Red */
+.flip-card--access .flip-card__front {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(239, 68, 68, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+}
+
+/* Site Not Surveyed - Gray */
+.flip-card--notstarted .flip-card__front {
+  border-color: rgba(100, 116, 139, 0.5);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(100, 116, 139, 0.15) 100%);
+  box-shadow: 0 0 25px rgba(100, 116, 139, 0.2);
+}
+
+/* Default - Slate */
+.flip-card--default .flip-card__front {
+  border-color: rgba(148, 163, 184, 0.3);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(148, 163, 184, 0.1) 100%);
+}
+
+/* Hover Effect */
+.flip-card:hover .flip-card__inner {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.flip-card.flipped:hover .flip-card__inner {
+  transform: rotateY(180deg) translateY(-8px);
+}
+
+/* Header */
+.flip-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flip-card__id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.flip-card__priority {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+/* Name */
+.flip-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  text-align: center;
+  line-height: 1.3;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  word-break: break-word;
+}
+
+/* Status */
+.flip-card__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.flip-card__status--approved {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.flip-card__status--zain {
+  background: rgba(168, 85, 247, 0.2);
+  color: #a855f7;
+}
+
+.flip-card__status--rom {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.flip-card__status--nokia-npo {
+  background: rgba(30, 58, 138, 0.3);
+  color: #60a5fa;
+}
+
+.flip-card__status--nokia-rom {
+  background: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.flip-card__status--nokia-gsd {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+}
+
+.flip-card__status--subcon {
+  background: rgba(20, 184, 166, 0.2);
+  color: #14b8a6;
+}
+
+.flip-card__status--access {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.flip-card__status--notstarted {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
+
+.flip-card__status--default {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+/* Selection */
+.flip-card.selected .flip-card__front,
+.flip-card.selected .flip-card__back {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.flip-card__checkbox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(148, 163, 184, 0.4);
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 12px;
+  transition: all 0.15s ease;
+  z-index: 5;
+}
+
+.flip-card.selected .flip-card__checkbox {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+/* Back Content */
+.flip-card__back-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.flip-card__back-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flip-card__back-label {
+  color: #64748b;
+}
+
+.flip-card__back-value {
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.flip-card__actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.flip-card__action-btn {
+  flex: 1;
+  padding: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 8px;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.flip-card__action-btn:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}

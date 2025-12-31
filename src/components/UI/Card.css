@@ -1,0 +1,314 @@
+/* =============================================
+   Card Component Styles - YAS 3D Design
+   - 3D depth with multi-layer shadows
+   - Soft smoke effects on hover
+   - NO gradients - solid colors only
+   ============================================= */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  overflow: hidden;
+  /* 3D Base Shadow */
+  box-shadow: var(--shadow-md);
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+/* 3D Hover Effect with Soft Smoke */
+.card-clickable:hover {
+  border-color: var(--yas-primary);
+  transform: translateY(-6px);
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(143, 217, 217, 0.15),
+    0 0 40px rgba(143, 217, 217, 0.08);
+}
+
+/* =============================================
+   Card Variants - YAS Colors (NO gradients)
+   ============================================= */
+
+.card-default {
+  border-color: var(--border);
+}
+
+.card-primary {
+  border-color: var(--yas-primary);
+  box-shadow:
+    var(--shadow-md),
+    0 0 15px rgba(143, 217, 217, 0.1);
+}
+
+.card-primary:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-primary);
+}
+
+.card-success {
+  border-color: var(--yas-success);
+  box-shadow:
+    var(--shadow-md),
+    0 0 15px rgba(143, 217, 217, 0.1);
+}
+
+.card-success:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-approved);
+}
+
+.card-warning {
+  border-color: var(--yas-warning);
+  box-shadow:
+    var(--shadow-md),
+    0 0 15px rgba(245, 158, 11, 0.1);
+}
+
+.card-warning:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-pending);
+}
+
+.card-error {
+  border-color: var(--yas-error);
+  box-shadow:
+    var(--shadow-md),
+    0 0 15px rgba(239, 68, 68, 0.1);
+}
+
+.card-error:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-rejected);
+}
+
+.card-glow {
+  border-color: var(--yas-primary);
+  box-shadow:
+    var(--shadow-md),
+    0 0 20px rgba(143, 217, 217, 0.2);
+}
+
+.card-glow:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-primary);
+}
+
+/* =============================================
+   Padding Variants
+   ============================================= */
+
+.card-padding-none .card-content,
+.card-padding-none .card-header {
+  padding: 0;
+}
+
+.card-padding-sm .card-content,
+.card-padding-sm .card-header {
+  padding: var(--spacing-sm);
+}
+
+.card-padding-md .card-content,
+.card-padding-md .card-header {
+  padding: var(--spacing-md);
+}
+
+.card-padding-lg .card-content,
+.card-padding-lg .card-header {
+  padding: var(--spacing-lg);
+}
+
+.card-padding-xl .card-content,
+.card-padding-xl .card-header {
+  padding: var(--spacing-xl);
+}
+
+/* =============================================
+   Card Header - YAS Styling
+   ============================================= */
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(143, 217, 217, 0.15);
+  border-radius: var(--radius-md);
+  color: var(--yas-primary);
+  font-size: var(--text-xl);
+  border: 1px solid rgba(143, 217, 217, 0.3);
+}
+
+.card-header-text {
+  flex: 1;
+}
+
+.card-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.card-subtitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   Card Content
+   ============================================= */
+
+.card-content {
+  /* Padding handled by padding variant */
+}
+
+/* =============================================
+   Stat Card - 3D YAS Design
+   ============================================= */
+
+.stat-card {
+  text-align: center;
+  position: relative;
+  overflow: visible;
+}
+
+.stat-card .card-content {
+  padding: var(--spacing-lg);
+}
+
+/* 3D Depth Effect for Stat Cards */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  z-index: -1;
+  transform: translateY(4px);
+  opacity: 0.5;
+}
+
+.stat-value {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-black);
+  color: var(--yas-primary);
+  margin-bottom: var(--spacing-xs);
+  /* Soft text shadow instead of glow */
+  text-shadow: 0 2px 10px rgba(143, 217, 217, 0.3);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-sm);
+  font-size: var(--text-sm);
+}
+
+.stat-change.positive {
+  color: var(--yas-success);
+}
+
+.stat-change.negative {
+  color: var(--yas-error);
+}
+
+/* =============================================
+   Card Status Border Colors - YAS Palette
+   ============================================= */
+
+.card.status-approved {
+  border-color: rgba(143, 217, 217, 0.4);
+}
+
+.card.status-approved:hover {
+  border-color: rgba(143, 217, 217, 0.7);
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-approved);
+}
+
+.card.status-rejected {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.card.status-rejected:hover {
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-rejected);
+}
+
+.card.status-pending {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.card.status-pending:hover {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-pending);
+}
+
+.card.status-under-zain {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.card.status-under-zain:hover {
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(245, 158, 11, 0.25),
+    0 0 40px rgba(245, 158, 11, 0.12);
+}
+
+.card.status-under-subcon {
+  border-color: rgba(255, 133, 102, 0.4);
+}
+
+.card.status-under-subcon:hover {
+  border-color: rgba(255, 133, 102, 0.7);
+  box-shadow:
+    var(--shadow-3d-hover),
+    var(--smoke-secondary);
+}
+
+.card.status-not-surveyed {
+  border-color: rgba(107, 114, 128, 0.4);
+}
+
+.card.status-not-surveyed:hover {
+  border-color: rgba(107, 114, 128, 0.6);
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(107, 114, 128, 0.2);
+}

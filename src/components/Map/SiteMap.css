@@ -1,0 +1,129 @@
+.map-card-container {
+    height: 100%;
+    min-height: 600px;
+    /* Ensure map has height */
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.map-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #f1f5f9;
+}
+
+.leaflet-map-wrapper {
+    flex-grow: 1;
+    height: 600px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    /* Context for z-index */
+    z-index: 1;
+    /* Ensure map is below dropdowns/modals */
+}
+
+/* Map Legend */
+.map-legend {
+    display: flex;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+.legend-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.legend-item .dot.approved {
+    background-color: #10b981;
+    box-shadow: 0 0 5px #10b981;
+}
+
+.legend-item .dot.submitted {
+    background-color: #3b82f6;
+    box-shadow: 0 0 5px #3b82f6;
+}
+
+.legend-item .dot.rejected {
+    background-color: #ef4444;
+    box-shadow: 0 0 5px #ef4444;
+}
+
+/* Popup Styles */
+.leaflet-popup-content-wrapper {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.leaflet-popup-tip {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.popup-card-content {
+    min-width: 200px;
+    padding: 8px 4px;
+}
+
+.popup-card-content h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.popup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.status-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.popup-card-content p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #e2e8f0;
+}
+
+.popup-card-content p strong {
+    color: #94a3b8;
+    margin-right: 4px;
+    font-weight: 500;
+}
+
+.leaflet-container {
+    font-family: inherit;
+}

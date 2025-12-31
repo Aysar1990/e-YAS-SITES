@@ -1,0 +1,58 @@
+# Render.com Blueprint Configuration
+# Deploy TSSR Monitor API Server
+
+services:
+  # API Server
+  - type: web
+    name: tssr-monitor-api
+    env: node
+    region: frankfurt  # or singapore, oregon, ohio
+    plan: free  # or starter, standard, pro
+
+    # Build settings
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+
+    # Health check
+    healthCheckPath: /api/health
+
+    # Environment variables
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: SUPABASE_URL
+        sync: false  # Set manually in Render dashboard
+
+      - key: SUPABASE_SERVICE_KEY
+        sync: false  # Set manually in Render dashboard
+
+      - key: SUPABASE_ANON_KEY
+        sync: false  # Set manually in Render dashboard
+
+      - key: JWT_SECRET
+        generateValue: true  # Auto-generate secure value
+
+      - key: JWT_EXPIRY
+        value: 24h
+
+      - key: BCRYPT_ROUNDS
+        value: "10"
+
+    # Auto-deploy on push
+    autoDeploy: true
+
+    # Branch to deploy from
+    branch: main
+
+# Alternative: Manual deployment without blueprint
+# 1. Go to dashboard.render.com
+# 2. New > Web Service
+# 3. Connect your GitHub repo
+# 4. Settings:
+#    - Name: tssr-monitor-api
+#    - Root Directory: server
+#    - Build Command: npm install
+#    - Start Command: npm start
+# 5. Add environment variables manually

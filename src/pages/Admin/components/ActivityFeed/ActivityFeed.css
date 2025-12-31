@@ -1,0 +1,143 @@
+.activity-widget-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.connection-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    /* Offline red */
+    box-shadow: 0 0 5px #ef4444;
+}
+
+.connection-status.online {
+    background-color: #10b981;
+    /* Online green */
+    box-shadow: 0 0 5px #10b981;
+}
+
+.activity-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #fff;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* Gap handled by padding/margin of items */
+    overflow-y: auto;
+    max-height: 480px;
+    /* Adjust based on container */
+    padding-right: 4px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.activity-item:last-child {
+    padding-bottom: 0;
+}
+
+/* Timeline vertical line */
+.activity-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 24px;
+}
+
+.activity-icon {
+    font-size: 1.2rem;
+    z-index: 2;
+    /* Above line */
+    background: #1e293b;
+    /* Match card bg to hide line behind icon if needed */
+    border-radius: 50%;
+}
+
+.activity-line {
+    flex-grow: 1;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 4px;
+    min-height: 20px;
+}
+
+.activity-item:last-child .activity-line {
+    display: none;
+}
+
+.activity-content {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: -4px;
+    /* Align top with icon better */
+    transition: transform 0.2s;
+}
+
+.activity-item:hover .activity-content {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.activity-message {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    line-height: 1.4;
+}
+
+.activity-time {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* Scrollbar */
+.activity-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}

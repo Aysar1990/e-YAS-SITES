@@ -1,0 +1,317 @@
+/**
+ * themes.css - ملف الثيمات الرئيسي
+ * يحتوي على CSS Variables لكل ثيم
+ */
+
+/* ============================================
+   Default Theme Variables (Dark)
+   ============================================ */
+:root {
+  /* Primary Colors */
+  --theme-primary: #8FD9D9;
+  --theme-primary-hover: #7BC9C9;
+  --theme-accent: #FF8566;
+  --theme-accent-hover: #FF7052;
+
+  /* Background Colors */
+  --theme-background: #0f172a;
+  --theme-background-alt: #0c1322;
+  --theme-surface: #1e293b;
+  --theme-surface-hover: #263548;
+
+  /* Border Colors */
+  --theme-border: rgba(143, 217, 217, 0.2);
+  --theme-border-hover: rgba(143, 217, 217, 0.4);
+
+  /* Text Colors */
+  --theme-text: #e2e8f0;
+  --theme-text-secondary: #94a3b8;
+  --theme-text-muted: #64748b;
+
+  /* Status Colors */
+  --theme-success: #22c55e;
+  --theme-warning: #f59e0b;
+  --theme-error: #ef4444;
+  --theme-info: #3b82f6;
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --theme-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
+  --theme-transition: 0.2s ease;
+  --theme-transition-slow: 0.3s ease;
+}
+
+/* ============================================
+   Dark Theme (Default)
+   ============================================ */
+body.theme-dark {
+  --theme-primary: #8FD9D9;
+  --theme-primary-hover: #7BC9C9;
+  --theme-accent: #FF8566;
+  --theme-accent-hover: #FF7052;
+  --theme-background: #0f172a;
+  --theme-background-alt: #0c1322;
+  --theme-surface: #1e293b;
+  --theme-surface-hover: #263548;
+  --theme-border: rgba(143, 217, 217, 0.2);
+  --theme-border-hover: rgba(143, 217, 217, 0.4);
+  --theme-text: #e2e8f0;
+  --theme-text-secondary: #94a3b8;
+  --theme-text-muted: #64748b;
+  --theme-success: #22c55e;
+  --theme-warning: #f59e0b;
+  --theme-error: #ef4444;
+  --theme-info: #3b82f6;
+}
+
+/* ============================================
+   YAS Theme
+   ============================================ */
+body.theme-yas {
+  --theme-primary: #8FD9D9;
+  --theme-primary-hover: #7BC9C9;
+  --theme-accent: #FF8566;
+  --theme-accent-hover: #FF7052;
+  --theme-background: #0a1628;
+  --theme-background-alt: #071020;
+  --theme-surface: #112240;
+  --theme-surface-hover: #1a3050;
+  --theme-border: rgba(143, 217, 217, 0.25);
+  --theme-border-hover: rgba(143, 217, 217, 0.45);
+  --theme-text: #ccd6f6;
+  --theme-text-secondary: #8892b0;
+  --theme-text-muted: #5c6b8a;
+  --theme-success: #64ffda;
+  --theme-warning: #ffd700;
+  --theme-error: #ff6b6b;
+  --theme-info: #57cbff;
+}
+
+/* ============================================
+   Light Theme
+   ============================================ */
+body.theme-light {
+  --theme-primary: #0891b2;
+  --theme-primary-hover: #0e7490;
+  --theme-accent: #ea580c;
+  --theme-accent-hover: #c2410c;
+  --theme-background: #f8fafc;
+  --theme-background-alt: #f1f5f9;
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f8fafc;
+  --theme-border: rgba(8, 145, 178, 0.2);
+  --theme-border-hover: rgba(8, 145, 178, 0.4);
+  --theme-text: #1e293b;
+  --theme-text-secondary: #475569;
+  --theme-text-muted: #64748b;
+  --theme-success: #16a34a;
+  --theme-warning: #d97706;
+  --theme-error: #dc2626;
+  --theme-info: #2563eb;
+
+  /* Light theme specific shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --theme-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --theme-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   Custom Theme (inherits from JS)
+   ============================================ */
+body.theme-custom {
+  /* Colors are applied via JS */
+}
+
+/* ============================================
+   Global Theme Application
+   ============================================ */
+body {
+  background-color: var(--theme-background);
+  color: var(--theme-text);
+  transition: background-color var(--theme-transition), color var(--theme-transition);
+}
+
+/* ============================================
+   AG-Grid Theme Override
+   ============================================ */
+.ag-theme-alpine-dark,
+.ag-theme-alpine {
+  --ag-background-color: var(--theme-surface) !important;
+  --ag-odd-row-background-color: var(--theme-background-alt) !important;
+  --ag-header-background-color: var(--theme-background) !important;
+  --ag-header-foreground-color: var(--theme-primary) !important;
+  --ag-foreground-color: var(--theme-text) !important;
+  --ag-secondary-foreground-color: var(--theme-text-secondary) !important;
+  --ag-border-color: var(--theme-border) !important;
+  --ag-row-hover-color: var(--theme-surface-hover) !important;
+  --ag-selected-row-background-color: rgba(143, 217, 217, 0.15) !important;
+  --ag-range-selection-border-color: var(--theme-primary) !important;
+  --ag-input-focus-border-color: var(--theme-primary) !important;
+}
+
+/* Light theme AG-Grid */
+body.theme-light .ag-theme-alpine-dark,
+body.theme-light .ag-theme-alpine {
+  --ag-selected-row-background-color: rgba(8, 145, 178, 0.15) !important;
+  --ag-range-selection-border-color: var(--theme-primary) !important;
+}
+
+/* ============================================
+   Common Component Styles
+   ============================================ */
+
+/* Cards */
+.theme-card {
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  border-radius: 12px;
+  transition: all var(--theme-transition);
+}
+
+.theme-card:hover {
+  border-color: var(--theme-border-hover);
+  box-shadow: var(--theme-shadow-md);
+}
+
+/* Buttons */
+.theme-btn-primary {
+  background: var(--theme-primary);
+  color: var(--theme-background);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--theme-transition);
+}
+
+.theme-btn-primary:hover {
+  background: var(--theme-primary-hover);
+  transform: translateY(-1px);
+}
+
+.theme-btn-secondary {
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--theme-transition);
+}
+
+.theme-btn-secondary:hover {
+  background: var(--theme-surface-hover);
+  border-color: var(--theme-border-hover);
+}
+
+.theme-btn-accent {
+  background: var(--theme-accent);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--theme-transition);
+}
+
+.theme-btn-accent:hover {
+  background: var(--theme-accent-hover);
+}
+
+/* Inputs */
+.theme-input {
+  background: var(--theme-background-alt);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all var(--theme-transition);
+}
+
+.theme-input:focus {
+  outline: none;
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 3px rgba(143, 217, 217, 0.1);
+}
+
+body.theme-light .theme-input:focus {
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+}
+
+/* Badges */
+.theme-badge {
+  background: rgba(143, 217, 217, 0.15);
+  color: var(--theme-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+body.theme-light .theme-badge {
+  background: rgba(8, 145, 178, 0.1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-border-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--theme-primary);
+  color: var(--theme-background);
+}
+
+body.theme-light ::selection {
+  background: var(--theme-primary);
+  color: white;
+}
+
+/* ============================================
+   Status Colors
+   ============================================ */
+.status-success { color: var(--theme-success); }
+.status-warning { color: var(--theme-warning); }
+.status-error { color: var(--theme-error); }
+.status-info { color: var(--theme-info); }
+
+.bg-success { background-color: var(--theme-success); }
+.bg-warning { background-color: var(--theme-warning); }
+.bg-error { background-color: var(--theme-error); }
+.bg-info { background-color: var(--theme-info); }
+
+/* ============================================
+   Theme Transition Animation
+   ============================================ */
+body,
+body * {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.15s ease;
+}
+
+/* Disable transition for performance-critical elements */
+.ag-root-wrapper,
+.ag-root-wrapper * {
+  transition: none !important;
+}

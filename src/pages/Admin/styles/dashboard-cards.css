@@ -1,0 +1,513 @@
+/* =============================================
+   Dashboard Cards Styles - YAS 3D Design
+   - Stats cards with 3D depth
+   - Soft smoke effects on hover
+   - NO gradients on backgrounds (only small icon badges)
+   - YAS color palette throughout
+   ============================================= */
+
+/* =============================================
+   New Stats Cards Grid
+   ============================================= */
+
+.stats-grid-new {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 6 cards grid */
+.stats-grid-new.six-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stat-card-new {
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+.stat-card-new:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+/* Card accent colors - YAS Palette */
+.stat-card-new.primary {
+  border-left-color: #8FD9D9;
+}
+
+.stat-card-new.primary:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(143, 217, 217, 0.2);
+}
+
+.stat-card-new.success {
+  border-left-color: #8FD9D9;
+}
+
+.stat-card-new.success:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(143, 217, 217, 0.2);
+}
+
+.stat-card-new.warning {
+  border-left-color: #F59E0B;
+}
+
+.stat-card-new.warning:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.stat-card-new.purple {
+  border-left-color: #8B5CF6;
+}
+
+.stat-card-new.purple:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.stat-card-new.teal {
+  border-left-color: #14B8A6;
+}
+
+.stat-card-new.teal:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(20, 184, 166, 0.2);
+}
+
+.stat-card-new.cyan {
+  border-left-color: #06B6D4;
+}
+
+.stat-card-new.cyan:hover {
+  box-shadow:
+    var(--shadow-3d-hover),
+    0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+/* =============================================
+   Card Header & Content
+   ============================================= */
+
+.stat-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.stat-card-icon {
+  font-size: 2rem;
+}
+
+.stat-card-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-card-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-black);
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-card-title {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+/* =============================================
+   Breakdown Table inside Cards
+   ============================================= */
+
+.stat-card-breakdown {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-sm);
+}
+
+.stat-card-breakdown th,
+.stat-card-breakdown td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stat-card-breakdown th {
+  background: var(--surface-hover);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+}
+
+.stat-card-breakdown td {
+  color: var(--text);
+}
+
+.stat-card-breakdown .breakdown-label {
+  text-align: left;
+  background: var(--surface-hover);
+  font-weight: var(--font-medium);
+}
+
+.stat-card-breakdown .breakdown-total {
+  font-weight: var(--font-bold);
+  color: #8FD9D9;
+}
+
+/* Stats Card Table */
+.stats-card-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  margin-top: var(--spacing-sm);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.stats-card-table th,
+.stats-card-table td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.stats-card-table th {
+  background: var(--surface-hover);
+  color: var(--text-secondary);
+  font-weight: var(--font-medium);
+  font-size: 0.65rem;
+  white-space: nowrap;
+}
+
+.stats-card-table td {
+  color: var(--text);
+  font-weight: var(--font-semibold);
+}
+
+.stats-card-table td:first-child {
+  text-align: left;
+  background: var(--surface-hover);
+  font-weight: var(--font-medium);
+}
+
+.stats-card-table td:last-child {
+  font-weight: var(--font-bold);
+  color: #8FD9D9;
+}
+
+/* =============================================
+   3D ANIMATED STATS CARDS - YAS Design
+   ============================================= */
+
+/* Cards Grid Layout */
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+  perspective: 1000px;
+}
+
+/* 3D Stats Card Base - Glass Overhaul */
+.stats-card-3d {
+  position: relative;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: float 6s ease-in-out infinite;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  /* 3D Shadow */
+  box-shadow: var(--shadow-glass);
+}
+
+/* Floating Animation - Different delays for each card */
+.stats-card-3d:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stats-card-3d:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.stats-card-3d:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.stats-card-3d:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.stats-card-3d:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.stats-card-3d:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Clean Hover Effect - Strong 3-layer smoke on hover */
+.stats-card-3d:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  animation-play-state: paused;
+  /* Base 3D shadow + 3-layer smoke effect */
+  box-shadow: var(--shadow-3d-hover);
+}
+
+/* Subtle Shimmer Effect on Hover - NO gradient */
+.stats-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  transition: left 0.8s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.stats-card-3d:hover::before {
+  left: 100%;
+}
+
+/* Card Header */
+.card-header-3d {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+/* Card Icon - EXCEPTION: Icon badges can keep gradient */
+.stats-card-3d .card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  animation: iconPulse 2.5s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes iconPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Card Info */
+.stats-card-3d .card-info {
+  flex: 1;
+}
+
+/* Number - Clean text styling */
+.stats-card-3d .card-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: #F8FAFC;
+  line-height: 1.1;
+}
+
+.stats-card-3d .card-title {
+  font-size: 14px;
+  color: #94A3B8;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Breakdown Table inside 3D Card */
+.stats-card-3d .breakdown-table {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(51, 65, 85, 0.5);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  text-align: center;
+}
+
+.breakdown-table .breakdown-header {
+  font-size: 10px;
+  color: #64748B;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.breakdown-table .breakdown-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+.breakdown-table .breakdown-value.total-highlight {
+  color: #8FD9D9;
+}
+
+/* =============================================
+   Card Type Colors - Icon Backgrounds
+   EXCEPTION: Icon badges can keep gradient
+   ============================================= */
+
+.stats-card-3d.total-scope {
+  background: rgba(107, 114, 128, 0.2);
+  border-top: 1px solid rgba(107, 114, 128, 0.4);
+}
+
+.stats-card-3d.survey-done {
+  background: rgba(255, 133, 102, 0.15);
+  border-top: 1px solid rgba(255, 133, 102, 0.4);
+}
+
+.stats-card-3d.tssr-ready {
+  background: rgba(143, 217, 217, 0.15);
+  border-top: 1px solid rgba(143, 217, 217, 0.4);
+}
+
+.stats-card-3d.tssr-submitted {
+  background: rgba(107, 114, 128, 0.2);
+  border-top: 1px solid rgba(107, 114, 128, 0.4);
+}
+
+.stats-card-3d.approved {
+  background: rgba(143, 217, 217, 0.2);
+  border-top: 1px solid rgba(143, 217, 217, 0.5);
+}
+
+.stats-card-3d.rfi {
+  background: rgba(255, 133, 102, 0.15);
+  border-top: 1px solid rgba(255, 133, 102, 0.4);
+}
+
+/* Adjusting internal text colors for colored cards */
+/* Adjusting internal text colors - Standardized for Premium Look */
+.stats-card-3d .card-value {
+  color: #F8FAFC;
+}
+
+.stats-card-3d .card-title,
+.stats-card-3d .breakdown-header {
+  color: #94A3B8;
+}
+
+.stats-card-3d .breakdown-value {
+  color: #E2E8F0;
+}
+
+.stats-card-3d .breakdown-value.total-highlight {
+  color: #8FD9D9;
+}
+
+/* Icons within colored cards */
+.stats-card-3d.total-scope .card-icon {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.stats-card-3d.survey-done .card-icon {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.stats-card-3d.tssr-ready .card-icon {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stats-card-3d.tssr-submitted .card-icon {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.stats-card-3d.approved .card-icon {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stats-card-3d.rfi .card-icon {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Card Hover - Standard shadow for colored cards */
+.stats-card-3d:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* =============================================
+   Responsive Adjustments
+   ============================================= */
+
+@media (max-width: 1024px) {
+  .stats-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid-new.six-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-card-3d .card-value {
+    font-size: 36px;
+  }
+
+  .stats-card-3d {
+    animation: none;
+  }
+}

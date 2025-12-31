@@ -1,0 +1,16 @@
+/**
+ * Settings Page Styles
+ *
+ * This file has been refactored into smaller modules.
+ * All styles are now in the styles/settings/ directory:
+ * - base.css - Base settings styles
+ * - server-mode.css - Server mode styles
+ * - footer.css - Footer styles
+ * - user-management.css - User management styles
+ * - permissions.css - Role permissions styles
+ * - notifications.css - Notification settings styles
+ * - firebase.css - Firebase sync styles
+ * - import.css - Import Excel section styles
+ */
+
+@import './styles/settings/index.css';

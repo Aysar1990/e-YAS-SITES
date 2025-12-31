@@ -1,0 +1,630 @@
+﻿/* =============================================
+   CONTRACTORS PERFORMANCE DASHBOARD
+   ============================================= */
+
+.contractors-page {
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px 0;
+}
+
+.page-subtitle {
+  color: #94a3b8;
+  font-size: 14px;
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.filter-group select {
+  padding: 8px 16px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Summary Row */
+.summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.summary-icon {
+  font-size: 32px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+}
+
+.summary-info {
+  flex: 1;
+}
+
+.summary-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.summary-label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* Contractors Grid */
+.contractors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 24px;
+}
+
+/* Contractor Card */
+.contractor-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contractor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Contractor Header */
+.contractor-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.contractor-icon {
+  font-size: 36px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 14px;
+}
+
+.contractor-info {
+  flex: 1;
+}
+
+.contractor-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.contractor-subtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.contractor-total-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  padding: 12px 20px;
+  border-radius: 12px;
+  min-width: 70px;
+}
+
+.total-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.total-label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-icon {
+  font-size: 16px;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Workflow Pipeline */
+.workflow-section {
+  margin-bottom: 20px;
+}
+
+.workflow-pipeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.workflow-pipeline::-webkit-scrollbar {
+  height: 4px;
+}
+
+.workflow-pipeline::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.workflow-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 65px;
+  position: relative;
+}
+
+.stage-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-bottom: 6px;
+  transition: transform 0.2s;
+}
+
+.workflow-stage:hover .stage-icon {
+  transform: scale(1.1);
+}
+
+.stage-count {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.stage-label {
+  font-size: 9px;
+  color: #64748b;
+  text-align: center;
+  max-width: 60px;
+  line-height: 1.2;
+}
+
+.stage-arrow {
+  position: absolute;
+  right: -12px;
+  top: 12px;
+  color: #475569;
+  font-size: 14px;
+}
+
+/* Metrics Grid */
+.metrics-section {
+  margin-bottom: 20px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.metric-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.metric-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.metric-box.total { border-bottom: 3px solid #6366f1; }
+.metric-box.submitted { border-bottom: 3px solid #f59e0b; }
+.metric-box.approved { border-bottom: 3px solid #22c55e; }
+.metric-box.rfi { border-bottom: 3px solid #06b6d4; }
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.metric-box.total .metric-value { color: #818cf8; }
+.metric-box.submitted .metric-value { color: #fbbf24; }
+.metric-box.approved .metric-value { color: #4ade80; }
+.metric-box.rfi .metric-value { color: #22d3ee; }
+
+.metric-label {
+  font-size: 10px;
+  color: #64748b;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Rate Bars */
+.rates-section {
+  margin-bottom: 20px;
+}
+
+.rate-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rate-bar {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.rate-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.rate-name {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.rate-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.rate-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rate-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.rate-fill.submission {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.rate-fill.approval {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+/* Part Of Section */
+.partof-section {
+  margin-bottom: 20px;
+}
+
+.partof-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.partof-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.partof-name {
+  font-size: 12px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.partof-stats {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.partof-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.partof-approved {
+  font-size: 11px;
+  color: #22c55e;
+}
+
+/* Alerts Section */
+.alerts-section {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  border-left: 3px solid;
+}
+
+.alert-item.danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-left-color: #ef4444;
+  color: #fca5a5;
+}
+
+.alert-item.warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-left-color: #f59e0b;
+  color: #fcd34d;
+}
+
+.alert-item.info {
+  background: rgba(255, 133, 102, 0.1);
+  border-left-color: #FF8566;
+  color: #93c5fd;
+}
+
+.alert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.alert-item.danger .alert-dot { background: #ef4444; }
+.alert-item.warning .alert-dot { background: #f59e0b; }
+.alert-item.info .alert-dot { background: #FF8566; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Loading, Error, Empty States */
+.loading-container,
+.error-container,
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-container p {
+  color: #f87171;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .contractors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contractors-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    justify-content: space-between;
+  }
+
+  .filter-group select {
+    flex: 1;
+  }
+
+  .summary-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workflow-pipeline {
+    padding-bottom: 16px;
+  }
+
+  .contractor-header {
+    flex-wrap: wrap;
+  }
+
+  .contractor-total-badge {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .contractor-card {
+    padding: 16px;
+  }
+
+  .contractor-name {
+    font-size: 14px;
+  }
+
+  .metric-value {
+    font-size: 22px;
+  }
+
+  .workflow-stage {
+    min-width: 55px;
+  }
+
+  .stage-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .stage-count {
+    font-size: 14px;
+  }
+
+  .stage-label {
+    font-size: 8px;
+  }
+}

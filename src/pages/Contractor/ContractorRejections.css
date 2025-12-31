@@ -1,0 +1,519 @@
+﻿/* Contractor Rejections Page Styles */
+
+.contractor-rejections-page {
+  padding: 1rem;
+  min-height: 100%;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-header__info {
+  flex: 1;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: #94a3b8;
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+}
+
+.contractor-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 133, 102, 0.15);
+  border: 1px solid rgba(255, 133, 102, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #FF8566;
+  font-weight: 500;
+}
+
+.contractor-icon {
+  font-size: 1.2rem;
+}
+
+/* Stats */
+.rejection-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stat-card--error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.stat-card--warning {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.stat-icon {
+  font-size: 1.5rem;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-label {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* Filters */
+.filters-card {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem !important;
+}
+
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #FF8566;
+}
+
+.search-input::placeholder {
+  color: #64748b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #94a3b8;
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn--sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+/* Rejections List */
+.rejections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Rejection Site Card */
+.rejection-site-card {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.05), rgba(15, 23, 42, 0.8));
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rejection-site-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  background: rgba(239, 68, 68, 0.1);
+  transition: background 0.2s;
+}
+
+.rejection-site-card__header:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.site-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.site-id {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+.site-name {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rejection-count {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.expand-icon {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+/* Overall Status */
+.overall-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.overall-label {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.overall-value {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.status--approved {
+  background: rgba(143, 217, 217, 0.2);
+  color: #8FD9D9;
+}
+
+.status--rejected {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.status--pending {
+  background: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.status--released {
+  background: rgba(180, 83, 9, 0.2);
+  color: #d97706;
+}
+
+.status--unknown {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
+
+/* Rejected Departments Preview */
+.rejected-depts-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.rejected-dept-badge {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Departments Table */
+.departments-table {
+  padding: 0.5rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+/* Department Row */
+.dept-row {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.dept-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dept-row--rejected {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.dept-row--rejected:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.dept-row__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+
+.dept-label {
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+}
+
+.dept-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.dept-status--approved {
+  background: rgba(143, 217, 217, 0.2);
+  color: #8FD9D9;
+}
+
+.dept-status--rejected {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  animation: pulse-status 2s infinite;
+}
+
+.dept-status--pending {
+  background: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.dept-status--released {
+  background: rgba(180, 83, 9, 0.2);
+  color: #d97706;
+}
+
+.dept-status--unknown {
+  background: rgba(100, 116, 139, 0.2);
+  color: #64748b;
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Comment Section */
+.dept-comment {
+  padding: 0 1rem 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 0;
+}
+
+.comment-text {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 80px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.comment-text.expanded {
+  max-height: none;
+}
+
+.comment-expand-btn {
+  background: none;
+  border: none;
+  color: #FF8566;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.comment-expand-btn:hover {
+  color: #60a5fa;
+}
+
+/* Loading & Empty States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #94a3b8;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 133, 102, 0.2);
+  border-top-color: #FF8566;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.empty-hint {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contractor-badge {
+    justify-content: center;
+  }
+
+  .rejection-stats {
+    flex-direction: column;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .search-box {
+    min-width: 100%;
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .action-buttons .btn {
+    flex: 1;
+  }
+
+  .dept-row__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

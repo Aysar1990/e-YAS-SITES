@@ -1,0 +1,27 @@
+/* =============================================
+   NokiaDashboard.css - Nokia Engineer Dashboard
+
+   Imports all modular CSS files from Admin Dashboard
+   for consistent styling across all dashboard views.
+   ============================================= */
+
+/* Base styles - Layout, header, containers, typography */
+@import '../Admin/styles/dashboard-base.css';
+
+/* Card styles - Stats cards, 3D cards, breakdowns */
+@import '../Admin/styles/dashboard-cards.css';
+
+/* Overview styles - Tables, pivot tables, status badges */
+@import '../Admin/styles/dashboard-overview.css';
+
+/* Chart styles - Progress bars, rate bars, visualizations */
+@import '../Admin/styles/dashboard-charts.css';
+
+/* Department styles - Department cards, grids, rings */
+@import '../Admin/styles/dashboard-department.css';
+
+/* Animations - All @keyframes and transitions */
+@import '../Admin/styles/dashboard-animations.css';
+
+/* Responsive styles - All @media queries */
+@import '../Admin/styles/dashboard-responsive.css';

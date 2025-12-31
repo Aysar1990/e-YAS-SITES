@@ -1,0 +1,391 @@
+/* =============================================
+   Dashboard Charts Styles
+   - Chart containers
+   - Progress bars
+   - Rate bars
+   - Data visualizations
+   - Approval rate banner
+   ============================================= */
+
+/* Approval Rate Banner - Glass Overhaul */
+.approval-banner {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+.approval-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.approval-icon {
+  font-size: 3rem;
+}
+
+.approval-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.approval-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.approval-value {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-black);
+  color: var(--success);
+}
+
+.approval-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.approval-bar-fill {
+  height: 100%;
+  /* YAS Solid Color - Turquoise */
+  background: #8FD9D9;
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* Circular Progress Ring */
+.dept-progress-ring {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.circular-progress {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--surface-hover);
+  stroke-width: 3;
+}
+
+.circle-fill {
+  fill: none;
+  stroke: var(--success);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.progress-text {
+  font-size: 0.5rem;
+  font-weight: var(--font-bold);
+  fill: var(--text);
+  text-anchor: middle;
+}
+
+/* Rate Bars */
+.rate-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.rate-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.rate-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rate-bar-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.rate-bar-value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text);
+}
+
+.rate-bar-track {
+  height: 8px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.rate-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease;
+}
+
+.rate-bar-fill.success {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.rate-bar-fill.warning {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.rate-bar-fill.primary {
+  background: linear-gradient(90deg, #FF8566, #60a5fa);
+}
+
+.rate-bar-fill.purple {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+}
+
+/* Chart Container - Glass Style */
+.chart-container {
+  padding: var(--spacing-lg);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-lg);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.chart-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+}
+
+.chart-legend {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.success {
+  background: var(--success);
+}
+
+.legend-dot.warning {
+  background: var(--warning);
+}
+
+.legend-dot.error {
+  background: var(--error);
+}
+
+.legend-dot.primary {
+  background: var(--primary);
+}
+
+.legend-dot.purple {
+  background: #8b5cf6;
+}
+
+/* Progress Ring inside cards */
+.mini-progress-ring {
+  width: 50px;
+  height: 50px;
+}
+
+.mini-progress-ring .circle-bg {
+  stroke-width: 4;
+}
+
+.mini-progress-ring .circle-fill {
+  stroke-width: 4;
+}
+
+/* Gauge Chart */
+.gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+}
+
+.gauge-value {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-black);
+  color: var(--text);
+  margin-top: var(--spacing-md);
+}
+
+.gauge-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   Analytics Section - Collapsible Charts
+   ============================================= */
+
+/* Analytics Section - Collapsible Charts - Glass Overhaul */
+.analytics-section {
+  margin-top: var(--spacing-xl);
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.analytics-section.collapsed {
+  margin-bottom: var(--spacing-lg);
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.analytics-header:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.analytics-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.analytics-title .title-icon {
+  font-size: 24px;
+}
+
+.collapse-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collapse-btn:hover {
+  background: rgba(255, 133, 102, 0.2);
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.analytics-content {
+  padding: 0;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Charts Grid Layout */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+}
+
+.chart-card {
+  background: rgba(30, 41, 59, 0.4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border);
+}
+
+.chart-card-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--text);
+  margin: 0;
+}
+
+.chart-card-body {
+  padding: var(--spacing-lg);
+  min-height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .analytics-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .collapse-btn {
+    text-align: center;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+  }
+}

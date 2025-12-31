@@ -1,0 +1,178 @@
+{
+  "app": {
+    "name": "YAS TSSR Monitor",
+    "version": "v1.0.0"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "sites": "Sites",
+    "contractors": "Contractors",
+    "reports": "Reports",
+    "settings": "Settings",
+    "rejections": "Rejections",
+    "logout": "Logout"
+  },
+  "sync": {
+    "syncNow": "Sync Now",
+    "records": "records synced",
+    "syncError": "Sync Error",
+    "syncing": "Syncing...",
+    "lastSync": "Last sync"
+  },
+  "sites": {
+    "title": "Site Management",
+    "total": "Total {{count}} sites",
+    "searchPlaceholder": "Search by name, number or location...",
+    "allStatuses": "All Statuses",
+    "allPriorities": "All Priorities",
+    "loading": "Loading sites...",
+    "noResults": "No matching sites found",
+    "priority": "Priority",
+    "sitesCount": "{{count}} sites"
+  },
+  "card": {
+    "name": "Name",
+    "contractor": "Contractor",
+    "location": "Location",
+    "priority": "Priority",
+    "status": "Status"
+  },
+  "status": {
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "pending": "Pending",
+    "released": "Released",
+    "underZainValidation": "Under Zain Validation",
+    "underNokiaNPO": "Under Nokia NPO",
+    "underNokiaROM": "Under Nokia ROM",
+    "underNokiaGSD": "Under Nokia GSD",
+    "underSubcon": "Under Subcon",
+    "notSurveyed": "Not Surveyed"
+  },
+  "departments": {
+    "ti": "TI",
+    "rf": "RF",
+    "op": "OP",
+    "cw": "CW",
+    "mw": "MW"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalSites": "Total Sites",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "pending": "Under Review",
+    "overview": "Status Overview",
+    "recentActivity": "Recent Activity",
+    "byContractor": "By Contractor",
+    "byDepartment": "By Department",
+    "surveyDone": "Survey Done",
+    "tssrSubmitted": "TSSR Submitted",
+    "rfi": "RFI",
+    "tssrReady": "TSSR Ready",
+    "approvalRate": "Approval Rate",
+    "overviewByPartOf": "TSSR Status Overview by Part Of",
+    "partOf": {
+      "thinLayer": "ThinLayer",
+      "fullSwap": "Full Swap",
+      "swapExisting": "Swap For Existing Thin layer",
+      "notSpecified": "Not Specified",
+      "total": "Total"
+    },
+    "statusLabels": {
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "pending": "Pending",
+      "underReview": "Under Review",
+      "submitted": "Submitted",
+      "notSubmitted": "Not Submitted",
+      "rfi": "RFI",
+      "needAccess": "Need Access",
+      "onHold": "On Hold",
+      "underZainValidation": "TSSR Under Zain Validation",
+      "underRomReview": "TSSR Under ROM Review",
+      "underNokiaNpo": "TSSR Under Nokia NPO Validation",
+      "underNokiaRom": "TSSR Under Nokia ROM Validation",
+      "underNokiaGsd": "TSSR Under Nokia GSD Validation",
+      "underSubcon": "TSSR Under Subcon Validation",
+      "siteNotSurveyed": "Site not Surveyed"
+    },
+    "deptLabels": {
+      "ti": "TI",
+      "rfPlan": "RF Planning",
+      "rfOpt": "RF Optimization",
+      "civil": "Civil",
+      "mw": "MW"
+    }
+  },
+  "contractors": {
+    "title": "Contractors",
+    "name": "Contractor Name",
+    "sites": "Sites",
+    "performance": "Performance"
+  },
+  "reports": {
+    "title": "Reports",
+    "subtitle": "Create and download reports",
+    "createNew": "Create New Report",
+    "previousReports": "Previous Reports",
+    "allTypes": "All Types",
+    "noReports": "No previous reports",
+    "generate": "Generate",
+    "export": "Export",
+    "download": "Download",
+    "generating": "Generating...",
+    "ready": "Ready",
+    "tssrProgress": {
+      "title": "TSSR Progress Report",
+      "description": "Track overall TSSR progress and status"
+    },
+    "pendingTssr": {
+      "title": "Pending TSSRs Report",
+      "description": "Export pending sites by department (5 files)"
+    },
+    "rejection": {
+      "title": "Rejection Report",
+      "description": "Sites with any rejected department status"
+    },
+    "table": {
+      "reportId": "Report ID",
+      "reportName": "Report Name",
+      "type": "Type",
+      "createdAt": "Created At",
+      "createdBy": "Created By",
+      "size": "Size",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "save": "Save"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "error": "Invalid username or password"
+  }
+}

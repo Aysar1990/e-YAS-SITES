@@ -1,0 +1,262 @@
+/**
+ * ChartPanel Styles
+ * Phase 7: Visualization
+ */
+
+/* Overlay */
+.chart-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Panel Container */
+.chart-panel {
+  background: #1F2937;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid #374151;
+  overflow: hidden;
+}
+
+/* Header */
+.chart-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+}
+
+.chart-panel-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #F9FAFB;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-panel-header .close-btn {
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.chart-panel-header .close-btn:hover {
+  background: #374151;
+  color: #F9FAFB;
+}
+
+/* Config Section */
+.chart-config {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+}
+
+.config-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.config-group label {
+  font-size: 12px;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+/* Chart Type Buttons */
+.chart-type-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.type-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #374151;
+  border: 1px solid #4B5563;
+  border-radius: 6px;
+  color: #D1D5DB;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+
+.type-btn:hover {
+  background: #4B5563;
+  border-color: #6B7280;
+}
+
+.type-btn.active {
+  background: #8FD9D9;
+  border-color: #8FD9D9;
+  color: #111827;
+}
+
+.type-btn .icon {
+  font-size: 16px;
+}
+
+/* Select Fields */
+.field-select {
+  padding: 8px 12px;
+  background: #374151;
+  border: 1px solid #4B5563;
+  border-radius: 6px;
+  color: #F9FAFB;
+  font-size: 13px;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.field-select:focus {
+  outline: none;
+  border-color: #8FD9D9;
+}
+
+.field-select.small {
+  min-width: 80px;
+}
+
+/* Stats Summary */
+.chart-stats {
+  display: flex;
+  gap: 24px;
+  padding: 12px 24px;
+  background: rgba(143, 217, 217, 0.1);
+  border-bottom: 1px solid #374151;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #8FD9D9;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #9CA3AF;
+}
+
+/* Chart Container */
+.chart-container {
+  flex: 1;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* No Data State */
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #6B7280;
+}
+
+.no-data-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.no-data p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Chart Tooltip */
+.chart-tooltip {
+  background: #1F2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-label {
+  font-size: 12px;
+  color: #9CA3AF;
+  margin: 0 0 4px 0;
+}
+
+.tooltip-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #8FD9D9;
+  margin: 0;
+}
+
+.tooltip-percent {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: normal;
+}
+
+/* Recharts Overrides */
+.recharts-legend-item-text {
+  color: #E5E7EB !important;
+}
+
+.recharts-default-legend {
+  margin-top: 16px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chart-panel {
+    width: 95%;
+    height: 90vh;
+  }
+
+  .chart-config {
+    flex-direction: column;
+  }
+
+  .chart-type-buttons {
+    flex-wrap: wrap;
+  }
+
+  .chart-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

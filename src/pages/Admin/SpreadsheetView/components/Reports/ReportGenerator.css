@@ -1,0 +1,385 @@
+/**
+ * ReportGenerator Styles
+ * Phase 7: Visualization
+ */
+
+/* Overlay */
+.report-panel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Panel Container */
+.report-panel {
+  background: #1F2937;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1100px;
+  height: 85vh;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid #374151;
+  overflow: hidden;
+}
+
+/* Header */
+.report-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+}
+
+.report-panel-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #F9FAFB;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-panel-header .close-btn {
+  background: none;
+  border: none;
+  color: #9CA3AF;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.report-panel-header .close-btn:hover {
+  background: #374151;
+  color: #F9FAFB;
+}
+
+/* Content Layout */
+.report-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Config Section */
+.report-config {
+  padding: 20px;
+  background: #111827;
+  border-left: 1px solid #374151;
+  overflow-y: auto;
+}
+
+.report-config h3 {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.config-group {
+  margin-bottom: 20px;
+}
+
+.config-group label {
+  display: block;
+  font-size: 12px;
+  color: #D1D5DB;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.config-select,
+.config-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #374151;
+  border: 1px solid #4B5563;
+  border-radius: 6px;
+  color: #F9FAFB;
+  font-size: 13px;
+}
+
+.config-select:focus,
+.config-input:focus {
+  outline: none;
+  border-color: #8FD9D9;
+}
+
+.config-select.small {
+  width: 100px;
+}
+
+.config-hint {
+  display: block;
+  font-size: 11px;
+  color: #6B7280;
+  margin-top: 4px;
+}
+
+/* Checkboxes */
+.config-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #D1D5DB;
+}
+
+.checkbox-label.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #8FD9D9;
+}
+
+/* Generate Button */
+.generate-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #8FD9D9, #6BB8B8);
+  border: none;
+  border-radius: 8px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  margin-top: 24px;
+}
+
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(143, 217, 217, 0.3);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #111827;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Preview Section */
+.report-preview-section {
+  padding: 20px;
+  overflow-y: auto;
+  background: #1F2937;
+}
+
+.report-preview-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Report Preview */
+.report-preview {
+  background: #FFF;
+  border-radius: 8px;
+  padding: 24px;
+  color: #111827;
+  min-height: 400px;
+}
+
+.preview-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #8FD9D9;
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 20px;
+  color: #111827;
+}
+
+.preview-date {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* Stats Preview */
+.preview-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+}
+
+.stat-card.total { background: #3B82F6; }
+.stat-card.approved { background: #22C55E; }
+.stat-card.pending { background: #EAB308; color: #111827; }
+.stat-card.rejected { background: #EF4444; }
+
+.stat-number {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* Table Preview Info */
+.preview-table-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #F3F4F6;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.table-icon {
+  font-size: 32px;
+}
+
+.table-details {
+  flex: 1;
+}
+
+.table-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+}
+
+.table-desc {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.table-desc .truncated {
+  color: #9CA3AF;
+}
+
+.table-columns {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  color: #6B7280;
+}
+
+/* Sample Table */
+.preview-sample-table {
+  overflow-x: auto;
+}
+
+.preview-sample-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.preview-sample-table th {
+  background: #8FD9D9;
+  color: #111827;
+  padding: 10px 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.preview-sample-table td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.preview-sample-table tr:nth-child(even) td {
+  background: #F9FAFB;
+}
+
+.preview-sample-table .more-rows td {
+  color: #6B7280;
+  font-style: italic;
+  background: #F3F4F6;
+}
+
+/* Footer Preview */
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid #E5E7EB;
+  font-size: 10px;
+  color: #9CA3AF;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .report-panel {
+    width: 95%;
+    height: 95vh;
+  }
+
+  .report-content {
+    grid-template-columns: 1fr;
+  }
+
+  .report-config {
+    border-left: none;
+    border-bottom: 1px solid #374151;
+  }
+
+  .preview-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

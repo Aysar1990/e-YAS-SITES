@@ -1,0 +1,214 @@
+/**
+ * Pagination Component Styles
+ * YAS Brand Colors: Turquoise (#8FD9D9) & Orange (#FF8566)
+ */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Items Per Page Selector */
+.pagination__per-page {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pagination__select {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+.pagination__select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #8FD9D9;
+}
+
+.pagination__select:focus {
+  outline: none;
+  border-color: #8FD9D9;
+  box-shadow: 0 0 0 3px rgba(143, 217, 217, 0.1);
+}
+
+.pagination__select option {
+  background: #1a1a2e;
+  color: white;
+}
+
+/* Info */
+.pagination__info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.pagination__info strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* Controls */
+.pagination__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.pagination__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination__btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-color: #8FD9D9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(143, 217, 217, 0.3);
+}
+
+.pagination__btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pagination__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Pages */
+.pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pagination__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination__page:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #8FD9D9;
+  transform: translateY(-2px);
+}
+
+.pagination__page--active {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-color: #8FD9D9;
+  box-shadow: 0 4px 12px rgba(143, 217, 217, 0.3);
+  pointer-events: none;
+}
+
+.pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .pagination__per-page,
+  .pagination__info {
+    justify-content: center;
+  }
+
+  .pagination__controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pagination__pages {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .pagination__select {
+  background-position: left 0.75rem center;
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+  .pagination {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Animations */
+@keyframes pagination-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pagination {
+  animation: pagination-fade-in 0.4s ease;
+}

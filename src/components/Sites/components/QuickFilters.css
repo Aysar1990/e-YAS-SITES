@@ -1,0 +1,248 @@
+/**
+ * QuickFilters Styles
+ * YAS Brand Colors with Glassmorphism
+ */
+
+.quick-filters {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem;
+  animation: filters-fade-in 0.3s ease;
+}
+
+/* Header */
+.quick-filters__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.quick-filters__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.quick-filters__icon {
+  font-size: 1.1rem;
+}
+
+.quick-filters__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 0.4rem;
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-radius: 10px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(143, 217, 217, 0.3);
+}
+
+.quick-filters__clear-all {
+  padding: 0.4rem 0.75rem;
+  background: rgba(255, 85, 102, 0.15);
+  border: 1px solid rgba(255, 85, 102, 0.3);
+  border-radius: 8px;
+  color: #FF8566;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-filters__clear-all:hover {
+  background: rgba(255, 85, 102, 0.25);
+  border-color: #FF8566;
+  transform: translateY(-2px);
+}
+
+/* Options */
+.quick-filters__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Individual Filter */
+.quick-filter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.quick-filter:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--filter-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quick-filter:active {
+  transform: translateY(-1px);
+}
+
+.quick-filter__icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.quick-filter:hover .quick-filter__icon {
+  transform: scale(1.15);
+}
+
+.quick-filter__label {
+  white-space: nowrap;
+}
+
+.quick-filter__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 0.25rem;
+  background: var(--filter-color);
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: check-pop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Active State */
+.quick-filter--active {
+  background: linear-gradient(
+    135deg,
+    var(--filter-color) 0%,
+    color-mix(in srgb, var(--filter-color) 80%, black) 100%
+  );
+  border-color: var(--filter-color);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--filter-color) 40%, transparent);
+}
+
+.quick-filter--active:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--filter-color) 50%, transparent);
+}
+
+/* Fallback for browsers without color-mix support */
+@supports not (background: color-mix(in srgb, red, blue)) {
+  .quick-filter--active {
+    background: var(--filter-color);
+  }
+}
+
+/* Animations */
+@keyframes filters-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes check-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .quick-filter__check {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quick-filters {
+    padding: 1rem;
+  }
+
+  .quick-filters__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .quick-filters__options {
+    gap: 0.5rem;
+  }
+
+  .quick-filter {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .quick-filter__icon {
+    font-size: 1rem;
+  }
+
+  .quick-filter__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .quick-filter__check {
+    width: 18px;
+    height: 18px;
+  }
+
+  .quick-filter__check svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-filter {
+    flex: 1 1 100%;
+  }
+}
+
+/* Dark Mode Enhancement */
+@media (prefers-color-scheme: dark) {
+  .quick-filters {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .quick-filter {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .quick-filter:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}

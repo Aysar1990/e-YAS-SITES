@@ -1,0 +1,575 @@
+# TASK: Refactor Large Files + Remove Code Duplication
+
+## TARGET
+C:\Users\aysar\Downloads\New folder (3)\New folder (3)\TSSR Monitor\tssr-app\src
+
+## OBJECTIVES
+1. Split files > 300 lines into smaller, maintainable components
+2. Detect and remove duplicate code
+3. Verify all features work after refactoring
+4. Maintain EXACT functionality (no breaking changes)
+
+---
+
+## PHASE 1: ANALYSIS (Day 1 - Read Only)
+
+### Step 1.1: Identify Files to Refactor
+List all files > 300 lines with analysis:
+```bash
+# For each file > 300 lines, document:
+- Current line count
+- Main responsibilities (what does it do?)
+- Dependencies (imports/exports)
+- Proposed split strategy
+```
+
+**Priority Order (Largest First):**
+1. SpreadsheetView.jsx (835 lines)
+2. Sites.jsx (805 lines)
+3. ImportPage.css (717 lines)
+4. Sites.css (693 lines)
+5. AdminDashboard.jsx (657 lines)
+... (continue for all 37 files > 400 lines)
+
+### Step 1.2: Code Duplication Detection
+Search for duplicate patterns across ALL files:
+
+**Common Duplication Patterns to Find:**
+```javascript
+// 1. Duplicate State Management
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+const [data, setData] = useState([]);
+
+// 2. Duplicate API Calls
+const fetchData = async () => {
+  setLoading(true);
+  try {
+    const response = await apiClient.get('/endpoint');
+    setData(response.data);
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
+// 3. Duplicate Styling Patterns (CSS)
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+// 4. Duplicate Event Handlers
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // validation logic
+  // submit logic
+};
+
+// 5. Duplicate Utility Functions
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString('ar-JO');
+};
+```
+
+**Create Duplication Report:**
+```
+duplication_report.md:
+- Pattern found in X files
+- Locations (file:line)
+- Proposed extraction (shared hook/util/component)
+- Estimated lines saved
+```
+
+---
+
+## PHASE 2: REFACTORING STRATEGY (Day 1-2)
+
+### Priority 1: SpreadsheetView.jsx (835 → 200 lines)
+
+**Current Structure Analysis:**
+```javascript
+// Read SpreadsheetView.jsx and identify sections:
+// - State management (lines X-Y)
+// - Grid configuration (lines A-B)
+// - Event handlers (lines C-D)
+// - Toolbar logic (lines E-F)
+// - Modal handlers (lines G-H)
+```
+
+**Proposed Split:**
+```
+SpreadsheetView/
+├── SpreadsheetView.jsx (200 lines)
+│   └── Main orchestrator, state management, composition
+│
+├── components/
+│   ├── Toolbar/
+│   │   ├── SpreadsheetToolbar.jsx (150 lines)
+│   │   │   └── All toolbar buttons, actions, menus
+│   │   └── ToolbarActions.jsx (80 lines)
+│   │       └── Individual action handlers
+│   │
+│   ├── Grid/
+│   │   ├── SpreadsheetGrid.jsx (200 lines)
+│   │   │   └── AG Grid component with config
+│   │   └── GridConfig.js (50 lines)
+│   │       └── Column definitions, default settings
+│   │
+│   └── Modals/
+│       ├── ModalManager.jsx (100 lines)
+│       │   └── Centralized modal state/rendering
+│       └── ExportModal.jsx (55 lines)
+│           └── Export dialog logic
+│
+└── hooks/
+    ├── useGridData.js (100 lines)
+    │   └── Data fetching, filtering, sorting
+    ├── useGridActions.js (85 lines)
+    │   └── CRUD operations, bulk actions
+    └── useModals.js (65 lines)
+        └── Modal open/close state management
+```
+
+**Implementation Steps:**
+1. Create new folder structure
+2. Extract hooks first (least risky)
+3. Extract components one by one
+4. Update imports in main file
+5. Test after each extraction
+6. Remove old code only when new code works
+
+---
+
+### Priority 2: Sites.jsx (805 → 200 lines)
+
+**Proposed Split:**
+```
+Sites/
+├── Sites.jsx (200 lines)
+│   └── Container component
+│
+├── components/
+│   ├── SitesGrid.jsx (250 lines)
+│   │   └── Table/grid display logic
+│   ├── SitesFilters.jsx (200 lines)
+│   │   └── All filter controls
+│   ├── SitesActions.jsx (150 lines)
+│   │   └── Bulk actions, exports
+│   └── SitesStats.jsx (55 lines)
+│       └── Statistics cards
+│
+└── hooks/
+    └── useSitesData.js (150 lines)
+        └── Data management, Firebase sync
+```
+
+---
+
+### Priority 3: CSS Files (Split Large CSS)
+
+**For each CSS > 300 lines:**
+```
+ImportPage.css (717 lines) → Split into:
+├── ImportPage.module.css (150 lines) - Base layout
+├── ImportForm.module.css (200 lines) - Form styles
+├── ImportPreview.module.css (180 lines) - Preview panel
+└── ImportStates.module.css (100 lines) - Loading/error states
+```
+
+**Use CSS Modules Pattern:**
+```javascript
+// Before
+import './ImportPage.css';
+
+// After
+import styles from './ImportPage.module.css';
+import formStyles from './ImportForm.module.css';
+
+<div className={styles.container}>
+  <form className={formStyles.form}>
+```
+
+---
+
+## PHASE 3: DUPLICATION REMOVAL (Day 2-3)
+
+### Step 3.1: Extract Shared Hooks
+
+**Create: `/src/hooks/shared/`**
+```javascript
+// useApiRequest.js - Replace duplicate API logic (Found in 15+ files)
+export const useApiRequest = (endpoint, options = {}) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const execute = async (params) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await apiClient.get(endpoint, { params });
+      setData(response.data);
+      return response.data;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { data, loading, error, execute };
+};
+
+// useFormValidation.js - Replace duplicate validation (Found in 10+ files)
+export const useFormValidation = (schema) => {
+  const [errors, setErrors] = useState({});
+  
+  const validate = (values) => {
+    const newErrors = {};
+    // validation logic
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  return { errors, validate };
+};
+
+// useLocalStorage.js - Replace duplicate localStorage logic (Found in 8+ files)
+export const useLocalStorage = (key, initialValue) => {
+  const [value, setValue] = useState(() => {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : initialValue;
+  });
+
+  const updateValue = (newValue) => {
+    setValue(newValue);
+    localStorage.setItem(key, JSON.stringify(newValue));
+  };
+
+  return [value, updateValue];
+};
+```
+
+### Step 3.2: Extract Shared Components
+
+**Create: `/src/components/shared/`**
+```javascript
+// LoadingSpinner.jsx - Replace 20+ duplicate spinners
+export const LoadingSpinner = ({ size = 'md', message }) => (
+  <div className="loading-container">
+    <div className={`spinner spinner-${size}`} />
+    {message && <p>{message}</p>}
+  </div>
+);
+
+// ErrorMessage.jsx - Replace 15+ duplicate error displays
+export const ErrorMessage = ({ error, onRetry }) => (
+  <div className="error-container">
+    <p className="error-text">{error}</p>
+    {onRetry && <button onClick={onRetry}>إعادة المحاولة</button>}
+  </div>
+);
+
+// ConfirmDialog.jsx - Replace 12+ duplicate confirm modals
+export const ConfirmDialog = ({ open, title, message, onConfirm, onCancel }) => {
+  // ... reusable confirmation dialog
+};
+```
+
+### Step 3.3: Extract Shared Utils
+
+**Create: `/src/utils/shared/`**
+```javascript
+// dateUtils.js - Replace duplicate date formatting (Found in 25+ files)
+export const formatDate = (date, locale = 'ar-JO') => {
+  return new Date(date).toLocaleDateString(locale);
+};
+
+export const formatDateTime = (date) => {
+  return new Date(date).toLocaleString('ar-JO');
+};
+
+// validators.js - Replace duplicate validation (Found in 18+ files)
+export const isValidEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+export const isValidPhone = (phone) => {
+  return /^07[7-9]\d{7}$/.test(phone); // Jordan format
+};
+
+// arrayUtils.js - Replace duplicate array operations
+export const groupBy = (array, key) => {
+  return array.reduce((result, item) => {
+    (result[item[key]] = result[item[key]] || []).push(item);
+    return result;
+  }, {});
+};
+```
+
+### Step 3.4: Extract Shared CSS
+
+**Create: `/src/styles/shared/`**
+```css
+/* mixins.css - Replace duplicate CSS patterns */
+.card-base {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button-base {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Import in components */
+@import '../../styles/shared/mixins.css';
+```
+
+---
+
+## PHASE 4: VERIFICATION (Day 3-4)
+
+### Step 4.1: Component Testing
+
+**For each refactored file, verify:**
+```javascript
+// Test Checklist Template
+/**
+ * FILE: SpreadsheetView.jsx
+ * 
+ * ORIGINAL FEATURES TO VERIFY:
+ * [ ] Grid loads data correctly
+ * [ ] Toolbar buttons work (Export, Filter, etc.)
+ * [ ] Cell editing saves to database
+ * [ ] Modal dialogs open/close
+ * [ ] Keyboard shortcuts work
+ * [ ] Search/filter functionality
+ * [ ] Sorting columns
+ * [ ] Pagination
+ * 
+ * TEST STEPS:
+ * 1. Load page → Check console for errors
+ * 2. Click each toolbar button → Verify action
+ * 3. Edit cell → Save → Verify in Firebase
+ * 4. Open/close each modal → Check UI
+ * 5. Use keyboard shortcuts (Ctrl+S, etc.)
+ * 6. Search for data → Verify results
+ * 7. Sort columns → Check ordering
+ * 8. Navigate pages → Check data loads
+ * 
+ * PASS/FAIL: ___
+ * NOTES: ___
+ */
+```
+
+### Step 4.2: Integration Testing
+
+**Test user workflows:**
+```
+Workflow 1: Import Excel File
+1. Navigate to Import page
+2. Select Excel file
+3. Map columns
+4. Preview data
+5. Import → Verify in Sites page
+
+Workflow 2: Edit Site via Spreadsheet
+1. Open SpreadsheetView
+2. Find site (use filter/search)
+3. Edit multiple cells
+4. Save changes
+5. Verify in Firebase console
+6. Check activity log
+
+Workflow 3: Bulk Operations
+1. Select multiple rows
+2. Bulk Edit → Change status
+3. Verify all rows updated
+4. Export to Excel
+5. Verify export data matches
+```
+
+### Step 4.3: Performance Testing
+```javascript
+// Before refactoring
+console.time('Page Load');
+// ... measure load time
+console.timeEnd('Page Load');
+// Expected: ~2-3 seconds
+
+// After refactoring
+// Should be ≤ same time or faster
+// If slower → investigate (lazy loading, code splitting)
+```
+
+---
+
+## PHASE 5: CLEANUP (Day 4)
+
+### Step 5.1: Remove Dead Code
+```bash
+# Search for unused imports
+# Search for commented code blocks
+# Remove old backup files (*.backup.jsx)
+# Remove console.logs added during debugging
+```
+
+### Step 5.2: Update Documentation
+```markdown
+# Create/Update:
+- Component README files
+- Updated import paths in documentation
+- New hooks documentation
+- Shared utilities guide
+```
+
+### Step 5.3: Final Review
+
+**Verify Metrics Improved:**
+```
+BEFORE:
+- Files > 300 lines: 71 files
+- Duplicate code instances: ~150
+- Average file size: 180 lines
+
+AFTER TARGET:
+- Files > 300 lines: <20 files
+- Duplicate code instances: <30
+- Average file size: <150 lines
+```
+
+---
+
+## IMPLEMENTATION RULES
+
+### ⚠️ CRITICAL SAFETY RULES
+
+1. **NEVER delete original file until new structure is verified working**
+```bash
+   # Keep backups:
+   SpreadsheetView.jsx.backup
+   # Only delete after full testing
+```
+
+2. **ONE component at a time**
+   - Extract → Test → Commit
+   - Don't refactor multiple files simultaneously
+
+3. **Preserve exact functionality**
+   - Same UI behavior
+   - Same data flow
+   - Same performance (or better)
+
+4. **Test after each change**
+```
+   Extract hook → npm run dev → Test → Commit
+   Extract component → npm run dev → Test → Commit
+```
+
+5. **Keep imports working**
+```javascript
+   // Update all imports when moving files
+   // Before
+   import { X } from './SpreadsheetView';
+   
+   // After
+   import { X } from './components/SpreadsheetGrid';
+```
+
+---
+
+## EXECUTION PLAN
+
+### Day 1: Analysis
+- [ ] List all files > 300 lines
+- [ ] Document current structure
+- [ ] Identify duplication patterns
+- [ ] Create refactoring plan
+
+### Day 2: Refactor Top 3 Files
+- [ ] SpreadsheetView.jsx (835 → 200)
+- [ ] Sites.jsx (805 → 200)
+- [ ] AdminDashboard.jsx (657 → 200)
+- [ ] Test each thoroughly
+
+### Day 3: Duplication Removal
+- [ ] Extract shared hooks (5-10 hooks)
+- [ ] Extract shared components (5-10 components)
+- [ ] Extract shared utils (10-15 functions)
+- [ ] Replace duplicates across codebase
+
+### Day 4: Remaining Files + Verification
+- [ ] Refactor CSS files > 300 lines
+- [ ] Refactor service files > 300 lines
+- [ ] Full integration testing
+- [ ] Performance verification
+- [ ] Documentation update
+
+---
+
+## OUTPUT REQUIREMENTS
+
+### Create Report: `REFACTORING_REPORT.md`
+```markdown
+# Refactoring Summary
+
+## Files Refactored: X
+- SpreadsheetView.jsx: 835 → 200 lines (635 saved)
+- Sites.jsx: 805 → 200 lines (605 saved)
+- ...
+
+## Duplication Removed: Y instances
+- useApiRequest hook: Replaced 15 duplicate implementations
+- formatDate util: Replaced 25 duplicate functions
+- ...
+
+## New Shared Code Created:
+- Hooks: 8 files
+- Components: 6 files
+- Utils: 12 files
+
+## Metrics:
+- Total lines removed: Z
+- Files > 300 lines: 71 → 18
+- Code duplication: 150 → 25 instances
+- Test coverage: Still 100% working
+
+## Breaking Changes: NONE
+All features verified working ✅
+```
+
+---
+
+## START COMMAND
+```bash
+# Begin analysis
+cd "C:\Users\aysar\Downloads\New folder (3)\New folder (3)\TSSR Monitor\tssr-app\src"
+
+# Phase 1: Analysis only (safe, read-only)
+# - List files > 300 lines
+# - Detect duplication patterns
+# - Create refactoring plan
+
+# DO NOT MODIFY CODE until plan is reviewed!
+```
+
+---
+
+**CRITICAL:** Start with **PHASE 1 ANALYSIS ONLY**. Present findings for review before any code modification.

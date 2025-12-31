@@ -1,0 +1,28 @@
+/* =============================================
+   AdminDashboard.css - Main Entry Point
+
+   This file imports all modular CSS files for the
+   Admin Dashboard. Each module handles specific
+   styling concerns for better maintainability.
+   ============================================= */
+
+/* Base styles - Layout, header, containers, typography */
+@import './styles/dashboard-base.css';
+
+/* Card styles - Stats cards, 3D cards, breakdowns */
+@import './styles/dashboard-cards.css';
+
+/* Overview styles - Tables, pivot tables, status badges */
+@import './styles/dashboard-overview.css';
+
+/* Chart styles - Progress bars, rate bars, visualizations */
+@import './styles/dashboard-charts.css';
+
+/* Department styles - Department cards, grids, rings */
+@import './styles/dashboard-department.css';
+
+/* Animations - All @keyframes and transitions */
+@import './styles/dashboard-animations.css';
+
+/* Responsive styles - All @media queries */
+@import './styles/dashboard-responsive.css';

@@ -1,0 +1,201 @@
+/**
+ * BrandLogo Component Styles
+ * e-YAS SITES branding with Logo3D integration
+ */
+
+/* =============================================
+   BRAND NAME - Colored text segments
+   ============================================= */
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.brand-name__prefix {
+  color: #FF8566;
+  text-shadow: 0 0 12px rgba(255, 133, 102, 0.6);
+}
+
+.brand-name__yas {
+  color: #8FD9D9;
+  text-shadow: 0 0 12px rgba(143, 217, 217, 0.6);
+}
+
+.brand-name__sites {
+  color: #F8FAFC;
+  text-shadow: 0 0 8px rgba(248, 250, 252, 0.3);
+}
+
+/* =============================================
+   TAGLINE
+   ============================================= */
+.brand-tagline {
+  color: #94A3B8;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* =============================================
+   DIVIDER - Gradient line
+   ============================================= */
+.brand-divider {
+  width: 100%;
+  max-width: 280px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #8FD9D9 0%,
+    #FF8566 100%
+  );
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.brand-footer {
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.brand-footer__enhanced {
+  color: #8FD9D9;
+}
+
+.brand-footer__separator {
+  color: #475569;
+}
+
+.brand-footer__powered {
+  color: #64748B;
+}
+
+/* =============================================
+   VARIANT: LOGIN - Large centered
+   ============================================= */
+.brand-logo--login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding: 40px;
+}
+
+.brand-logo--login .brand-name {
+  font-size: 48px;
+}
+
+.brand-logo--login .brand-tagline {
+  font-size: 16px;
+  max-width: 400px;
+}
+
+.brand-logo--login .brand-footer {
+  font-size: 14px;
+}
+
+/* =============================================
+   VARIANT: HEADER - Medium horizontal
+   ============================================= */
+.brand-logo--header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo--header .brand-name {
+  font-size: 24px;
+}
+
+.brand-logo--header .brand-tagline {
+  font-size: 11px;
+  margin-left: 8px;
+  opacity: 0.8;
+}
+
+/* =============================================
+   VARIANT: SIDEBAR - Small horizontal
+   ============================================= */
+.brand-logo--sidebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+.brand-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-logo--sidebar .brand-name {
+  font-size: 18px;
+}
+
+/* =============================================
+   VARIANT: MINIMAL - Just logo
+   ============================================= */
+.brand-logo--minimal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================= */
+@media (max-width: 768px) {
+  .brand-logo--login {
+    padding: 32px 20px;
+    gap: 20px;
+  }
+
+  .brand-logo--login .brand-name {
+    font-size: 36px;
+  }
+
+  .brand-logo--login .brand-tagline {
+    font-size: 14px;
+    max-width: 300px;
+  }
+
+  .brand-logo--login .brand-footer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo--login {
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .brand-logo--login .brand-name {
+    font-size: 28px;
+  }
+
+  .brand-logo--login .brand-tagline {
+    font-size: 12px;
+  }
+
+  .brand-logo--header .brand-name {
+    font-size: 20px;
+  }
+
+  .brand-logo--header .brand-tagline {
+    display: none;
+  }
+
+  .brand-logo--sidebar .brand-name {
+    font-size: 16px;
+  }
+}

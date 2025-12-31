@@ -1,0 +1,730 @@
+/**
+ * MapView Styles - e-YAS Glassmorphism Theme
+ */
+
+.map-view {
+  position: relative;
+  width: 100%;
+  height: 800px; /* Increased from 600px */
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(26, 26, 46, 0.95);
+  border: 1px solid rgba(143, 217, 217, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.map-view__container {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+/* Glass Theme Overlays */
+
+/* No Glass Effect */
+.map-view--none .map-view__container::after {
+  display: none;
+}
+
+/* Turquoise Glass Overlay */
+.map-view--turquoise .map-view__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(143, 217, 217, 0.35) 0%, rgba(143, 217, 217, 0.15) 100%);
+  pointer-events: none;
+  z-index: 400;
+  border-radius: 20px;
+  box-shadow: inset 0 0 100px rgba(143, 217, 217, 0.2);
+}
+
+/* Orange Glass Overlay */
+.map-view--orange .map-view__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 133, 102, 0.35) 0%, rgba(255, 133, 102, 0.15) 100%);
+  pointer-events: none;
+  z-index: 400;
+  border-radius: 20px;
+  box-shadow: inset 0 0 100px rgba(255, 133, 102, 0.2);
+}
+
+/* Map Controls */
+.map-controls-wrapper {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.map-controls {
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(143, 217, 217, 0.3);
+  border-radius: 16px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.map-control-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-control-btn:hover {
+  background: rgba(143, 217, 217, 0.2);
+  border-color: #8FD9D9;
+  transform: scale(1.05);
+}
+
+.map-control-btn--active {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-color: #8FD9D9;
+}
+
+/* Map Layers */
+.map-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-layers__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 0.25rem;
+}
+
+.map-layer-btn {
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.map-layer-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.map-layer-btn--active {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-color: #8FD9D9;
+  color: white;
+}
+
+/* Map Themes */
+.map-themes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-themes__title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 0.25rem;
+}
+
+.map-theme-btn {
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.map-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.map-theme-btn--turquoise:hover {
+  background: rgba(143, 217, 217, 0.2);
+  border-color: #8FD9D9;
+}
+
+.map-theme-btn--orange:hover {
+  background: rgba(255, 133, 102, 0.2);
+  border-color: #FF8566;
+}
+
+.map-theme-btn--active {
+  border-width: 2px;
+  font-weight: 700;
+}
+
+.map-theme-btn--turquoise.map-theme-btn--active {
+  background: linear-gradient(135deg, #8FD9D9 0%, #6bc5c5 100%);
+  border-color: #8FD9D9;
+  color: white;
+}
+
+.map-theme-btn--orange.map-theme-btn--active {
+  background: linear-gradient(135deg, #FF8566 0%, #ff6b47 100%);
+  border-color: #FF8566;
+  color: white;
+}
+
+/* Map Stats */
+.map-stats {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.map-stat {
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(143, 217, 217, 0.3);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.map-stat__value {
+  color: #8FD9D9;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.map-stat__label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Popup Styles */
+.map-popup {
+  min-width: 200px;
+}
+
+.map-popup__title {
+  color: #1a1a2e;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #8FD9D9;
+}
+
+.map-popup__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.map-popup__details p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #333;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.map-popup__details strong {
+  color: #1a1a2e;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+/* Custom Marker Icon */
+.custom-marker-icon {
+  background: none !important;
+  border: none !important;
+}
+
+/* Cluster Styles */
+.marker-cluster-small {
+  background-color: rgba(143, 217, 217, 0.3);
+}
+
+.marker-cluster-small div {
+  background-color: rgba(143, 217, 217, 0.8);
+  color: white;
+  font-weight: 700;
+}
+
+.marker-cluster-medium {
+  background-color: rgba(255, 133, 102, 0.3);
+}
+
+.marker-cluster-medium div {
+  background-color: rgba(255, 133, 102, 0.8);
+  color: white;
+  font-weight: 700;
+}
+
+.marker-cluster-large {
+  background-color: rgba(239, 68, 68, 0.3);
+}
+
+.marker-cluster-large div {
+  background-color: rgba(239, 68, 68, 0.8);
+  color: white;
+  font-weight: 700;
+}
+
+/* Leaflet Overrides */
+.leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(143, 217, 217, 0.3) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(26, 26, 46, 0.95) !important;
+  color: white !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(143, 217, 217, 0.2) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-view {
+    height: 400px;
+    border-radius: 16px;
+  }
+
+  .map-controls-wrapper {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .map-controls {
+    padding: 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .map-control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .map-layer-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .map-stats {
+    bottom: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .map-stat {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .map-stat__value {
+    font-size: 1.25rem;
+  }
+
+  .map-stat__label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Dark mode */
+.leaflet-tile-pane {
+  filter: brightness(0.95) contrast(1.1);
+}
+
+/* Tooltip Styling */
+.leaflet-tooltip {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 1px solid rgba(143, 217, 217, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px);
+}
+
+.leaflet-tooltip::before {
+  border-top-color: rgba(30, 41, 59, 0.95) !important;
+}
+
+.map-tooltip {
+  padding: 8px 12px;
+  min-width: 180px;
+}
+
+.map-tooltip__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(143, 217, 217, 0.1);
+}
+
+.map-tooltip__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.map-tooltip__row:first-child {
+  padding-top: 0;
+}
+
+.map-tooltip__row strong {
+  color: #8FD9D9;
+  margin-right: 8px;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+/* Hover effect on markers */
+.leaflet-marker-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  z-index: 1000 !important;
+}
+
+/* e-YAS Branding - Bottom Right (Transparent - No Background) */
+.map-branding {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  background: transparent; /* No background! */
+  backdrop-filter: none; /* No blur */
+  border: none; /* No border */
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  box-shadow: none; /* No shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 300px;
+}
+
+.map-branding__logo {
+  width: 90px; /* Reduced from 120px for smaller transparent logo */
+  height: auto;
+  object-fit: contain;
+  filter: 
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 8px rgba(255, 255, 255, 0.3)); /* Better visibility on any background */
+}
+
+.map-branding__tagline {
+  font-size: 0.75rem;
+  font-weight: 600; /* Bolder for better visibility */
+  color: #1e293b; /* Dark text for light backgrounds */
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.9), /* White glow for dark maps */
+    0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+
+/* ============================================
+   CYBER NEON THEME - Dark Turquoise + Glowing Orange
+   ============================================ */
+
+/* Cyber Theme - Dark turquoise overlay with subtle glow */
+.map-view--cyber .map-view__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 400;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 77, 77, 0.5) 0%,
+    rgba(0, 51, 51, 0.7) 50%,
+    rgba(0, 26, 26, 0.85) 100%
+  );
+  mix-blend-mode: multiply;
+  box-shadow: inset 0 0 200px rgba(143, 217, 217, 0.1);
+}
+
+/* Cyber Marker - Glowing Orange Dots */
+.custom-marker-icon-cyber {
+  background: transparent !important;
+  border: none !important;
+}
+
+.cyber-marker {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+/* Orange glowing core */
+.cyber-marker__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #FF8566;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 4px #FF8566,
+    0 0 8px #FF8566,
+    0 0 12px rgba(255, 133, 102, 0.8),
+    0 0 16px rgba(255, 133, 102, 0.6),
+    0 0 24px rgba(255, 133, 102, 0.4);
+  animation: pulse-cyber 2s ease-in-out infinite;
+}
+
+/* Outer glow ring */
+.cyber-marker__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 133, 102, 0.3) 0%,
+    rgba(255, 133, 102, 0.1) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Pulsing animation for core */
+@keyframes pulse-cyber {
+  0%, 100% {
+    box-shadow: 
+      0 0 4px #FF8566,
+      0 0 8px #FF8566,
+      0 0 12px rgba(255, 133, 102, 0.8),
+      0 0 16px rgba(255, 133, 102, 0.6),
+      0 0 24px rgba(255, 133, 102, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 0 8px #FF8566,
+      0 0 16px #FF8566,
+      0 0 24px rgba(255, 133, 102, 0.9),
+      0 0 32px rgba(255, 133, 102, 0.7),
+      0 0 48px rgba(255, 133, 102, 0.5);
+  }
+}
+
+/* Glow ring animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+/* Hover effect for cyber markers */
+.custom-marker-icon-cyber:hover .cyber-marker__core {
+  width: 12px;
+  height: 12px;
+  box-shadow: 
+    0 0 8px #FF8566,
+    0 0 16px #FF8566,
+    0 0 24px rgba(255, 133, 102, 1),
+    0 0 32px rgba(255, 133, 102, 0.8),
+    0 0 48px rgba(255, 133, 102, 0.6),
+    0 0 64px rgba(255, 133, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.custom-marker-icon-cyber:hover .cyber-marker__glow {
+  transform: translate(-50%, -50%) scale(2);
+  transition: all 0.3s ease;
+}
+
+/* Cyber Theme - Enhanced tooltip styling */
+.map-view--cyber .leaflet-tooltip {
+  background: rgba(0, 26, 26, 0.95) !important;
+  border: 1px solid rgba(143, 217, 217, 0.5) !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(143, 217, 217, 0.2) !important;
+}
+
+/* Cyber Theme - Branding adjustment (Transparent) */
+.map-view--cyber .map-branding {
+  background: transparent; /* No background for cyber theme too */
+  border: none;
+  box-shadow: none;
+}
+
+/* Cyber Theme - Tagline adjustment for dark background */
+.map-view--cyber .map-branding__tagline {
+  color: #cbd5e1; /* Light text for dark cyber background */
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(143, 217, 217, 0.4); /* Turquoise glow */
+}
+
+/* Cyber Theme - Stats panel adjustment */
+.map-view--cyber .map-stats {
+  background: rgba(0, 26, 26, 0.95);
+  border: 1px solid rgba(143, 217, 217, 0.4);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(143, 217, 217, 0.2);
+}
+
+/* Map controls theme button - Cyber variant */
+.map-theme-btn--cyber {
+  background: linear-gradient(135deg, rgba(0, 51, 51, 0.3), rgba(255, 133, 102, 0.2));
+  border: 1px solid rgba(143, 217, 217, 0.3);
+}
+
+.map-theme-btn--cyber:hover {
+  background: linear-gradient(135deg, rgba(0, 77, 77, 0.4), rgba(255, 133, 102, 0.3));
+  border-color: rgba(143, 217, 217, 0.5);
+  box-shadow: 0 0 15px rgba(143, 217, 217, 0.3);
+}
+
+.map-theme-btn--cyber.map-theme-btn--active {
+  background: linear-gradient(135deg, rgba(0, 77, 77, 0.6), rgba(255, 133, 102, 0.4));
+  border-color: rgba(143, 217, 217, 0.7);
+  box-shadow: 
+    0 0 20px rgba(143, 217, 217, 0.4),
+    inset 0 0 15px rgba(143, 217, 217, 0.2);
+}
+
+/* Responsive Design - Mobile Adjustments */
+@media (max-width: 768px) {
+  /* Smaller map height on mobile */
+  .map-view {
+    height: 500px;
+  }
+
+  /* Compact branding on mobile */
+  .map-branding {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1rem;
+    max-width: 200px;
+  }
+
+  .map-branding__logo {
+    width: 60px; /* Reduced from 80px for smaller logo */
+  }
+
+  .map-branding__tagline {
+    font-size: 0.65rem;
+  }
+
+  /* Adjust map controls for mobile */
+  .map-controls {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+
+  .map-control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .map-stats {
+    bottom: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .map-view {
+    height: 650px;
+  }
+
+  .map-branding {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .map-branding__logo {
+    width: 70px; /* Reduced from 100px for smaller logo */
+  }
+}

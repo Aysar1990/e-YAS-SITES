@@ -1,0 +1,313 @@
+/**
+ * Sites Page - Status-Specific Card Styling
+ */
+
+/* Approved - Turquoise Smoke */
+.priority-card.status-approved .priority-card__front,
+.priority-card.status-approved .priority-card__back {
+  border-color: rgba(143, 217, 217, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(143, 217, 217, 0.2),
+    0 0 30px rgba(143, 217, 217, 0.1);
+}
+
+.priority-card.status-approved:hover .priority-card__front,
+.priority-card.status-approved:hover .priority-card__back {
+  border-color: rgba(143, 217, 217, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(143, 217, 217, 0.35),
+    0 0 50px rgba(143, 217, 217, 0.2),
+    0 0 75px rgba(143, 217, 217, 0.1);
+}
+
+/* Under Zain Validation - Yellow Smoke */
+.priority-card.status-under-zain .priority-card__front,
+.priority-card.status-under-zain .priority-card__back {
+  border-color: rgba(234, 179, 8, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(234, 179, 8, 0.2),
+    0 0 30px rgba(234, 179, 8, 0.1);
+}
+
+.priority-card.status-under-zain:hover .priority-card__front,
+.priority-card.status-under-zain:hover .priority-card__back {
+  border-color: rgba(234, 179, 8, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(234, 179, 8, 0.35),
+    0 0 50px rgba(234, 179, 8, 0.2),
+    0 0 75px rgba(234, 179, 8, 0.1);
+}
+
+/* Under ROM Review - Orange Smoke */
+.priority-card.status-under-rom .priority-card__front,
+.priority-card.status-under-rom .priority-card__back {
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(249, 115, 22, 0.2),
+    0 0 30px rgba(249, 115, 22, 0.1);
+}
+
+.priority-card.status-under-rom:hover .priority-card__front,
+.priority-card.status-under-rom:hover .priority-card__back {
+  border-color: rgba(249, 115, 22, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(249, 115, 22, 0.35),
+    0 0 50px rgba(249, 115, 22, 0.2),
+    0 0 75px rgba(249, 115, 22, 0.1);
+}
+
+/* Under Nokia NPO Validation - Blue Smoke */
+.priority-card.status-under-nokia-npo .priority-card__front,
+.priority-card.status-under-nokia-npo .priority-card__back {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.2),
+    0 0 30px rgba(59, 130, 246, 0.1);
+}
+
+.priority-card.status-under-nokia-npo:hover .priority-card__front,
+.priority-card.status-under-nokia-npo:hover .priority-card__back {
+  border-color: rgba(59, 130, 246, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(59, 130, 246, 0.35),
+    0 0 50px rgba(59, 130, 246, 0.2),
+    0 0 75px rgba(59, 130, 246, 0.1);
+}
+
+/* Under Nokia ROM Validation - White/Light Smoke */
+.priority-card.status-under-nokia-rom .priority-card__front,
+.priority-card.status-under-nokia-rom .priority-card__back {
+  border-color: rgba(226, 232, 240, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(226, 232, 240, 0.15),
+    0 0 30px rgba(226, 232, 240, 0.08);
+}
+
+.priority-card.status-under-nokia-rom:hover .priority-card__front,
+.priority-card.status-under-nokia-rom:hover .priority-card__back {
+  border-color: rgba(226, 232, 240, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(226, 232, 240, 0.3),
+    0 0 50px rgba(226, 232, 240, 0.15),
+    0 0 75px rgba(226, 232, 240, 0.08);
+}
+
+/* Under Nokia GSD Validation - Indigo/Purple Smoke */
+.priority-card.status-under-nokia-gsd .priority-card__front,
+.priority-card.status-under-nokia-gsd .priority-card__back {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(139, 92, 246, 0.2),
+    0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+.priority-card.status-under-nokia-gsd:hover .priority-card__front,
+.priority-card.status-under-nokia-gsd:hover .priority-card__back {
+  border-color: rgba(139, 92, 246, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(139, 92, 246, 0.35),
+    0 0 50px rgba(139, 92, 246, 0.2),
+    0 0 75px rgba(139, 92, 246, 0.1);
+}
+
+/* Under Subcon Validation - Pink Smoke */
+.priority-card.status-under-subcon .priority-card__front,
+.priority-card.status-under-subcon .priority-card__back {
+  border-color: rgba(236, 72, 153, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(236, 72, 153, 0.2),
+    0 0 30px rgba(236, 72, 153, 0.1);
+}
+
+.priority-card.status-under-subcon:hover .priority-card__front,
+.priority-card.status-under-subcon:hover .priority-card__back {
+  border-color: rgba(236, 72, 153, 0.8);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(236, 72, 153, 0.35),
+    0 0 50px rgba(236, 72, 153, 0.2),
+    0 0 75px rgba(236, 72, 153, 0.1);
+}
+
+/* Site Not Surveyed - Gray Smoke */
+.priority-card.status-not-surveyed .priority-card__front,
+.priority-card.status-not-surveyed .priority-card__back {
+  border-color: rgba(107, 114, 128, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(107, 114, 128, 0.15),
+    0 0 30px rgba(107, 114, 128, 0.08);
+}
+
+.priority-card.status-not-surveyed:hover .priority-card__front,
+.priority-card.status-not-surveyed:hover .priority-card__back {
+  border-color: rgba(107, 114, 128, 0.7);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(107, 114, 128, 0.25),
+    0 0 50px rgba(107, 114, 128, 0.12);
+}
+
+/* Need Access - Red Smoke */
+.priority-card.status-need-access .priority-card__front,
+.priority-card.status-need-access .priority-card__back {
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(239, 68, 68, 0.25),
+    0 0 40px rgba(239, 68, 68, 0.12);
+  animation: smoke-pulse-red 2s ease-in-out infinite;
+}
+
+.priority-card.status-need-access:hover .priority-card__front,
+.priority-card.status-need-access:hover .priority-card__back {
+  border-color: rgba(239, 68, 68, 0.9);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(239, 68, 68, 0.4),
+    0 0 60px rgba(239, 68, 68, 0.2),
+    0 0 90px rgba(239, 68, 68, 0.1);
+}
+
+/* Rejection State */
+.priority-card.has-rejection .priority-card__front,
+.priority-card.has-rejection .priority-card__back {
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(239, 68, 68, 0.2);
+  animation: smoke-pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes smoke-pulse-red {
+  0%, 100% {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 0 15px rgba(239, 68, 68, 0.2),
+      0 0 30px rgba(239, 68, 68, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(239, 68, 68, 0.3),
+      0 0 40px rgba(239, 68, 68, 0.15);
+  }
+}
+
+/* Default Hover Effect */
+.priority-card:hover .priority-card__front,
+.priority-card:hover .priority-card__back {
+  border-color: rgba(var(--neon-rgb, 255, 133, 102), 0.6);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(var(--neon-rgb, 255, 133, 102), 0.25),
+    0 0 40px rgba(var(--neon-rgb, 255, 133, 102), 0.12);
+}
+
+/* ============================================
+   NEW SMOKE GLOW EFFECT SYSTEM
+   Using ::before pseudo-element and CSS variables
+   ============================================ */
+
+/* Base card setup for smoke effect */
+.priority-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smoke effect pseudo-element */
+.priority-card::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border-radius: 20px;
+  background: radial-gradient(
+    circle at center,
+    var(--card-glow-color, rgba(255, 133, 102, 0.4)) 0%,
+    transparent 70%
+  );
+  filter: blur(25px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover state increases smoke intensity */
+.priority-card:hover::before {
+  opacity: 0.5;
+}
+
+/* Status-specific glow colors using CSS variables */
+
+/* Approved - Turquoise */
+.priority-card.status-approved {
+  --card-glow-color: rgba(143, 217, 217, 0.6);
+}
+
+.priority-card.status-approved::before {
+  opacity: 0.3;
+}
+
+/* Under Zain - Yellow/Amber */
+.priority-card.status-under-zain {
+  --card-glow-color: rgba(251, 191, 36, 0.6);
+}
+
+/* Under ROM - Orange */
+.priority-card.status-under-rom {
+  --card-glow-color: rgba(255, 133, 102, 0.6);
+}
+
+/* Under Nokia NPO - Blue */
+.priority-card.status-under-nokia-npo {
+  --card-glow-color: rgba(96, 165, 250, 0.6);
+}
+
+/* Under Nokia GSD - Indigo/Purple */
+.priority-card.status-under-nokia-gsd {
+  --card-glow-color: rgba(129, 140, 248, 0.6);
+}
+
+/* Under Subcon - Pink */
+.priority-card.status-under-subcon {
+  --card-glow-color: rgba(244, 114, 182, 0.6);
+}
+
+/* Not Surveyed - Gray */
+.priority-card.status-not-surveyed {
+  --card-glow-color: rgba(107, 114, 128, 0.6);
+}
+
+/* Rejected - Red */
+.priority-card.status-rejected,
+.priority-card.has-rejection {
+  --card-glow-color: rgba(239, 68, 68, 0.6);
+}
+
+/* Pending - Yellow/Amber (same as Under Zain) */
+.priority-card.status-pending {
+  --card-glow-color: rgba(251, 191, 36, 0.6);
+}

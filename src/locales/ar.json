@@ -1,0 +1,178 @@
+{
+  "app": {
+    "name": "YAS TSSR Monitor",
+    "version": "v1.0.0"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "sites": "المواقع",
+    "contractors": "المقاولين",
+    "reports": "التقارير",
+    "settings": "الإعدادات",
+    "rejections": "المرفوضات",
+    "logout": "تسجيل الخروج"
+  },
+  "sync": {
+    "syncNow": "مزامنة الآن",
+    "records": "سجل تمت مزامنته",
+    "syncError": "خطأ في المزامنة",
+    "syncing": "جاري المزامنة...",
+    "lastSync": "آخر مزامنة"
+  },
+  "sites": {
+    "title": "إدارة المواقع",
+    "total": "إجمالي {{count}} موقع",
+    "searchPlaceholder": "بحث بالاسم أو الرقم أو الموقع...",
+    "allStatuses": "جميع الحالات",
+    "allPriorities": "جميع الأولويات",
+    "loading": "جاري تحميل المواقع...",
+    "noResults": "لا يوجد مواقع مطابقة للبحث",
+    "priority": "الأولوية",
+    "sitesCount": "{{count}} موقع"
+  },
+  "card": {
+    "name": "الاسم",
+    "contractor": "المقاول",
+    "location": "الموقع",
+    "priority": "الأولوية",
+    "status": "الحالة"
+  },
+  "status": {
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "pending": "قيد الانتظار",
+    "released": "تم الإصدار",
+    "underZainValidation": "تحت تحقق زين",
+    "underNokiaNPO": "تحت Nokia NPO",
+    "underNokiaROM": "تحت Nokia ROM",
+    "underNokiaGSD": "تحت Nokia GSD",
+    "underSubcon": "تحت المقاول",
+    "notSurveyed": "لم يتم المسح"
+  },
+  "departments": {
+    "ti": "TI",
+    "rf": "RF",
+    "op": "OP",
+    "cw": "CW",
+    "mw": "MW"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "totalSites": "إجمالي المواقع",
+    "approved": "معتمد",
+    "rejected": "مرفوض",
+    "pending": "قيد المراجعة",
+    "overview": "نظرة عامة على الحالة",
+    "recentActivity": "النشاط الأخير",
+    "byContractor": "حسب المقاول",
+    "byDepartment": "حسب القسم",
+    "surveyDone": "تم المسح",
+    "tssrSubmitted": "تم تقديم TSSR",
+    "rfi": "طلب معلومات",
+    "tssrReady": "TSSR جاهز",
+    "approvalRate": "نسبة الاعتماد",
+    "overviewByPartOf": "نظرة عامة على حالة TSSR حسب الفئة",
+    "partOf": {
+      "thinLayer": "طبقة رقيقة",
+      "fullSwap": "تبديل كامل",
+      "swapExisting": "تبديل للطبقة الرقيقة الموجودة",
+      "notSpecified": "غير محدد",
+      "total": "الإجمالي"
+    },
+    "statusLabels": {
+      "approved": "معتمد",
+      "rejected": "مرفوض",
+      "pending": "قيد الانتظار",
+      "underReview": "قيد المراجعة",
+      "submitted": "تم التقديم",
+      "notSubmitted": "لم يتم التقديم",
+      "rfi": "طلب معلومات",
+      "needAccess": "يحتاج وصول",
+      "onHold": "معلق",
+      "underZainValidation": "TSSR تحت تحقق زين",
+      "underRomReview": "TSSR تحت مراجعة ROM",
+      "underNokiaNpo": "TSSR تحت تحقق Nokia NPO",
+      "underNokiaRom": "TSSR تحت تحقق Nokia ROM",
+      "underNokiaGsd": "TSSR تحت تحقق Nokia GSD",
+      "underSubcon": "TSSR تحت تحقق المقاول",
+      "siteNotSurveyed": "الموقع لم يُمسح"
+    },
+    "deptLabels": {
+      "ti": "TI",
+      "rfPlan": "تخطيط RF",
+      "rfOpt": "تحسين RF",
+      "civil": "الأعمال المدنية",
+      "mw": "MW"
+    }
+  },
+  "contractors": {
+    "title": "المقاولين",
+    "name": "اسم المقاول",
+    "sites": "المواقع",
+    "performance": "الأداء"
+  },
+  "reports": {
+    "title": "التقارير",
+    "subtitle": "إنشاء وتحميل التقارير",
+    "createNew": "إنشاء تقرير جديد",
+    "previousReports": "التقارير السابقة",
+    "allTypes": "جميع الأنواع",
+    "noReports": "لا يوجد تقارير سابقة",
+    "generate": "إنشاء",
+    "export": "تصدير",
+    "download": "تحميل",
+    "generating": "جاري الإنشاء...",
+    "ready": "جاهز",
+    "tssrProgress": {
+      "title": "تقرير تقدم TSSR",
+      "description": "متابعة تقدم وحالة TSSR"
+    },
+    "pendingTssr": {
+      "title": "تقرير المواقع المعلقة",
+      "description": "تصدير المواقع المعلقة حسب القسم (5 ملفات)"
+    },
+    "rejection": {
+      "title": "تقرير المرفوضات",
+      "description": "المواقع التي فيها أي قسم مرفوض"
+    },
+    "table": {
+      "reportId": "رقم التقرير",
+      "reportName": "اسم التقرير",
+      "type": "النوع",
+      "createdAt": "تاريخ الإنشاء",
+      "createdBy": "أنشئ بواسطة",
+      "size": "الحجم",
+      "status": "الحالة",
+      "actions": "الإجراءات"
+    }
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "notifications": "الإشعارات",
+    "save": "حفظ"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "retry": "إعادة المحاولة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "view": "عرض",
+    "search": "بحث",
+    "filter": "تصفية",
+    "all": "الكل",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "submit": "دخول",
+    "error": "خطأ في اسم المستخدم أو كلمة المرور"
+  }
+}

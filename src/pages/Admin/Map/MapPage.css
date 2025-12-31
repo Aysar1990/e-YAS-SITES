@@ -1,0 +1,52 @@
+.map-page-container {
+    padding: 24px;
+    height: calc(100vh - 80px);
+    /* Adjust based on header height */
+    display: flex;
+    flex-direction: column;
+}
+
+.map-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.page-subtitle {
+    color: #94a3b8;
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+}
+
+.map-content {
+    flex-grow: 1;
+    min-height: 0;
+    /* Important for flex child scroll/sizing */
+}
+
+.phase-select {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #94a3b8;
+}

@@ -1,0 +1,217 @@
+# Unused Dependencies Analysis
+# e-YAS SITES (TSSR Monitor)
+# Generated: December 2025
+#
+# WARNING: DO NOT AUTO-DELETE - Manual verification required
+# Some dependencies may be used dynamically or planned for future features
+#
+# ================================================================
+
+## ANALYSIS SUMMARY
+## ================================================================
+
+Total dependencies in package.json: 45
+- Production dependencies: 44
+- Dev dependencies: 11
+
+Confirmed UNUSED: 10 dependencies
+Partially Used (docs only): 1 dependency
+Used (confirmed): 34 dependencies
+
+
+## UNUSED DEPENDENCIES (Safe to remove after verification)
+## ================================================================
+
+### 1. react-activity-feed (v1.4.0)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: Activity feed functionality not implemented
+
+### 2. three (v0.160.0)
+   Status: NOT USED DIRECTLY
+   Search Result: No direct imports found
+   Recommendation: KEEP (dependency of @react-three/fiber)
+   Notes: Required by @react-three packages
+
+### 3. @google/model-viewer (v4.1.0)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: 3D model viewing not implemented
+
+### 4. @dnd-kit/core (v6.3.1)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: Drag & drop functionality not implemented
+
+### 5. @dnd-kit/sortable (v10.0.0)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: Sortable lists not implemented
+
+### 6. react-is (v19.2.3)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: VERIFY - may be peer dependency
+   Notes: Could be required by other packages internally
+
+### 7. zustand (v4.4.7)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: State management uses Context API instead
+
+### 8. react-window (v2.2.3)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: Virtual scrolling handled by AG Grid instead
+
+### 9. framer-motion (v10.16.0)
+   Status: NOT USED
+   Search Result: No imports found in any .js/.jsx files
+   Recommendation: SAFE TO REMOVE
+   Notes: Animations not implemented
+
+### 10. date-fns (v2.30.0)
+    Status: NOT USED IN CODE
+    Search Result: Only found in documentation files
+    Recommendation: SAFE TO REMOVE
+    Notes: Date formatting done with native methods
+
+
+## PARTIALLY USED DEPENDENCIES
+## ================================================================
+
+### 1. react-mentions (v4.4.10)
+   Status: ONLY IN DOCS
+   Found In: docs/implementation-phases/PHASE_5_Collaboration.md
+   Recommendation: VERIFY - may be planned feature
+   Notes: @mentions feature may be planned but not implemented
+
+
+## CONFIRMED USED DEPENDENCIES
+## ================================================================
+
+### React Core
+- react (v18.2.0) - Core framework
+- react-dom (v18.2.0) - DOM rendering
+- react-router-dom (v6.20.0) - Routing (36+ files)
+
+### UI Components
+- ag-grid-community (v32.3.3) - SpreadsheetView.jsx
+- ag-grid-react (v32.3.3) - SpreadsheetView.jsx
+- react-hotkeys-hook (v5.2.1) - useShortcuts.js
+- react-swipeable (v7.0.2) - TouchControls.jsx
+- react-to-print (v3.2.0) - PrintPreview.jsx
+
+### Charts & Visualization
+- recharts (v3.6.0) - 8+ chart components
+- chart.js (v4.5.1) - KPI charts (5 files)
+- react-chartjs-2 (v5.3.1) - KPI charts (5 files)
+- react-sparklines (v1.7.0) - SparklineCell.jsx
+
+### Maps
+- leaflet (v1.9.4) - MapView.jsx, SiteMap.jsx
+- react-leaflet (v4.2.1) - MapView.jsx, SiteMap.jsx
+- react-leaflet-cluster (v4.0.0) - MapView.jsx
+
+### 3D Graphics
+- @react-three/drei (v9.96.0) - Logo3D.jsx
+- @react-three/fiber (v8.15.19) - Logo3D.jsx
+
+### Export & Reports
+- jspdf (v3.0.4) - ReportGenerator.jsx
+- jspdf-autotable (v5.0.2) - ReportGenerator.jsx
+- xlsx (v0.18.5) - excelReader.js, exportHandlers.js
+- xlsx-js-style (v1.2.0) - 5 export utility files
+- exceljs (v4.4.0) - reportGenerator.js
+
+### Database
+- @supabase/supabase-js (v2.89.0) - supabaseAdapter.js
+- sql.js (v1.10.0) - sqliteAdapter.js
+
+### Server
+- express (v5.2.1) - 9 route files
+- cors (v2.8.5) - apiServer.js
+- ws (v8.18.3) - websocketServer.js
+- bcryptjs (v3.0.3) - auth handlers (4 files)
+- jsonwebtoken (v9.0.3) - auth middleware (4 files)
+
+### Utilities
+- chokidar (v3.6.0) - excelWatcher.js, fileWatcher.js
+- node-cron (v3.0.3) - dataSync.js
+- i18next (v23.7.0) - Internationalization (2 files)
+- react-i18next (v13.5.0) - Translations (36+ files)
+
+
+## RECOMMENDATIONS
+## ================================================================
+
+### Safe to Remove (After Testing):
+1. react-activity-feed
+2. @google/model-viewer
+3. @dnd-kit/core
+4. @dnd-kit/sortable
+5. zustand
+6. react-window
+7. framer-motion
+8. date-fns
+
+### Keep (Dependencies):
+- three (required by @react-three)
+- react-is (may be peer dependency)
+
+### Verify Before Removing:
+- react-mentions (may be planned feature)
+
+
+## ESTIMATED SAVINGS
+## ================================================================
+
+Removing unused dependencies could save:
+- ~2-3 MB in node_modules
+- Faster npm install times
+- Smaller bundle size (if tree-shaking fails)
+
+
+## HOW TO REMOVE
+## ================================================================
+
+After verification, run:
+```bash
+npm uninstall react-activity-feed @google/model-viewer @dnd-kit/core @dnd-kit/sortable zustand react-window framer-motion date-fns
+```
+
+Or remove one at a time for safer cleanup:
+```bash
+npm uninstall react-activity-feed
+npm test  # Verify nothing breaks
+# Continue with next package...
+```
+
+
+## NOTES
+## ================================================================
+
+1. This analysis was performed by searching for import statements
+2. Some packages may be used via require() or dynamic imports
+3. Always test thoroughly after removing any dependency
+4. Keep backup of package.json before modifications
+5. Some unused packages may have been installed for future features
+
+
+## FILE REFERENCE
+## ================================================================
+
+Package.json location: ./package.json
+Analysis date: December 2025
+Total files scanned: 150+ .js/.jsx files
+Directories scanned: src/, electron/
+
+================================================================
+END OF ANALYSIS
+================================================================
