@@ -31,7 +31,7 @@ const getCloudApiUrl = () => {
 
   // Last resort fallback
   console.warn('[API Manager] No VITE_API_URL set, using default')
-  return 'https://tssr-monitor-api.onrender.com/api'
+  return 'https://e-yas-sites-api.onrender.com/api'
 }
 
 // Empty API - returns empty data instead of mock
