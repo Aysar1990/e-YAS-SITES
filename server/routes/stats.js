@@ -243,15 +243,19 @@ function calculateStats(sites) {
       else if (isSwapExist) surveySwapExist++;
     }
     
-    // TSSR Ready
-    const tssrReadyVal = (site.tssr_ready || '').toLowerCase();
-    if (tssrReadyVal === 'yes' || tssrReadyVal === 'ready' || tssrReadyVal === '1') {
+    // TSSR Ready - check multiple possible field values
+    const tssrReadyVal = (site.tssr_ready || '').toLowerCase().trim();
+    const spocReadiness = (site.spoc_readiness || '').toString().trim();
+    // TSSR is ready if tssr_ready is yes/ready/1 OR spoc_readiness is a number >= 5
+    const isReady = tssrReadyVal === 'yes' || tssrReadyVal === 'ready' || tssrReadyVal === '1' ||
+                    tssrReadyVal === 'true' || parseInt(spocReadiness) >= 5;
+    if (isReady) {
       tssrReady++;
       if (isThinLayer) readyThinLayer++;
       else if (isFullSwap) readyFullSwap++;
       else if (isSwapExist) readySwapExist++;
     }
-    
+
     // TSSR Submitted (under validation)
     if (statusLower.includes('validation') || statusLower.includes('review') || statusLower.includes('submitted')) {
       tssrSubmitted++;
@@ -259,7 +263,7 @@ function calculateStats(sites) {
       else if (isFullSwap) submittedFullSwap++;
       else if (isSwapExist) submittedSwapExist++;
     }
-    
+
     // Approved
     if (statusLower.includes('approved') || statusLower === 'complete' || statusLower === 'completed') {
       approved++;
@@ -274,10 +278,12 @@ function calculateStats(sites) {
     } else {
       pending++;
     }
-    
-    // RFI
-    const rfiStatus = (site.rfi_status || '').toLowerCase();
-    if (rfiStatus === 'yes' || rfiStatus === 'done' || rfiStatus === '1') {
+
+    // RFI - check for "RFI", "yes", "done", "1", or any non-empty truthy value
+    const rfiStatus = (site.rfi_status || '').toLowerCase().trim();
+    const isRfi = rfiStatus === 'rfi' || rfiStatus === 'yes' || rfiStatus === 'done' ||
+                  rfiStatus === '1' || rfiStatus === 'true' || rfiStatus === 'completed';
+    if (isRfi) {
       rfiCount++;
       if (isThinLayer) rfiThinLayer++;
       else if (isFullSwap) rfiFullSwap++;
@@ -332,6 +338,36 @@ function calculateStats(sites) {
     }
   });
 
+  // Transform departmentStats to flat structure for Dashboard compatibility
+  const flatDepartmentStats = {
+    // TI
+    ti_approved: departmentStats.TI.completed,
+    ti_rejected: 0, // No rejected in current calculation
+    ti_pending: departmentStats.TI.pending,
+    // RF Planning
+    rf_plan_approved: departmentStats['RF Planning'].completed,
+    rf_plan_rejected: 0,
+    rf_plan_pending: departmentStats['RF Planning'].pending,
+    // RF Optimization
+    rf_opt_approved: departmentStats['RF Optimization'].completed,
+    rf_opt_rejected: 0,
+    rf_opt_pending: departmentStats['RF Optimization'].pending,
+    // Civil
+    civil_approved: departmentStats.Civil.completed,
+    civil_rejected: 0,
+    civil_pending: departmentStats.Civil.pending,
+    // MW
+    mw_approved: departmentStats.MW.completed,
+    mw_rejected: 0,
+    mw_pending: departmentStats.MW.pending,
+    // Nokia NPO
+    nokia_npo_approved: departmentStats['Nokia NPO'].completed,
+    nokia_npo_rejected: 0,
+    nokia_npo_pending: departmentStats['Nokia NPO'].pending,
+    // Also include original structure for backward compatibility
+    ...departmentStats
+  };
+
   return {
     overviewStats: {
       total,
@@ -340,31 +376,40 @@ function calculateStats(sites) {
       pending,
       rejected,
       completionRate: total > 0 ? Math.round((completed / total) * 100) : 0,
-      // Dashboard specific fields
+      // Dashboard specific fields (both naming conventions for compatibility)
       survey_done_count: surveyDone,
+      survey_done: surveyDone,  // Alias for Dashboard
       tssr_ready_count: tssrReady,
       tssr_submitted: tssrSubmitted,
       approved_count: approved,
+      approved: approved,  // Alias for Dashboard
       rfi_count: rfiCount,
+      rfi: rfiCount,  // Alias for Dashboard
       // Part of breakdowns
       total_thin_layer: totalThinLayer,
       total_full_swap: totalFullSwap,
       total_swap_exist: totalSwapExist,
+      total_swap_existing: totalSwapExist,  // Alias
       survey_thin_layer: surveyThinLayer,
       survey_full_swap: surveyFullSwap,
       survey_swap_exist: surveySwapExist,
+      survey_swap_existing: surveySwapExist,  // Alias
       ready_thin_layer: readyThinLayer,
       ready_full_swap: readyFullSwap,
       ready_swap_exist: readySwapExist,
+      ready_swap_existing: readySwapExist,  // Alias
       submitted_thin_layer: submittedThinLayer,
       submitted_full_swap: submittedFullSwap,
       submitted_swap_exist: submittedSwapExist,
+      submitted_swap_existing: submittedSwapExist,  // Alias
       approved_thin_layer: approvedThinLayer,
       approved_full_swap: approvedFullSwap,
       approved_swap_exist: approvedSwapExist,
+      approved_swap_existing: approvedSwapExist,  // Alias
       rfi_thin_layer: rfiThinLayer,
       rfi_full_swap: rfiFullSwap,
-      rfi_swap_exist: rfiSwapExist
+      rfi_swap_exist: rfiSwapExist,
+      rfi_swap_existing: rfiSwapExist  // Alias
     },
     statusBreakdown: Object.entries(statusBreakdown).map(([status, count]) => ({
       status,
@@ -375,11 +420,15 @@ function calculateStats(sites) {
       part_of,
       count
     })),
-    departmentStats,
+    departmentStats: flatDepartmentStats,
     contractorsSummary: Object.entries(contractorStats).map(([name, stats]) => ({
       name,
+      contractor: name,  // Alias for Dashboard
       total: stats.total,
       completed: stats.completed,
+      approved: stats.completed,  // Alias for Dashboard
+      pending: stats.total - stats.completed,  // Calculate pending
+      rejected: 0,  // No rejected data
       completionRate: stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0
     })).sort((a, b) => b.total - a.total)
   };
