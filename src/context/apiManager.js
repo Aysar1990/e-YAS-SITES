@@ -6,6 +6,18 @@
 
 import ApiClient from '../services/apiClient'
 
+// Check if running in cloud mode
+const isCloudMode = () => {
+  return import.meta.env.VITE_API_URL || 
+         window.location.hostname.includes('vercel.app') ||
+         window.location.hostname.includes('netlify.app')
+}
+
+// Get cloud API URL
+const getCloudApiUrl = () => {
+  return import.meta.env.VITE_API_URL || 'https://e-yas-sites-api.onrender.com/api'
+}
+
 // Empty API - returns empty data instead of mock
 const emptyAPI = {
   getData: async () => ({ success: true, sites: [], count: 0 }),
@@ -34,7 +46,7 @@ const emptyAPI = {
 
 // Determine API source based on mode
 const getApi = () => {
-  // PRIORITY: If running in Electron, always use Electron API
+  // PRIORITY 1: If running in Electron, always use Electron API
   const isElectron = !!(window.electron)
   if (isElectron) {
     console.log('[API Manager] ✅ Using Electron mode (standalone)')
@@ -43,7 +55,14 @@ const getApi = () => {
     return window.electron
   }
 
-  // Client mode - connect to remote server
+  // PRIORITY 2: Cloud mode - connect to cloud API
+  if (isCloudMode()) {
+    const cloudUrl = getCloudApiUrl()
+    console.log('[API Manager] ✅ Using Cloud mode:', cloudUrl)
+    return new ApiClient(cloudUrl)
+  }
+
+  // PRIORITY 3: Client mode - connect to remote server
   const mode = localStorage.getItem('tssr_mode')
   const serverIP = localStorage.getItem('tssr_server_ip')
 
@@ -72,10 +91,13 @@ export const resetApiInstance = () => {
 }
 
 export const isClientMode = () => {
-  return localStorage.getItem('tssr_mode') === 'client'
+  return localStorage.getItem('tssr_mode') === 'client' || isCloudMode()
 }
 
 export const getServerIP = () => {
+  if (isCloudMode()) {
+    return getCloudApiUrl()
+  }
   return localStorage.getItem('tssr_server_ip')
 }
 
