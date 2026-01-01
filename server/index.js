@@ -213,20 +213,8 @@ app.get('/api/rejections', auth, async (req, res) => {
     const { phase, contractor } = req.query;
     const user = req.user;
 
-    // Build query - check for rejections in any department or overall status
-    let query = supabase
-      .from('sites')
-      .select('*')
-      .or([
-        'tssr_overall_status.ilike.%reject%',
-        'tssr_overall_status.ilike.%fail%',
-        'ti_status.ilike.%reject%',
-        'rf_plan_status.ilike.%reject%',
-        'rf_opt_status.ilike.%reject%',
-        'civil_status.ilike.%reject%',
-        'mw_status.ilike.%reject%',
-        'nokia_npo_status.ilike.%reject%'
-      ].join(','));
+    // First get sites for this contractor
+    let query = supabase.from('sites').select('*');
 
     if (phase && phase !== 'ALL') {
       query = query.eq('phase_name', phase);
@@ -239,13 +227,32 @@ app.get('/api/rejections', auth, async (req, res) => {
       query = query.eq('tssr_subcon', contractor);
     }
 
-    query = query.order('updated_at', { ascending: false }).limit(500);
+    query = query.order('updated_at', { ascending: false }).limit(1000);
 
     const { data, error } = await query;
 
     if (error) throw error;
 
-    res.json(data || []);
+    // Filter for rejections client-side (more reliable)
+    const rejectedSites = (data || []).filter(site => {
+      const checkRejected = (status) => {
+        if (!status) return false;
+        const s = status.toLowerCase();
+        return s.includes('reject') || s.includes('fail') || s.includes('rfi');
+      };
+
+      return (
+        checkRejected(site.tssr_overall_status) ||
+        checkRejected(site.ti_status) ||
+        checkRejected(site.rf_plan_status) ||
+        checkRejected(site.rf_opt_status) ||
+        checkRejected(site.civil_status) ||
+        checkRejected(site.mw_status) ||
+        checkRejected(site.nokia_npo_status)
+      );
+    });
+
+    res.json(rejectedSites);
   } catch (error) {
     console.error('Get rejections error:', error);
     res.status(500).json({ error: 'Failed to fetch rejections' });
