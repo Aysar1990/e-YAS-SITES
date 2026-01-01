@@ -54,7 +54,7 @@ export const getTableColumns = () => [
     minWidth: 120,
     render: (value) => {
       const status = String(value || '').toLowerCase()
-      const color = status.includes('approved') ? '#22c55e' :
+      const color = status.includes('approved') ? '#8FD9D9' :
                     status.includes('rejected') ? '#ef4444' :
                     status.includes('pending') || status.includes('review') ? '#eab308' : '#64748b'
       return (

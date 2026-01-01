@@ -20,10 +20,10 @@ function registerAuthHandlers(ipcMain, deps) {
   ipcMain.handle('login', async (event, { username, password }) => {
     try {
       // Get user by username only
-      const user = authQueries.getUserByUsername(username)
+      const user = await authQueries.getUserByUsername(username)
 
       if (!user || !user.is_active) {
-        logAction(null, username, 'LOGIN_FAILED', 'user', null, null, { reason: 'User not found or inactive' })
+        await logAction(null, username, 'LOGIN_FAILED', 'user', null, null, { reason: 'User not found or inactive' })
         return {
           success: false,
           error: 'Invalid credentials',
@@ -41,23 +41,23 @@ function registerAuthHandlers(ipcMain, deps) {
         if (passwordValid) {
           // Upgrade to bcrypt hash
           const hashedPassword = await bcrypt.hash(password, 10)
-          db.prepare('UPDATE users SET password = ? WHERE id = ?').run(hashedPassword, user.id)
+          await db.prepare('UPDATE users SET password = ? WHERE id = ?').run(hashedPassword, user.id)
           console.log(`[Security] Upgraded password hash for user: ${username}`)
         }
       }
 
       if (!passwordValid) {
-        logAction(null, username, 'LOGIN_FAILED', 'user', null, null, { reason: 'Invalid credentials' })
+        await logAction(null, username, 'LOGIN_FAILED', 'user', null, null, { reason: 'Invalid credentials' })
         return {
           success: false,
           error: 'Invalid credentials',
         }
       }
 
-      authQueries.logActivity(user.id, 'login', `User ${username} logged in`)
+      await authQueries.logActivity(user.id, 'login', `User ${username} logged in`)
 
       // Audit log for successful login
-      logAction(user.id, user.username, 'LOGIN', 'user', user.id, null, { role: user.role })
+      await logAction(user.id, user.username, 'LOGIN', 'user', user.id, null, { role: user.role })
 
       return {
         success: true,

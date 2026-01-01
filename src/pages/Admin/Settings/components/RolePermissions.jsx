@@ -12,7 +12,7 @@ const RolePermissions = ({
   const getRoleLabel = (role) => role.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
   
   const getPageLabel = (page) => {
-    const labels = { clearTssr: 'Clear TSSR', ghirbal: 'Ghirbal' }
+    const labels = {}
     return labels[page] || page.charAt(0).toUpperCase() + page.slice(1)
   }
 
@@ -55,7 +55,7 @@ const RolePermissions = ({
                     borderRadius: '6px',
                     cursor: 'pointer',
                     fontSize: '0.7rem',
-                    color: permissions[role][page] ? '#22c55e' : '#94a3b8',
+                    color: permissions[role][page] ? '#8FD9D9' : '#94a3b8',
                     transition: 'all 0.2s'
                   }}
                   onClick={() => onTogglePermission(role, page)}
@@ -64,8 +64,8 @@ const RolePermissions = ({
                     width: '12px',
                     height: '12px',
                     borderRadius: '3px',
-                    background: permissions[role][page] ? '#22c55e' : 'transparent',
-                    border: `1px solid ${permissions[role][page] ? '#22c55e' : '#64748b'}`,
+                    background: permissions[role][page] ? '#8FD9D9' : 'transparent',
+                    border: `1px solid ${permissions[role][page] ? '#8FD9D9' : '#64748b'}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',

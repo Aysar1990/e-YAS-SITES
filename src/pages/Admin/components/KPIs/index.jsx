@@ -29,7 +29,7 @@ const DashboardKPIs = () => {
                     title="Completed"
                     value={kpiData.cards.completed}
                     icon="✅"
-                    color="#10B981"
+                    color="#8FD9D9"
                     subValue="98%"
                     subLabel="target met"
                 />

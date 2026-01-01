@@ -26,10 +26,13 @@ function registerDataHandlers(ipcMain, deps) {
       console.log(`📥 get-data called: role=${role}, phase=${phase}`)
 
       if (role === 'contractor') {
-        sites = contractorsQueries.getContractorSites(contractorName, phase)
+        sites = await contractorsQueries.getContractorSites(contractorName, phase)
       } else {
-        sites = sitesQueries.getAllSites(phase)
+        sites = await sitesQueries.getAllSites(phase)
       }
+
+      // Ensure sites is an array
+      sites = Array.isArray(sites) ? sites : []
 
       console.log(`📤 get-data returning ${sites.length} sites for phase="${phase}"`)
 
@@ -53,40 +56,40 @@ function registerDataHandlers(ipcMain, deps) {
       console.log(`📊 get-stats called: role=${role}, phase=${phase}`)
 
       if (role === 'contractor') {
-        const statusStats = contractorsQueries.getContractorStats(contractorName, phase)
-        const deptStats = contractorsQueries.getContractorDepartmentStats(contractorName, phase)
-        const rejections = contractorsQueries.getSitesWithRejections(contractorName, phase)
+        const statusStats = await contractorsQueries.getContractorStats(contractorName, phase)
+        const deptStats = await contractorsQueries.getContractorDepartmentStats(contractorName, phase)
+        const rejections = await contractorsQueries.getSitesWithRejections(contractorName, phase)
 
         stats = {
-          statusBreakdown: statusStats,
-          departmentStats: deptStats,
-          rejectionsCount: rejections.length,
-          rejectedSites: rejections,
+          statusBreakdown: statusStats || [],
+          departmentStats: deptStats || {},
+          rejectionsCount: Array.isArray(rejections) ? rejections.length : 0,
+          rejectedSites: rejections || [],
         }
       } else {
-        const overallStats = sitesQueries.getOverallStats(phase)
-        const deptStats = sitesQueries.getDepartmentStats(phase)
-        const contractorsSummary = sitesQueries.getContractorsSummary(phase)
-        const governorateStats = sitesQueries.getGovernorateStats(phase)
-        const partOfStats = sitesQueries.getPartOfStats(phase)
-        const overviewStats = sitesQueries.getOverviewStats(phase)
+        const overallStats = await sitesQueries.getOverallStats(phase)
+        const deptStats = await sitesQueries.getDepartmentStats(phase)
+        const contractorsSummary = await sitesQueries.getContractorsSummary(phase)
+        const governorateStats = await sitesQueries.getGovernorateStats(phase)
+        const partOfStats = await sitesQueries.getPartOfStats(phase)
+        const overviewStats = await sitesQueries.getOverviewStats(phase)
+        const totalSites = await sitesQueries.getTotalCount(phase)
 
         stats = {
-          statusBreakdown: overallStats,
-          departmentStats: deptStats,
-          contractorsSummary,
-          governorateStats,
-          partOfStats,
-          overviewStats,
-          totalSites: sitesQueries.getTotalCount(phase),
+          statusBreakdown: overallStats || [],
+          departmentStats: deptStats || {},
+          contractorsSummary: contractorsSummary || [],
+          governorateStats: governorateStats || [],
+          partOfStats: partOfStats || [],
+          overviewStats: overviewStats || {},
+          totalSites: totalSites || 0,
         }
 
         // Debug: sum of statusBreakdown
-        const sumFromBreakdown = overallStats.reduce((sum, s) => sum + s.count, 0)
+        const sumFromBreakdown = Array.isArray(overallStats) ? overallStats.reduce((sum, s) => sum + (s.count || 0), 0) : 0
         console.log(`📊 get-stats results for phase="${phase}":`)
         console.log(`   - totalSites from getTotalCount: ${stats.totalSites}`)
         console.log(`   - sum from statusBreakdown: ${sumFromBreakdown}`)
-        console.log(`   - statusBreakdown:`, overallStats)
       }
 
       return {
@@ -104,12 +107,13 @@ function registerDataHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-phases', async () => {
     try {
-      const phases = sitesQueries.getPhases()
+      const phases = await sitesQueries.getPhases()
       return {
         success: true,
-        phases,
+        phases: phases || [],
       }
     } catch (error) {
+      console.error('Get phases error:', error)
       return {
         success: false,
         error: error.message,
@@ -120,8 +124,8 @@ function registerDataHandlers(ipcMain, deps) {
   // Get stats by Part Of category
   ipcMain.handle('get-stats-by-part-of', async (event, { phase }) => {
     try {
-      const stats = sitesQueries.getPartOfStats(phase)
-      return { success: true, stats }
+      const stats = await sitesQueries.getPartOfStats(phase)
+      return { success: true, stats: stats || [] }
     } catch (error) {
       console.error('Get stats by part of error:', error)
       return { success: false, error: error.message }
@@ -131,8 +135,8 @@ function registerDataHandlers(ipcMain, deps) {
   // Get overview table (pivot table)
   ipcMain.handle('get-overview-table', async (event, { phase }) => {
     try {
-      const table = sitesQueries.getOverviewTable(phase)
-      return { success: true, table }
+      const table = await sitesQueries.getOverviewTable(phase)
+      return { success: true, table: table || [] }
     } catch (error) {
       console.error('Get overview table error:', error)
       return { success: false, error: error.message }
@@ -142,8 +146,8 @@ function registerDataHandlers(ipcMain, deps) {
   // Get unique Part Of values
   ipcMain.handle('get-part-of-values', async (event, { phase }) => {
     try {
-      const values = sitesQueries.getPartOfValues(phase)
-      return { success: true, values }
+      const values = await sitesQueries.getPartOfValues(phase)
+      return { success: true, values: values || [] }
     } catch (error) {
       console.error('Get part of values error:', error)
       return { success: false, error: error.message }
@@ -153,8 +157,8 @@ function registerDataHandlers(ipcMain, deps) {
   // Debug endpoint
   ipcMain.handle('debug-phase-count', async () => {
     try {
-      const debug = sitesQueries.debugPhaseCount()
-      return { success: true, debug }
+      const debug = await sitesQueries.debugPhaseCount()
+      return { success: true, debug: debug || {} }
     } catch (error) {
       return { success: false, error: error.message }
     }
@@ -165,9 +169,10 @@ function registerDataHandlers(ipcMain, deps) {
     try {
       const phase = data?.phase || 'ALL'
       console.log('Getting contractor detailed stats for phase:', phase)
-      const contractors = sitesQueries.getContractorDetailedStats(phase)
-      console.log('Found contractors:', contractors.length)
-      return { success: true, contractors }
+      const contractors = await sitesQueries.getContractorDetailedStats(phase)
+      const contractorsArray = Array.isArray(contractors) ? contractors : []
+      console.log('Found contractors:', contractorsArray.length)
+      return { success: true, contractors: contractorsArray }
     } catch (error) {
       console.error('Get contractor detailed stats error:', error)
       return { success: false, error: error.message }
@@ -176,10 +181,10 @@ function registerDataHandlers(ipcMain, deps) {
 
   ipcMain.handle('search-sites', async (event, { query, phase }) => {
     try {
-      const sites = sitesQueries.searchSites(query, phase)
+      const sites = await sitesQueries.searchSites(query, phase)
       return {
         success: true,
-        sites,
+        sites: sites || [],
       }
     } catch (error) {
       return {
@@ -195,7 +200,7 @@ function registerDataHandlers(ipcMain, deps) {
       console.log(`📝 update-site: siteId=${siteId}, phase=${phaseName}`)
 
       // 1. Get current site state
-      const currentSite = sitesQueries.getSiteById(siteId, phaseName)
+      const currentSite = await sitesQueries.getSiteById(siteId, phaseName)
       if (!currentSite) {
         return { success: false, error: 'Site not found' }
       }
@@ -240,7 +245,7 @@ function registerDataHandlers(ipcMain, deps) {
       }
 
       // 5. Persist to database
-      const updatedSite = sitesQueries.updateSite(siteId, phaseName, finalUpdates)
+      const updatedSite = await sitesQueries.updateSite(siteId, phaseName, finalUpdates)
 
       if (!updatedSite) {
         return { success: false, error: 'Failed to update site' }

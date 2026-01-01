@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { useData } from '../../context/DataContext'
 import { useFirebaseData } from '../../hooks/useFirebaseData'
 import { MainLayout } from '../../components/Layout'
-import { Card, StatusBadge } from '../../components/UI'
+import { Card, StatusBadge, ErrorDisplay } from '../../components/UI'
 import DashboardKPIs, { KPISummaryCards, KPIAnalyticsGrid } from './components/KPIs'
 import { WorkflowCompact } from './components/Workflow'
 import ActivityWidget from './components/ActivityFeed/ActivityWidget'
@@ -28,6 +28,7 @@ const AdminDashboard = () => {
     activePhase,
     setActivePhase,
     loading: localLoading,
+    error: dataError,
     fetchData,
     fetchStatsByPartOf,
     fetchOverviewTable,
@@ -92,6 +93,15 @@ const AdminDashboard = () => {
   return (
     <MainLayout>
       <div className="dashboard">
+        {/* Error Display */}
+        {dataError && (
+          <ErrorDisplay
+            error={dataError}
+            title="Data Error"
+            onRetry={fetchData}
+          />
+        )}
+
         <div className="dashboard-header">
           <div>
             <h1 className="dashboard-title">{t('dashboard.title')}</h1>

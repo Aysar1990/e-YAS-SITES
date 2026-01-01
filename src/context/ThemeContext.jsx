@@ -25,10 +25,10 @@ const THEMES = {
       text: '#e2e8f0',
       textSecondary: '#94a3b8',
       textMuted: '#64748b',
-      success: '#22c55e',
+      success: '#8FD9D9',
       warning: '#f59e0b',
       error: '#ef4444',
-      info: '#3b82f6'
+      info: '#FF8566'
     }
   },
   yas: {
@@ -73,10 +73,10 @@ const THEMES = {
       text: '#1e293b',
       textSecondary: '#475569',
       textMuted: '#64748b',
-      success: '#16a34a',
+      success: '#6ECECE',
       warning: '#d97706',
       error: '#dc2626',
-      info: '#2563eb'
+      info: '#FF5533'
     }
   },
   custom: {
@@ -97,10 +97,10 @@ const THEMES = {
       text: '#e2e8f0',
       textSecondary: '#94a3b8',
       textMuted: '#64748b',
-      success: '#22c55e',
+      success: '#8FD9D9',
       warning: '#f59e0b',
       error: '#ef4444',
-      info: '#3b82f6'
+      info: '#FF8566'
     }
   }
 }

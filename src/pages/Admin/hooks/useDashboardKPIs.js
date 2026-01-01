@@ -157,7 +157,7 @@ export const useDashboardKPIs = () => {
                     labels: statusLabels,
                     datasets: statusLabels.length > 0 ? [{
                         data: statusValues,
-                        backgroundColor: ['#8FD9D9', '#FBBF24', '#FF8566', '#EF4444', '#6B7280', '#10B981', '#3B82F6', '#8B5CF6'],
+                        backgroundColor: ['#8FD9D9', '#FBBF24', '#FF8566', '#EF4444', '#6B7280', '#8FD9D9', '#FF8566', '#8B5CF6'],
                         borderWidth: 0
                     }] : []
                 },

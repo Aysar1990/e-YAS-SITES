@@ -22,7 +22,7 @@
 .saved-views-trigger:hover,
 .saved-views-trigger:focus {
     background: rgba(59, 130, 246, 0.2);
-    border-color: #3b82f6;
+    border-color: #FF8566;
     color: #fff;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .save-input-group input:focus {
-    border-color: #3b82f6;
+    border-color: #FF8566;
 }
 
 .btn-confirm-save,
@@ -111,7 +111,7 @@
 }
 
 .btn-confirm-save {
-    background: #22c55e;
+    background: #8FD9D9;
     color: white;
 }
 

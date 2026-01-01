@@ -19,7 +19,7 @@ function registerAuditHandlers(ipcMain, deps) {
     try {
       const { user_id, username, action, entity_type, entity_id, old_value, new_value, ip_address, user_agent } = data
 
-      logAction(user_id, username, action, entity_type, entity_id, old_value, new_value, ip_address, user_agent)
+      await logAction(user_id, username, action, entity_type, entity_id, old_value, new_value, ip_address, user_agent)
 
       return { success: true }
     } catch (error) {
@@ -64,7 +64,7 @@ function registerAuditHandlers(ipcMain, deps) {
       query += ' ORDER BY created_at DESC LIMIT ? OFFSET ?'
       params.push(limit, offset)
 
-      const logs = db.prepare(query).all(...params)
+      const logs = await db.prepare(query).all(...params)
 
       // Get total count for pagination
       let countQuery = 'SELECT COUNT(*) as total FROM audit_logs WHERE 1=1'
@@ -91,11 +91,11 @@ function registerAuditHandlers(ipcMain, deps) {
         countParams.push(endDate)
       }
 
-      const totalResult = db.prepare(countQuery).get(...countParams)
+      const totalResult = await db.prepare(countQuery).get(...countParams)
 
       return {
         success: true,
-        logs,
+        logs: logs || [],
         total: totalResult?.total || 0,
         limit,
         offset
@@ -113,13 +113,13 @@ function registerAuditHandlers(ipcMain, deps) {
       cutoffDate.setDate(cutoffDate.getDate() - olderThanDays)
       const cutoffDateStr = cutoffDate.toISOString()
 
-      const result = db.prepare('DELETE FROM audit_logs WHERE created_at < ?').run(cutoffDateStr)
+      const result = await db.prepare('DELETE FROM audit_logs WHERE created_at < ?').run(cutoffDateStr)
 
-      console.log(`🗑️ Cleared ${result.changes} audit logs older than ${olderThanDays} days`)
+      console.log(`🗑️ Cleared ${result?.changes || 0} audit logs older than ${olderThanDays} days`)
 
       return {
         success: true,
-        deletedCount: result.changes
+        deletedCount: result?.changes || 0
       }
     } catch (error) {
       console.error('Clear audit logs error:', error)
@@ -130,10 +130,10 @@ function registerAuditHandlers(ipcMain, deps) {
   // Get unique action types (for filters)
   ipcMain.handle('get-audit-action-types', async () => {
     try {
-      const actions = db.prepare('SELECT DISTINCT action FROM audit_logs ORDER BY action').all()
+      const actions = await db.prepare('SELECT DISTINCT action FROM audit_logs ORDER BY action').all()
       return {
         success: true,
-        actions: actions.map(a => a.action)
+        actions: Array.isArray(actions) ? actions.map(a => a.action) : []
       }
     } catch (error) {
       console.error('Get audit action types error:', error)

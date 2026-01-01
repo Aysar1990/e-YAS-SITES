@@ -470,6 +470,7 @@ class ExcelReader {
         clusterOwnerCivil: row['Cluster Owner (Civil)'] || '',
 
         mwStatus: row['MW Status'] || '',
+        mwComment: row['MW Comment'] || '',
         clusterOwnerMw: row['Cluster Owner (MW)'] || '',
 
         nokiaNpoStatus: row['NoKia NPO status'] || row['Nokia NPO Status'] || row['Nokia NPO status'] || '',

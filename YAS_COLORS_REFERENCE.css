@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════════════════
+   YAS BRAND COLORS - مرجع سريع
+   تحديث: 2026-01-01
+   ═══════════════════════════════════════════════════════════ */
+
+/**
+ * الألوان الأساسية - YAS Brand
+ * استخدم هذه الألوان فقط في جميع أنحاء المشروع
+ */
+
+/* ────────────────────────────────────────────────────────── */
+/*  PRIMARY - Turquoise (اللون الأساسي)                      */
+/* ────────────────────────────────────────────────────────── */
+
+--yas-primary: #8FD9D9;           /* Turquoise - الأساسي */
+--yas-primary-hover: #6ECECE;     /* Hover state */
+--yas-primary-dark: #4DB8B8;      /* Active/pressed */
+--yas-primary-light: rgba(143, 217, 217, 0.1);  /* Backgrounds */
+
+/* استخدامات:
+   - Primary buttons
+   - Links
+   - Success states
+   - Approved status
+   - Main highlights
+*/
+
+
+/* ────────────────────────────────────────────────────────── */
+/*  SECONDARY - Orange (اللون الثانوي)                       */
+/* ────────────────────────────────────────────────────────── */
+
+--yas-secondary: #FF8566;         /* Orange - الثانوي */
+--yas-secondary-hover: #FF5533;   /* Hover state */
+--yas-secondary-dark: #FF5533;    /* Active/pressed */
+--yas-secondary-light: rgba(255, 133, 102, 0.1);  /* Backgrounds */
+
+/* استخدامات:
+   - Secondary buttons
+   - Accents
+   - Highlights
+   - Call-to-action
+   - Warning states
+*/
+
+
+/* ────────────────────────────────────────────────────────── */
+/*  STATUS COLORS - حالات النظام                             */
+/* ────────────────────────────────────────────────────────── */
+
+--status-approved: #8FD9D9;       /* ✅ Approved - Turquoise */
+--status-rejected: #EF4444;       /* ❌ Rejected - Red */
+--status-pending: #FBBF24;        /* ⏳ Pending - Yellow */
+--status-under-zain: #FBBF24;     /* Under Zain - Yellow */
+--status-under-rom: #FF8566;      /* Under ROM - Orange */
+
+
+/* ────────────────────────────────────────────────────────── */
+/*  ممنوع استخدام هذه الألوان                                */
+/* ────────────────────────────────────────────────────────── */
+
+/* 🚫 DEPRECATED - لا تستخدم */
+/* #10b981  → استخدم #8FD9D9 بدلاً */
+/* #22c55e  → استخدم #8FD9D9 بدلاً */
+/* #3b82f6  → استخدم #FF8566 بدلاً */
+/* #0ea5e9  → استخدم #FF8566 بدلاً */
+/* #a855f7  → استخدم #8FD9D9 بدلاً */
+
+
+/* ────────────────────────────────────────────────────────── */
+/*  أمثلة الاستخدام                                          */
+/* ────────────────────────────────────────────────────────── */
+
+/* ✅ صحيح */
+.button-primary {
+  background: #8FD9D9;
+  color: #0F172A;
+}
+
+.button-secondary {
+  background: #FF8566;
+  color: #ffffff;
+}
+
+.status-badge.approved {
+  background: rgba(143, 217, 217, 0.15);
+  color: #8FD9D9;
+  border: 1px solid rgba(143, 217, 217, 0.3);
+}
+
+/* ❌ خطأ - لا تستخدم */
+.button-old {
+  background: #10b981;  /* ❌ لون قديم */
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   نهاية المرجع
+   ═══════════════════════════════════════════════════════════ */

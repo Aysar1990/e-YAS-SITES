@@ -62,7 +62,7 @@ function registerUserHandlers(ipcMain, deps) {
 
   ipcMain.handle('update-password', async (event, { username, newPassword }) => {
     try {
-      authQueries.updatePassword(username, newPassword)
+      await authQueries.updatePassword(username, newPassword)
       return { success: true }
     } catch (error) {
       return {
@@ -74,13 +74,13 @@ function registerUserHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-contractors', async () => {
     try {
-      const contractors = authQueries.getAllContractors()
-      const uniqueFromSites = contractorsQueries.getUniqueContractors()
+      const contractors = await authQueries.getAllContractors()
+      const uniqueFromSites = await contractorsQueries.getUniqueContractors()
 
       return {
         success: true,
-        contractors,
-        uniqueFromSites,
+        contractors: contractors || [],
+        uniqueFromSites: uniqueFromSites || [],
       }
     } catch (error) {
       return {
@@ -93,10 +93,10 @@ function registerUserHandlers(ipcMain, deps) {
   ipcMain.handle('update-contractor', async (event, { id, isActive, password }) => {
     try {
       if (isActive !== undefined) {
-        authQueries.updateContractorStatus(id, isActive ? 1 : 0)
+        await authQueries.updateContractorStatus(id, isActive ? 1 : 0)
       }
       if (password) {
-        authQueries.updateContractorPassword(id, password)
+        await authQueries.updateContractorPassword(id, password)
       }
       return { success: true }
     } catch (error) {
@@ -109,7 +109,7 @@ function registerUserHandlers(ipcMain, deps) {
 
   ipcMain.handle('create-contractor', async (event, { username, password, contractorName }) => {
     try {
-      authQueries.createUser(username, password, 'contractor', contractorName)
+      await authQueries.createUser(username, password, 'contractor', contractorName)
       return { success: true }
     } catch (error) {
       return {
@@ -121,7 +121,7 @@ function registerUserHandlers(ipcMain, deps) {
 
   ipcMain.handle('delete-contractor', async (event, { id }) => {
     try {
-      authQueries.deleteUser(id)
+      await authQueries.deleteUser(id)
       return { success: true }
     } catch (error) {
       return {
@@ -140,19 +140,19 @@ function registerUserHandlers(ipcMain, deps) {
       // If Supabase fails or returns empty (offline?), fall back to local DB
       if (!users || users.length === 0) {
         console.log('[UserHandlers] Fetching users from local DB (offline/fallback)')
-        users = authQueries.getAllUsersWithDetails()
+        users = await authQueries.getAllUsersWithDetails()
       }
 
       return {
         success: true,
-        users,
+        users: users || [],
       }
     } catch (error) {
       console.error('Get users error:', error)
       // Fallback to local DB on error
       try {
-        const users = authQueries.getAllUsersWithDetails()
-        return { success: true, users }
+        const users = await authQueries.getAllUsersWithDetails()
+        return { success: true, users: users || [] }
       } catch (localError) {
         return {
           success: false,
@@ -189,7 +189,7 @@ function registerUserHandlers(ipcMain, deps) {
 
       // 1. Save to Local DB (Backup & Constraints check)
       try {
-        authQueries.createUserFull(username, hashedPassword, role, contractorName)
+        await authQueries.createUserFull(username, hashedPassword, role, contractorName)
       } catch (dbError) {
         if (dbError.message.includes('UNIQUE constraint failed')) {
           return { success: false, error: 'Username already exists' }
@@ -198,7 +198,7 @@ function registerUserHandlers(ipcMain, deps) {
       }
 
       // Get the newly created user's ID
-      const newUser = db.prepare('SELECT id FROM users WHERE username = ?').get(username)
+      const newUser = await db.prepare('SELECT id FROM users WHERE username = ?').get(username)
 
       // 2. Save to Supabase (Cloud Sync)
       const supabaseResult = await saveUserToSupabase({
@@ -214,15 +214,17 @@ function registerUserHandlers(ipcMain, deps) {
       }
 
       // Audit log for user creation
-      logAction(
-        performedBy?.id || null,
-        performedBy?.username || 'system',
-        'CREATE_USER',
-        'user',
-        newUser?.id?.toString(),
-        null,
-        { username, role, contractor_name: contractorName }
-      )
+      if (logAction) {
+        await logAction(
+          performedBy?.id || null,
+          performedBy?.username || 'system',
+          'CREATE_USER',
+          'user',
+          newUser?.id?.toString(),
+          null,
+          { username, role, contractor_name: contractorName }
+        )
+      }
 
       return { success: true }
     } catch (error) {
@@ -237,10 +239,10 @@ function registerUserHandlers(ipcMain, deps) {
   ipcMain.handle('update-user', async (event, { id, updates, performedBy }) => {
     try {
       // Get old user data for audit
-      const oldUser = db.prepare('SELECT id, username, role, contractor_name FROM users WHERE id = ?').get(id)
+      const oldUser = await db.prepare('SELECT id, username, role, contractor_name FROM users WHERE id = ?').get(id)
 
       // 1. Update Local DB
-      authQueries.updateUser(id, updates)
+      await authQueries.updateUser(id, updates)
 
       // 2. Update Supabase (Cloud Sync)
       if (oldUser && oldUser.username) {
@@ -251,15 +253,17 @@ function registerUserHandlers(ipcMain, deps) {
       }
 
       // Audit log for user update
-      logAction(
-        performedBy?.id || null,
-        performedBy?.username || 'system',
-        'UPDATE_USER',
-        'user',
-        id?.toString(),
-        oldUser,
-        updates
-      )
+      if (logAction) {
+        await logAction(
+          performedBy?.id || null,
+          performedBy?.username || 'system',
+          'UPDATE_USER',
+          'user',
+          id?.toString(),
+          oldUser,
+          updates
+        )
+      }
 
       return { success: true }
     } catch (error) {
@@ -274,10 +278,10 @@ function registerUserHandlers(ipcMain, deps) {
   ipcMain.handle('delete-user', async (event, { id, performedBy }) => {
     try {
       // Get user data before deletion for audit
-      const deletedUser = db.prepare('SELECT id, username, role, contractor_name FROM users WHERE id = ?').get(id)
+      const deletedUser = await db.prepare('SELECT id, username, role, contractor_name FROM users WHERE id = ?').get(id)
 
       // 1. Delete from Local DB
-      authQueries.deleteUserById(id)
+      await authQueries.deleteUserById(id)
 
       // 2. Delete from Supabase (Cloud Sync)
       if (deletedUser && deletedUser.username) {
@@ -285,15 +289,17 @@ function registerUserHandlers(ipcMain, deps) {
       }
 
       // Audit log for user deletion
-      logAction(
-        performedBy?.id || null,
-        performedBy?.username || 'system',
-        'DELETE_USER',
-        'user',
-        id?.toString(),
-        deletedUser,
-        null
-      )
+      if (logAction) {
+        await logAction(
+          performedBy?.id || null,
+          performedBy?.username || 'system',
+          'DELETE_USER',
+          'user',
+          id?.toString(),
+          deletedUser,
+          null
+        )
+      }
 
       return { success: true }
     } catch (error) {
@@ -308,10 +314,10 @@ function registerUserHandlers(ipcMain, deps) {
   // Role Permissions
   ipcMain.handle('get-role-permissions', async () => {
     try {
-      const permissions = authQueries.getRolePermissions()
+      const permissions = await authQueries.getRolePermissions()
       return {
         success: true,
-        permissions,
+        permissions: permissions || [],
       }
     } catch (error) {
       console.error('Get role permissions error:', error)
@@ -324,7 +330,7 @@ function registerUserHandlers(ipcMain, deps) {
 
   ipcMain.handle('update-role-permissions', async (event, { role, permissions }) => {
     try {
-      authQueries.updateRolePermissions(role, permissions)
+      await authQueries.updateRolePermissions(role, permissions)
       return { success: true }
     } catch (error) {
       console.error('Update role permissions error:', error)
@@ -338,10 +344,10 @@ function registerUserHandlers(ipcMain, deps) {
   // Contractors List from Sites
   ipcMain.handle('get-unique-contractors-from-sites', async (event, phase) => {
     try {
-      // Get unique contractors from sites_cache
+      // Get unique contractors from sites table
       let query = `
         SELECT DISTINCT tssr_subcon as name
-        FROM sites_cache
+        FROM sites
         WHERE tssr_subcon IS NOT NULL AND tssr_subcon != ''
       `
       const params = []
@@ -353,11 +359,11 @@ function registerUserHandlers(ipcMain, deps) {
 
       query += ' ORDER BY tssr_subcon ASC'
 
-      const contractors = db.prepare(query).all(...params)
+      const contractors = await db.prepare(query).all(...params)
 
       return {
         success: true,
-        contractors: contractors.map(c => c.name),
+        contractors: Array.isArray(contractors) ? contractors.map(c => c.name) : [],
       }
     } catch (error) {
       console.error('Get unique contractors error:', error)

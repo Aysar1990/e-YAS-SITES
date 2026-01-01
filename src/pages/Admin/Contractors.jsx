@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useData } from '../../context/DataContext'
 import { MainLayout } from '../../components/Layout'
@@ -7,15 +7,15 @@ import './Contractors.css'
 
 // Workflow stages from first to last
 const WORKFLOW_STAGES = [
-  { key: 'Site not Surveyed', label: 'Not Surveyed', color: '#64748b', icon: '📋' },
-  { key: 'Need Access', label: 'Need Access', color: '#ef4444', icon: '🚫' },
-  { key: 'TSSR Under Subcon validation', label: 'Under Subcon', color: '#f59e0b', icon: '🔧' },
-  { key: 'TSSR Under Nokia GSD Validation', label: 'Nokia GSD', color: '#8b5cf6', icon: '📡' },
-  { key: 'TSSR Under Nokia NPO Validation', label: 'Nokia NPO', color: '#6366f1', icon: '📶' },
-  { key: 'TSSR Under Nokia ROM Validation', label: 'Nokia ROM', color: '#FF8566', icon: '🔄' },
-  { key: 'TSSR Under ROM Review', label: 'ROM Review', color: '#0ea5e9', icon: '👁️' },
-  { key: 'TSSR Under Zain validation', label: 'Under Zain', color: '#06b6d4', icon: '✓' },
-  { key: 'Approved', label: 'Approved', color: '#22c55e', icon: '✅' }
+  { key: 'Site not Surveyed', label: 'Not Surveyed', color: '#64748b', icon: '??' },
+  { key: 'Need Access', label: 'Need Access', color: '#ef4444', icon: '??' },
+  { key: 'TSSR Under Subcon validation', label: 'Under Subcon', color: '#f59e0b', icon: '??' },
+  { key: 'TSSR Under Nokia GSD Validation', label: 'Nokia GSD', color: '#8b5cf6', icon: '??' },
+  { key: 'TSSR Under Nokia NPO Validation', label: 'Nokia NPO', color: '#6366f1', icon: '??' },
+  { key: 'TSSR Under Nokia ROM Validation', label: 'Nokia ROM', color: '#FF8566', icon: '??' },
+  { key: 'TSSR Under ROM Review', label: 'ROM Review', color: '#FF8566', icon: '???' },
+  { key: 'TSSR Under Zain validation', label: 'Under Zain', color: '#06b6d4', icon: '?' },
+  { key: 'Approved', label: 'Approved', color: '#8FD9D9', icon: '?' }
 ]
 
 // Get API based on mode
@@ -90,7 +90,7 @@ const ContractorCard = ({ contractor, index }) => {
     <div className="contractor-card" style={{ animationDelay: `${index * 0.1}s` }}>
       {/* Header */}
       <div className="contractor-header">
-        <div className="contractor-icon">🏢</div>
+        <div className="contractor-icon">??</div>
         <div className="contractor-info">
           <div className="contractor-name">{contractor.name}</div>
           <div className="contractor-subtitle">Contractor Performance</div>
@@ -104,7 +104,7 @@ const ContractorCard = ({ contractor, index }) => {
       {/* Workflow Pipeline */}
       <div className="workflow-section">
         <div className="section-header">
-          <span className="section-icon">📊</span>
+          <span className="section-icon">??</span>
           <span className="section-title">Site Workflow Pipeline</span>
         </div>
         <div className="workflow-pipeline">
@@ -124,7 +124,7 @@ const ContractorCard = ({ contractor, index }) => {
                 </div>
                 <div className="stage-label">{stage.label}</div>
                 {idx < WORKFLOW_STAGES.length - 1 && (
-                  <div className="stage-arrow">→</div>
+                  <div className="stage-arrow">?</div>
                 )}
               </div>
             )
@@ -135,7 +135,7 @@ const ContractorCard = ({ contractor, index }) => {
       {/* Performance Metrics */}
       <div className="metrics-section">
         <div className="section-header">
-          <span className="section-icon">📈</span>
+          <span className="section-icon">??</span>
           <span className="section-title">Performance Metrics</span>
         </div>
         <div className="metrics-grid">
@@ -161,7 +161,7 @@ const ContractorCard = ({ contractor, index }) => {
       {/* Progress Bars */}
       <div className="rates-section">
         <div className="section-header">
-          <span className="section-icon">📉</span>
+          <span className="section-icon">??</span>
           <span className="section-title">Submission & Approval Rates</span>
         </div>
         <div className="rate-bar-container">
@@ -196,7 +196,7 @@ const ContractorCard = ({ contractor, index }) => {
       {contractor.partOfCounts && contractor.partOfCounts.length > 0 && (
         <div className="partof-section">
           <div className="section-header">
-            <span className="section-icon">📂</span>
+            <span className="section-icon">??</span>
             <span className="section-title">By Category</span>
           </div>
           <div className="partof-grid">
@@ -217,7 +217,7 @@ const ContractorCard = ({ contractor, index }) => {
       {(contractor.rejectionCount > 0 || notSurveyed > 10 || needAccess > 5) && (
         <div className="alerts-section">
           <div className="section-header">
-            <span className="section-icon">⚠️</span>
+            <span className="section-icon">??</span>
             <span className="section-title">Pending Actions</span>
           </div>
           <div className="alerts-list">
@@ -337,21 +337,21 @@ const Contractors = () => {
         {/* Summary Cards */}
         <div className="summary-row">
           <div className="summary-card">
-            <div className="summary-icon">🏢</div>
+            <div className="summary-icon">??</div>
             <div className="summary-info">
               <div className="summary-value">{totalContractors}</div>
               <div className="summary-label">Contractors</div>
             </div>
           </div>
           <div className="summary-card">
-            <div className="summary-icon">📍</div>
+            <div className="summary-icon">??</div>
             <div className="summary-info">
               <div className="summary-value">{totalSitesAll}</div>
               <div className="summary-label">Total Sites</div>
             </div>
           </div>
           <div className="summary-card">
-            <div className="summary-icon">📊</div>
+            <div className="summary-icon">??</div>
             <div className="summary-info">
               <div className="summary-value">
                 {totalContractors > 0 ? Math.round(totalSitesAll / totalContractors) : 0}

@@ -19,7 +19,7 @@
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 
-  --success-color: #22C55E;
+  --success-color: #8FD9D9;
   --error-color: #EF4444;
   --warning-color: #F59E0B;
 
@@ -106,7 +106,7 @@
 }
 
 .sync-icon.success {
-  background: linear-gradient(135deg, var(--success-color) 0%, #16A34A 100%);
+  background: linear-gradient(135deg, var(--success-color) 0%, #6ECECE 100%);
   color: white;
   animation: pulse-success 2s infinite;
 }
@@ -295,7 +295,7 @@
 }
 
 .info-icon.local {
-  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #FF8566 0%, #FF5533 100%);
   color: white;
 }
 
@@ -310,7 +310,7 @@
 }
 
 .info-icon.status.ok {
-  background: linear-gradient(135deg, var(--success-color) 0%, #16A34A 100%);
+  background: linear-gradient(135deg, var(--success-color) 0%, #6ECECE 100%);
   color: white;
 }
 

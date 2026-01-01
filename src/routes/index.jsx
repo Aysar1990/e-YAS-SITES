@@ -32,8 +32,6 @@ const ContractorRejections = lazy(() => import('../pages/Contractor/ContractorRe
 const NokiaDashboard = lazy(() => import('../pages/Nokia/NokiaDashboard'))
 const NokiaSites = lazy(() => import('../pages/Nokia/NokiaSites'))
 const NokiaReports = lazy(() => import('../pages/Nokia/NokiaReports'))
-const Ghirbal = lazy(() => import('../pages/Nokia/Ghirbal'))
-const ClearTSSR = lazy(() => import('../pages/Nokia/ClearTSSR'))
 
 // Loading component for lazy-loaded routes
 const LoadingFallback = () => (
@@ -170,22 +168,6 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute allowedRoles={['admin']}>
             <Reports />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/ghirbal"
-        element={
-          <ProtectedRoute allowedRoles={['admin']}>
-            <Ghirbal />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/clear-tssr"
-        element={
-          <ProtectedRoute allowedRoles={['admin']}>
-            <ClearTSSR />
           </ProtectedRoute>
         }
       />
@@ -352,22 +334,6 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute allowedRoles={['nokia_engineer']}>
             <NokiaReports />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/nokia/ghirbal"
-        element={
-          <ProtectedRoute allowedRoles={['nokia_engineer']}>
-            <Ghirbal />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/nokia/clear-tssr"
-        element={
-          <ProtectedRoute allowedRoles={['nokia_engineer']}>
-            <ClearTSSR />
           </ProtectedRoute>
         }
       />

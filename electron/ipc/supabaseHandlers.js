@@ -64,7 +64,7 @@ function registerSupabaseHandlers(mainWindow) {
       try {
         const database = db.getDB()
         const stmt = database.prepare('SELECT COUNT(*) as count FROM sites WHERE phase_name = ?')
-        const result = stmt.get(phase)
+        const result = await stmt.get(phase)
         localCount = result ? result.count : 0
       } catch (dbError) {
         console.warn('⚠️ Could not get local count:', dbError.message)
@@ -210,12 +210,12 @@ function registerSupabaseHandlers(mainWindow) {
         GROUP BY phase_name
         ORDER BY count DESC
       `)
-      const phases = stmt.all()
+      const phases = await stmt.all()
 
       return {
         success: true,
         data: {
-          phases
+          phases: phases || []
         }
       }
     } catch (error) {

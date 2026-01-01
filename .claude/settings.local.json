@@ -27,7 +27,15 @@
       "Bash(powershell -Command:*)",
       "Bash(del \"C:\\\\Users\\\\aysar\\\\Downloads\\\\New folder \\(3\\)\\\\New folder \\(3\\)\\\\TSSR Monitor\\\\tssr-app\\\\test-import-save.js\")",
       "Bash(timeout:*)",
-      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImNvbnRyYWN0b3JfbmFtZSI6bnVsbCwiaWF0IjoxNzY3MTk3MjMxLCJleHAiOjE3NjcyODM2MzF9.V4gOGqptOynaaEIipBHlWM5pVxlW8WsREhPOyULAuYI\")"
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImNvbnRyYWN0b3JfbmFtZSI6bnVsbCwiaWF0IjoxNzY3MTk3MjMxLCJleHAiOjE3NjcyODM2MzF9.V4gOGqptOynaaEIipBHlWM5pVxlW8WsREhPOyULAuYI\")",
+      "Bash(git update-index:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(find:*)",
+      "Bash(del \"electron\\\\database\\\\adapters\\\\sqliteAdapter.js\")",
+      "Bash(del \"electron\\\\database\\\\schema.sql\")",
+      "Bash(rd /s /q \"electron\\\\database\\\\migrations\")"
     ]
   }
 }

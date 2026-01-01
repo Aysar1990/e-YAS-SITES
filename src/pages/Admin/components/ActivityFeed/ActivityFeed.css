@@ -20,9 +20,9 @@
 }
 
 .connection-status.online {
-    background-color: #10b981;
+    background-color: #8FD9D9;
     /* Online green */
-    box-shadow: 0 0 5px #10b981;
+    box-shadow: 0 0 5px #8FD9D9;
 }
 
 .activity-controls {

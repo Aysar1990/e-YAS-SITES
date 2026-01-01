@@ -14,7 +14,7 @@ const OverallProgressCard = ({ total, approved, inProgress, notStarted }) => {
 
     // Determine completion status
     const getCompletionStatus = () => {
-        if (completionRate >= 90) return { text: 'Excellent', color: '#10B981' }
+        if (completionRate >= 90) return { text: 'Excellent', color: '#8FD9D9' }
         if (completionRate >= 70) return { text: 'Good Progress', color: '#8FD9D9' }
         if (completionRate >= 50) return { text: 'On Track', color: '#F59E0B' }
         return { text: 'Needs Attention', color: '#EF4444' }
@@ -58,7 +58,7 @@ const OverallProgressCard = ({ total, approved, inProgress, notStarted }) => {
                             top: 0,
                             height: '100%',
                             width: `${completionRate}%`,
-                            background: 'linear-gradient(90deg, #8FD9D9 0%, #10B981 100%)',
+                            background: 'linear-gradient(90deg, #8FD9D9 0%, #8FD9D9 100%)',
                             borderRadius: completionRate === 100 ? '12px' : '12px 0 0 12px',
                             transition: 'width 1s ease-in-out',
                             zIndex: 3
@@ -93,7 +93,7 @@ const OverallProgressCard = ({ total, approved, inProgress, notStarted }) => {
                             width: '12px',
                             height: '12px',
                             borderRadius: '3px',
-                            background: 'linear-gradient(135deg, #8FD9D9, #10B981)',
+                            background: 'linear-gradient(135deg, #8FD9D9, #8FD9D9)',
                             marginRight: '8px'
                         }}></span>
                         <div>

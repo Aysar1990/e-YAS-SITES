@@ -50,14 +50,14 @@
 }
 
 .workflow-node.active .node-icon {
-    background: #3B82F6;
+    background: #FF8566;
     border-color: #60A5FA;
     color: #FFFFFF;
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
 .workflow-node.completed .node-icon {
-    background: #10B981;
+    background: #8FD9D9;
     border-color: #34D399;
     color: #FFFFFF;
 }
@@ -104,7 +104,7 @@
 }
 
 .connector-line.active {
-    background: linear-gradient(90deg, #10B981 0%, #3B82F6 100%);
+    background: linear-gradient(90deg, #8FD9D9 0%, #FF8566 100%);
     box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
 }
 

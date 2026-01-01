@@ -29,7 +29,7 @@ const THRESHOLDS = {
 
 // Health status colors
 const HEALTH_COLORS = {
-  good: '#22c55e',
+  good: '#8FD9D9',
   warning: '#eab308',
   critical: '#ef4444'
 }
@@ -58,7 +58,7 @@ function HealthBadge({ status, label }) {
  * Metric Card Component
  */
 function MetricCard({ title, value, unit, icon, trend, status }) {
-  const trendColor = trend > 0 ? '#ef4444' : trend < 0 ? '#22c55e' : '#6b7280'
+  const trendColor = trend > 0 ? '#ef4444' : trend < 0 ? '#8FD9D9' : '#6b7280'
   const trendIcon = trend > 0 ? '↑' : trend < 0 ? '↓' : '→'
 
   return (
@@ -137,7 +137,7 @@ function RecommendationCard({ rec }) {
   const severityColors = {
     high: '#ef4444',
     medium: '#eab308',
-    low: '#22c55e'
+    low: '#8FD9D9'
   }
 
   const color = severityColors[rec.severity] || '#6b7280'

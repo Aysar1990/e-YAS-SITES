@@ -1,117 +1,52 @@
 /**
- * DatabaseManager - Unified database interface using adapter pattern
+ * DatabaseManager - Hybrid SQLite/Supabase interface
  *
- * Supports both SQLite (offline, local) and Supabase (cloud, real-time) databases.
- * The adapter can be switched via configuration without changing application code.
+ * Supports both SQLite (local) and Supabase (cloud) based on DATABASE_TYPE env var.
  */
 
 const path = require('path')
-const fs = require('fs')
-const SQLiteAdapter = require('./adapters/sqliteAdapter')
 const SupabaseAdapter = require('./adapters/supabaseAdapter')
+const SQLiteAdapter = require('./adapters/sqliteAdapter')
 
 class DatabaseManager {
   constructor() {
     this.adapter = null
-    this.adapterType = null
   }
 
   /**
-   * Initialize database with selected adapter
-   * @param {string} type - Adapter type: 'sqlite' or 'supabase'
-   * @param {Object} config - Configuration for the adapter
+   * Initialize database with SQLite or Supabase adapter
+   * @param {Object} config - Configuration
    * @returns {Promise<boolean>} Success status
    */
-  async initialize(type = 'sqlite', config = {}) {
+  async initialize(config = {}) {
     try {
-      // Determine adapter type from environment or parameter
-      this.adapterType = type || process.env.DATABASE_TYPE || 'sqlite'
+      const dbType = process.env.DATABASE_TYPE || 'sqlite'
+      
+      console.log(`🔧 Initializing database: ${dbType.toUpperCase()}`)
 
-      console.log(`🔧 Initializing database with ${this.adapterType} adapter...`)
-
-      // Create appropriate adapter
-      if (this.adapterType === 'supabase') {
+      if (dbType === 'supabase') {
+        // Supabase mode
         this.adapter = new SupabaseAdapter(config)
+        const initialized = await this.adapter.initialize()
+
+        if (!initialized) {
+          throw new Error('Failed to initialize Supabase adapter')
+        }
+
+        console.log('✅ Database initialized with Supabase')
       } else {
-        this.adapter = new SQLiteAdapter()
+        // SQLite mode (default)
+        const dbPath = config.path || path.join(__dirname, 'db', 'tssr.db')
+        this.adapter = new SQLiteAdapter({ path: dbPath })
+        await this.adapter.initialize()
+        
+        console.log('✅ Database initialized with SQLite:', dbPath)
       }
 
-      // Initialize the adapter
-      const initialized = await this.adapter.initialize()
-
-      if (!initialized) {
-        throw new Error(`Failed to initialize ${this.adapterType} adapter`)
-      }
-
-      // Run migrations (SQLite only for now)
-      if (this.adapterType === 'sqlite') {
-        this.runMigrations()
-      }
-
-      console.log(`✅ Database initialized with ${this.adapterType} adapter`)
       return true
     } catch (error) {
       console.error('❌ Database initialization error:', error)
       return false
-    }
-  }
-
-  /**
-   * Run database migrations (SQLite only)
-   * For Supabase, migrations should be managed through Supabase dashboard
-   */
-  runMigrations() {
-    if (this.adapterType !== 'sqlite') {
-      console.log('ℹ️ Migrations for Supabase should be managed through Supabase dashboard')
-      return
-    }
-
-    const migrationsDir = path.join(__dirname, 'migrations')
-
-    if (!fs.existsSync(migrationsDir)) {
-      console.log('No migrations directory found')
-      return
-    }
-
-    const migrationFiles = fs.readdirSync(migrationsDir)
-      .filter(f => f.endsWith('.sql'))
-      .sort()
-
-    migrationFiles.forEach((file) => {
-      const migrationPath = path.join(migrationsDir, file)
-      const sql = fs.readFileSync(migrationPath, 'utf8')
-
-      // Remove comments and split into statements
-      const cleanSql = sql
-        .split('\n')
-        .map(line => line.replace(/--.*$/, '').trim())
-        .join('\n')
-
-      const statements = cleanSql
-        .split(';')
-        .map(s => s.trim())
-        .filter(s => s.length > 0)
-
-      let successCount = 0
-      statements.forEach((statement) => {
-        try {
-          this.adapter.exec(statement)
-          successCount++
-        } catch (error) {
-          // Ignore "already exists" or "duplicate column" errors
-          if (!error.message.includes('already exists') &&
-              !error.message.includes('duplicate column') &&
-              !error.message.includes('UNIQUE constraint failed')) {
-            console.error(`❌ Migration ${file} statement failed:`, error.message)
-          }
-        }
-      })
-      console.log(`✅ Migration ${file}: ${successCount}/${statements.length} statements executed`)
-    })
-
-    // Save after migrations (SQLite only)
-    if (this.adapter.save) {
-      this.adapter.save()
     }
   }
 
@@ -128,7 +63,7 @@ class DatabaseManager {
    * @returns {string} 'sqlite' or 'supabase'
    */
   getAdapterType() {
-    return this.adapterType
+    return this.adapter ? this.adapter.getType() : 'unknown'
   }
 
   /**
@@ -140,9 +75,9 @@ class DatabaseManager {
   }
 
   /**
-   * Prepare a SQL statement
+   * Prepare a statement
    * @param {string} sql - SQL query string
-   * @returns {Object} Statement object with run(), get(), all() methods
+   * @returns {Object} Statement object
    */
   prepare(sql) {
     if (!this.adapter) {
@@ -176,7 +111,7 @@ class DatabaseManager {
 
   /**
    * Create a database backup
-   * @returns {Promise<string>} Backup path or identifier
+   * @returns {Promise<string>} Backup identifier
    */
   async backup() {
     if (!this.adapter) {
@@ -196,49 +131,23 @@ class DatabaseManager {
   }
 
   /**
-   * Switch database adapter
-   * WARNING: This will close current connection and reinitialize
-   * @param {string} newType - New adapter type ('sqlite' or 'supabase')
-   * @param {Object} config - Configuration for new adapter
-   * @returns {Promise<boolean>} Success status
-   */
-  async switchAdapter(newType, config = {}) {
-    console.log(`🔄 Switching from ${this.adapterType} to ${newType} adapter...`)
-
-    // Close current adapter
-    if (this.adapter) {
-      this.adapter.close()
-    }
-
-    // Reinitialize with new adapter
-    return await this.initialize(newType, config)
-  }
-
-  /**
-   * Save database to disk (SQLite only)
-   * CRITICAL: Must be called after data modifications!
+   * Save
    */
   save() {
     if (this.adapter && this.adapter.save) {
-      this.adapter.save()
-      console.log('💾 Database saved to disk')
-      return true
+      return this.adapter.save()
     }
-    return false
+    return true
   }
 
+  /**
+   * Pragma (SQLite only)
+   */
   pragma(sql) {
-    // Only supported in SQLite
-    if (this.adapterType === 'sqlite' && this.adapter.getSqlite) {
-      try {
-        const db = this.adapter.getSqlite()
-        db.run(`PRAGMA ${sql}`)
-      } catch (error) {
-        console.error('Pragma error:', error.message)
-      }
-    } else {
-      console.warn('⚠️ PRAGMA commands are SQLite-specific and not supported in Supabase')
+    if (this.adapter && this.adapter.pragma) {
+      return this.adapter.pragma(sql)
     }
+    console.warn('⚠️ PRAGMA commands only supported in SQLite')
   }
 }
 

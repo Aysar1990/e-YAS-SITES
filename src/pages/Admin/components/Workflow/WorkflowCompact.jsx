@@ -88,8 +88,8 @@ const WorkflowCompact = () => {
             </div>
             {/* Legend or Note */}
             <div className="workflow-legend">
-                <div className="legend-item"><div className="legend-dot" style={{ background: '#3B82F6' }}></div> Active Stage</div>
-                <div className="legend-item"><div className="legend-dot" style={{ background: '#10B981' }}></div> Completed</div>
+                <div className="legend-item"><div className="legend-dot" style={{ background: '#FF8566' }}></div> Active Stage</div>
+                <div className="legend-item"><div className="legend-dot" style={{ background: '#8FD9D9' }}></div> Completed</div>
                 <div className="legend-item"><div className="legend-dot" style={{ background: '#1F2937' }}></div> Pending</div>
             </div>
 

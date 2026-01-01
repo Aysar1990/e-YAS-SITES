@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    CONTRACTORS PERFORMANCE DASHBOARD
    ============================================= */
 
@@ -333,7 +333,7 @@
 
 .metric-box.total { border-bottom: 3px solid #6366f1; }
 .metric-box.submitted { border-bottom: 3px solid #f59e0b; }
-.metric-box.approved { border-bottom: 3px solid #22c55e; }
+.metric-box.approved { border-bottom: 3px solid #8FD9D9; }
 .metric-box.rfi { border-bottom: 3px solid #06b6d4; }
 
 .metric-value {
@@ -408,7 +408,7 @@
 }
 
 .rate-fill.approval {
-  background: linear-gradient(90deg, #22c55e, #4ade80);
+  background: linear-gradient(90deg, #8FD9D9, #4ade80);
 }
 
 /* Part Of Section */
@@ -451,7 +451,7 @@
 
 .partof-approved {
   font-size: 11px;
-  color: #22c55e;
+  color: #8FD9D9;
 }
 
 /* Alerts Section */

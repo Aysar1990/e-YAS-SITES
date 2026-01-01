@@ -82,6 +82,7 @@ const COLUMNS = [
   
   // MW Department
   { excel: 'MW Status', sqlite: 'mw_status', supabase: 'mw_status', type: 'text' },
+  { excel: 'MW Comment', sqlite: 'mw_comment', supabase: 'mw_comment', type: 'text' },
   { excel: 'Cluster Owner (MW)', sqlite: 'cluster_owner_mw', supabase: 'cluster_owner_mw', type: 'text' },
   
   // Additional Info

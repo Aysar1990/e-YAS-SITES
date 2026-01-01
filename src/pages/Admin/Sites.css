@@ -12,13 +12,13 @@
   --sites-bg-toolbar: rgba(15, 23, 42, 0.8);
   
   /* Accents */
-  --sites-accent-blue: #3b82f6;
+  --sites-accent-blue: #FF8566;
   --sites-accent-teal: #14b8a6;
-  --sites-accent-purple: #a855f7;
+  --sites-accent-purple: #8FD9D9;
   --sites-accent-glow: rgba(59, 130, 246, 0.4);
   
   /* Status Colors */
-  --status-approved: #22c55e;
+  --status-approved: #8FD9D9;
   --status-pending: #f59e0b;
   --status-rejected: #ef4444;
   --status-default: #64748b;
@@ -567,7 +567,7 @@
 }
 
 .bulk-actions-v2__btn--primary:hover {
-  background: #2563eb;
+  background: #FF5533;
 }
 
 .bulk-actions-v2__btn--ghost {

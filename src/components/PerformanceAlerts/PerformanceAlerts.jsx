@@ -38,7 +38,7 @@ const ALERT_CONFIG = {
     icon: '🎨',
     title: 'Slow Render',
     severity: 'info',
-    color: '#3b82f6',
+    color: '#FF8566',
     description: (data) => `Component "${data.component}" rendered slowly: ${data.duration?.toFixed(1)}ms`
   },
   error: {

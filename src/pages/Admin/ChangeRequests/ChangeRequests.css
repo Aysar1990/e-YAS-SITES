@@ -59,7 +59,7 @@
   top: 80px;
   right: 20px;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #8FD9D9 0%, #4DB8B8 100%);
   color: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
@@ -409,7 +409,7 @@
 }
 
 .approve-btn:hover:not(:disabled) {
-  background: #10b981;
+  background: #8FD9D9;
   color: white;
 }
 
@@ -429,7 +429,7 @@
 }
 
 .review-btn:hover:not(:disabled) {
-  background: #3b82f6;
+  background: #FF8566;
   color: white;
 }
 

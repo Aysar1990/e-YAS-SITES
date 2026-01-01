@@ -259,8 +259,8 @@
   color: white;
 }
 
-.stat-card.total { background: #3B82F6; }
-.stat-card.approved { background: #22C55E; }
+.stat-card.total { background: #FF8566; }
+.stat-card.approved { background: #8FD9D9; }
 .stat-card.pending { background: #EAB308; color: #111827; }
 .stat-card.rejected { background: #EF4444; }
 

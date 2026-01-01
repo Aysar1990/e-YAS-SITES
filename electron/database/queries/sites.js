@@ -538,7 +538,7 @@ sitesQueries.updateSite = (siteId, phaseName, updates) => {
     'final_site_name', 'governorate', 'latitude', 'longitude', 'height_m',
     'ti_status', 'ti_comment', 'rf_plan_status', 'rf_plan_comment',
     'rf_opt_status', 'rf_opt_comment', 'civil_status', 'civil_comment',
-    'mw_status', 'nokia_npo_status', 'nokia_npo_comment',
+    'mw_status', 'mw_comment', 'nokia_npo_status', 'nokia_npo_comment',
     'tssr_overall_status', 'tssr_status_date', 'tssr_subcon',
     'action_age', 'tssr_ready', 'version', 'part_of',
     'ts_survey_ac', 'rfi_status', 'tssr_remark', 'priority',

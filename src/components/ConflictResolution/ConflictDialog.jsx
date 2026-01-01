@@ -328,7 +328,7 @@ const styles = {
     fontSize: '14px',
     border: 'none',
     borderRadius: '6px',
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#FF8566',
     color: '#fff',
     cursor: 'pointer'
   },

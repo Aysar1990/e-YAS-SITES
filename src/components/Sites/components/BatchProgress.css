@@ -101,7 +101,7 @@
 }
 
 .batch-progress--complete .batch-progress__bar {
-  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+  background: linear-gradient(90deg, #8FD9D9 0%, #6ECECE 100%);
 }
 
 .batch-progress__percentage {
@@ -113,7 +113,7 @@
 
 /* Status */
 .batch-progress__status {
-  color: #22c55e;
+  color: #8FD9D9;
   font-size: 0.85rem;
   font-weight: 600;
   text-align: center;

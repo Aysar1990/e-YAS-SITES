@@ -40,7 +40,7 @@
 }
 
 .connection-dot.online {
-  background: #10b981;
+  background: #8FD9D9;
   box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
@@ -92,7 +92,7 @@
 }
 
 .connection-label.online {
-  color: #10b981;
+  color: #8FD9D9;
 }
 
 .connection-label.offline {
@@ -153,7 +153,7 @@
 }
 
 .tooltip-status.online + .tooltip-text strong {
-  color: #10b981;
+  color: #8FD9D9;
 }
 
 .tooltip-status.offline + .tooltip-text strong {

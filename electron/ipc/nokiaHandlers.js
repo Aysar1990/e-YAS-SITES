@@ -19,8 +19,8 @@ function registerNokiaHandlers(ipcMain, deps) {
   // Get all Nokia reviews
   ipcMain.handle('get-nokia-reviews', async () => {
     try {
-      const reviews = db.prepare('SELECT * FROM nokia_reviews ORDER BY updated_at DESC').all()
-      return { success: true, reviews }
+      const reviews = await db.prepare('SELECT * FROM nokia_reviews ORDER BY updated_at DESC').all()
+      return { success: true, reviews: reviews || [] }
     } catch (error) {
       console.error('Get nokia reviews error:', error)
       return { success: false, error: error.message }
@@ -30,7 +30,7 @@ function registerNokiaHandlers(ipcMain, deps) {
   // Get Nokia review by site_id
   ipcMain.handle('get-nokia-review-by-site-id', async (event, siteId) => {
     try {
-      const review = db.prepare('SELECT * FROM nokia_reviews WHERE site_id = ?').get(siteId)
+      const review = await db.prepare('SELECT * FROM nokia_reviews WHERE site_id = ?').get(siteId)
       return { success: true, review }
     } catch (error) {
       console.error('Get nokia review error:', error)
@@ -44,11 +44,11 @@ function registerNokiaHandlers(ipcMain, deps) {
       const { site_id, checked, note, rejection_type, rejection_status, rejection_comment, updated_by } = data
 
       // Check if exists
-      const existing = db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
+      const existing = await db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
 
       if (existing) {
         // Update
-        db.prepare(`
+        await db.prepare(`
           UPDATE nokia_reviews SET
             checked = COALESCE(?, checked),
             note = COALESCE(?, note),
@@ -61,7 +61,7 @@ function registerNokiaHandlers(ipcMain, deps) {
         `).run(checked, note, rejection_type, rejection_status, rejection_comment, updated_by, site_id)
       } else {
         // Insert
-        db.prepare(`
+        await db.prepare(`
           INSERT INTO nokia_reviews (site_id, checked, note, rejection_type, rejection_status, rejection_comment, updated_by)
           VALUES (?, ?, ?, ?, ?, ?, ?)
         `).run(site_id, checked || 0, note, rejection_type, rejection_status, rejection_comment, updated_by)
@@ -80,13 +80,13 @@ function registerNokiaHandlers(ipcMain, deps) {
       const { site_id, checked, note, updated_by } = data
 
       // Get old value for audit
-      const oldReview = db.prepare('SELECT checked, note FROM nokia_reviews WHERE site_id = ?').get(site_id)
+      const oldReview = await db.prepare('SELECT checked, note FROM nokia_reviews WHERE site_id = ?').get(site_id)
 
       // Check if exists
-      const existing = db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
+      const existing = await db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
 
       if (existing) {
-        db.prepare(`
+        await db.prepare(`
           UPDATE nokia_reviews SET
             checked = ?,
             note = COALESCE(?, note),
@@ -95,22 +95,24 @@ function registerNokiaHandlers(ipcMain, deps) {
           WHERE site_id = ?
         `).run(checked ? 1 : 0, note, updated_by, site_id)
       } else {
-        db.prepare(`
+        await db.prepare(`
           INSERT INTO nokia_reviews (site_id, checked, note, updated_by)
           VALUES (?, ?, ?, ?)
         `).run(site_id, checked ? 1 : 0, note, updated_by)
       }
 
       // Audit log for nokia review update
-      logAction(
-        null,
-        updated_by || 'system',
-        checked ? 'CHECK_SITE' : 'UNCHECK_SITE',
-        'site',
-        site_id,
-        oldReview || null,
-        { checked: checked ? 1 : 0, note }
-      )
+      if (logAction) {
+        await logAction(
+          null,
+          updated_by || 'system',
+          checked ? 'CHECK_SITE' : 'UNCHECK_SITE',
+          'site',
+          site_id,
+          oldReview || null,
+          { checked: checked ? 1 : 0, note }
+        )
+      }
 
       return { success: true }
     } catch (error) {
@@ -125,10 +127,10 @@ function registerNokiaHandlers(ipcMain, deps) {
       const { site_id, rejection_type, rejection_status, rejection_comment, updated_by } = data
 
       // Check if exists
-      const existing = db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
+      const existing = await db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
 
       if (existing) {
-        db.prepare(`
+        await db.prepare(`
           UPDATE nokia_reviews SET
             rejection_type = ?,
             rejection_status = ?,
@@ -138,7 +140,7 @@ function registerNokiaHandlers(ipcMain, deps) {
           WHERE site_id = ?
         `).run(rejection_type, rejection_status, rejection_comment, updated_by, site_id)
       } else {
-        db.prepare(`
+        await db.prepare(`
           INSERT INTO nokia_reviews (site_id, rejection_type, rejection_status, rejection_comment, updated_by)
           VALUES (?, ?, ?, ?, ?)
         `).run(site_id, rejection_type, rejection_status, rejection_comment, updated_by)
@@ -156,10 +158,10 @@ function registerNokiaHandlers(ipcMain, deps) {
     try {
       const { site_id, updated_by } = data
 
-      const existing = db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
+      const existing = await db.prepare('SELECT id FROM nokia_reviews WHERE site_id = ?').get(site_id)
 
       if (existing) {
-        db.prepare(`
+        await db.prepare(`
           UPDATE nokia_reviews SET
             rejection_status = 'Approved',
             rejection_comment = NULL,
@@ -168,7 +170,7 @@ function registerNokiaHandlers(ipcMain, deps) {
           WHERE site_id = ?
         `).run(updated_by, site_id)
       } else {
-        db.prepare(`
+        await db.prepare(`
           INSERT INTO nokia_reviews (site_id, rejection_status, updated_by)
           VALUES (?, 'Approved', ?)
         `).run(site_id, updated_by)
@@ -186,7 +188,7 @@ function registerNokiaHandlers(ipcMain, deps) {
     try {
       let query = `
         SELECT sc.*, nr.checked, nr.note, nr.rejection_type, nr.rejection_status, nr.rejection_comment
-        FROM sites_cache sc
+        FROM sites sc
         LEFT JOIN nokia_reviews nr ON sc.site_id = nr.site_id
         WHERE sc.tssr_overall_status IN (
           'TSSR Under Nokia NPO Validation',
@@ -204,8 +206,8 @@ function registerNokiaHandlers(ipcMain, deps) {
 
       query += ' ORDER BY sc.site_id ASC'
 
-      const sites = db.prepare(query).all(...params)
-      return { success: true, sites }
+      const sites = await db.prepare(query).all(...params)
+      return { success: true, sites: sites || [] }
     } catch (error) {
       console.error('Get ghirbal sites error:', error)
       return { success: false, error: error.message }
@@ -217,7 +219,7 @@ function registerNokiaHandlers(ipcMain, deps) {
     try {
       let query = `
         SELECT sc.*, nr.checked, nr.note, nr.rejection_type, nr.rejection_status, nr.rejection_comment
-        FROM sites_cache sc
+        FROM sites sc
         INNER JOIN nokia_reviews nr ON sc.site_id = nr.site_id
         WHERE nr.checked = 1
       `
@@ -230,8 +232,8 @@ function registerNokiaHandlers(ipcMain, deps) {
 
       query += ' ORDER BY nr.updated_at DESC'
 
-      const sites = db.prepare(query).all(...params)
-      return { success: true, sites }
+      const sites = await db.prepare(query).all(...params)
+      return { success: true, sites: sites || [] }
     } catch (error) {
       console.error('Get checked sites error:', error)
       return { success: false, error: error.message }

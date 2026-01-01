@@ -1,9 +1,10 @@
 // Authentication Service for YAS TSSR Monitor
 
 import api, { ApiError } from './api'
+import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '../utils/constants'
 
-const TOKEN_KEY = 'token'
-const USER_KEY = 'user'
+const TOKEN_KEY = AUTH_TOKEN_KEY
+const USER_KEY = AUTH_USER_KEY
 
 const authService = {
   // Login user

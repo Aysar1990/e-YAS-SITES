@@ -1,4 +1,4 @@
-﻿.client-setup {
+.client-setup {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -102,7 +102,7 @@
 .test-result.success {
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.3);
-  color: #22c55e;
+  color: #8FD9D9;
 }
 
 .test-result.error {
@@ -148,7 +148,7 @@
 }
 
 .btn-connect {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #8FD9D9, #6ECECE);
   color: #fff;
 }
 

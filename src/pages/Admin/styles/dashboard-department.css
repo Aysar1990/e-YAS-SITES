@@ -220,7 +220,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--primary-dark, #0ea5e9));
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark, #FF8566));
 }
 
 .department-card:hover {

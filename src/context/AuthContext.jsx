@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { AUTH_TOKEN_KEY, AUTH_USER_KEY, STORAGE_KEYS } from '../utils/constants'
 
 const AuthContext = createContext()
 
@@ -89,7 +90,7 @@ const apiLogin = async ({ username, password }) => {
 
     if (result.success && result.token) {
       // Store JWT token
-      localStorage.setItem('tssr_auth_token', result.token)
+      localStorage.setItem(AUTH_TOKEN_KEY, result.token)
       return {
         success: true,
         user: {
@@ -122,7 +123,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check for stored user on mount
-    const storedUser = localStorage.getItem('tssr_user')
+    const storedUser = localStorage.getItem(AUTH_USER_KEY)
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser)
@@ -134,8 +135,8 @@ export const AuthProvider = ({ children }) => {
               setUser(parsedUser)
             } else {
               // Token expired, clear stored data
-              localStorage.removeItem('tssr_user')
-              localStorage.removeItem('tssr_auth_token')
+              localStorage.removeItem(AUTH_USER_KEY)
+              localStorage.removeItem(AUTH_TOKEN_KEY)
             }
             setLoading(false)
           })
@@ -144,7 +145,7 @@ export const AuthProvider = ({ children }) => {
           setLoading(false)
         }
       } catch (e) {
-        localStorage.removeItem('tssr_user')
+        localStorage.removeItem(AUTH_USER_KEY)
         setLoading(false)
       }
     } else {
@@ -154,7 +155,7 @@ export const AuthProvider = ({ children }) => {
 
   const verifyToken = async () => {
     try {
-      const token = localStorage.getItem('tssr_auth_token')
+      const token = localStorage.getItem(AUTH_TOKEN_KEY)
       if (!token) return false
 
       const response = await fetch(`${getServerURL()}/auth/verify`, {
@@ -184,7 +185,7 @@ export const AuthProvider = ({ children }) => {
 
       if (result.success) {
         setUser(result.user)
-        localStorage.setItem('tssr_user', JSON.stringify(result.user))
+        localStorage.setItem(AUTH_USER_KEY, JSON.stringify(result.user))
         return { success: true, user: result.user }
       }
 
@@ -197,8 +198,8 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null)
-    localStorage.removeItem('tssr_user')
-    localStorage.removeItem('tssr_auth_token')
+    localStorage.removeItem(AUTH_USER_KEY)
+    localStorage.removeItem(AUTH_TOKEN_KEY)
   }
 
   const updatePassword = async (newPassword) => {
@@ -227,7 +228,7 @@ export const AuthProvider = ({ children }) => {
 
   // Get auth token for API requests
   const getAuthToken = () => {
-    return localStorage.getItem('tssr_auth_token')
+    return localStorage.getItem(AUTH_TOKEN_KEY)
   }
 
   const value = {

@@ -33,7 +33,7 @@ const ReportsCharts = ({ stats }) => {
     '#FBBF24',  // Yellow
     '#FB923C',  // Deep Orange
     '#6B7280',  // Gray
-    '#10B981'   // Emerald
+    '#8FD9D9'   // Emerald
   ]
 
   // Department colors (distinct for stacked bars)

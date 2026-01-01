@@ -55,13 +55,13 @@
 }
 
 .legend-item .dot.approved {
-    background-color: #10b981;
-    box-shadow: 0 0 5px #10b981;
+    background-color: #8FD9D9;
+    box-shadow: 0 0 5px #8FD9D9;
 }
 
 .legend-item .dot.submitted {
-    background-color: #3b82f6;
-    box-shadow: 0 0 5px #3b82f6;
+    background-color: #FF8566;
+    box-shadow: 0 0 5px #FF8566;
 }
 
 .legend-item .dot.rejected {

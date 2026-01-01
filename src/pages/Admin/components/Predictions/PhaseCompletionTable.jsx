@@ -21,7 +21,7 @@ const PhaseCompletionTable = ({ predictions }) => {
                             <td style={{ color: '#F3F4F6' }}>{phase.name}</td>
                             <td>{phase.total}</td>
                             <td>{phase.pending}</td>
-                            <td style={{ color: phase.weeksReturning > 4 ? '#FBBF24' : '#10B981' }}>
+                            <td style={{ color: phase.weeksReturning > 4 ? '#FBBF24' : '#8FD9D9' }}>
                                 ~{phase.weeksReturning} weeks
                             </td>
                             <td>{phase.estimatedDate}</td>

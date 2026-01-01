@@ -45,7 +45,7 @@ const TodayStatsCard = ({ stats }) => {
                 </div>
                 <div className="stats-card-badge" style={{
                     background: totalActivity > 0 ? 'rgba(16, 185, 129, 0.2)' : 'rgba(107, 114, 128, 0.2)',
-                    color: totalActivity > 0 ? '#10B981' : '#6B7280',
+                    color: totalActivity > 0 ? '#8FD9D9' : '#6B7280',
                     padding: '4px 12px',
                     borderRadius: '20px',
                     fontSize: '0.85rem',
@@ -87,7 +87,7 @@ const TodayStatsCard = ({ stats }) => {
                         width: '10px', 
                         height: '10px', 
                         borderRadius: '50%', 
-                        background: '#10B981',
+                        background: '#8FD9D9',
                         display: 'inline-block'
                     }}></span>
                     +7 Excellent
@@ -116,7 +116,7 @@ const TodayStatsCard = ({ stats }) => {
 
             {/* Additional CSS for value colors */}
             <style>{`
-                .value-green { color: #10B981 !important; }
+                .value-green { color: #8FD9D9 !important; }
                 .value-orange { color: #F59E0B !important; }
                 .value-red { color: #EF4444 !important; }
             `}</style>

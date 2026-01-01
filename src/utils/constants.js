@@ -29,7 +29,7 @@ export const SITE_STATUS_LABELS = {
 export const SITE_STATUS_COLORS = {
   pending: '#f59e0b',
   in_progress: '#FF8566',
-  completed: '#22c55e',
+  completed: '#8FD9D9',
   rejected: '#ef4444',
   on_hold: '#6b7280',
 }
@@ -52,7 +52,7 @@ export const PRIORITY_LABELS = {
 
 // Priority Colors
 export const PRIORITY_COLORS = {
-  low: '#22c55e',
+  low: '#8FD9D9',
   medium: '#f59e0b',
   high: '#f97316',
   urgent: '#ef4444',
@@ -102,12 +102,18 @@ export const FILE_UPLOAD = {
 
 // Local Storage Keys
 export const STORAGE_KEYS = {
-  TOKEN: 'token',
-  USER: 'user',
+  TOKEN: 'tssr_auth_token',  // Centralized auth token key - use this everywhere
+  USER: 'tssr_user',
   THEME: 'theme',
   LANGUAGE: 'language',
   SIDEBAR_COLLAPSED: 'sidebar_collapsed',
+  MODE: 'tssr_mode',
+  SERVER_IP: 'tssr_server_ip',
 }
+
+// Auth token key constant for direct import
+export const AUTH_TOKEN_KEY = 'tssr_auth_token'
+export const AUTH_USER_KEY = 'tssr_user'
 
 // Theme
 export const THEMES = {

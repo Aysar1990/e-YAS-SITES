@@ -30,10 +30,10 @@ const SiteMap = ({ sites, onSiteClick }) => {
 
     const getStatusColor = (status) => {
         const s = status?.toLowerCase() || ''
-        if (s.includes('approved')) return '#10b981' // Green
+        if (s.includes('approved')) return '#8FD9D9' // Green
         if (s.includes('reject')) return '#ef4444' // Red
-        if (s.includes('submit')) return '#3b82f6' // Blue
-        if (s.includes('job done')) return '#a855f7' // Purple
+        if (s.includes('submit')) return '#FF8566' // Blue
+        if (s.includes('job done')) return '#8FD9D9' // Purple
         return '#64748b' // Gray
     }
 

@@ -92,10 +92,10 @@ export const useMapView = (sites) => {
   const getStatusColor = useCallback((status) => {
     const statusLower = String(status || '').toLowerCase()
     
-    if (statusLower.includes('approved')) return '#22c55e'
+    if (statusLower.includes('approved')) return '#8FD9D9'
     if (statusLower.includes('rejected')) return '#ef4444'
     if (statusLower.includes('pending') || statusLower.includes('review')) return '#eab308'
-    if (statusLower.includes('validation')) return '#3b82f6'
+    if (statusLower.includes('validation')) return '#FF8566'
     return '#64748b'
   }, [])
 

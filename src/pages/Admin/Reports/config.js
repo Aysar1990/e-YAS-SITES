@@ -7,7 +7,7 @@ export const CHART_COLORS = {
   approved: '#8FD9D9',
   underZain: '#EAB308',
   underRom: '#F97316',
-  underNokiaNpo: '#3B82F6',
+  underNokiaNpo: '#FF8566',
   underNokiaRom: '#E2E8F0',
   underNokiaGsd: '#8B5CF6',
   underSubcon: '#EC4899',
@@ -19,7 +19,7 @@ export const CHART_COLORS = {
 }
 
 export const STATUS_COLORS = [
-  '#8FD9D9', '#EAB308', '#F97316', '#3B82F6', '#8B5CF6',
+  '#8FD9D9', '#EAB308', '#F97316', '#FF8566', '#8B5CF6',
   '#EC4899', '#6B7280', '#EF4444', '#06B6D4', '#14B8A6'
 ]
 

@@ -196,7 +196,7 @@
    ------------------------ */
 
 .priority-card.selected .priority-card__front {
-  border-color: #3b82f6 !important;
+  border-color: #FF8566 !important;
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), inset 0 0 20px rgba(59, 130, 246, 0.2) !important;
 }
 
@@ -238,7 +238,7 @@
 }
 
 .card-checkbox.checked {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: #FF8566;
+  border-color: #FF8566;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

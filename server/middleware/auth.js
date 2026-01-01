@@ -5,7 +5,25 @@
 
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'tssr-monitor-cloud-secret-change-in-production';
+// SECURITY: JWT_SECRET must be set in production
+// In development, a default is used but with a warning
+const JWT_SECRET = (() => {
+  const secret = process.env.JWT_SECRET;
+
+  if (!secret) {
+    if (process.env.NODE_ENV === 'production') {
+      console.error('CRITICAL: JWT_SECRET environment variable is not set in production!');
+      console.error('Authentication will fail. Please set JWT_SECRET.');
+      // Use a random secret that changes on restart - this will invalidate all tokens
+      return require('crypto').randomBytes(64).toString('hex');
+    }
+    // Development only - log warning
+    console.warn('WARNING: JWT_SECRET not set. Using development default. DO NOT use in production!');
+    return 'tssr-dev-secret-not-for-production';
+  }
+
+  return secret;
+})();
 
 /**
  * Middleware to verify JWT token

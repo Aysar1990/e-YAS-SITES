@@ -1,33 +1,33 @@
 {
-  "startTime": 1767220711883,
-  "lastUpdated": 1767221011889,
+  "startTime": 1767240658474,
+  "lastUpdated": 1767241858493,
   "system": {
-    "timestamp": 1767221011886,
+    "timestamp": 1767241858492,
     "platform": "win32",
     "arch": "x64",
     "nodeVersion": "v18.18.2",
-    "uptime": 26829.5,
+    "uptime": 47676.109,
     "cpu": {
       "count": 12,
       "model": "AMD Ryzen 5 5600X 6-Core Processor             ",
-      "usage": 2.55
+      "usage": 3.75
     },
     "memory": {
       "total": 32714,
-      "free": 19176,
-      "used": 13538,
-      "usagePercent": 41.38
+      "free": 19464,
+      "used": 13250,
+      "usagePercent": 40.5
     },
     "process": {
-      "pid": 5760,
-      "heapUsed": 31,
-      "heapTotal": 50,
-      "rss": 162
+      "pid": 11740,
+      "heapUsed": 29,
+      "heapTotal": 34,
+      "rss": 135
     }
   },
   "performance": {
-    "timestamp": 1767221011886,
-    "uptime": 300003,
+    "timestamp": 1767241858492,
+    "uptime": 1200018,
     "thresholds": {
       "slowQuery": 500,
       "highMemory": 500,
@@ -42,15 +42,15 @@
       "failed": 0
     },
     "memory": {
-      "samples": 4,
-      "avgHeapUsed": 29,
-      "maxHeapUsed": 34,
+      "samples": 19,
+      "avgHeapUsed": 28,
+      "maxHeapUsed": 32,
       "current": {
-        "timestamp": 1767220951901,
+        "timestamp": 1767241798615,
         "heapUsed": 30,
-        "heapTotal": 50,
-        "rss": 156,
-        "external": 36
+        "heapTotal": 34,
+        "rss": 136,
+        "external": 7
       }
     },
     "renders": {
@@ -68,76 +68,50 @@
       "byType": {}
     },
     "bundleSize": {
-      "timestamp": 1767221011889,
-      "totalSizeMB": 5.96,
-      "fileCount": 46,
-      "largestFiles": [
-        {
-          "path": "\\assets\\js\\excel-DGULUM_q.js",
-          "sizeKB": 1270.27
-        },
-        {
-          "path": "\\assets\\png\\logo-new-CjAqYGt0.png",
-          "sizeKB": 877.68
-        },
-        {
-          "path": "\\assets\\js\\ag-grid-BTWWNxLV.js",
-          "sizeKB": 874.92
-        },
-        {
-          "path": "\\assets\\js\\index-B8FdBH-v.js",
-          "sizeKB": 641.56
-        },
-        {
-          "path": "\\assets\\js\\charts-DvHIEIln.js",
-          "sizeKB": 544.02
-        },
-        {
-          "path": "\\assets\\css\\index-Dq_oSPf8.css",
-          "sizeKB": 312.01
-        },
-        {
-          "path": "\\assets\\js\\index-Ca8ZwYVb.js",
-          "sizeKB": 305.71
-        },
-        {
-          "path": "\\assets\\css\\index-C0zoCc38.css",
-          "sizeKB": 208.47
-        },
-        {
-          "path": "\\assets\\js\\html2canvas.esm-DadlvMMh.js",
-          "sizeKB": 197.56
-        },
-        {
-          "path": "\\assets\\js\\maps-Dwobx2g2.js",
-          "sizeKB": 185.79
-        }
-      ]
+      "error": "dist folder not found"
     }
   },
   "client": [],
   "alerts": [
     {
       "type": "largeBundleSize",
-      "timestamp": 1767220711891,
+      "timestamp": 1767240658480,
       "data": {
-        "size": 5.960071563720703,
+        "size": 5.95754337310791,
         "threshold": 5
       },
-      "id": "mjull0b8iz797"
+      "id": "mjuxgj75yrj8s"
     },
     {
       "type": "largeBundleSize",
-      "timestamp": 1767221011889,
+      "timestamp": 1767240958485,
       "data": {
-        "size": 5.960071563720703,
+        "size": 5.95754337310791,
         "threshold": 5
       },
-      "id": "mjulrfshscy8c"
+      "id": "mjuxmyolpvowl"
+    },
+    {
+      "type": "largeBundleSize",
+      "timestamp": 1767241258486,
+      "data": {
+        "size": 5.95754337310791,
+        "threshold": 5
+      },
+      "id": "mjuxte5zsnzjl"
+    },
+    {
+      "type": "largeBundleSize",
+      "timestamp": 1767241558494,
+      "data": {
+        "size": 5.95754337310791,
+        "threshold": 5
+      },
+      "id": "mjuxztnijikzd"
     }
   ],
   "summary": {
-    "timestamp": 1767221011889,
+    "timestamp": 1767241858493,
     "healthScore": 100,
     "overallHealth": "good",
     "components": {
@@ -145,13 +119,6 @@
       "queries": "good",
       "errors": "good"
     },
-    "recommendations": [
-      {
-        "type": "bundle",
-        "severity": "medium",
-        "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-        "value": 5.96
-      }
-    ]
+    "recommendations": []
   }
 }

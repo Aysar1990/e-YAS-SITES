@@ -166,28 +166,14 @@ ipcMain.handle('close-detached-window', async (event, windowId) => {
 app.whenReady().then(async () => {
   console.log('🚀 Starting YAS TSSR Monitor...')
 
-  // Initialize database
+  // Initialize database (Supabase only)
   await db.initialize()
 
   // Create main window
   mainWindow = createWindow(startExcelWatcher)
 
-  // Initialize backup service
-  const DATABASE_PATH = db.dbPath || path.join(__dirname, 'database', '..', '..', 'data', 'tssr.db')
-  backupService = new BackupService(DATABASE_PATH)
-  console.log('💾 Backup database path:', DATABASE_PATH)
-
-  // Schedule backup check every hour
-  setInterval(() => {
-    backupService.runScheduledBackup()
-  }, 60 * 60 * 1000)
-
-  // Run initial backup check after 5 seconds
-  setTimeout(() => {
-    backupService.runScheduledBackup()
-  }, 5000)
-
-  console.log('💾 Backup service initialized')
+  // Note: Backup service removed - Supabase handles backups automatically
+  console.log('💾 Using Supabase - automatic backups enabled')
 
   // Register all IPC handlers
   registerAllHandlers(ipcMain, {

@@ -28,7 +28,7 @@
 
 .drop-zone:hover,
 .drop-zone.dragging {
-  border-color: #3b82f6;
+  border-color: #FF8566;
   background: rgba(59, 130, 246, 0.1);
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
   transform: scale(1.01);
@@ -36,7 +36,7 @@
 
 .drop-zone.has-file {
   border-style: solid;
-  border-color: #10b981;
+  border-color: #8FD9D9;
   background: rgba(16, 185, 129, 0.05);
 }
 
@@ -168,7 +168,7 @@
 .btn-import {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #FF8566 0%, #FF5533 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -217,7 +217,7 @@
 
 .progress-bar {
   height: 100%;
-  background: #10b981;
+  background: #8FD9D9;
   transition: width 0.1s linear;
 }
 

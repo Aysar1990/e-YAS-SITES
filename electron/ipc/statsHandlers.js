@@ -15,33 +15,34 @@ function registerStatsHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-stats-breakdown', async (event, phase) => {
     try {
-      const getBreakdown = (additionalWhere = '', params = []) => {
+      const getBreakdown = async (additionalWhere = '', params = []) => {
         let whereClause = 'WHERE phase_name = ?'
         const queryParams = [phase, ...params]
 
         const query = `
           SELECT COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
-          FROM sites_cache ${whereClause} ${additionalWhere}
+          FROM sites ${whereClause} ${additionalWhere}
           GROUP BY part_of
         `
-        const result = db.prepare(query).all(...queryParams)
+        const result = await db.prepare(query).all(...queryParams)
+        const resultArray = Array.isArray(result) ? result : []
 
         return {
-          thinLayer: result.find(r => r.part_of === 'ThinLayer')?.count || 0,
-          fullSwap: result.find(r => r.part_of === 'Full Swap')?.count || 0,
-          swapExisting: result.find(r => r.part_of === 'Swap For Exsting Thin layer')?.count || 0,
-          notSpecified: result.find(r => r.part_of === 'Not Specified')?.count || 0,
-          total: result.reduce((sum, r) => sum + r.count, 0)
+          thinLayer: resultArray.find(r => r.part_of === 'ThinLayer')?.count || 0,
+          fullSwap: resultArray.find(r => r.part_of === 'Full Swap')?.count || 0,
+          swapExisting: resultArray.find(r => r.part_of === 'Swap For Exsting Thin layer')?.count || 0,
+          notSpecified: resultArray.find(r => r.part_of === 'Not Specified')?.count || 0,
+          total: resultArray.reduce((sum, r) => sum + (r.count || 0), 0)
         }
       }
 
       return {
-        totalScope: getBreakdown(),
-        surveyDone: getBreakdown("AND ts_survey_ac IS NOT NULL AND ts_survey_ac != ''"),
-        tssrReady: getBreakdown("AND (tssr_ready = 1 OR tssr_ready = 'Yes')"),
-        tssrSubmitted: getBreakdown("AND version IS NOT NULL AND version != ''"),
-        approved: getBreakdown("AND tssr_overall_status = 'Approved'"),
-        rfi: getBreakdown("AND rfi_status IS NOT NULL AND rfi_status != ''")
+        totalScope: await getBreakdown(),
+        surveyDone: await getBreakdown("AND ts_survey_ac IS NOT NULL AND ts_survey_ac != ''"),
+        tssrReady: await getBreakdown("AND (tssr_ready = 1 OR tssr_ready = 'Yes')"),
+        tssrSubmitted: await getBreakdown("AND version IS NOT NULL AND version != ''"),
+        approved: await getBreakdown("AND tssr_overall_status = 'Approved'"),
+        rfi: await getBreakdown("AND rfi_status IS NOT NULL AND rfi_status != ''")
       }
     } catch (error) {
       console.error('get-stats-breakdown error:', error)
@@ -53,10 +54,11 @@ function registerStatsHandlers(ipcMain, deps) {
     try {
       const query = `
         SELECT tssr_overall_status as status, COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
-        FROM sites_cache WHERE phase_name = ?
+        FROM sites WHERE phase_name = ?
         GROUP BY tssr_overall_status, part_of
       `
-      const results = db.prepare(query).all(phase)
+      const results = await db.prepare(query).all(phase)
+      const resultsArray = Array.isArray(results) ? results : []
 
       const statusOrder = [
         'Approved', 'TSSR Under Zain validation', 'TSSR Under ROM Review',
@@ -66,7 +68,7 @@ function registerStatsHandlers(ipcMain, deps) {
       ]
 
       const pivotData = {}
-      results.forEach(row => {
+      resultsArray.forEach(row => {
         if (!pivotData[row.status]) {
           pivotData[row.status] = { status: row.status, thinLayer: 0, fullSwap: 0, swapExisting: 0, notSpecified: 0, total: 0 }
         }
@@ -93,17 +95,17 @@ function registerStatsHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-contractors-list', async (event, phase) => {
     try {
-      const contractors = db.prepare(`
+      const contractors = await db.prepare(`
         SELECT tssr_subcon as name, COUNT(*) as totalSites,
           SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved,
           SUM(CASE WHEN tssr_overall_status = 'Site not Surveyed' THEN 1 ELSE 0 END) as notSurveyed,
           SUM(CASE WHEN rfi_status IS NOT NULL AND rfi_status != '' THEN 1 ELSE 0 END) as rfi
-        FROM sites_cache
+        FROM sites
         WHERE phase_name = ? AND tssr_subcon IS NOT NULL AND tssr_subcon != ''
         GROUP BY tssr_subcon ORDER BY totalSites DESC
       `).all(phase)
 
-      return contractors
+      return contractors || []
     } catch (error) {
       console.error('get-contractors-list error:', error)
       return []
@@ -112,27 +114,27 @@ function registerStatsHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-contractor-stats', async (event, name, phase) => {
     try {
-      const statusCounts = db.prepare(`
+      const statusCounts = await db.prepare(`
         SELECT tssr_overall_status as status, COUNT(*) as count
-        FROM sites_cache WHERE phase_name = ? AND tssr_subcon = ?
+        FROM sites WHERE phase_name = ? AND tssr_subcon = ?
         GROUP BY tssr_overall_status
       `).all(phase, name)
 
-      const partOfCounts = db.prepare(`
+      const partOfCounts = await db.prepare(`
         SELECT COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as total,
           SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved
-        FROM sites_cache WHERE phase_name = ? AND tssr_subcon = ?
+        FROM sites WHERE phase_name = ? AND tssr_subcon = ?
         GROUP BY part_of
       `).all(phase, name)
 
-      const totals = db.prepare(`
+      const totals = await db.prepare(`
         SELECT COUNT(*) as totalSites,
           SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved,
           SUM(CASE WHEN rfi_status IS NOT NULL AND rfi_status != '' THEN 1 ELSE 0 END) as rfi
-        FROM sites_cache WHERE phase_name = ? AND tssr_subcon = ?
+        FROM sites WHERE phase_name = ? AND tssr_subcon = ?
       `).get(phase, name)
 
-      return { name, ...totals, statusCounts, partOfCounts }
+      return { name, ...(totals || {}), statusCounts: statusCounts || [], partOfCounts: partOfCounts || [] }
     } catch (error) {
       console.error('get-contractor-stats error:', error)
       return null

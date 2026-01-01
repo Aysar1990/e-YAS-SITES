@@ -152,10 +152,10 @@ export function getStatusClass(status) {
 export function getStatusColor(status) {
   if (!status) return '#64748b'
   const s = status.toLowerCase()
-  if (s === 'approved' || s.includes('approved')) return '#22c55e'
+  if (s === 'approved' || s.includes('approved')) return '#8FD9D9'
   if (s === 'rejected' || s.includes('rejected')) return '#ef4444'
   if (s === 'pending' || s.includes('review') || s.includes('validation')) return '#eab308'
-  if (s === 'released') return '#3b82f6'
+  if (s === 'released') return '#FF8566'
   return '#64748b'
 }
 

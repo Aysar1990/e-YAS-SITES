@@ -45,9 +45,9 @@ export const useSettings = () => {
 
   // Role Permissions State
   const [permissions, setPermissions] = useState({
-    Management: { dashboard: true, contractors: true, sites: true, reports: true, settings: false, ghirbal: false, clearTssr: false },
-    'Nokia Engineer': { dashboard: true, contractors: true, sites: true, reports: true, settings: false, ghirbal: true, clearTssr: true },
-    Contractor: { dashboard: true, contractors: false, sites: true, reports: false, settings: false, ghirbal: false, clearTssr: false }
+    Management: { dashboard: true, contractors: true, sites: true, reports: true, settings: false },
+    'Nokia Engineer': { dashboard: true, contractors: true, sites: true, reports: true, settings: false },
+    Contractor: { dashboard: true, contractors: false, sites: true, reports: false, settings: false }
   })
   const [permissionsSaving, setPermissionsSaving] = useState(false)
 

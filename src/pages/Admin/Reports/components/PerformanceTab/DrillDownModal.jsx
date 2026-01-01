@@ -238,7 +238,7 @@ const DrillDownModal = ({ open, onClose, title, sites }) => {
 
             {/* Inline styles for status colors */}
             <style>{`
-                .status-approved { color: #10B981; font-weight: 500; }
+                .status-approved { color: #8FD9D9; font-weight: 500; }
                 .status-rejected { color: #EF4444; font-weight: 500; }
                 .status-pending { color: #F59E0B; font-weight: 500; }
                 .status-released { color: #D97706; font-weight: 500; }

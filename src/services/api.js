@@ -1,10 +1,12 @@
 // API Service - Central API handler for YAS TSSR Monitor
 
+import { AUTH_TOKEN_KEY } from '../utils/constants'
+
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 const API_TIMEOUT = import.meta.env.VITE_API_TIMEOUT || 30000
 
-// Token storage key - must match AuthContext.jsx
-const TOKEN_STORAGE_KEY = 'tssr_auth_token'
+// Token storage key - centralized from constants
+const TOKEN_STORAGE_KEY = AUTH_TOKEN_KEY
 
 // Helper to get auth token
 const getAuthToken = () => {

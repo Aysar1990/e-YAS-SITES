@@ -16,8 +16,6 @@ const Sidebar = ({ collapsed = false, onToggle }) => {
     { path: '/admin/change-requests', icon: '📝', label: 'Change Requests' },
     { path: '/admin/map', icon: '🗺️', label: t('nav.map') || 'Map' },
     { path: '/admin/reports', icon: '📈', label: t('nav.reports') },
-    { path: '/admin/ghirbal', icon: '🔍', label: 'Ghirbal' },
-    { path: '/admin/clear-tssr', icon: '✅', label: 'Clear TSSR' },
     { path: '/admin/backups', icon: '💾', label: 'Backups' },
     { path: '/admin/import', icon: '📥', label: t('nav.import', 'Import') },
     { path: '/admin/transform-import', icon: '🔄', label: 'Transform Import' },
@@ -46,8 +44,6 @@ const Sidebar = ({ collapsed = false, onToggle }) => {
     { path: '/nokia/sites', icon: '📍', label: t('nav.sites') },
     { path: '/nokia/map', icon: '🗺️', label: t('nav.map') || 'Map' },
     { path: '/nokia/reports', icon: '📈', label: t('nav.reports') },
-    { path: '/nokia/ghirbal', icon: '🔍', label: 'Ghirbal' },
-    { path: '/nokia/clear-tssr', icon: '✅', label: 'Clear TSSR' },
   ]
 
   const getLinks = () => {

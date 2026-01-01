@@ -3,6 +3,8 @@
  * Provides same interface as window.electron for seamless integration
  */
 
+import { AUTH_TOKEN_KEY } from '../utils/constants'
+
 // WebSocket Event Types (must match server)
 const WS_EVENTS = {
   SITE_UPDATED: 'site_updated',
@@ -94,7 +96,7 @@ class ApiClient {
   }
 
   getAuthToken() {
-    return localStorage.getItem('tssr_auth_token')
+    return localStorage.getItem(AUTH_TOKEN_KEY)
   }
 
   async request(endpoint, options = {}) {

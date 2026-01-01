@@ -248,7 +248,7 @@ button.save-btn:hover {
 .message.success {
   background: rgba(34, 197, 94, 0.12);
   border: 1px solid rgba(34, 197, 94, 0.25);
-  color: #22c55e;
+  color: #8FD9D9;
 }
 
 .message.success::before { content: '✓'; font-weight: bold; }
@@ -264,7 +264,7 @@ button.save-btn:hover {
 .message.info {
   background: rgba(59, 130, 246, 0.12);
   border: 1px solid rgba(59, 130, 246, 0.25);
-  color: #3b82f6;
+  color: #FF8566;
 }
 
 .message.info::before { content: 'ℹ'; font-weight: bold; }
@@ -325,7 +325,7 @@ button.save-btn:hover {
 
 .status-indicator.online {
   background: rgba(34, 197, 94, 0.12);
-  color: #22c55e;
+  color: #8FD9D9;
   border: 1px solid rgba(34, 197, 94, 0.25);
 }
 
@@ -333,7 +333,7 @@ button.save-btn:hover {
   content: '';
   width: 6px;
   height: 6px;
-  background: #22c55e;
+  background: #8FD9D9;
   border-radius: 50%;
   animation: pulse 2s infinite;
 }

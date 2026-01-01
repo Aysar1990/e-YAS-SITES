@@ -27,7 +27,7 @@
     --border-color: #374151;
 
     /* Today colors */
-    --today-green: #10B981;
+    --today-green: #8FD9D9;
     --today-orange: #F59E0B;
     --today-red: #EF4444;
 }
@@ -228,7 +228,7 @@
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--yas-primary) 0%, #3B82F6 100%);
+    background: linear-gradient(90deg, var(--yas-primary) 0%, #FF8566 100%);
     border-radius: 12px;
     transition: width 1s ease-in-out;
 }

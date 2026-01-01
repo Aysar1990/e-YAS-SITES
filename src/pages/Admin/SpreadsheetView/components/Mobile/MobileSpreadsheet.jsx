@@ -15,11 +15,11 @@ import './Mobile.css'
 
 // Status color mapping
 const STATUS_COLORS = {
-  approved: '#22C55E',
+  approved: '#8FD9D9',
   pending: '#EAB308',
   rejected: '#EF4444',
   rfi: '#F97316',
-  under: '#3B82F6'
+  under: '#FF8566'
 }
 
 const getStatusColor = (status) => {

@@ -185,8 +185,8 @@ const Sites = () => {
                 <span>Phase</span>
               </div>
             )}
-            <div className="stat-pill" style={{ borderColor: firebaseConnected ? '#22c55e' : '#ef4444' }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: firebaseConnected ? '#22c55e' : '#ef4444' }}></span>
+            <div className="stat-pill" style={{ borderColor: firebaseConnected ? '#8FD9D9' : '#ef4444' }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: firebaseConnected ? '#8FD9D9' : '#ef4444' }}></span>
               <span>{firebaseConnected ? 'Connected' : 'Offline'}</span>
             </div>
           </div>

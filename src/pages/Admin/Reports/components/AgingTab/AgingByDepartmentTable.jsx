@@ -21,7 +21,7 @@ const AgingByDepartmentTable = ({ data, brackets }) => {
                                 {dept[b.id] > 0 ? dept[b.id].toLocaleString() : '-'}
                             </td>
                         ))}
-                        <td style={{ color: dept.avgAge > 7 ? '#EF4444' : '#10B981', fontWeight: 'bold' }}>
+                        <td style={{ color: dept.avgAge > 7 ? '#EF4444' : '#8FD9D9', fontWeight: 'bold' }}>
                             {dept.avgAge} days
                         </td>
                     </tr>

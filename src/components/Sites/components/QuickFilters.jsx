@@ -17,7 +17,7 @@ const QuickFilters = ({
       key: 'approved',
       label: 'Approved',
       icon: '🟢',
-      color: '#22c55e',
+      color: '#8FD9D9',
       description: 'Approved sites',
       matchValues: ['approved']
     },
@@ -25,7 +25,7 @@ const QuickFilters = ({
       key: 'zainValidation',
       label: 'Zain Validation',
       icon: '🟣',
-      color: '#a855f7',
+      color: '#8FD9D9',
       description: 'TSSR Under Zain validation',
       matchValues: ['tssr under zain validation']
     },

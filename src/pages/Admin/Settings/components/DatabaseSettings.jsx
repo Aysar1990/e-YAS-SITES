@@ -85,7 +85,7 @@ const DatabaseSettings = ({ onShowMessage }) => {
   }
 
   const statusColors = {
-    connected: '#22c55e',
+    connected: '#8FD9D9',
     disconnected: '#ef4444',
     testing: '#f59e0b'
   }
