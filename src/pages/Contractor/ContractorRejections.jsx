@@ -13,10 +13,9 @@ import './ContractorRejections.css'
 const departments = [
   { key: 'ti', label: 'TI', statusField: 'ti_status', commentField: 'ti_comment' },
   { key: 'rf_plan', label: 'RF Planning', statusField: 'rf_plan_status', commentField: 'rf_plan_comment' },
-  { key: 'rf_opt', label: 'RF Optimization', statusField: 'rf_optim_status', commentField: 'rf_opt_comment' },
+  { key: 'rf_opt', label: 'RF Optimization', statusField: 'rf_opt_status', commentField: 'rf_opt_comment' },
   { key: 'civil', label: 'Civil', statusField: 'civil_status', commentField: 'civil_comment' },
   { key: 'mw', label: 'MW', statusField: 'mw_status', commentField: 'mw_comment' },
-  { key: 'nokia_rom', label: 'Nokia ROM', statusField: 'nokia_rom_status', commentField: 'nokia_rom_comment' },
   { key: 'nokia_npo', label: 'Nokia NPO', statusField: 'nokia_npo_status', commentField: 'nokia_npo_comment' },
 ]
 
@@ -146,10 +145,14 @@ const ContractorRejections = () => {
   const [expandedCards, setExpandedCards] = useState({})
   const [searchTerm, setSearchTerm] = useState('')
 
+  // Get contractor name (supports both formats)
+  const contractorName = user?.contractorName || user?.contractor_name
+
   // Filter sites: only contractor's sites with rejections
   const rejectedSites = sites.filter(site => {
-    // Must be contractor's site
-    if (user?.contractorName && site.tssr_subcon !== user.contractorName) {
+    // Must be contractor's site (supports both snake_case and camelCase)
+    const siteContractor = site.tssr_subcon || site.tssrSubcon
+    if (contractorName && siteContractor !== contractorName) {
       return false
     }
     // Must have at least one rejected department
@@ -198,10 +201,10 @@ const ContractorRejections = () => {
               {activePhase && activePhase !== 'ALL' && ` - ${activePhase}`}
             </p>
           </div>
-          {user?.contractorName && (
+          {contractorName && (
             <div className="contractor-badge">
               <span className="contractor-icon">🏢</span>
-              <span>{user.contractorName}</span>
+              <span>{contractorName}</span>
             </div>
           )}
         </div>

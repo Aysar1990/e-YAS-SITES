@@ -11,9 +11,8 @@ import { Card, Button } from '../../components/UI'
 import { useData } from '../../context/DataContext'
 import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
-import { useFirebaseData } from '../../hooks/useFirebaseData'
 import { useChangeRequests } from '../../hooks/useChangeRequests'
-import { hasRejection, mapFirebaseSiteToLocal, filterContractorSites } from './contractorUtils'
+import { hasRejection, filterContractorSites } from './contractorUtils'
 import PriorityCard from './PriorityCard'
 import RequestChangeModal from '../../components/RequestChangeModal'
 import './ContractorSites.css'
@@ -21,13 +20,12 @@ import './ContractorSites.css'
 const ContractorSites = () => {
   const { t } = useTranslation()
   const { direction } = useLanguage()
-  const { sites: localSites, loading: localLoading, activePhase } = useData()
+  const { sites: allSites, loading, activePhase } = useData()
   const { user } = useAuth()
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [priorityFilter, setPriorityFilter] = useState('all')
   const [flippedCards, setFlippedCards] = useState({})
-  const [useFirebase, setUseFirebase] = useState(true)
   const [selectedSite, setSelectedSite] = useState(null)
   const [showRequestModal, setShowRequestModal] = useState(false)
   const [showMyRequests, setShowMyRequests] = useState(false)
@@ -44,28 +42,17 @@ const ContractorSites = () => {
     autoRefresh: true
   })
 
-  // Firebase data hook
-  const {
-    sites: firebaseSites,
-    loading: firebaseLoading,
-    connected: firebaseConnected,
-    lastUpdate: firebaseLastUpdate
-  } = useFirebaseData({ phase: activePhase, enabled: useFirebase })
-
   // Get contractor name from user
   const contractorName = user?.contractorName || user?.contractor_name
 
-  // Map and filter sites by contractor
+  // Filter sites by contractor (supports both snake_case and camelCase)
   const sites = useMemo(() => {
-    if (useFirebase && firebaseConnected) {
-      return firebaseSites
-        .filter(s => s.tssrSubcon === contractorName)
-        .map(mapFirebaseSiteToLocal)
-    }
-    return localSites.filter(site => site.tssr_subcon === contractorName)
-  }, [useFirebase, firebaseConnected, firebaseSites, localSites, contractorName])
-
-  const loading = useFirebase ? firebaseLoading : localLoading
+    if (!allSites || !contractorName) return []
+    return allSites.filter(site => {
+      const siteContractor = site.tssr_subcon || site.tssrSubcon
+      return siteContractor === contractorName
+    })
+  }, [allSites, contractorName])
 
   // Unique values for filters
   const uniqueStatuses = [...new Set(sites.map(s => s.tssr_overall_status).filter(Boolean))]
@@ -107,40 +94,7 @@ const ContractorSites = () => {
             <p className="page-subtitle">
               إجمالي {sites.length} موقع
               {activePhase && activePhase !== 'ALL' && ` - ${activePhase}`}
-              {useFirebase && firebaseConnected && (
-                <span style={{ marginLeft: '10px', color: '#8FD9D9' }}>☁️ Firebase Live</span>
-              )}
             </p>
-          </div>
-
-          {/* Firebase Toggle */}
-          <div className="firebase-toggle" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <label style={{ position: 'relative', width: '44px', height: '22px' }}>
-              <input
-                type="checkbox"
-                checked={useFirebase}
-                onChange={(e) => setUseFirebase(e.target.checked)}
-                style={{ opacity: 0, width: 0, height: 0 }}
-              />
-              <span style={{
-                position: 'absolute', cursor: 'pointer', top: 0, left: 0, right: 0, bottom: 0,
-                backgroundColor: useFirebase ? '#8FD9D9' : '#64748b', borderRadius: '22px', transition: '0.3s'
-              }}>
-                <span style={{
-                  position: 'absolute', height: '18px', width: '18px',
-                  left: useFirebase ? '24px' : '2px', bottom: '2px',
-                  backgroundColor: 'white', borderRadius: '50%', transition: '0.3s'
-                }}></span>
-              </span>
-            </label>
-            <span style={{ fontSize: '0.8rem', color: useFirebase ? '#8FD9D9' : '#64748b' }}>
-              {useFirebase ? 'Firebase' : 'SQLite'}
-            </span>
-            {useFirebase && firebaseLastUpdate && (
-              <span style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                {new Date(firebaseLastUpdate).toLocaleTimeString()}
-              </span>
-            )}
           </div>
 
           {/* Contractor Badge */}
@@ -217,7 +171,7 @@ const ContractorSites = () => {
           <div className="empty-state">
             <p style={{ color: '#f59e0b' }}>⚠️ لا توجد مواقع مسجلة باسم: {contractorName}</p>
             <p style={{ fontSize: '14px', marginTop: '8px' }}>
-              المرحلة الحالية: {activePhase || 'ALL'}<br/>{useFirebase ? 'Firebase' : 'SQLite'} Mode
+              المرحلة الحالية: {activePhase || 'ALL'}
             </p>
           </div>
         ) : sortedSites.length === 0 ? (
@@ -253,7 +207,7 @@ const ContractorSites = () => {
                   background: '#0f172a',
                   borderRadius: '8px',
                   marginBottom: '0.5rem',
-                  borderLeft: `3px solid ${req.status === 'pending' ? '#f59e0b' : req.status === 'approved' ? '#10b981' : '#ef4444'}`
+                  borderLeft: `3px solid ${req.status === 'pending' ? '#f59e0b' : req.status === 'approved' ? '#8FD9D9' : '#ef4444'}`
                 }}>
                   <div>
                     <div style={{ color: '#8fd9d9', fontFamily: 'monospace', fontSize: '0.85rem' }}>{req.site_id}</div>

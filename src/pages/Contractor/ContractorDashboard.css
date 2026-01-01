@@ -276,7 +276,7 @@
 }
 
 .cd-metric-box.approved {
-  border-left: 4px solid #22c55e;
+  border-left: 4px solid #8FD9D9;
 }
 
 .cd-metric-icon {
@@ -294,7 +294,7 @@
 .cd-metric-box.total .cd-metric-value { color: #9ca3af; }
 .cd-metric-box.nokia .cd-metric-value { color: #FF8566; }
 .cd-metric-box.zain .cd-metric-value { color: #8b5cf6; }
-.cd-metric-box.approved .cd-metric-value { color: #22c55e; }
+.cd-metric-box.approved .cd-metric-value { color: #8FD9D9; }
 
 .cd-metric-label {
   font-size: 14px;
@@ -431,7 +431,7 @@
   font-weight: 700;
 }
 
-.cd-cat-value.approved { color: #22c55e; }
+.cd-cat-value.approved { color: #8FD9D9; }
 .cd-cat-value.pending { color: #f59e0b; }
 
 .cd-cat-label {
@@ -458,7 +458,7 @@
 
 .cd-category-rate {
   font-size: 12px;
-  color: #22c55e;
+  color: #8FD9D9;
   font-weight: 500;
 }
 

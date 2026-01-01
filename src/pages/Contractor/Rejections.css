@@ -1,4 +1,4 @@
-﻿/* Rejections Page Styles */
+/* Rejections Page Styles */
 
 .rejections-page {
   padding: 1.5rem;
@@ -72,7 +72,7 @@
 }
 
 .stat-card--success {
-  border-right: 4px solid #22c55e;
+  border-right: 4px solid #8FD9D9;
 }
 
 .stat-card__value {
@@ -158,7 +158,7 @@
 
 .status-badge--success {
   background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  color: #8FD9D9;
 }
 
 .status-badge--warning {

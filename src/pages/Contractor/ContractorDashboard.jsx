@@ -1,43 +1,34 @@
-﻿import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../../context/AuthContext'
 import { useData } from '../../context/DataContext'
-import { useFirebaseData } from '../../hooks/useFirebaseData'
 import { MainLayout } from '../../components/Layout'
 import './ContractorDashboard.css'
 
 const ContractorDashboard = () => {
   const { t } = useTranslation()
   const { user } = useAuth()
-  const { phases, activePhase, setActivePhase } = useData()
-  const [loading, setLoading] = useState(true)
-  const [stats, setStats] = useState(null)
-  const [useFirebase, setUseFirebase] = useState(true) // Default to Firebase
-
-  // Firebase data hook
-  const {
-    sites: firebaseSites,
-    loading: firebaseLoading,
-    connected: firebaseConnected,
-    lastUpdate: firebaseLastUpdate
-  } = useFirebaseData({ phase: activePhase, enabled: useFirebase })
+  const { sites, phases, activePhase, setActivePhase, loading: dataLoading } = useData()
 
   // Get contractor name from user object (supports both formats)
   const contractorName = user?.contractorName || user?.contractor_name
 
-  // Filter Firebase sites by contractor name
-  const contractorFirebaseSites = useMemo(() => {
-    if (!contractorName || !firebaseSites) return []
-    return firebaseSites.filter(site => site.tssrSubcon === contractorName)
-  }, [firebaseSites, contractorName])
+  // Filter sites by contractor name (supports both snake_case and camelCase)
+  const contractorSites = useMemo(() => {
+    if (!contractorName || !sites || sites.length === 0) return []
+    return sites.filter(site => {
+      const siteContractor = site.tssr_subcon || site.tssrSubcon
+      return siteContractor === contractorName
+    })
+  }, [sites, contractorName])
 
-  // Calculate Firebase stats
-  const firebaseStats = useMemo(() => {
-    if (!contractorFirebaseSites.length) return null
+  // Calculate stats from contractor sites
+  const contractorStats = useMemo(() => {
+    if (!contractorSites.length) return null
 
     const statusCounts = {}
-    contractorFirebaseSites.forEach(site => {
-      const status = site.tssrOverallStatus || 'Unknown'
+    contractorSites.forEach(site => {
+      const status = site.tssr_overall_status || site.tssrOverallStatus || 'Unknown'
       statusCounts[status] = (statusCounts[status] || 0) + 1
     })
 
@@ -45,67 +36,42 @@ const ContractorDashboard = () => {
 
     // Part Of counts
     const partOfCounts = {}
-    contractorFirebaseSites.forEach(site => {
-      const partOf = site.partOf || 'Not Specified'
+    contractorSites.forEach(site => {
+      const partOf = site.part_of || site.partOf || 'Not Specified'
       if (!partOfCounts[partOf]) {
         partOfCounts[partOf] = { category: partOf, total: 0, approved: 0 }
       }
       partOfCounts[partOf].total++
-      if (site.tssrOverallStatus === 'Approved') {
+      const siteStatus = site.tssr_overall_status || site.tssrOverallStatus || ''
+      if (siteStatus === 'Approved') {
         partOfCounts[partOf].approved++
       }
     })
 
     return {
-      totalSites: contractorFirebaseSites.length,
-      approved: contractorFirebaseSites.filter(s => s.tssrOverallStatus === 'Approved').length,
-      tssrSubmitted: contractorFirebaseSites.filter(s => s.version && s.version > 0).length,
+      totalSites: contractorSites.length,
+      approved: contractorSites.filter(s => (s.tssr_overall_status || s.tssrOverallStatus) === 'Approved').length,
+      tssrSubmitted: contractorSites.filter(s => s.version && s.version > 0).length,
       statusCounts: statusCountsArray,
       partOfCounts: Object.values(partOfCounts)
     }
-  }, [contractorFirebaseSites])
+  }, [contractorSites])
 
-  useEffect(() => {
-    if (!useFirebase) {
-      loadContractorStats()
-    } else {
-      setLoading(false)
-    }
-  }, [activePhase, contractorName, useFirebase])
-
-  const loadContractorStats = async () => {
-    if (!contractorName) return
-
-    setLoading(true)
-    try {
-      const result = await window.electron.getContractorDetailedStats({
-        phase: activePhase,
-        name: contractorName
-      })
-      if (result.success) {
-        setStats(result.data)
-      }
-    } catch (error) {
-      console.error('Failed to load contractor stats:', error)
-    }
-    setLoading(false)
-  }
-
-  // Use Firebase or local stats
-  const activeStats = useFirebase && firebaseConnected ? firebaseStats : stats
-  const isLoading = useFirebase ? firebaseLoading : loading
+  // Use calculated stats
+  const activeStats = contractorStats
+  const isLoading = dataLoading
 
   // Workflow stages configuration
   const workflowStages = [
-    { key: 'Site not Surveyed', label: 'Not Surveyed', icon: '📋', color: '#6b7280' },
-    { key: 'Need Access', label: 'Need Access', icon: '🔒', color: '#f59e0b' },
-    { key: 'TSSR Under Subcon validation', label: 'Under Subcon', icon: '🔧', color: '#8b5cf6' },
-    { key: 'TSSR Under Nokia GSD Validation', label: 'Nokia GSD', icon: '📡', color: '#FF8566' },
-    { key: 'TSSR Under Nokia NPO Validation', label: 'Nokia NPO', icon: '📶', color: '#0ea5e9' },
-    { key: 'TSSR Under Nokia ROM Validation', label: 'Nokia ROM', icon: '🔄', color: '#14b8a6' },
-    { key: 'TSSR Under ROM Review', label: 'ROM Review', icon: '📝', color: '#8FD9D9' },
-    { key: 'TSSR Under Zain validation', label: 'Under Zain', icon: '🏢', color: '#22c55e' },
-    { key: 'Approved', label: 'Approved', icon: '✅', color: '#16a34a' }
+    { key: 'Site not Surveyed', label: 'Not Surveyed', icon: '??', color: '#6b7280' },
+    { key: 'Need Access', label: 'Need Access', icon: '??', color: '#f59e0b' },
+    { key: 'TSSR Under Subcon validation', label: 'Under Subcon', icon: '??', color: '#8b5cf6' },
+    { key: 'TSSR Under Nokia GSD Validation', label: 'Nokia GSD', icon: '??', color: '#FF8566' },
+    { key: 'TSSR Under Nokia NPO Validation', label: 'Nokia NPO', icon: '??', color: '#FF8566' },
+    { key: 'TSSR Under Nokia ROM Validation', label: 'Nokia ROM', icon: '??', color: '#14b8a6' },
+    { key: 'TSSR Under ROM Review', label: 'ROM Review', icon: '??', color: '#8FD9D9' },
+    { key: 'TSSR Under Zain validation', label: 'Under Zain', icon: '??', color: '#8FD9D9' },
+    { key: 'Approved', label: 'Approved', icon: '?', color: '#6ECECE' }
   ]
 
   // Calculate counts from statusCounts
@@ -142,51 +108,12 @@ const ContractorDashboard = () => {
             <h1 className="cd-title">Contractor Dashboard</h1>
             <p className="cd-subtitle">
               Monitor your sites progress and performance
-              {useFirebase && firebaseConnected && (
-                <span style={{ marginLeft: '10px', color: '#8FD9D9', fontSize: '0.85rem' }}>
-                  ☁️ Firebase Live
-                </span>
-              )}
+              <span style={{ marginLeft: '10px', color: '#8FD9D9', fontSize: '0.85rem' }}>
+                {contractorSites.length} sites
+              </span>
             </p>
           </div>
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            {/* Firebase Toggle */}
-            <div className="firebase-toggle" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <label style={{ position: 'relative', width: '44px', height: '22px' }}>
-                <input
-                  type="checkbox"
-                  checked={useFirebase}
-                  onChange={(e) => setUseFirebase(e.target.checked)}
-                  style={{ opacity: 0, width: 0, height: 0 }}
-                />
-                <span style={{
-                  position: 'absolute',
-                  cursor: 'pointer',
-                  top: 0, left: 0, right: 0, bottom: 0,
-                  backgroundColor: useFirebase ? '#8FD9D9' : '#64748b',
-                  borderRadius: '22px',
-                  transition: '0.3s'
-                }}>
-                  <span style={{
-                    position: 'absolute',
-                    height: '18px', width: '18px',
-                    left: useFirebase ? '24px' : '2px',
-                    bottom: '2px',
-                    backgroundColor: 'white',
-                    borderRadius: '50%',
-                    transition: '0.3s'
-                  }}></span>
-                </span>
-              </label>
-              <span style={{ fontSize: '0.8rem', color: useFirebase ? '#8FD9D9' : '#64748b' }}>
-                {useFirebase ? 'Firebase' : 'SQLite'}
-              </span>
-              {useFirebase && firebaseLastUpdate && (
-                <span style={{ fontSize: '0.7rem', color: '#64748b' }}>
-                  {new Date(firebaseLastUpdate).toLocaleTimeString()}
-                </span>
-              )}
-            </div>
             <div className="cd-phase-filter">
               <label>Phase:</label>
               <select
@@ -232,7 +159,7 @@ const ContractorDashboard = () => {
             {/* Workflow Pipeline */}
             <div className="cd-section">
               <h3 className="cd-section-title">
-                <span className="cd-section-icon">🔄</span>
+                <span className="cd-section-icon">??</span>
                 Site Workflow Pipeline
               </h3>
               <div className="cd-pipeline">
@@ -250,7 +177,7 @@ const ContractorDashboard = () => {
                         <div className="cd-stage-label">{stage.label}</div>
                       </div>
                       {index < workflowStages.length - 1 && (
-                        <div className="cd-pipeline-arrow">→</div>
+                        <div className="cd-pipeline-arrow">?</div>
                       )}
                     </div>
                   )
@@ -261,29 +188,29 @@ const ContractorDashboard = () => {
             {/* Performance Metrics */}
             <div className="cd-section">
               <h3 className="cd-section-title">
-                <span className="cd-section-icon">📊</span>
+                <span className="cd-section-icon">??</span>
                 Performance Metrics
               </h3>
               <div className="cd-metrics-grid">
                 <div className="cd-metric-box total">
-                  <div className="cd-metric-icon">📍</div>
+                  <div className="cd-metric-icon">??</div>
                   <div className="cd-metric-value">{totalSites}</div>
                   <div className="cd-metric-label">Total Sites</div>
                 </div>
                 <div className="cd-metric-box nokia">
-                  <div className="cd-metric-icon">📡</div>
+                  <div className="cd-metric-icon">??</div>
                   <div className="cd-metric-value">{submittedToNokia}</div>
                   <div className="cd-metric-label">Submitted to Nokia</div>
                   <div className="cd-metric-sub">Past Subcon Stage</div>
                 </div>
                 <div className="cd-metric-box zain">
-                  <div className="cd-metric-icon">🏢</div>
+                  <div className="cd-metric-icon">??</div>
                   <div className="cd-metric-value">{submittedToZain}</div>
                   <div className="cd-metric-label">Submitted to Zain</div>
                   <div className="cd-metric-sub">Version Submitted</div>
                 </div>
                 <div className="cd-metric-box approved">
-                  <div className="cd-metric-icon">✅</div>
+                  <div className="cd-metric-icon">?</div>
                   <div className="cd-metric-value">{approvedCount}</div>
                   <div className="cd-metric-label">Approved</div>
                   <div className="cd-metric-sub">Final Approval</div>
@@ -294,7 +221,7 @@ const ContractorDashboard = () => {
             {/* Submission & Approval Rates */}
             <div className="cd-section">
               <h3 className="cd-section-title">
-                <span className="cd-section-icon">📈</span>
+                <span className="cd-section-icon">??</span>
                 Submission & Approval Rates
               </h3>
               <div className="cd-rates-container">
@@ -345,7 +272,7 @@ const ContractorDashboard = () => {
             {/* By Category (Part Of) */}
             <div className="cd-section">
               <h3 className="cd-section-title">
-                <span className="cd-section-icon">📦</span>
+                <span className="cd-section-icon">??</span>
                 By Category (Part Of)
               </h3>
               <div className="cd-category-grid">
