@@ -57,13 +57,48 @@ const app = express();
 // MIDDLEWARE
 // ============================================
 
-// CORS - Allow all origins for cloud deployment
-app.use(cors({
-  origin: '*',
+// CORS Configuration - Secure in production
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allowed origins (add your production domains here)
+    const allowedOrigins = [
+      // Production domains
+      process.env.FRONTEND_URL,
+      'https://tssr-monitor.vercel.app',
+      'https://e-yas-tssr.vercel.app',
+      // Add other allowed domains as needed
+    ].filter(Boolean); // Remove undefined/null
+
+    // Development mode - allow all origins
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    // Check if origin is allowed
+    if (allowedOrigins.some(allowed => origin.includes(allowed.replace('https://', '').replace('http://', '')))) {
+      return callback(null, true);
+    }
+
+    // Allow Vercel preview deployments
+    if (origin.includes('vercel.app') || origin.includes('netlify.app')) {
+      return callback(null, true);
+    }
+
+    // Deny other origins in production
+    console.warn(`CORS blocked origin: ${origin}`);
+    return callback(new Error('Not allowed by CORS'), false);
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
 
 // Parse JSON bodies
 app.use(express.json({ limit: '50mb' }));
@@ -138,8 +173,8 @@ const auth = authenticateToken;
 // Sites routes (includes /phases inside)
 app.use('/api/sites', auth, sitesRoutes(supabase));
 
-// Direct /api/phases endpoint - GET phases directly
-app.get('/api/phases', auth, async (req, res) => {
+// Direct /api/phases endpoint - PUBLIC (no auth required)
+app.get('/api/phases', async (req, res) => {
   try {
     const { data, error } = await supabase
       .from('sites')
@@ -172,16 +207,26 @@ app.use('/api/users', auth, usersRoutes(supabase));
 app.use('/api/contractors', auth, contractorsRoutes(supabase));
 app.use('/api/audit-logs', auth, auditLogsRoutes(supabase));
 
-// Rejections endpoint - sites with rejection status
+// Rejections endpoint - sites with rejection status in ANY department
 app.get('/api/rejections', auth, async (req, res) => {
   try {
     const { phase, contractor } = req.query;
     const user = req.user;
 
+    // Build query - check for rejections in any department or overall status
     let query = supabase
       .from('sites')
       .select('*')
-      .or('tssr_overall_status.ilike.%reject%,tssr_overall_status.ilike.%fail%,tssr_overall_status.ilike.%rfi%');
+      .or([
+        'tssr_overall_status.ilike.%reject%',
+        'tssr_overall_status.ilike.%fail%',
+        'ti_status.ilike.%reject%',
+        'rf_plan_status.ilike.%reject%',
+        'rf_opt_status.ilike.%reject%',
+        'civil_status.ilike.%reject%',
+        'mw_status.ilike.%reject%',
+        'nokia_npo_status.ilike.%reject%'
+      ].join(','));
 
     if (phase && phase !== 'ALL') {
       query = query.eq('phase_name', phase);
@@ -194,7 +239,7 @@ app.get('/api/rejections', auth, async (req, res) => {
       query = query.eq('tssr_subcon', contractor);
     }
 
-    query = query.order('updated_at', { ascending: false }).limit(100);
+    query = query.order('updated_at', { ascending: false }).limit(500);
 
     const { data, error } = await query;
 
@@ -207,8 +252,8 @@ app.get('/api/rejections', auth, async (req, res) => {
   }
 });
 
-// Settings endpoint
-app.get('/api/settings', auth, async (req, res) => {
+// Settings endpoint - PUBLIC (no auth required)
+app.get('/api/settings', async (req, res) => {
   try {
     const { data, error } = await supabase
       .from('settings')
