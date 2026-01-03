@@ -79,8 +79,8 @@ const ManagementDashboard = () => {
                 onChange={(e) => setActivePhase(e.target.value)}
               >
                 <option value="ALL">All Phases</option>
-                {phases.map((phase) => (
-                  <option key={phase.phase_name} value={phase.phase_name}>
+                {phases.map((phase, index) => (
+                  <option key={`${phase.phase_name}-${index}`} value={phase.phase_name}>
                     {phase.phase_name} ({phase.count})
                   </option>
                 ))}
@@ -163,9 +163,9 @@ const ManagementDashboard = () => {
             {/* Phases Overview */}
             <Card title="Phases Overview" className="phases-card">
               <div className="phases-grid">
-                {phases.slice(0, 8).map((phase) => (
+                {phases.slice(0, 8).map((phase, index) => (
                   <div
-                    key={phase.phase_name}
+                    key={`${phase.phase_name}-${index}`}
                     className={`phase-item ${activePhase === phase.phase_name ? 'active' : ''}`}
                     onClick={() => setActivePhase(phase.phase_name)}
                   >

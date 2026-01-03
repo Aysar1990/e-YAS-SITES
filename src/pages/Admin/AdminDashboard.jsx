@@ -55,18 +55,17 @@ const AdminDashboard = () => {
     }
   }, [])
 
-  // Firebase data hook - enabled only when online
+  // Firebase data hook - now just wraps DataContext for compatibility
   const {
     stats: firebaseStats,
     loading: firebaseLoading,
-    connected: firebaseConnected,
-    lastUpdate: firebaseLastUpdate
+    connected: firebaseConnected
   } = useFirebaseData({ phase: activePhase, enabled: isOnline })
 
-  // Auto-switch: Use Firebase/Supabase when online and connected, SQLite when offline
-  const useCloudData = isOnline && firebaseConnected
-  const stats = useCloudData ? firebaseStats : localStats
-  const loading = isOnline ? firebaseLoading : localLoading
+  // Use local stats from DataContext (Firebase removed, all data comes from SQLite/Supabase)
+  // localStats and firebaseStats are the same data source now
+  const stats = localStats
+  const loading = localLoading
 
   useEffect(() => {
     fetchData()
@@ -117,8 +116,8 @@ const AdminDashboard = () => {
                 style={{ background: 'rgba(30, 41, 59, 0.6)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', padding: '6px 12px', borderRadius: '8px' }}
               >
                 <option value="ALL">All Phases</option>
-                {phases.map((phase) => (
-                  <option key={phase.phase_name} value={phase.phase_name}>
+                {phases.map((phase, index) => (
+                  <option key={`${phase.phase_name}-${index}`} value={phase.phase_name}>
                     {phase.phase_name} ({phase.count})
                   </option>
                 ))}
@@ -258,30 +257,31 @@ const AdminDashboard = () => {
               {/* Status Breakdown */}
               <Card title="Status" className="status-card">
                 <div className="status-list">
-                  {groupedStatuses.map((statusGroup, index) => (
-                    <div key={index} className="status-item">
-                      <div className="status-info">
-                        <span
-                          className="status-dot"
-                          style={{ background: getStatusColor(statusGroup.status) }}
-                        ></span>
-                        <span className="status-name">{statusGroup.status}</span>
+                  {groupedStatuses.map((statusGroup, index) => {
+                    const pct = totalSites > 0 ? (statusGroup.count / totalSites) * 100 : 0
+                    return (
+                      <div key={index} className="status-item">
+                        <div className="status-info">
+                          <span
+                            className="status-dot"
+                            style={{ background: getStatusColor(statusGroup.status) }}
+                          ></span>
+                          <span className="status-name">{statusGroup.status}</span>
+                        </div>
+                        <div className="status-bar">
+                          <div
+                            className="status-bar-fill"
+                            style={{
+                              width: `${pct}%`,
+                              background: getStatusColor(statusGroup.status),
+                            }}
+                          ></div>
+                        </div>
+                        <span className="status-count">{statusGroup.count || 0}</span>
+                        <span className="status-percent">{pct.toFixed(1)}%</span>
                       </div>
-                      <div className="status-bar">
-                        <div
-                          className="status-bar-fill"
-                          style={{
-                            width: `${(statusGroup.count / totalSites) * 100}%`,
-                            background: getStatusColor(statusGroup.status),
-                          }}
-                        ></div>
-                      </div>
-                      <span className="status-count">{statusGroup.count}</span>
-                      <span className="status-percent">
-                        {((statusGroup.count / totalSites) * 100).toFixed(1)}%
-                      </span>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </Card>
 

@@ -3,9 +3,11 @@
  *
  * Implements cloud database functionality using Supabase.
  * Translates SQL.js-style API calls to Supabase query builder syntax.
+ * Uses columnDefinitions.js for proper column mapping.
  */
 
 const BaseAdapter = require('./baseAdapter')
+const { supabaseToSQLite, transformSupabaseToSQLite } = require('../../columnDefinitions')
 
 class SupabaseAdapter extends BaseAdapter {
   constructor(config = {}) {
@@ -76,6 +78,12 @@ class SupabaseAdapter extends BaseAdapter {
           return { changes: result.count || 0 }
         } catch (error) {
           console.error('Supabase run error:', error.message)
+          // Mark network errors for fallback handling
+          if (error.message?.includes('fetch failed') || error.message?.includes('network') || error.code === 'ECONNREFUSED') {
+            const networkError = new Error(`SUPABASE_NETWORK_ERROR: ${error.message}`)
+            networkError.isNetworkError = true
+            throw networkError
+          }
           throw error
         }
       },
@@ -87,6 +95,12 @@ class SupabaseAdapter extends BaseAdapter {
           return result
         } catch (error) {
           console.error('Supabase get error:', error.message)
+          // Throw network errors for fallback handling instead of returning undefined
+          if (error.message?.includes('fetch failed') || error.message?.includes('network') || error.message?.includes('COMPLEX_AGGREGATE') || error.code === 'ECONNREFUSED') {
+            const networkError = new Error(`SUPABASE_NETWORK_ERROR: ${error.message}`)
+            networkError.isNetworkError = true
+            throw networkError
+          }
           return undefined
         }
       },
@@ -98,6 +112,12 @@ class SupabaseAdapter extends BaseAdapter {
           return result
         } catch (error) {
           console.error('Supabase all error:', error.message)
+          // Throw network errors for fallback handling instead of returning []
+          if (error.message?.includes('fetch failed') || error.message?.includes('network') || error.message?.includes('COMPLEX_AGGREGATE') || error.code === 'ECONNREFUSED') {
+            const networkError = new Error(`SUPABASE_NETWORK_ERROR: ${error.message}`)
+            networkError.isNetworkError = true
+            throw networkError
+          }
           return []
         }
       }
@@ -221,7 +241,17 @@ class SupabaseAdapter extends BaseAdapter {
       columns: '*',
       where: null,
       orderBy: null,
-      limit: null
+      limit: null,
+      isCount: false,
+      countAlias: 'count',
+      isComplexAggregate: false
+    }
+
+    // Check for complex aggregates (SUM, AVG, COUNT, GROUP BY) that can't be translated
+    const hasComplexAggregate = /\b(SUM|AVG|MIN|MAX|COUNT\s*\(|GROUP\s+BY)\b/i.test(sql)
+    if (hasComplexAggregate) {
+      result.isComplexAggregate = true
+      return result
     }
 
     // Extract table name: SELECT ... FROM table_name
@@ -233,11 +263,21 @@ class SupabaseAdapter extends BaseAdapter {
     // Extract columns: SELECT col1, col2 FROM
     const selectMatch = sql.match(/SELECT\s+(.*?)\s+FROM/i)
     if (selectMatch) {
-      result.columns = selectMatch[1].trim()
+      const columnsStr = selectMatch[1].trim()
+
+      // Check for COUNT(*) or COUNT(column) with optional alias
+      const countMatch = columnsStr.match(/COUNT\s*\(\s*\*?\s*\)\s*(?:as\s+([a-zA-Z_][a-zA-Z0-9_]*)|([a-zA-Z_][a-zA-Z0-9_]*))?/i)
+      if (countMatch) {
+        result.isCount = true
+        result.countAlias = countMatch[1] || countMatch[2] || 'count'
+        result.columns = '*'
+      } else {
+        result.columns = columnsStr
+      }
     }
 
     // Extract WHERE clause
-    const whereMatch = sql.match(/WHERE\s+(.*?)(?:\s+ORDER BY|\s+LIMIT|\s*$)/i)
+    const whereMatch = sql.match(/WHERE\s+(.*?)(?:\s+ORDER BY|\s+LIMIT|\s+GROUP BY|\s*$)/i)
     if (whereMatch) {
       result.where = whereMatch[1].trim()
     }
@@ -432,8 +472,34 @@ class SupabaseAdapter extends BaseAdapter {
    * @private
    */
   async _executeQuery(query, single = false) {
+    // Handle complex aggregate queries - these need SQLite
+    if (query.isComplexAggregate) {
+      throw new Error('COMPLEX_AGGREGATE: Query contains SUM/AVG/GROUP BY which requires SQLite fallback')
+    }
+
     if (!query.table) {
       throw new Error('No table specified in query')
+    }
+
+    // Handle COUNT queries specially
+    if (query.isCount) {
+      let supabaseQuery = this.supabase.from(query.table).select('*', { count: 'exact', head: true })
+
+      // Apply WHERE conditions
+      if (query.where) {
+        supabaseQuery = this._applyWhereClause(supabaseQuery, query.where)
+      }
+
+      const { count, error } = await supabaseQuery
+
+      if (error) {
+        throw error
+      }
+
+      // Return result in expected format: { count: N } or { alias: N }
+      const result = {}
+      result[query.countAlias] = count || 0
+      return result
     }
 
     let supabaseQuery = this.supabase.from(query.table)
@@ -468,14 +534,37 @@ class SupabaseAdapter extends BaseAdapter {
       if (error && error.code !== 'PGRST116') {
         throw error
       }
-      return data
+      // Transform Supabase column names to SQLite column names
+      return data ? this._transformSupabaseRow(data) : null
     } else {
       const { data, error } = await supabaseQuery
       if (error) {
         throw error
       }
-      return data || []
+      // Transform Supabase column names to SQLite column names
+      return data ? data.map(row => this._transformSupabaseRow(row)) : []
     }
+  }
+
+  /**
+   * Transform Supabase row to SQLite format
+   * @private
+   */
+  _transformSupabaseRow(row) {
+    if (!row) return null
+    
+    const transformed = {}
+    for (const [supabaseCol, value] of Object.entries(row)) {
+      // Convert Supabase column name to SQLite column name
+      const sqliteCol = supabaseToSQLite(supabaseCol)
+      if (sqliteCol) {
+        transformed[sqliteCol] = value
+      } else {
+        // Keep column if no mapping exists (like id, created_at, etc.)
+        transformed[supabaseCol] = value
+      }
+    }
+    return transformed
   }
 
   /**
@@ -530,7 +619,9 @@ class SupabaseAdapter extends BaseAdapter {
         throw error
       }
 
-      return { count: count || records.length, data }
+      // Transform returned data
+      const transformedData = data ? data.map(row => this._transformSupabaseRow(row)) : []
+      return { count: count || records.length, data: transformedData }
     }
 
     // Regular insert
@@ -543,7 +634,9 @@ class SupabaseAdapter extends BaseAdapter {
       throw error
     }
 
-    return { count: count || records.length, data }
+    // Transform returned data
+    const transformedData = data ? data.map(row => this._transformSupabaseRow(row)) : []
+    return { count: count || records.length, data: transformedData }
   }
 
   /**
@@ -570,7 +663,9 @@ class SupabaseAdapter extends BaseAdapter {
       throw error
     }
 
-    return { count: count || 0, data }
+    // Transform returned data
+    const transformedData = data ? data.map(row => this._transformSupabaseRow(row)) : []
+    return { count: count || 0, data: transformedData }
   }
 
   /**
@@ -590,7 +685,9 @@ class SupabaseAdapter extends BaseAdapter {
       throw error
     }
 
-    return { count: count || 0, data }
+    // Transform returned data
+    const transformedData = data ? data.map(row => this._transformSupabaseRow(row)) : []
+    return { count: count || 0, data: transformedData }
   }
 
   /**

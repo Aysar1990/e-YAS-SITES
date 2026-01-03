@@ -1,8 +1,8 @@
 [
   {
-    "timestamp": 1767241678606,
+    "timestamp": 1767258265043,
     "summary": {
-      "timestamp": 1767241558494,
+      "timestamp": 1767258144142,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -10,24 +10,4229 @@
         "queries": "good",
         "errors": "good"
       },
-      "recommendations": [
-        {
-          "type": "bundle",
-          "severity": "medium",
-          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-          "value": 5.96
-        }
-      ]
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.46
+    }
+  },
+  {
+    "timestamp": 1767258325050,
+    "summary": {
+      "timestamp": 1767258144142,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.46
+    }
+  },
+  {
+    "timestamp": 1767258385051,
+    "summary": {
+      "timestamp": 1767258144142,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.46
+    }
+  },
+  {
+    "timestamp": 1767258445060,
+    "summary": {
+      "timestamp": 1767258444144,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.49
+    }
+  },
+  {
+    "timestamp": 1767258505073,
+    "summary": {
+      "timestamp": 1767258444144,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.49
+    }
+  },
+  {
+    "timestamp": 1767258565075,
+    "summary": {
+      "timestamp": 1767258444144,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.49
+    }
+  },
+  {
+    "timestamp": 1767258625083,
+    "summary": {
+      "timestamp": 1767258444144,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.49
+    }
+  },
+  {
+    "timestamp": 1767258685096,
+    "summary": {
+      "timestamp": 1767258444144,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.49
+    }
+  },
+  {
+    "timestamp": 1767258745109,
+    "summary": {
+      "timestamp": 1767258744158,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.52
+    }
+  },
+  {
+    "timestamp": 1767258805110,
+    "summary": {
+      "timestamp": 1767258744158,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.52
+    }
+  },
+  {
+    "timestamp": 1767258865118,
+    "summary": {
+      "timestamp": 1767258744158,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.52
+    }
+  },
+  {
+    "timestamp": 1767258925122,
+    "summary": {
+      "timestamp": 1767258744158,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.52
+    }
+  },
+  {
+    "timestamp": 1767258985136,
+    "summary": {
+      "timestamp": 1767258744158,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.52
+    }
+  },
+  {
+    "timestamp": 1767259045146,
+    "summary": {
+      "timestamp": 1767259044168,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.55
+    }
+  },
+  {
+    "timestamp": 1767259105161,
+    "summary": {
+      "timestamp": 1767259044168,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.55
+    }
+  },
+  {
+    "timestamp": 1767259165172,
+    "summary": {
+      "timestamp": 1767259044168,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.55
+    }
+  },
+  {
+    "timestamp": 1767259225185,
+    "summary": {
+      "timestamp": 1767259044168,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.55
+    }
+  },
+  {
+    "timestamp": 1767259285187,
+    "summary": {
+      "timestamp": 1767259044168,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 5.55
+    }
+  },
+  {
+    "timestamp": 1767259345202,
+    "summary": {
+      "timestamp": 1767259344178,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.57
+    }
+  },
+  {
+    "timestamp": 1767259405211,
+    "summary": {
+      "timestamp": 1767259344178,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.57
+    }
+  },
+  {
+    "timestamp": 1767259465227,
+    "summary": {
+      "timestamp": 1767259344178,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.57
+    }
+  },
+  {
+    "timestamp": 1767259525232,
+    "summary": {
+      "timestamp": 1767259344178,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.57
+    }
+  },
+  {
+    "timestamp": 1767259585242,
+    "summary": {
+      "timestamp": 1767259344178,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.57
+    }
+  },
+  {
+    "timestamp": 1767259645250,
+    "summary": {
+      "timestamp": 1767259644192,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.6
+    }
+  },
+  {
+    "timestamp": 1767259705261,
+    "summary": {
+      "timestamp": 1767259644192,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.6
+    }
+  },
+  {
+    "timestamp": 1767259765273,
+    "summary": {
+      "timestamp": 1767259644192,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.6
+    }
+  },
+  {
+    "timestamp": 1767259825275,
+    "summary": {
+      "timestamp": 1767259644192,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.6
+    }
+  },
+  {
+    "timestamp": 1767259885275,
+    "summary": {
+      "timestamp": 1767259644192,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.6
+    }
+  },
+  {
+    "timestamp": 1767259945282,
+    "summary": {
+      "timestamp": 1767259944194,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.63
+    }
+  },
+  {
+    "timestamp": 1767260005294,
+    "summary": {
+      "timestamp": 1767259944194,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.63
+    }
+  },
+  {
+    "timestamp": 1767260065309,
+    "summary": {
+      "timestamp": 1767259944194,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.63
+    }
+  },
+  {
+    "timestamp": 1767260125315,
+    "summary": {
+      "timestamp": 1767259944194,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.63
+    }
+  },
+  {
+    "timestamp": 1767260185316,
+    "summary": {
+      "timestamp": 1767259944194,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.63
+    }
+  },
+  {
+    "timestamp": 1767260245326,
+    "summary": {
+      "timestamp": 1767260244204,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.65
+    }
+  },
+  {
+    "timestamp": 1767260305334,
+    "summary": {
+      "timestamp": 1767260244204,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.65
+    }
+  },
+  {
+    "timestamp": 1767260365350,
+    "summary": {
+      "timestamp": 1767260244204,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.65
+    }
+  },
+  {
+    "timestamp": 1767260425352,
+    "summary": {
+      "timestamp": 1767260244204,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.65
+    }
+  },
+  {
+    "timestamp": 1767260485356,
+    "summary": {
+      "timestamp": 1767260244204,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.65
+    }
+  },
+  {
+    "timestamp": 1767260545367,
+    "summary": {
+      "timestamp": 1767260544207,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.68
+    }
+  },
+  {
+    "timestamp": 1767260605381,
+    "summary": {
+      "timestamp": 1767260544207,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.68
+    }
+  },
+  {
+    "timestamp": 1767260665392,
+    "summary": {
+      "timestamp": 1767260544207,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.68
+    }
+  },
+  {
+    "timestamp": 1767260725400,
+    "summary": {
+      "timestamp": 1767260544207,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.68
+    }
+  },
+  {
+    "timestamp": 1767260785409,
+    "summary": {
+      "timestamp": 1767260544207,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 5.68
+    }
+  },
+  {
+    "timestamp": 1767260845420,
+    "summary": {
+      "timestamp": 1767260844216,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.71
+    }
+  },
+  {
+    "timestamp": 1767260905424,
+    "summary": {
+      "timestamp": 1767260844216,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.71
+    }
+  },
+  {
+    "timestamp": 1767260965426,
+    "summary": {
+      "timestamp": 1767260844216,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.71
+    }
+  },
+  {
+    "timestamp": 1767261025429,
+    "summary": {
+      "timestamp": 1767260844216,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.71
+    }
+  },
+  {
+    "timestamp": 1767261085440,
+    "summary": {
+      "timestamp": 1767260844216,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.71
+    }
+  },
+  {
+    "timestamp": 1767261145453,
+    "summary": {
+      "timestamp": 1767261144226,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.73
+    }
+  },
+  {
+    "timestamp": 1767261205460,
+    "summary": {
+      "timestamp": 1767261144226,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.73
+    }
+  },
+  {
+    "timestamp": 1767261265473,
+    "summary": {
+      "timestamp": 1767261144226,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.73
+    }
+  },
+  {
+    "timestamp": 1767261325486,
+    "summary": {
+      "timestamp": 1767261144226,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.73
+    }
+  },
+  {
+    "timestamp": 1767261385496,
+    "summary": {
+      "timestamp": 1767261144226,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.73
+    }
+  },
+  {
+    "timestamp": 1767261445508,
+    "summary": {
+      "timestamp": 1767261444233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.76
+    }
+  },
+  {
+    "timestamp": 1767261505523,
+    "summary": {
+      "timestamp": 1767261444233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.76
+    }
+  },
+  {
+    "timestamp": 1767261565525,
+    "summary": {
+      "timestamp": 1767261444233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.76
+    }
+  },
+  {
+    "timestamp": 1767261625532,
+    "summary": {
+      "timestamp": 1767261444233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.76
+    }
+  },
+  {
+    "timestamp": 1767261685535,
+    "summary": {
+      "timestamp": 1767261444233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.76
+    }
+  },
+  {
+    "timestamp": 1767261745546,
+    "summary": {
+      "timestamp": 1767261744235,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.79
+    }
+  },
+  {
+    "timestamp": 1767261805553,
+    "summary": {
+      "timestamp": 1767261744235,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.79
+    }
+  },
+  {
+    "timestamp": 1767261865564,
+    "summary": {
+      "timestamp": 1767261744235,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.79
+    }
+  },
+  {
+    "timestamp": 1767261925572,
+    "summary": {
+      "timestamp": 1767261744235,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.79
+    }
+  },
+  {
+    "timestamp": 1767261985584,
+    "summary": {
+      "timestamp": 1767261744235,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 29,
+      "cpuUsage": 5.79
+    }
+  },
+  {
+    "timestamp": 1767262045587,
+    "summary": {
+      "timestamp": 1767262044248,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.81
+    }
+  },
+  {
+    "timestamp": 1767262105592,
+    "summary": {
+      "timestamp": 1767262044248,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.81
+    }
+  },
+  {
+    "timestamp": 1767262165593,
+    "summary": {
+      "timestamp": 1767262044248,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.81
+    }
+  },
+  {
+    "timestamp": 1767262225597,
+    "summary": {
+      "timestamp": 1767262044248,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.81
+    }
+  },
+  {
+    "timestamp": 1767262285601,
+    "summary": {
+      "timestamp": 1767262044248,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.81
+    }
+  },
+  {
+    "timestamp": 1767262345606,
+    "summary": {
+      "timestamp": 1767262344251,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.83
+    }
+  },
+  {
+    "timestamp": 1767262405610,
+    "summary": {
+      "timestamp": 1767262344251,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.83
+    }
+  },
+  {
+    "timestamp": 1767262465618,
+    "summary": {
+      "timestamp": 1767262344251,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.83
+    }
+  },
+  {
+    "timestamp": 1767262525627,
+    "summary": {
+      "timestamp": 1767262344251,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.83
+    }
+  },
+  {
+    "timestamp": 1767262585638,
+    "summary": {
+      "timestamp": 1767262344251,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.83
+    }
+  },
+  {
+    "timestamp": 1767262645644,
+    "summary": {
+      "timestamp": 1767262644260,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.86
+    }
+  },
+  {
+    "timestamp": 1767262705659,
+    "summary": {
+      "timestamp": 1767262644260,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.86
+    }
+  },
+  {
+    "timestamp": 1767262765663,
+    "summary": {
+      "timestamp": 1767262644260,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.86
+    }
+  },
+  {
+    "timestamp": 1767262825672,
+    "summary": {
+      "timestamp": 1767262644260,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.86
+    }
+  },
+  {
+    "timestamp": 1767262885686,
+    "summary": {
+      "timestamp": 1767262644260,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.86
+    }
+  },
+  {
+    "timestamp": 1767262945692,
+    "summary": {
+      "timestamp": 1767262944270,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.88
+    }
+  },
+  {
+    "timestamp": 1767263005706,
+    "summary": {
+      "timestamp": 1767262944270,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.88
+    }
+  },
+  {
+    "timestamp": 1767263065718,
+    "summary": {
+      "timestamp": 1767262944270,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.88
+    }
+  },
+  {
+    "timestamp": 1767263125722,
+    "summary": {
+      "timestamp": 1767262944270,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.88
+    }
+  },
+  {
+    "timestamp": 1767263185725,
+    "summary": {
+      "timestamp": 1767262944270,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 5.88
+    }
+  },
+  {
+    "timestamp": 1767263245735,
+    "summary": {
+      "timestamp": 1767263244279,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.91
+    }
+  },
+  {
+    "timestamp": 1767263305747,
+    "summary": {
+      "timestamp": 1767263244279,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.91
+    }
+  },
+  {
+    "timestamp": 1767263365753,
+    "summary": {
+      "timestamp": 1767263244279,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.91
+    }
+  },
+  {
+    "timestamp": 1767263425758,
+    "summary": {
+      "timestamp": 1767263244279,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.91
+    }
+  },
+  {
+    "timestamp": 1767263485768,
+    "summary": {
+      "timestamp": 1767263244279,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.91
+    }
+  },
+  {
+    "timestamp": 1767263545770,
+    "summary": {
+      "timestamp": 1767263544286,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.93
+    }
+  },
+  {
+    "timestamp": 1767263605771,
+    "summary": {
+      "timestamp": 1767263544286,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.93
+    }
+  },
+  {
+    "timestamp": 1767263665772,
+    "summary": {
+      "timestamp": 1767263544286,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.93
+    }
+  },
+  {
+    "timestamp": 1767263725773,
+    "summary": {
+      "timestamp": 1767263544286,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.93
+    }
+  },
+  {
+    "timestamp": 1767263785778,
+    "summary": {
+      "timestamp": 1767263544286,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.93
+    }
+  },
+  {
+    "timestamp": 1767263845787,
+    "summary": {
+      "timestamp": 1767263844301,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.96
+    }
+  },
+  {
+    "timestamp": 1767263905798,
+    "summary": {
+      "timestamp": 1767263844301,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.96
+    }
+  },
+  {
+    "timestamp": 1767263965812,
+    "summary": {
+      "timestamp": 1767263844301,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.96
+    }
+  },
+  {
+    "timestamp": 1767264025817,
+    "summary": {
+      "timestamp": 1767263844301,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.96
+    }
+  },
+  {
+    "timestamp": 1767264085821,
+    "summary": {
+      "timestamp": 1767263844301,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 5.96
+    }
+  },
+  {
+    "timestamp": 1767264145827,
+    "summary": {
+      "timestamp": 1767264144306,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.98
+    }
+  },
+  {
+    "timestamp": 1767264205833,
+    "summary": {
+      "timestamp": 1767264144306,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.98
+    }
+  },
+  {
+    "timestamp": 1767264265836,
+    "summary": {
+      "timestamp": 1767264144306,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.98
+    }
+  },
+  {
+    "timestamp": 1767264325845,
+    "summary": {
+      "timestamp": 1767264144306,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.98
+    }
+  },
+  {
+    "timestamp": 1767264385858,
+    "summary": {
+      "timestamp": 1767264144306,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 5.98
+    }
+  },
+  {
+    "timestamp": 1767264445873,
+    "summary": {
+      "timestamp": 1767264444308,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6
+    }
+  },
+  {
+    "timestamp": 1767264505880,
+    "summary": {
+      "timestamp": 1767264444308,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6
+    }
+  },
+  {
+    "timestamp": 1767264565884,
+    "summary": {
+      "timestamp": 1767264444308,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6
+    }
+  },
+  {
+    "timestamp": 1767264625898,
+    "summary": {
+      "timestamp": 1767264444308,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6
+    }
+  },
+  {
+    "timestamp": 1767264685899,
+    "summary": {
+      "timestamp": 1767264444308,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6
+    }
+  },
+  {
+    "timestamp": 1767264745914,
+    "summary": {
+      "timestamp": 1767264744312,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.03
+    }
+  },
+  {
+    "timestamp": 1767264805922,
+    "summary": {
+      "timestamp": 1767264744312,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.03
+    }
+  },
+  {
+    "timestamp": 1767264865927,
+    "summary": {
+      "timestamp": 1767264744312,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.03
+    }
+  },
+  {
+    "timestamp": 1767264925937,
+    "summary": {
+      "timestamp": 1767264744312,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.03
+    }
+  },
+  {
+    "timestamp": 1767264985946,
+    "summary": {
+      "timestamp": 1767264744312,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.03
+    }
+  },
+  {
+    "timestamp": 1767265045960,
+    "summary": {
+      "timestamp": 1767265044317,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.05
+    }
+  },
+  {
+    "timestamp": 1767265105966,
+    "summary": {
+      "timestamp": 1767265044317,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.05
+    }
+  },
+  {
+    "timestamp": 1767265165974,
+    "summary": {
+      "timestamp": 1767265044317,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.05
+    }
+  },
+  {
+    "timestamp": 1767265225984,
+    "summary": {
+      "timestamp": 1767265044317,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.05
+    }
+  },
+  {
+    "timestamp": 1767265285990,
+    "summary": {
+      "timestamp": 1767265044317,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.05
+    }
+  },
+  {
+    "timestamp": 1767265345996,
+    "summary": {
+      "timestamp": 1767265344320,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.07
+    }
+  },
+  {
+    "timestamp": 1767265405997,
+    "summary": {
+      "timestamp": 1767265344320,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.07
+    }
+  },
+  {
+    "timestamp": 1767265466001,
+    "summary": {
+      "timestamp": 1767265344320,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.07
+    }
+  },
+  {
+    "timestamp": 1767265526001,
+    "summary": {
+      "timestamp": 1767265344320,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.07
+    }
+  },
+  {
+    "timestamp": 1767265586011,
+    "summary": {
+      "timestamp": 1767265344320,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.07
+    }
+  },
+  {
+    "timestamp": 1767265646021,
+    "summary": {
+      "timestamp": 1767265644332,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.1
+    }
+  },
+  {
+    "timestamp": 1767265706023,
+    "summary": {
+      "timestamp": 1767265644332,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.1
+    }
+  },
+  {
+    "timestamp": 1767265766032,
+    "summary": {
+      "timestamp": 1767265644332,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.1
+    }
+  },
+  {
+    "timestamp": 1767265826047,
+    "summary": {
+      "timestamp": 1767265644332,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.1
+    }
+  },
+  {
+    "timestamp": 1767265886060,
+    "summary": {
+      "timestamp": 1767265644332,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.1
+    }
+  },
+  {
+    "timestamp": 1767265946069,
+    "summary": {
+      "timestamp": 1767265944345,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.12
+    }
+  },
+  {
+    "timestamp": 1767266006075,
+    "summary": {
+      "timestamp": 1767265944345,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.12
+    }
+  },
+  {
+    "timestamp": 1767266066078,
+    "summary": {
+      "timestamp": 1767265944345,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.12
+    }
+  },
+  {
+    "timestamp": 1767266126084,
+    "summary": {
+      "timestamp": 1767265944345,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.12
+    }
+  },
+  {
+    "timestamp": 1767266186099,
+    "summary": {
+      "timestamp": 1767265944345,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.12
+    }
+  },
+  {
+    "timestamp": 1767266246101,
+    "summary": {
+      "timestamp": 1767266244360,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.14
+    }
+  },
+  {
+    "timestamp": 1767266306105,
+    "summary": {
+      "timestamp": 1767266244360,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.14
+    }
+  },
+  {
+    "timestamp": 1767266366110,
+    "summary": {
+      "timestamp": 1767266244360,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.14
+    }
+  },
+  {
+    "timestamp": 1767266426112,
+    "summary": {
+      "timestamp": 1767266244360,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.14
+    }
+  },
+  {
+    "timestamp": 1767266486119,
+    "summary": {
+      "timestamp": 1767266244360,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.14
+    }
+  },
+  {
+    "timestamp": 1767266546120,
+    "summary": {
+      "timestamp": 1767266544367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.17
+    }
+  },
+  {
+    "timestamp": 1767266606126,
+    "summary": {
+      "timestamp": 1767266544367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.17
+    }
+  },
+  {
+    "timestamp": 1767266666141,
+    "summary": {
+      "timestamp": 1767266544367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.17
+    }
+  },
+  {
+    "timestamp": 1767266726150,
+    "summary": {
+      "timestamp": 1767266544367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.17
+    }
+  },
+  {
+    "timestamp": 1767266786159,
+    "summary": {
+      "timestamp": 1767266544367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 6.17
+    }
+  },
+  {
+    "timestamp": 1767266846164,
+    "summary": {
+      "timestamp": 1767266844372,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 6.19
+    }
+  },
+  {
+    "timestamp": 1767266906172,
+    "summary": {
+      "timestamp": 1767266844372,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 6.19
+    }
+  },
+  {
+    "timestamp": 1767267021820,
+    "summary": {
+      "timestamp": 1767266961809,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 6.21
+    }
+  },
+  {
+    "timestamp": 1767267081831,
+    "summary": {
+      "timestamp": 1767266961809,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 6.21
+    }
+  },
+  {
+    "timestamp": 1767267189545,
+    "summary": {
+      "timestamp": 1767267129540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.23
+    }
+  },
+  {
+    "timestamp": 1767267249545,
+    "summary": {
+      "timestamp": 1767267129540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.23
+    }
+  },
+  {
+    "timestamp": 1767267309546,
+    "summary": {
+      "timestamp": 1767267129540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.23
+    }
+  },
+  {
+    "timestamp": 1767267369546,
+    "summary": {
+      "timestamp": 1767267129540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.23
+    }
+  },
+  {
+    "timestamp": 1767267429557,
+    "summary": {
+      "timestamp": 1767267429540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.27
+    }
+  },
+  {
+    "timestamp": 1767267489559,
+    "summary": {
+      "timestamp": 1767267429540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.27
+    }
+  },
+  {
+    "timestamp": 1767267549562,
+    "summary": {
+      "timestamp": 1767267429540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.27
+    }
+  },
+  {
+    "timestamp": 1767267609565,
+    "summary": {
+      "timestamp": 1767267429540,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 6.27
+    }
+  },
+  {
+    "timestamp": 1767297387176,
+    "summary": {
+      "timestamp": 1767297327162,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.79
+    }
+  },
+  {
+    "timestamp": 1767297447179,
+    "summary": {
+      "timestamp": 1767297327162,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.79
+    }
+  },
+  {
+    "timestamp": 1767297507180,
+    "summary": {
+      "timestamp": 1767297327162,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.79
+    }
+  },
+  {
+    "timestamp": 1767297567184,
+    "summary": {
+      "timestamp": 1767297327162,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.79
+    }
+  },
+  {
+    "timestamp": 1767297627192,
+    "summary": {
+      "timestamp": 1767297627176,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 0.85
+    }
+  },
+  {
+    "timestamp": 1767297687200,
+    "summary": {
+      "timestamp": 1767297627176,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 0.85
+    }
+  },
+  {
+    "timestamp": 1767297747203,
+    "summary": {
+      "timestamp": 1767297627176,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 0.85
+    }
+  },
+  {
+    "timestamp": 1767297807205,
+    "summary": {
+      "timestamp": 1767297627176,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 0.85
+    }
+  },
+  {
+    "timestamp": 1767297867219,
+    "summary": {
+      "timestamp": 1767297627176,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 0.85
+    }
+  },
+  {
+    "timestamp": 1767297927221,
+    "summary": {
+      "timestamp": 1767297927191,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.9
+    }
+  },
+  {
+    "timestamp": 1767297987228,
+    "summary": {
+      "timestamp": 1767297927191,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.9
+    }
+  },
+  {
+    "timestamp": 1767298047232,
+    "summary": {
+      "timestamp": 1767297927191,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.9
+    }
+  },
+  {
+    "timestamp": 1767298107239,
+    "summary": {
+      "timestamp": 1767297927191,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.9
+    }
+  },
+  {
+    "timestamp": 1767298167246,
+    "summary": {
+      "timestamp": 1767297927191,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 0.9
+    }
+  },
+  {
+    "timestamp": 1767298227252,
+    "summary": {
+      "timestamp": 1767298227203,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.01
+    }
+  },
+  {
+    "timestamp": 1767298287259,
+    "summary": {
+      "timestamp": 1767298227203,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.01
+    }
+  },
+  {
+    "timestamp": 1767298347260,
+    "summary": {
+      "timestamp": 1767298227203,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.01
+    }
+  },
+  {
+    "timestamp": 1767298407263,
+    "summary": {
+      "timestamp": 1767298227203,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.01
+    }
+  },
+  {
+    "timestamp": 1767298467275,
+    "summary": {
+      "timestamp": 1767298227203,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.01
+    }
+  },
+  {
+    "timestamp": 1767298527277,
+    "summary": {
+      "timestamp": 1767298527214,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.09
+    }
+  },
+  {
+    "timestamp": 1767298587290,
+    "summary": {
+      "timestamp": 1767298527214,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.09
+    }
+  },
+  {
+    "timestamp": 1767298647291,
+    "summary": {
+      "timestamp": 1767298527214,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.09
+    }
+  },
+  {
+    "timestamp": 1767298707299,
+    "summary": {
+      "timestamp": 1767298527214,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.09
+    }
+  },
+  {
+    "timestamp": 1767298767310,
+    "summary": {
+      "timestamp": 1767298527214,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.09
+    }
+  },
+  {
+    "timestamp": 1767298827314,
+    "summary": {
+      "timestamp": 1767298827220,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.14
+    }
+  },
+  {
+    "timestamp": 1767298887326,
+    "summary": {
+      "timestamp": 1767298827220,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.14
+    }
+  },
+  {
+    "timestamp": 1767298947326,
+    "summary": {
+      "timestamp": 1767298827220,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.14
+    }
+  },
+  {
+    "timestamp": 1767299007329,
+    "summary": {
+      "timestamp": 1767298827220,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.14
+    }
+  },
+  {
+    "timestamp": 1767299067336,
+    "summary": {
+      "timestamp": 1767298827220,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.14
+    }
+  },
+  {
+    "timestamp": 1767299127345,
+    "summary": {
+      "timestamp": 1767299127233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 1.19
+    }
+  },
+  {
+    "timestamp": 1767299187356,
+    "summary": {
+      "timestamp": 1767299127233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 1.19
+    }
+  },
+  {
+    "timestamp": 1767299247357,
+    "summary": {
+      "timestamp": 1767299127233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 1.19
+    }
+  },
+  {
+    "timestamp": 1767299307365,
+    "summary": {
+      "timestamp": 1767299127233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 1.19
+    }
+  },
+  {
+    "timestamp": 1767299367367,
+    "summary": {
+      "timestamp": 1767299127233,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 1.19
+    }
+  },
+  {
+    "timestamp": 1767299483916,
+    "summary": {
+      "timestamp": 1767299423911,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.24
+    }
+  },
+  {
+    "timestamp": 1767299543917,
+    "summary": {
+      "timestamp": 1767299423911,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.24
+    }
+  },
+  {
+    "timestamp": 1767299603917,
+    "summary": {
+      "timestamp": 1767299423911,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.24
+    }
+  },
+  {
+    "timestamp": 1767299663924,
+    "summary": {
+      "timestamp": 1767299423911,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.24
+    }
+  },
+  {
+    "timestamp": 1767299723935,
+    "summary": {
+      "timestamp": 1767299723919,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.28
+    }
+  },
+  {
+    "timestamp": 1767299783939,
+    "summary": {
+      "timestamp": 1767299723919,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.28
+    }
+  },
+  {
+    "timestamp": 1767299843943,
+    "summary": {
+      "timestamp": 1767299723919,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.28
+    }
+  },
+  {
+    "timestamp": 1767299903946,
+    "summary": {
+      "timestamp": 1767299723919,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.28
+    }
+  },
+  {
+    "timestamp": 1767299963957,
+    "summary": {
+      "timestamp": 1767299723919,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.28
+    }
+  },
+  {
+    "timestamp": 1767300064791,
+    "summary": {
+      "timestamp": 1767300004785,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.34
+    }
+  },
+  {
+    "timestamp": 1767300124798,
+    "summary": {
+      "timestamp": 1767300004785,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.34
+    }
+  },
+  {
+    "timestamp": 1767300184813,
+    "summary": {
+      "timestamp": 1767300004785,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.34
+    }
+  },
+  {
+    "timestamp": 1767300244824,
+    "summary": {
+      "timestamp": 1767300004785,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.34
+    }
+  },
+  {
+    "timestamp": 1767300304827,
+    "summary": {
+      "timestamp": 1767300304795,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.4
+    }
+  },
+  {
+    "timestamp": 1767300444739,
+    "summary": {
+      "timestamp": 1767300384738,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300504750,
+    "summary": {
+      "timestamp": 1767300384738,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300564762,
+    "summary": {
+      "timestamp": 1767300384738,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300624774,
+    "summary": {
+      "timestamp": 1767300384738,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300684775,
+    "summary": {
+      "timestamp": 1767300684743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300744789,
+    "summary": {
+      "timestamp": 1767300684743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767300804798,
+    "summary": {
+      "timestamp": 1767300684743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.42
+    }
+  },
+  {
+    "timestamp": 1767302087061,
+    "summary": {
+      "timestamp": 1767302027056,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.49
+    }
+  },
+  {
+    "timestamp": 1767302147075,
+    "summary": {
+      "timestamp": 1767302027056,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.49
+    }
+  },
+  {
+    "timestamp": 1767302207077,
+    "summary": {
+      "timestamp": 1767302027056,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.49
+    }
+  },
+  {
+    "timestamp": 1767302267088,
+    "summary": {
+      "timestamp": 1767302027056,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.49
+    }
+  },
+  {
+    "timestamp": 1767302327089,
+    "summary": {
+      "timestamp": 1767302327057,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.55
+    }
+  },
+  {
+    "timestamp": 1767302448899,
+    "summary": {
+      "timestamp": 1767302388884,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.57
+    }
+  },
+  {
+    "timestamp": 1767302508907,
+    "summary": {
+      "timestamp": 1767302388884,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.57
+    }
+  },
+  {
+    "timestamp": 1767302568915,
+    "summary": {
+      "timestamp": 1767302388884,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.57
+    }
+  },
+  {
+    "timestamp": 1767302628927,
+    "summary": {
+      "timestamp": 1767302388884,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.57
+    }
+  },
+  {
+    "timestamp": 1767302688937,
+    "summary": {
+      "timestamp": 1767302688889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.63
+    }
+  },
+  {
+    "timestamp": 1767302748949,
+    "summary": {
+      "timestamp": 1767302688889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.63
+    }
+  },
+  {
+    "timestamp": 1767302808962,
+    "summary": {
+      "timestamp": 1767302688889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.63
+    }
+  },
+  {
+    "timestamp": 1767302956734,
+    "summary": {
+      "timestamp": 1767302896721,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.64
+    }
+  },
+  {
+    "timestamp": 1767303016741,
+    "summary": {
+      "timestamp": 1767302896721,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.64
+    }
+  },
+  {
+    "timestamp": 1767303117406,
+    "summary": {
+      "timestamp": 1767303057398,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.66
+    }
+  },
+  {
+    "timestamp": 1767303177413,
+    "summary": {
+      "timestamp": 1767303057398,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.66
+    }
+  },
+  {
+    "timestamp": 1767303237416,
+    "summary": {
+      "timestamp": 1767303057398,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.66
+    }
+  },
+  {
+    "timestamp": 1767303297430,
+    "summary": {
+      "timestamp": 1767303057398,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.66
+    }
+  },
+  {
+    "timestamp": 1767303502059,
+    "summary": {
+      "timestamp": 1767303442048,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.69
+    }
+  },
+  {
+    "timestamp": 1767303562065,
+    "summary": {
+      "timestamp": 1767303442048,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.69
+    }
+  },
+  {
+    "timestamp": 1767303622080,
+    "summary": {
+      "timestamp": 1767303442048,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.69
+    }
+  },
+  {
+    "timestamp": 1767303682082,
+    "summary": {
+      "timestamp": 1767303442048,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 1.69
+    }
+  },
+  {
+    "timestamp": 1767303742088,
+    "summary": {
+      "timestamp": 1767303742055,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.72
+    }
+  },
+  {
+    "timestamp": 1767303802101,
+    "summary": {
+      "timestamp": 1767303742055,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.72
+    }
+  },
+  {
+    "timestamp": 1767303807361,
+    "summary": {
+      "timestamp": 1767303747356,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
     },
     "system": {
       "heapUsed": 32,
-      "cpuUsage": 3.71
+      "cpuUsage": 1.72
     }
   },
   {
-    "timestamp": 1767241738616,
+    "timestamp": 1767303862112,
     "summary": {
-      "timestamp": 1767241558494,
+      "timestamp": 1767303742055,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -35,24 +4240,35 @@
         "queries": "good",
         "errors": "good"
       },
-      "recommendations": [
-        {
-          "type": "bundle",
-          "severity": "medium",
-          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-          "value": 5.96
-        }
-      ]
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.72
+    }
+  },
+  {
+    "timestamp": 1767303867375,
+    "summary": {
+      "timestamp": 1767303747356,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
     },
     "system": {
       "heapUsed": 32,
-      "cpuUsage": 3.71
+      "cpuUsage": 1.72
     }
   },
   {
-    "timestamp": 1767241798617,
+    "timestamp": 1767303922117,
     "summary": {
-      "timestamp": 1767241558494,
+      "timestamp": 1767303742055,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -60,24 +4276,35 @@
         "queries": "good",
         "errors": "good"
       },
-      "recommendations": [
-        {
-          "type": "bundle",
-          "severity": "medium",
-          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
-          "value": 5.96
-        }
-      ]
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.72
+    }
+  },
+  {
+    "timestamp": 1767303927388,
+    "summary": {
+      "timestamp": 1767303747356,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
     },
     "system": {
       "heapUsed": 32,
-      "cpuUsage": 3.71
+      "cpuUsage": 1.72
     }
   },
   {
-    "timestamp": 1767241858617,
+    "timestamp": 1767303982126,
     "summary": {
-      "timestamp": 1767241858493,
+      "timestamp": 1767303742055,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -88,14 +4315,14 @@
       "recommendations": []
     },
     "system": {
-      "heapUsed": 29,
-      "cpuUsage": 3.75
+      "heapUsed": 26,
+      "cpuUsage": 1.72
     }
   },
   {
-    "timestamp": 1767241918629,
+    "timestamp": 1767303987390,
     "summary": {
-      "timestamp": 1767241858493,
+      "timestamp": 1767303747356,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -106,14 +4333,14 @@
       "recommendations": []
     },
     "system": {
-      "heapUsed": 29,
-      "cpuUsage": 3.75
+      "heapUsed": 32,
+      "cpuUsage": 1.72
     }
   },
   {
-    "timestamp": 1767241978631,
+    "timestamp": 1767304042129,
     "summary": {
-      "timestamp": 1767241858493,
+      "timestamp": 1767304042066,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -124,14 +4351,14 @@
       "recommendations": []
     },
     "system": {
-      "heapUsed": 29,
-      "cpuUsage": 3.75
+      "heapUsed": 27,
+      "cpuUsage": 1.73
     }
   },
   {
-    "timestamp": 1767242038636,
+    "timestamp": 1767304047398,
     "summary": {
-      "timestamp": 1767241858493,
+      "timestamp": 1767304047366,
       "healthScore": 100,
       "overallHealth": "good",
       "components": {
@@ -142,8 +4369,818 @@
       "recommendations": []
     },
     "system": {
-      "heapUsed": 29,
-      "cpuUsage": 3.75
+      "heapUsed": 24,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304102135,
+    "summary": {
+      "timestamp": 1767304042066,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304107414,
+    "summary": {
+      "timestamp": 1767304047366,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304162147,
+    "summary": {
+      "timestamp": 1767304042066,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304167425,
+    "summary": {
+      "timestamp": 1767304047366,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304222157,
+    "summary": {
+      "timestamp": 1767304042066,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304227435,
+    "summary": {
+      "timestamp": 1767304047366,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304282172,
+    "summary": {
+      "timestamp": 1767304042066,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304287440,
+    "summary": {
+      "timestamp": 1767304047366,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 1.73
+    }
+  },
+  {
+    "timestamp": 1767304342178,
+    "summary": {
+      "timestamp": 1767304342068,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 1.71
+    }
+  },
+  {
+    "timestamp": 1767304347446,
+    "summary": {
+      "timestamp": 1767304347367,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 1.71
+    }
+  },
+  {
+    "timestamp": 1767306911883,
+    "summary": {
+      "timestamp": 1767306851867,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.86
+    }
+  },
+  {
+    "timestamp": 1767306971895,
+    "summary": {
+      "timestamp": 1767306851867,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.86
+    }
+  },
+  {
+    "timestamp": 1767307031905,
+    "summary": {
+      "timestamp": 1767306851867,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.86
+    }
+  },
+  {
+    "timestamp": 1767307091918,
+    "summary": {
+      "timestamp": 1767306851867,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 1.86
+    }
+  },
+  {
+    "timestamp": 1767307151920,
+    "summary": {
+      "timestamp": 1767307151874,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 1.9
+    }
+  },
+  {
+    "timestamp": 1767307211921,
+    "summary": {
+      "timestamp": 1767307151874,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 1.9
+    }
+  },
+  {
+    "timestamp": 1767307271922,
+    "summary": {
+      "timestamp": 1767307151874,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 1.9
+    }
+  },
+  {
+    "timestamp": 1767307331935,
+    "summary": {
+      "timestamp": 1767307151874,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 1.9
+    }
+  },
+  {
+    "timestamp": 1767307391936,
+    "summary": {
+      "timestamp": 1767307151874,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 1.9
+    }
+  },
+  {
+    "timestamp": 1767307451946,
+    "summary": {
+      "timestamp": 1767307451883,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307511960,
+    "summary": {
+      "timestamp": 1767307451883,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307571961,
+    "summary": {
+      "timestamp": 1767307451883,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307631966,
+    "summary": {
+      "timestamp": 1767307451883,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307691977,
+    "summary": {
+      "timestamp": 1767307451883,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307751980,
+    "summary": {
+      "timestamp": 1767307751886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307811995,
+    "summary": {
+      "timestamp": 1767307751886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307872009,
+    "summary": {
+      "timestamp": 1767307751886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307932020,
+    "summary": {
+      "timestamp": 1767307751886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767307992022,
+    "summary": {
+      "timestamp": 1767307751886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 1.93
+    }
+  },
+  {
+    "timestamp": 1767308052028,
+    "summary": {
+      "timestamp": 1767308051889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308112036,
+    "summary": {
+      "timestamp": 1767308051889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308172038,
+    "summary": {
+      "timestamp": 1767308051889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308232042,
+    "summary": {
+      "timestamp": 1767308051889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308292050,
+    "summary": {
+      "timestamp": 1767308051889,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308352059,
+    "summary": {
+      "timestamp": 1767308351901,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308412065,
+    "summary": {
+      "timestamp": 1767308351901,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308472065,
+    "summary": {
+      "timestamp": 1767308351901,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308532079,
+    "summary": {
+      "timestamp": 1767308351901,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308592080,
+    "summary": {
+      "timestamp": 1767308351901,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308652081,
+    "summary": {
+      "timestamp": 1767308651909,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308712084,
+    "summary": {
+      "timestamp": 1767308651909,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308772087,
+    "summary": {
+      "timestamp": 1767308651909,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767308832096,
+    "summary": {
+      "timestamp": 1767308651909,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 44,
+      "cpuUsage": 1.92
+    }
+  },
+  {
+    "timestamp": 1767311895327,
+    "summary": {
+      "timestamp": 1767311835324,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.01
+    }
+  },
+  {
+    "timestamp": 1767311955339,
+    "summary": {
+      "timestamp": 1767311835324,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.01
     }
   }
 ]

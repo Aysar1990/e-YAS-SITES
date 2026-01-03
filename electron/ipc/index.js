@@ -83,6 +83,7 @@ function registerAllHandlers(ipcMain, deps) {
 
   // Data handlers
   registerDataHandlers(ipcMain, {
+    db: deps.db,
     sitesQueries: deps.sitesQueries,
     contractorsQueries: deps.contractorsQueries
   })

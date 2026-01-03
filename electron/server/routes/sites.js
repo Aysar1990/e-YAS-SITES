@@ -12,7 +12,7 @@ function createSitesRoutes(db, authenticateToken) {
   router.get('/phases', authenticateToken, (req, res) => {
     try {
       const phases = db.prepare(
-        'SELECT phase_name, COUNT(*) as count FROM sites_cache WHERE phase_name IS NOT NULL GROUP BY phase_name ORDER BY phase_name'
+        'SELECT phase_name, COUNT(*) as count FROM sites WHERE phase_name IS NOT NULL GROUP BY phase_name ORDER BY phase_name'
       ).all()
       res.json(phases)
     } catch (error) {
@@ -26,7 +26,7 @@ function createSitesRoutes(db, authenticateToken) {
       const { phase, contractor } = req.query
       const user = req.user
 
-      let query = 'SELECT * FROM sites_cache WHERE 1=1'
+      let query = 'SELECT * FROM sites WHERE 1=1'
       const params = []
 
       if (phase && phase !== 'ALL') {
@@ -55,7 +55,7 @@ function createSitesRoutes(db, authenticateToken) {
       const { siteId } = req.params
       const { phase } = req.query
 
-      let query = 'SELECT * FROM sites_cache WHERE site_id = ?'
+      let query = 'SELECT * FROM sites WHERE site_id = ?'
       const params = [siteId]
 
       if (phase && phase !== 'ALL') {
@@ -82,7 +82,7 @@ function createSitesRoutes(db, authenticateToken) {
       console.log(`📝 PUT /sites/${siteId}: phase=${phase}`)
 
       // 1. Get current site
-      let query = 'SELECT * FROM sites_cache WHERE site_id = ?'
+      let query = 'SELECT * FROM sites WHERE site_id = ?'
       const queryParams = [siteId]
       if (phase && phase !== 'ALL') {
         query += ' AND phase_name = ?'
@@ -167,7 +167,7 @@ function createSitesRoutes(db, authenticateToken) {
         values.push(phase)
       }
 
-      const updateSql = `UPDATE sites_cache SET ${setClauses.join(', ')} ${whereClause}`
+      const updateSql = `UPDATE sites SET ${setClauses.join(', ')} ${whereClause}`
       const result = db.prepare(updateSql).run(...values)
 
       if (result.changes === 0) {
@@ -176,6 +176,13 @@ function createSitesRoutes(db, authenticateToken) {
 
       // Get updated site
       const updatedSite = db.prepare(query).get(...queryParams)
+
+      // CRITICAL: Save to disk immediately after update
+      const sqliteAdapter = db.getSQLiteAdapter()
+      if (sqliteAdapter && sqliteAdapter.save) {
+        sqliteAdapter.save()
+        console.log('💾 SQLite data saved after site update')
+      }
 
       console.log(`✅ Site updated via API: ${siteId}`)
 

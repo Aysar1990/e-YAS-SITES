@@ -18,58 +18,18 @@ class RateLimiter {
   }
 
   isBlocked(req) {
-    const key = this.getKey(req)
-    const record = this.attempts.get(key)
-
-    if (!record) return false
-
-    if (record.blocked && record.blockedUntil > Date.now()) {
-      return true
-    }
-
-    // Unblock if block duration passed
-    if (record.blocked && record.blockedUntil <= Date.now()) {
-      this.attempts.delete(key)
-      return false
-    }
-
+    // RATE LIMITING DISABLED - Always return false
     return false
   }
 
   recordAttempt(req, success = false) {
-    const key = this.getKey(req)
-    const now = Date.now()
-
-    if (success) {
-      // Successful login - reset attempts
-      this.attempts.delete(key)
-      return
-    }
-
-    let record = this.attempts.get(key)
-
-    if (!record || (now - record.firstAttempt) > this.windowMs) {
-      // Start new window
-      record = { count: 1, firstAttempt: now, blocked: false, blockedUntil: 0 }
-    } else {
-      record.count++
-    }
-
-    // Block if max attempts reached
-    if (record.count >= this.maxAttempts) {
-      record.blocked = true
-      record.blockedUntil = now + this.blockDuration
-      console.log(`[RateLimiter] Blocked IP ${key} for ${this.blockDuration / 1000}s after ${record.count} failed attempts`)
-    }
-
-    this.attempts.set(key, record)
+    // RATE LIMITING DISABLED - Do nothing
+    return
   }
 
   getRemainingAttempts(req) {
-    const key = this.getKey(req)
-    const record = this.attempts.get(key)
-    if (!record) return this.maxAttempts
-    return Math.max(0, this.maxAttempts - record.count)
+    // RATE LIMITING DISABLED - Always return 999
+    return 999
   }
 
   getBlockTimeRemaining(req) {

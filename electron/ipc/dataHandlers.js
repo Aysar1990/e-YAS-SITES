@@ -13,17 +13,20 @@ const calculations = require('../services/calculations')
  * Registers data-related IPC handlers
  * @param {Electron.IpcMain} ipcMain - Electron IPC main instance
  * @param {Object} deps - Dependencies object
+ * @param {Object} deps.db - Database instance
  * @param {Object} deps.sitesQueries - Sites queries module
  * @param {Object} deps.contractorsQueries - Contractors queries module
  */
 function registerDataHandlers(ipcMain, deps) {
-  const { sitesQueries, contractorsQueries } = deps
+  const { db, sitesQueries, contractorsQueries } = deps
+  
+  console.log('📊 [DataHandlers] Registering with db:', db ? 'exists' : 'MISSING!')
 
   ipcMain.handle('get-data', async (event, { role, contractorName, phase }) => {
     try {
       let sites = []
 
-      console.log(`📥 get-data called: role=${role}, phase=${phase}`)
+      console.log(`📥 IPC - get-data called: role=${role}, phase=${phase}`)
 
       if (role === 'contractor') {
         sites = await contractorsQueries.getContractorSites(contractorName, phase)
@@ -34,7 +37,7 @@ function registerDataHandlers(ipcMain, deps) {
       // Ensure sites is an array
       sites = Array.isArray(sites) ? sites : []
 
-      console.log(`📤 get-data returning ${sites.length} sites for phase="${phase}"`)
+      console.log(`📤 IPC - get-data returning ${sites.length} sites for phase="${phase}"`)
 
       return {
         success: true,
@@ -42,20 +45,26 @@ function registerDataHandlers(ipcMain, deps) {
         count: sites.length,
       }
     } catch (error) {
-      console.error('Get data error:', error)
+      console.error('❌ Get data error:', error)
       return {
         success: false,
         error: error.message,
+        sites: [],
+        count: 0,
       }
     }
   })
 
   ipcMain.handle('get-stats', async (event, { role, contractorName, phase }) => {
+    console.log('🚀🚀🚀 [IPC] get-stats CALLED!')
+    console.log('🚀 Parameters:', { role, contractorName, phase })
+    
     try {
       let stats = {}
-      console.log(`📊 get-stats called: role=${role}, phase=${phase}`)
+      console.log(`📊 IPC - get-stats called: role=${role}, phase=${phase}`)
 
       if (role === 'contractor') {
+        console.log('📊 [IPC] get-stats: Taking CONTRACTOR path')
         const statusStats = await contractorsQueries.getContractorStats(contractorName, phase)
         const deptStats = await contractorsQueries.getContractorDepartmentStats(contractorName, phase)
         const rejections = await contractorsQueries.getSitesWithRejections(contractorName, phase)
@@ -67,13 +76,35 @@ function registerDataHandlers(ipcMain, deps) {
           rejectedSites: rejections || [],
         }
       } else {
+        console.log('📊 [IPC] get-stats: Taking ADMIN/MANAGEMENT path')
+        console.log('📊 [IPC] get-stats: Starting queries for phase:', phase)
+        
         const overallStats = await sitesQueries.getOverallStats(phase)
+        console.log('📊 [IPC] get-stats: overallStats result:', overallStats?.length, 'items')
+        console.log('📊 [IPC] get-stats: overallStats sample:', overallStats?.slice(0, 2))
+        
         const deptStats = await sitesQueries.getDepartmentStats(phase)
+        console.log('📊 [IPC] get-stats: deptStats keys:', Object.keys(deptStats || {}))
+        
         const contractorsSummary = await sitesQueries.getContractorsSummary(phase)
+        console.log('📊 [IPC] get-stats: contractorsSummary count:', contractorsSummary?.length)
+        
         const governorateStats = await sitesQueries.getGovernorateStats(phase)
+        console.log('📊 [IPC] get-stats: governorateStats count:', governorateStats?.length)
+        
         const partOfStats = await sitesQueries.getPartOfStats(phase)
+        console.log('📊 [IPC] get-stats: partOfStats count:', partOfStats?.length)
+        
         const overviewStats = await sitesQueries.getOverviewStats(phase)
+        console.log('📊 [IPC] get-stats: overviewStats type:', typeof overviewStats)
+        console.log('📊 [IPC] get-stats: overviewStats keys:', Object.keys(overviewStats || {}))
+        
         const totalSites = await sitesQueries.getTotalCount(phase)
+        console.log('📊 [IPC] get-stats: totalSites:', totalSites)
+
+        console.log(`📊 IPC - Stats breakdown count:`, overallStats?.length)
+        console.log(`📊 IPC - Total sites:`, totalSites)
+        console.log(`📊 IPC - Overview stats:`, overviewStats)
 
         stats = {
           statusBreakdown: overallStats || [],
@@ -87,9 +118,10 @@ function registerDataHandlers(ipcMain, deps) {
 
         // Debug: sum of statusBreakdown
         const sumFromBreakdown = Array.isArray(overallStats) ? overallStats.reduce((sum, s) => sum + (s.count || 0), 0) : 0
-        console.log(`📊 get-stats results for phase="${phase}":`)
+        console.log(`📊 IPC - get-stats results for phase="${phase}":`)
         console.log(`   - totalSites from getTotalCount: ${stats.totalSites}`)
         console.log(`   - sum from statusBreakdown: ${sumFromBreakdown}`)
+        console.log(`📊 [IPC] get-stats: FINAL stats object:`, JSON.stringify(stats, null, 2).substring(0, 500))
       }
 
       return {
@@ -97,7 +129,7 @@ function registerDataHandlers(ipcMain, deps) {
         stats,
       }
     } catch (error) {
-      console.error('Get stats error:', error)
+      console.error('❌ Get stats error:', error)
       return {
         success: false,
         error: error.message,
@@ -168,14 +200,20 @@ function registerDataHandlers(ipcMain, deps) {
   ipcMain.handle('get-contractor-detailed-stats', async (event, data) => {
     try {
       const phase = data?.phase || 'ALL'
-      console.log('Getting contractor detailed stats for phase:', phase)
+      console.log('🔍 IPC Handler - Getting contractor detailed stats for phase:', phase)
+      
       const contractors = await sitesQueries.getContractorDetailedStats(phase)
       const contractorsArray = Array.isArray(contractors) ? contractors : []
-      console.log('Found contractors:', contractorsArray.length)
+      
+      console.log('🔍 IPC Handler - Result type:', typeof contractors)
+      console.log('🔍 IPC Handler - Is Array:', Array.isArray(contractors))
+      console.log('🔍 IPC Handler - Found contractors:', contractorsArray.length)
+      console.log('🔍 IPC Handler - First contractor sample:', contractorsArray[0])
+      
       return { success: true, contractors: contractorsArray }
     } catch (error) {
-      console.error('Get contractor detailed stats error:', error)
-      return { success: false, error: error.message }
+      console.error('❌ Get contractor detailed stats error:', error)
+      return { success: false, error: error.message, contractors: [] }
     }
   })
 
@@ -268,6 +306,40 @@ function registerDataHandlers(ipcMain, deps) {
         success: false,
         error: error.message
       }
+    }
+  })
+
+  // Sync data from Supabase to SQLite
+  ipcMain.handle('sync-from-cloud', async () => {
+    try {
+      console.log('🔄 Manual sync from cloud requested...')
+      const mode = db.getMode()
+
+      if (!mode.isOnline) {
+        return { success: false, error: 'Not connected to cloud. Check Supabase configuration.' }
+      }
+
+      const result = await db.fullSyncFromCloud()
+      console.log(`✅ Synced ${result.count} sites from Supabase to SQLite`)
+
+      return {
+        success: true,
+        count: result.count,
+        message: `Successfully synced ${result.count} sites from cloud`
+      }
+    } catch (error) {
+      console.error('❌ Sync from cloud error:', error)
+      return { success: false, error: error.message }
+    }
+  })
+
+  // Get database mode/status
+  ipcMain.handle('get-db-mode', async () => {
+    try {
+      const mode = db.getMode()
+      return { success: true, mode }
+    } catch (error) {
+      return { success: false, error: error.message }
     }
   })
 }

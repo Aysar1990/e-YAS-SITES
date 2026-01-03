@@ -1,5 +1,2 @@
-/**
- * Conflict Resolution Components
- */
-
-export { default as ConflictDialog } from './ConflictDialog'
+export { default as ConflictResolution } from ./ConflictResolution
+export { default } from ./ConflictResolution

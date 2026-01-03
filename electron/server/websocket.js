@@ -1,8 +1,9 @@
 /**
- * WebSocket Server - Simple version without auto-kill
+ * WebSocket Server with HTTP Status Endpoint
  */
 
 const WebSocket = require('ws')
+const http = require('http')
 const WS_EVENTS = require('./utils/wsEvents')
 const net = require('net')
 
@@ -11,6 +12,7 @@ const WS_PORT = 3002
 class WebSocketServer {
   constructor() {
     this.wss = null
+    this.httpServer = null
     this.connectedClients = new Map()
   }
 
@@ -58,7 +60,7 @@ class WebSocketServer {
     const portAvailable = await this.isPortAvailable(WS_PORT)
     
     if (!portAvailable) {
-      console.log(`[WS Server] Port ${WS_PORT} already in use - skipping (standalone server running)`)
+      console.log(`[WS Server] Port ${WS_PORT} already in use - skipping`)
       return false
     }
 
@@ -68,10 +70,35 @@ class WebSocketServer {
   startOnPort(port) {
     return new Promise((resolve, reject) => {
       try {
-        this.wss = new WebSocket.Server({ port })
+        // Create HTTP server for status endpoint
+        this.httpServer = http.createServer((req, res) => {
+          // CORS headers
+          res.setHeader('Access-Control-Allow-Origin', '*')
+          res.setHeader('Content-Type', 'application/json')
 
-        this.wss.on('listening', () => {
+          if (req.url === '/status' || req.url === '/') {
+            // Status endpoint
+            res.writeHead(200)
+            res.end(JSON.stringify({
+              status: 'online',
+              service: 'WebSocket Server',
+              port: port,
+              connectedClients: this.connectedClients.size,
+              uptime: process.uptime(),
+              timestamp: new Date().toISOString()
+            }))
+          } else {
+            res.writeHead(404)
+            res.end(JSON.stringify({ error: 'Not Found' }))
+          }
+        })
+
+        // Create WebSocket server on top of HTTP server
+        this.wss = new WebSocket.Server({ server: this.httpServer })
+
+        this.httpServer.listen(port, () => {
           console.log(`[WS Server] ✅ Running on port ${port}`)
+          console.log(`[WS Server] Status: http://localhost:${port}/status`)
           resolve(true)
         })
 
@@ -89,14 +116,14 @@ class WebSocketServer {
             serverTime: new Date().toISOString()
           })
 
-          // Broadcast to others about new connection
+          // Broadcast to others
           this.broadcast(WS_EVENTS.NOTIFICATION, {
             type: 'user_connected',
             message: 'A new user connected',
             connectedClients: this.connectedClients.size
           }, ws)
 
-          // Handle incoming messages
+          // Handle messages
           ws.on('message', (message) => {
             try {
               const data = JSON.parse(message)
@@ -136,9 +163,9 @@ class WebSocketServer {
           })
         })
 
-        this.wss.on('error', (error) => {
+        this.httpServer.on('error', (error) => {
           if (error.code === 'EADDRINUSE') {
-            console.log(`[WS Server] Port ${port} in use - standalone server running`)
+            console.log(`[WS Server] Port ${port} in use`)
             resolve(false)
           } else {
             console.error('[WS Server] Error:', error)
@@ -156,14 +183,19 @@ class WebSocketServer {
   stop() {
     return new Promise((resolve) => {
       if (this.wss) {
-        this.wss.clients.forEach(client => {
-          client.close()
-        })
+        this.wss.clients.forEach(client => client.close())
         this.wss.close(() => {
-          console.log('[WS Server] Stopped')
-          resolve()
+          if (this.httpServer) {
+            this.httpServer.close(() => {
+              console.log('[WS Server] Stopped')
+              resolve()
+            })
+          } else {
+            resolve()
+          }
         })
         this.wss = null
+        this.httpServer = null
       } else {
         resolve()
       }

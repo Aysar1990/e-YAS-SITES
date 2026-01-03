@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Statistics Routes
  */
 
@@ -11,7 +11,7 @@ function createStatsRoutes(db, authenticateToken) {
   const getPartOfBreakdown = (db, whereClause, params, additionalWhere = '') => {
     const query = `
       SELECT COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
-      FROM sites_cache ${whereClause} ${additionalWhere}
+      FROM sites ${whereClause} ${additionalWhere}
       GROUP BY part_of
     `
     const result = db.prepare(query).all(...params)
@@ -45,14 +45,14 @@ function createStatsRoutes(db, authenticateToken) {
       // Status breakdown
       const statusBreakdown = db.prepare(`
         SELECT tssr_overall_status, COUNT(*) as count
-        FROM sites_cache ${whereClause}
+        FROM sites ${whereClause}
         GROUP BY tssr_overall_status
       `).all(...params)
 
       // Part of stats
       const partOfStats = db.prepare(`
         SELECT COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
-        FROM sites_cache ${whereClause}
+        FROM sites ${whereClause}
         GROUP BY part_of
       `).all(...params)
 
@@ -65,12 +65,12 @@ function createStatsRoutes(db, authenticateToken) {
       const rfiBreakdown = getPartOfBreakdown(db, whereClause, params, "AND rfi_status IS NOT NULL AND rfi_status != ''")
 
       // Calculate totals
-      const total = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause}`).get(...params).count
-      const surveyDone = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause} AND ts_survey_ac IS NOT NULL AND ts_survey_ac != ''`).get(...params).count
-      const tssrReady = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause} AND (tssr_ready = 1 OR tssr_ready = 'Yes')`).get(...params).count
-      const tssrSubmitted = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause} AND version IS NOT NULL AND version != ''`).get(...params).count
-      const approved = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause} AND tssr_overall_status = 'Approved'`).get(...params).count
-      const rfi = db.prepare(`SELECT COUNT(*) as count FROM sites_cache ${whereClause} AND rfi_status IS NOT NULL AND rfi_status != ''`).get(...params).count
+      const total = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause}`).get(...params).count
+      const surveyDone = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause} AND ts_survey_ac IS NOT NULL AND ts_survey_ac != ''`).get(...params).count
+      const tssrReady = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause} AND (tssr_ready = 1 OR tssr_ready = 'Yes')`).get(...params).count
+      const tssrSubmitted = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause} AND version IS NOT NULL AND version != ''`).get(...params).count
+      const approved = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause} AND tssr_overall_status = 'Approved'`).get(...params).count
+      const rfi = db.prepare(`SELECT COUNT(*) as count FROM sites ${whereClause} AND rfi_status IS NOT NULL AND rfi_status != ''`).get(...params).count
 
       // Department stats
       const deptStats = db.prepare(`
@@ -90,7 +90,7 @@ function createStatsRoutes(db, authenticateToken) {
           SUM(CASE WHEN mw_status = 'Approved' THEN 1 ELSE 0 END) as mw_approved,
           SUM(CASE WHEN mw_status = 'Rejected' THEN 1 ELSE 0 END) as mw_rejected,
           SUM(CASE WHEN mw_status IS NULL OR mw_status NOT IN ('Approved', 'Rejected') THEN 1 ELSE 0 END) as mw_pending
-        FROM sites_cache ${whereClause}
+        FROM sites ${whereClause}
       `).get(...params)
 
       // Contractors summary
@@ -101,7 +101,7 @@ function createStatsRoutes(db, authenticateToken) {
           SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved,
           SUM(CASE WHEN tssr_overall_status != 'Approved' OR tssr_overall_status IS NULL THEN 1 ELSE 0 END) as pending,
           SUM(CASE WHEN tssr_overall_status LIKE '%Rejected%' THEN 1 ELSE 0 END) as rejected
-        FROM sites_cache ${whereClause}
+        FROM sites ${whereClause}
         AND tssr_subcon IS NOT NULL AND tssr_subcon != ''
         GROUP BY tssr_subcon
         ORDER BY total DESC
@@ -167,7 +167,7 @@ function createStatsRoutes(db, authenticateToken) {
       const getBreakdown = (additionalWhere = '') => {
         const query = `
           SELECT COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
-          FROM sites_cache ${whereClause} ${additionalWhere}
+          FROM sites ${whereClause} ${additionalWhere}
           GROUP BY part_of
         `
         const result = db.prepare(query).all(...params)
@@ -217,7 +217,7 @@ function createStatsRoutes(db, authenticateToken) {
           tssr_overall_status as status,
           COALESCE(part_of, 'Not Specified') as part_of,
           COUNT(*) as count
-        FROM sites_cache ${whereClause}
+        FROM sites ${whereClause}
         GROUP BY tssr_overall_status, part_of
       `
 

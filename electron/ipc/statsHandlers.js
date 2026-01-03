@@ -14,7 +14,11 @@ function registerStatsHandlers(ipcMain, deps) {
   const { db } = deps
 
   ipcMain.handle('get-stats-breakdown', async (event, phase) => {
+    console.log('📊 [IPC] get-stats-breakdown called with phase:', phase)
     try {
+      console.log('📊 [IPC] Database instance:', db ? 'exists' : 'null')
+      console.log('📊 [IPC] Database initialized:', db?.isInitialized?.())
+      
       const getBreakdown = async (additionalWhere = '', params = []) => {
         let whereClause = 'WHERE phase_name = ?'
         const queryParams = [phase, ...params]
@@ -24,7 +28,18 @@ function registerStatsHandlers(ipcMain, deps) {
           FROM sites ${whereClause} ${additionalWhere}
           GROUP BY part_of
         `
-        const result = await db.prepare(query).all(...queryParams)
+        
+        console.log('📊 [IPC] Executing query:', query.substring(0, 100) + '...')
+        console.log('📊 [IPC] Query params:', queryParams)
+        
+        const stmt = db.prepare(query)
+        console.log('📊 [IPC] Statement prepared:', stmt ? 'yes' : 'no')
+        
+        const result = await stmt.all(...queryParams)
+        console.log('📊 [IPC] Query result type:', typeof result, Array.isArray(result))
+        console.log('📊 [IPC] Query result length:', result?.length)
+        console.log('📊 [IPC] Query result:', result)
+        
         const resultArray = Array.isArray(result) ? result : []
 
         return {
@@ -36,7 +51,7 @@ function registerStatsHandlers(ipcMain, deps) {
         }
       }
 
-      return {
+      const breakdown = {
         totalScope: await getBreakdown(),
         surveyDone: await getBreakdown("AND ts_survey_ac IS NOT NULL AND ts_survey_ac != ''"),
         tssrReady: await getBreakdown("AND (tssr_ready = 1 OR tssr_ready = 'Yes')"),
@@ -44,20 +59,33 @@ function registerStatsHandlers(ipcMain, deps) {
         approved: await getBreakdown("AND tssr_overall_status = 'Approved'"),
         rfi: await getBreakdown("AND rfi_status IS NOT NULL AND rfi_status != ''")
       }
+      
+      console.log('📊 [IPC] Final breakdown result:', breakdown)
+      return breakdown
     } catch (error) {
-      console.error('get-stats-breakdown error:', error)
+      console.error('❌ [IPC] get-stats-breakdown error:', error)
+      console.error('❌ [IPC] Error stack:', error.stack)
       return null
     }
   })
 
   ipcMain.handle('get-overview-stats', async (event, phase) => {
+    console.log('📊 [IPC] get-overview-stats called with phase:', phase)
     try {
       const query = `
         SELECT tssr_overall_status as status, COALESCE(part_of, 'Not Specified') as part_of, COUNT(*) as count
         FROM sites WHERE phase_name = ?
         GROUP BY tssr_overall_status, part_of
       `
-      const results = await db.prepare(query).all(phase)
+      
+      console.log('📊 [IPC] Executing overview query for phase:', phase)
+      const stmt = db.prepare(query)
+      const results = await stmt.all(phase)
+      
+      console.log('📊 [IPC] Overview query results type:', typeof results, Array.isArray(results))
+      console.log('📊 [IPC] Overview query results length:', results?.length)
+      console.log('📊 [IPC] Overview query first 3 results:', results?.slice(0, 3))
+      
       const resultsArray = Array.isArray(results) ? results : []
 
       const statusOrder = [
@@ -86,9 +114,13 @@ function registerStatsHandlers(ipcMain, deps) {
         if (!statusOrder.includes(s)) sortedData.push(pivotData[s])
       })
 
+      console.log('📊 [IPC] Overview final sorted data length:', sortedData?.length)
+      console.log('📊 [IPC] Overview final sorted data:', sortedData)
+      
       return sortedData
     } catch (error) {
-      console.error('get-overview-stats error:', error)
+      console.error('❌ [IPC] get-overview-stats error:', error)
+      console.error('❌ [IPC] Error stack:', error.stack)
       return []
     }
   })

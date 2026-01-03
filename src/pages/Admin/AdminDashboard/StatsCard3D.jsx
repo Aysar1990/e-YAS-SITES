@@ -6,35 +6,44 @@
 
 import { useEffect, useState } from 'react'
 
-// Animated counter hook
+// Safe number helper - ensures value is a valid number
+const safeNum = (val) => (typeof val === 'number' && !isNaN(val) && isFinite(val)) ? val : 0
+
+// Animated counter hook with NaN protection
 export const useCountUp = (end, duration = 1500) => {
   const [count, setCount] = useState(0)
+  const safeEnd = safeNum(end)
 
   useEffect(() => {
-    if (end === 0) {
+    if (safeEnd === 0) {
       setCount(0)
       return
     }
 
     let startTime
+    let animationId
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-      setCount(Math.floor(progress * end))
-      if (progress < 1) requestAnimationFrame(animate)
+      setCount(Math.floor(progress * safeEnd))
+      if (progress < 1) {
+        animationId = requestAnimationFrame(animate)
+      }
     }
-    requestAnimationFrame(animate)
-  }, [end, duration])
+    animationId = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationId)
+  }, [safeEnd, duration])
 
   return count
 }
 
 // 3D Stats Card Component
 const StatsCard3D = ({ icon, title, total, breakdown, className }) => {
-  const animatedTotal = useCountUp(total)
-  const animatedThinLayer = useCountUp(breakdown?.thinLayer || 0)
-  const animatedFullSwap = useCountUp(breakdown?.fullSwap || 0)
-  const animatedSwapExisting = useCountUp(breakdown?.swapExisting || 0)
+  const animatedTotal = useCountUp(safeNum(total))
+  const animatedThinLayer = useCountUp(safeNum(breakdown?.thinLayer))
+  const animatedFullSwap = useCountUp(safeNum(breakdown?.fullSwap))
+  const animatedSwapExisting = useCountUp(safeNum(breakdown?.swapExisting))
 
   return (
     <div className={`stats-card-3d ${className}`}>

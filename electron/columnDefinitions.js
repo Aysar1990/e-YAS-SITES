@@ -1,120 +1,208 @@
 /**
  * Column Definitions - Single Source of Truth
- * 
+ *
  * This file maps ALL column names between Excel, SQLite, and Supabase.
  * ALL code must read from this file. No hardcoded column names anywhere else.
- * 
- * Excel headers are from row 3 of the Master sheet.
- * 
+ *
+ * Excel headers are from row 3 of the Master sheet (Book1 (2).xlsx).
+ * Total: 68 columns
+ *
  * @author TSSR Monitor Team
  */
 
 const COLUMNS = [
-  // Site Identification
+  // ============================================
+  // Site Identification (1-6)
+  // ============================================
   { excel: 'Site ID', sqlite: 'site_id', supabase: 'site_id', type: 'text', required: true },
   { excel: 'Final Site Name', sqlite: 'final_site_name', supabase: 'final_site_name', type: 'text' },
   { excel: 'Site Owner', sqlite: 'site_owner', supabase: 'site_owner', type: 'text' },
   { excel: 'Site Code', sqlite: 'site_code', supabase: 'site_code', type: 'text' },
   { excel: 'Site Type', sqlite: 'site_type', supabase: 'site_type', type: 'text' },
   { excel: 'Key Number', sqlite: 'key_number', supabase: 'key_number', type: 'text' },
-  
-  // Location
-  { excel: 'long', sqlite: 'longitude', supabase: 'longitude', type: 'number' },
-  { excel: 'lat', sqlite: 'latitude', supabase: 'latitude', type: 'number' },
+
+  // ============================================
+  // Location (7-9)
+  // ============================================
+  { excel: 'long', sqlite: 'longitude', supabase: 'long', type: 'number' },
+  { excel: 'lat', sqlite: 'latitude', supabase: 'lat', type: 'number' },
   { excel: 'Governorate', sqlite: 'governorate', supabase: 'governorate', type: 'text' },
-  
-  // Structure & Owner Info
+
+  // ============================================
+  // Structure & Owner Info (10-15)
+  // ============================================
   { excel: 'Structure', sqlite: 'structure', supabase: 'structure', type: 'text' },
   { excel: 'Owner Name', sqlite: 'owner_name', supabase: 'owner_name', type: 'text' },
   { excel: 'Owner contact number', sqlite: 'owner_contact_number', supabase: 'owner_contact_number', type: 'text' },
   { excel: 'Structure Type', sqlite: 'structure_type', supabase: 'structure_type', type: 'text' },
   { excel: 'Hieght (m)', sqlite: 'height_m', supabase: 'height_m', type: 'number' },
   { excel: 'Part of', sqlite: 'part_of', supabase: 'part_of', type: 'text' },
-  
-  // Project Info
+
+  // ============================================
+  // Project Info (16-20)
+  // ============================================
   { excel: 'Phase Name', sqlite: 'phase_name', supabase: 'phase_name', type: 'text', required: true },
   { excel: 'Priority', sqlite: 'priority', supabase: 'priority', type: 'number' },
   { excel: 'Cluster', sqlite: 'cluster', supabase: 'cluster', type: 'text' },
   { excel: 'Area', sqlite: 'area', supabase: 'area', type: 'text' },
   { excel: 'Weekly Plan', sqlite: 'weekly_plan', supabase: 'weekly_plan', type: 'text' },
-  
-  // TSSR Info
+
+  // ============================================
+  // TSSR Info (21-25)
+  // ============================================
   { excel: 'TSS SMP', sqlite: 'tss_smp', supabase: 'tss_smp', type: 'text' },
   { excel: 'TSSR Subcon', sqlite: 'tssr_subcon', supabase: 'tssr_subcon', type: 'text' },
   { excel: 'NEW Allocation', sqlite: 'new_allocation', supabase: 'new_allocation', type: 'text' },
   { excel: 'TSSR PO#', sqlite: 'tssr_po', supabase: 'tssr_po', type: 'text' },
   { excel: 'TS Survey (Ac)', sqlite: 'ts_survey_ac', supabase: 'ts_survey_ac', type: 'text' },
-  
-  // Unknown/Custom Fields
+
+  // ============================================
+  // Custom/Unknown Fields (26-27)
+  // ============================================
   { excel: 'abcd', sqlite: 'abcd', supabase: 'abcd', type: 'text' },
   { excel: 'ab', sqlite: 'ab', supabase: 'ab', type: 'text' },
-  
-  // 5G Info
+
+  // ============================================
+  // 5G Info (28-32)
+  // ============================================
   { excel: '5G sectors Names', sqlite: 'five_g_sectors_names', supabase: 'five_g_sectors_names', type: 'text' },
   { excel: '5G solution', sqlite: 'five_g_solution', supabase: 'five_g_solution', type: 'text' },
   { excel: 'Site Sectors #', sqlite: 'site_sectors', supabase: 'site_sectors', type: 'text' },
   { excel: 'IBS Sector', sqlite: 'ibs_sector', supabase: 'ibs_sector', type: 'text' },
   { excel: 'TDD Site', sqlite: 'tdd_site', supabase: 'tdd_site', type: 'text' },
-  
-  // Nokia Status
+
+  // ============================================
+  // Nokia Status (33-34)
+  // ============================================
   { excel: 'NoKia NPO status', sqlite: 'nokia_npo_status', supabase: 'nokia_npo_status', type: 'text' },
   { excel: 'Nokia NPO Comment', sqlite: 'nokia_npo_comment', supabase: 'nokia_npo_comment', type: 'text' },
-  
-  // TI Department
+
+  // ============================================
+  // TI Department (35-37)
+  // ============================================
   { excel: 'TI Status', sqlite: 'ti_status', supabase: 'ti_status', type: 'text' },
   { excel: 'TI Comment', sqlite: 'ti_comment', supabase: 'ti_comment', type: 'text' },
   { excel: 'Cluster Owner (TI)', sqlite: 'cluster_owner_ti', supabase: 'cluster_owner_ti', type: 'text' },
-  
-  // RF Planning Department
+
+  // ============================================
+  // RF Planning Department (38-40)
+  // ============================================
   { excel: 'RF Plan. Status', sqlite: 'rf_plan_status', supabase: 'rf_plan_status', type: 'text' },
   { excel: 'RF Plan Comment', sqlite: 'rf_plan_comment', supabase: 'rf_plan_comment', type: 'text' },
   { excel: 'Cluster Owner (Planing)', sqlite: 'cluster_owner_planning', supabase: 'cluster_owner_planning', type: 'text' },
-  
-  // RF Optimization Department
-  { excel: 'RF Optim Status', sqlite: 'rf_opt_status', supabase: 'rf_opt_status', type: 'text' },
+
+  // ============================================
+  // RF Optimization Department (41-43)
+  // ============================================
+  { excel: 'RF Optim Status', sqlite: 'rf_opt_status', supabase: 'rf_optim_status', type: 'text' },
   { excel: 'RF Opt. comment', sqlite: 'rf_opt_comment', supabase: 'rf_opt_comment', type: 'text' },
   { excel: 'Cluster Owner (Optimization)', sqlite: 'cluster_owner_optimization', supabase: 'cluster_owner_optimization', type: 'text' },
-  
-  // Civil Department
+
+  // ============================================
+  // Civil Department (44-46)
+  // ============================================
   { excel: 'Civil Status', sqlite: 'civil_status', supabase: 'civil_status', type: 'text' },
   { excel: 'Civil Comment', sqlite: 'civil_comment', supabase: 'civil_comment', type: 'text' },
   { excel: 'Cluster Owner (Civil)', sqlite: 'cluster_owner_civil', supabase: 'cluster_owner_civil', type: 'text' },
-  
-  // MW Department
+
+  // ============================================
+  // MW Department (47-48)
+  // ============================================
   { excel: 'MW Status', sqlite: 'mw_status', supabase: 'mw_status', type: 'text' },
-  { excel: 'MW Comment', sqlite: 'mw_comment', supabase: 'mw_comment', type: 'text' },
   { excel: 'Cluster Owner (MW)', sqlite: 'cluster_owner_mw', supabase: 'cluster_owner_mw', type: 'text' },
-  
-  // Additional Info
+
+  // ============================================
+  // Additional Info (49-52)
+  // ============================================
   { excel: 'REC. Cab. Swap', sqlite: 'rec_cab_swap', supabase: 'rec_cab_swap', type: 'text' },
   { excel: 'SPOC Readiness', sqlite: 'spoc_readiness', supabase: 'spoc_readiness', type: 'text' },
   { excel: 'Version', sqlite: 'version', supabase: 'version', type: 'text' },
   { excel: 'SPOC Status', sqlite: 'spoc_status', supabase: 'spoc_status', type: 'text' },
-  
-  // TSSR Status
+
+  // ============================================
+  // TSSR Status (53-58)
+  // ============================================
   { excel: 'TSSR Overall Status', sqlite: 'tssr_overall_status', supabase: 'tssr_overall_status', type: 'text' },
   { excel: 'TSSR status Date', sqlite: 'tssr_status_date', supabase: 'tssr_status_date', type: 'text' },
   { excel: 'SPOC Reviewed', sqlite: 'spoc_reviewed', supabase: 'spoc_reviewed', type: 'text' },
   { excel: 'Week number', sqlite: 'week_number', supabase: 'week_number', type: 'text' },
   { excel: 'TSSR Remark', sqlite: 'tssr_remark', supabase: 'tssr_remark', type: 'text' },
   { excel: 'Action Age', sqlite: 'action_age', supabase: 'action_age', type: 'number' },
-  
-  // RFI & Approval
+
+  // ============================================
+  // RFI & Approval (59-63)
+  // ============================================
   { excel: 'RFI Status', sqlite: 'rfi_status', supabase: 'rfi_status', type: 'text' },
   { excel: 'Gap Analysis', sqlite: 'gap_analysis', supabase: 'gap_analysis', type: 'text' },
-  { excel: 'Approved', sqlite: 'approved', supabase: 'approved', type: 'boolean' },
+  { excel: 'Approved', sqlite: 'approved', supabase: 'approved', type: 'text' },
   { excel: 'Nokia Site Owner', sqlite: 'nokia_site_owner', supabase: 'nokia_site_owner', type: 'text' },
-  { excel: 'TSSR Ready', sqlite: 'tssr_ready', supabase: 'tssr_ready', type: 'boolean' },
-  
-  // Dismantle Info
+  { excel: 'TSSR Ready', sqlite: 'tssr_ready', supabase: 'tssr_ready', type: 'text' },
+
+  // ============================================
+  // Dismantle Info (64-65)
+  // ============================================
   { excel: 'Dismantle Status', sqlite: 'dismantle_status', supabase: 'dismantle_status', type: 'text' },
   { excel: 'Dismantle Date', sqlite: 'dismantle_date', supabase: 'dismantle_date', type: 'text' },
-  
-  // Validation & Zone
+
+  // ============================================
+  // Validation & Zone (66-68)
+  // ============================================
   { excel: 'Validate', sqlite: 'validate', supabase: 'validate', type: 'text' },
   { excel: 'Red Zone Sites', sqlite: 'red_zone_sites', supabase: 'red_zone_sites', type: 'text' },
   { excel: 'Sequence', sqlite: 'sequence', supabase: 'sequence', type: 'number' }
 ]
+
+// Excel header variations mapping (handles different spellings/formats)
+const HEADER_VARIATIONS = {
+  // Spaces and trailing whitespace
+  'TSSR Remark ': 'tssr_remark',
+  'Red Zone Sites ': 'red_zone_sites',
+
+  // Case variations
+  'Nokia NPO Status': 'nokia_npo_status',
+  'Nokia NPO status': 'nokia_npo_status',
+  'NOKIA NPO STATUS': 'nokia_npo_status',
+
+  // Spelling variations
+  'Height (m)': 'height_m',
+  'Hieght (m)': 'height_m',
+
+  // Format variations
+  'Longitude': 'longitude',
+  'LONG': 'longitude',
+  'long': 'longitude',
+  'Latitude': 'latitude',
+  'LAT': 'latitude',
+  'lat': 'latitude',
+
+  // Common alternative names
+  'Part Of': 'part_of',
+  'PART OF': 'part_of',
+  'part of': 'part_of',
+  'Part of ': 'part_of',
+
+  'TSSR PO': 'tssr_po',
+  'TS Survey': 'ts_survey_ac',
+
+  '5G Sectors Names': 'five_g_sectors_names',
+  '5G Solution': 'five_g_solution',
+
+  'Site Sectors': 'site_sectors',
+
+  'RF Plan Status': 'rf_plan_status',
+  'RF Plan. Comment': 'rf_plan_comment',
+
+  'Cluster Owner (Planning)': 'cluster_owner_planning',
+
+  'RF Opt. Status': 'rf_opt_status',
+  'RF Opt Status': 'rf_opt_status',
+  'RF Opt. Comment': 'rf_opt_comment',
+  'RF Opt Comment': 'rf_opt_comment',
+
+  'TSSR Status Date': 'tssr_status_date',
+
+  'REC Cab Swap': 'rec_cab_swap'
+}
 
 // ============================================
 // HELPER FUNCTIONS
@@ -145,13 +233,24 @@ function getSupabaseColumns() {
 }
 
 /**
- * Convert Excel header to SQLite column name
+ * Convert Excel header to SQLite column name (with variation support)
  * @param {string} excelHeader - Excel header name
  * @returns {string|null} SQLite column name or null if not found
  */
 function excelToSQLite(excelHeader) {
-  const col = COLUMNS.find(c => c.excel === excelHeader)
-  return col ? col.sqlite : null
+  if (!excelHeader) return null
+
+  const trimmed = excelHeader.toString().trim()
+
+  // Check direct match first
+  const col = COLUMNS.find(c => c.excel === trimmed || c.excel === excelHeader)
+  if (col) return col.sqlite
+
+  // Check variations
+  if (HEADER_VARIATIONS[excelHeader]) return HEADER_VARIATIONS[excelHeader]
+  if (HEADER_VARIATIONS[trimmed]) return HEADER_VARIATIONS[trimmed]
+
+  return null
 }
 
 /**
@@ -190,7 +289,7 @@ function excelToSupabase(excelHeader) {
  * @returns {string|null} Column type or null if not found
  */
 function getColumnType(name) {
-  const col = COLUMNS.find(c => 
+  const col = COLUMNS.find(c =>
     c.excel === name || c.sqlite === name || c.supabase === name
   )
   return col ? col.type : null
@@ -226,7 +325,7 @@ function getBooleanColumns() {
  * @returns {Object|null} Column definition or null if not found
  */
 function getColumnDef(name) {
-  return COLUMNS.find(c => 
+  return COLUMNS.find(c =>
     c.excel === name || c.sqlite === name || c.supabase === name
   ) || null
 }
@@ -273,12 +372,12 @@ function generateCreateTableSQL(tableName = 'sites') {
     let type = 'TEXT'
     if (col.type === 'number') type = 'REAL'
     if (col.type === 'boolean') type = 'INTEGER'
-    
+
     let def = `${col.sqlite} ${type}`
     if (col.required) def += ' NOT NULL'
     return def
   })
-  
+
   return `CREATE TABLE IF NOT EXISTS ${tableName} (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   ${columnDefs.join(',\n  ')},
@@ -296,7 +395,7 @@ function generateCreateTableSQL(tableName = 'sites') {
 function generateInsertSQL(tableName = 'sites') {
   const columns = getSQLiteColumns()
   const placeholders = columns.map(() => '?').join(', ')
-  
+
   return `INSERT INTO ${tableName} (${columns.join(', ')}) VALUES (${placeholders})`
 }
 
@@ -312,12 +411,62 @@ function generateUpsertSQL(tableName = 'sites') {
     .filter(col => col !== 'site_id' && col !== 'phase_name')
     .map(col => `${col} = excluded.${col}`)
     .join(',\n    ')
-  
+
   return `INSERT INTO ${tableName} (${columns.join(', ')})
 VALUES (${placeholders})
 ON CONFLICT(site_id, phase_name) DO UPDATE SET
     ${updateClauses},
     updated_at = CURRENT_TIMESTAMP`
+}
+
+/**
+ * Generate Supabase CREATE TABLE statement (PostgreSQL)
+ * @param {string} tableName - Table name
+ * @returns {string} PostgreSQL CREATE TABLE statement
+ */
+function generateSupabaseCreateTableSQL(tableName = 'sites') {
+  const columnDefs = COLUMNS.map(col => {
+    let type = 'TEXT'
+    if (col.type === 'number') type = 'NUMERIC'
+    if (col.type === 'boolean') type = 'BOOLEAN'
+
+    let def = `${col.supabase} ${type}`
+    if (col.required) def += ' NOT NULL'
+    return def
+  })
+
+  return `CREATE TABLE IF NOT EXISTS ${tableName} (
+  id BIGSERIAL PRIMARY KEY,
+  ${columnDefs.join(',\n  ')},
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(site_id, phase_name)
+);
+
+-- Create updated_at trigger
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ language 'plpgsql';
+
+CREATE TRIGGER update_${tableName}_updated_at
+    BEFORE UPDATE ON ${tableName}
+    FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
+-- Enable Row Level Security
+ALTER TABLE ${tableName} ENABLE ROW LEVEL SECURITY;
+
+-- Create policy for authenticated users
+CREATE POLICY "Allow all operations for authenticated users"
+    ON ${tableName}
+    FOR ALL
+    TO authenticated
+    USING (true)
+    WITH CHECK (true);`
 }
 
 // ============================================
@@ -326,6 +475,7 @@ ON CONFLICT(site_id, phase_name) DO UPDATE SET
 
 module.exports = {
   COLUMNS,
+  HEADER_VARIATIONS,
   getExcelHeaders,
   getSQLiteColumns,
   getSupabaseColumns,
@@ -342,5 +492,6 @@ module.exports = {
   transformSQLiteToSupabase,
   generateCreateTableSQL,
   generateInsertSQL,
-  generateUpsertSQL
+  generateUpsertSQL,
+  generateSupabaseCreateTableSQL
 }

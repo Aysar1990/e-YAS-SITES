@@ -261,8 +261,8 @@ const SyncToSupabase = () => {
               className="phase-dropdown"
             >
               <option value="">-- اختر المرحلة --</option>
-              {phases.map((phase) => (
-                <option key={phase.name} value={phase.name}>
+              {phases.map((phase, index) => (
+                <option key={`${phase.name}-${index}`} value={phase.name}>
                   {phase.name} ({phase.count} سجل)
                 </option>
               ))}

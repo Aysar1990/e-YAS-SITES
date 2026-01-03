@@ -41,6 +41,24 @@ contextBridge.exposeInMainWorld('electron', {
   // Sync
   manualSync: () => ipcRenderer.invoke('manual-sync'),
   getSyncStatus: () => ipcRenderer.invoke('get-sync-status'),
+  syncFromCloud: () => ipcRenderer.invoke('sync-from-cloud'),
+  getDbMode: () => ipcRenderer.invoke('get-db-mode'),
+
+  // Connection Status (Online/Offline Indicator)
+  getConnectionStatus: () => ipcRenderer.invoke('get-connection-status'),
+  getSyncQueueItems: () => ipcRenderer.invoke('get-sync-queue-items'),
+  forceSyncQueue: () => ipcRenderer.invoke('force-sync-queue'),
+  retryFailedOperations: () => ipcRenderer.invoke('retry-failed-operations'),
+  clearSyncQueue: () => ipcRenderer.invoke('clear-sync-queue'),
+  checkOnlineStatus: () => ipcRenderer.invoke('check-online-status'),
+  setConflictStrategy: (strategy) => ipcRenderer.invoke('set-conflict-strategy', { strategy }),
+
+  // Conflict Resolution
+  getPendingConflicts: () => ipcRenderer.invoke('get-pending-conflicts'),
+  resolveConflict: (conflictId, resolution, mergedData) => ipcRenderer.invoke('resolve-conflict', { conflictId, resolution, mergedData }),
+  resolveAllConflicts: (strategy) => ipcRenderer.invoke('resolve-all-conflicts', { strategy }),
+  getConflictCounts: () => ipcRenderer.invoke('get-conflict-counts'),
+  clearResolvedConflicts: (olderThanDays) => ipcRenderer.invoke('clear-resolved-conflicts', { olderThanDays }),
 
   // Live Sync
   getLiveSyncStatus: () => ipcRenderer.invoke('get-live-sync-status'),

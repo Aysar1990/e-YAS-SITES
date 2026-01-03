@@ -18,12 +18,130 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const SiteMap = ({ sites, onSiteClick }) => {
+// Default demo sites in Jordan
+const DEFAULT_SITES = [
+    {
+        siteId: 'DEMO-AMM-001',
+        finalSiteName: 'Amman Downtown Tower',
+        latitude: 31.9539,
+        longitude: 35.9106,
+        tssrOverallStatus: 'Approved',
+        phaseName: 'Phase 1',
+        partOf: 'Amman Region'
+    },
+    {
+        siteId: 'DEMO-AMM-002',
+        finalSiteName: 'Abdali Business Center',
+        latitude: 31.9656,
+        longitude: 35.9089,
+        tssrOverallStatus: 'Submitted',
+        phaseName: 'Phase 1',
+        partOf: 'Amman Region'
+    },
+    {
+        siteId: 'DEMO-ZRQ-001',
+        finalSiteName: 'Zarqa Industrial Zone',
+        latitude: 32.0728,
+        longitude: 36.0880,
+        tssrOverallStatus: 'Job Done',
+        phaseName: 'Phase 2',
+        partOf: 'Zarqa Region'
+    },
+    {
+        siteId: 'DEMO-IRB-001',
+        finalSiteName: 'Irbid University Area',
+        latitude: 32.5568,
+        longitude: 35.8469,
+        tssrOverallStatus: 'Approved',
+        phaseName: 'Phase 1',
+        partOf: 'Irbid Region'
+    },
+    {
+        siteId: 'DEMO-AQB-001',
+        finalSiteName: 'Aqaba Port Tower',
+        latitude: 29.5267,
+        longitude: 35.0078,
+        tssrOverallStatus: 'Rejected',
+        phaseName: 'Phase 3',
+        partOf: 'Aqaba Region'
+    },
+    {
+        siteId: 'DEMO-KRK-001',
+        finalSiteName: 'Karak Castle View',
+        latitude: 31.1853,
+        longitude: 35.7047,
+        tssrOverallStatus: 'Submitted',
+        phaseName: 'Phase 2',
+        partOf: 'Karak Region'
+    },
+    {
+        siteId: 'DEMO-MDB-001',
+        finalSiteName: 'Madaba Heritage Site',
+        latitude: 31.7167,
+        longitude: 35.7936,
+        tssrOverallStatus: 'Approved',
+        phaseName: 'Phase 1',
+        partOf: 'Madaba Region'
+    },
+    {
+        siteId: 'DEMO-SLT-001',
+        finalSiteName: 'Salt Old Town',
+        latitude: 32.0392,
+        longitude: 35.7272,
+        tssrOverallStatus: 'Job Done',
+        phaseName: 'Phase 2',
+        partOf: 'Balqa Region'
+    },
+    {
+        siteId: 'DEMO-JRS-001',
+        finalSiteName: 'Jerash Ruins Area',
+        latitude: 32.2747,
+        longitude: 35.8914,
+        tssrOverallStatus: 'Submitted',
+        phaseName: 'Phase 3',
+        partOf: 'Jerash Region'
+    },
+    {
+        siteId: 'DEMO-MFQ-001',
+        finalSiteName: 'Mafraq Border Zone',
+        latitude: 32.3422,
+        longitude: 36.2078,
+        tssrOverallStatus: 'Rejected',
+        phaseName: 'Phase 3',
+        partOf: 'Mafraq Region'
+    }
+]
 
-    // Filter out invalid coordinates
+const SiteMap = ({ sites = [], onSiteClick, showDefaultSites = true }) => {
+
+    // Normalize site data to handle both snake_case (from DB) and camelCase
+    const normalizeSite = (s) => ({
+        siteId: s.siteId || s.site_id,
+        finalSiteName: s.finalSiteName || s.final_site_name,
+        latitude: parseFloat(s.latitude) || 0,
+        longitude: parseFloat(s.longitude) || 0,
+        tssrOverallStatus: s.tssrOverallStatus || s.tssr_overall_status,
+        phaseName: s.phaseName || s.phase_name,
+        partOf: s.partOf || s.part_of,
+        tssrSubcon: s.tssrSubcon || s.tssr_subcon,
+        governorate: s.governorate
+    })
+
+    // Filter out invalid coordinates and merge with default sites if needed
     const validSites = useMemo(() => {
-        return sites.filter(s => s.latitude && s.longitude && !isNaN(s.latitude) && !isNaN(s.longitude))
-    }, [sites])
+        if (!Array.isArray(sites)) return showDefaultSites ? DEFAULT_SITES : []
+
+        const realSites = sites
+            .map(normalizeSite)
+            .filter(s => s.latitude && s.longitude && !isNaN(s.latitude) && !isNaN(s.longitude))
+
+        // If no real sites with coordinates, show default demo sites
+        if (realSites.length === 0 && showDefaultSites) {
+            return DEFAULT_SITES
+        }
+
+        return realSites
+    }, [sites, showDefaultSites])
 
     // Center map on Jordan (Amman approx) or average of sites
     const center = [31.95, 35.91] // Amman

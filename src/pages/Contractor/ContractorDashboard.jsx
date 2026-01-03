@@ -48,12 +48,29 @@ const ContractorDashboard = () => {
       }
     })
 
+    // Department Status Counts
+    const countDeptStatus = (field) => {
+      const counts = {}
+      contractorSites.forEach(site => {
+        const status = site[field] || 'Not Set'
+        counts[status] = (counts[status] || 0) + 1
+      })
+      return Object.entries(counts).map(([status, count]) => ({ status, count }))
+    }
+
     return {
       totalSites: contractorSites.length,
       approved: contractorSites.filter(s => (s.tssr_overall_status || s.tssrOverallStatus) === 'Approved').length,
       tssrSubmitted: contractorSites.filter(s => s.version && s.version > 0).length,
       statusCounts: statusCountsArray,
-      partOfCounts: Object.values(partOfCounts)
+      partOfCounts: Object.values(partOfCounts),
+      // Department statuses
+      tiStatus: countDeptStatus('ti_status'),
+      rfPlanStatus: countDeptStatus('rf_plan_status'),
+      rfOptStatus: countDeptStatus('rf_opt_status'),
+      civilStatus: countDeptStatus('civil_status'),
+      mwStatus: countDeptStatus('mw_status'),
+      nokiaNpoStatus: countDeptStatus('nokia_npo_status')
     }
   }, [contractorSites])
 
@@ -121,8 +138,8 @@ const ContractorDashboard = () => {
                 onChange={(e) => setActivePhase(e.target.value)}
               >
                 <option value="ALL">All Phases</option>
-                {phases.map((phase) => (
-                  <option key={phase.phase_name} value={phase.phase_name}>
+                {phases.map((phase, index) => (
+                  <option key={`${phase.phase_name}-${index}`} value={phase.phase_name}>
                     {phase.phase_name}
                   </option>
                 ))}
@@ -310,6 +327,129 @@ const ContractorDashboard = () => {
                 ) : (
                   <div className="cd-no-data">No category data available</div>
                 )}
+              </div>
+            </div>
+
+            {/* Department Status Section */}
+            <div className="cd-section">
+              <h3 className="cd-section-title">
+                <span className="cd-section-icon">🏢</span>
+                Department Status
+              </h3>
+              <div className="cd-departments-grid">
+                {/* TI Department */}
+                <div className="cd-dept-card ti">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">🔧</span>
+                    <span className="cd-dept-name">TI Department</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.tiStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.tiStatus || activeStats.tiStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* RF Planning Department */}
+                <div className="cd-dept-card rf-plan">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">📡</span>
+                    <span className="cd-dept-name">RF Planning</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.rfPlanStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.rfPlanStatus || activeStats.rfPlanStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* RF Optimization Department */}
+                <div className="cd-dept-card rf-opt">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">📶</span>
+                    <span className="cd-dept-name">RF Optimization</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.rfOptStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.rfOptStatus || activeStats.rfOptStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Civil Department */}
+                <div className="cd-dept-card civil">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">🏗️</span>
+                    <span className="cd-dept-name">Civil</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.civilStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.civilStatus || activeStats.civilStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* MW Department */}
+                <div className="cd-dept-card mw">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">🌐</span>
+                    <span className="cd-dept-name">MW</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.mwStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.mwStatus || activeStats.mwStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Nokia NPO */}
+                <div className="cd-dept-card nokia">
+                  <div className="cd-dept-header">
+                    <span className="cd-dept-icon">📱</span>
+                    <span className="cd-dept-name">Nokia NPO</span>
+                  </div>
+                  <div className="cd-dept-statuses">
+                    {activeStats?.nokiaNpoStatus?.map(({ status, count }) => (
+                      <div key={status} className="cd-dept-status-row">
+                        <span className="cd-dept-status-label">{status}</span>
+                        <span className="cd-dept-status-count">{count}</span>
+                      </div>
+                    ))}
+                    {(!activeStats?.nokiaNpoStatus || activeStats.nokiaNpoStatus.length === 0) && (
+                      <div className="cd-dept-no-data">No data</div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -38,12 +38,17 @@ const sitesQueries = {
     let whereClause = ''
     let params = []
 
+    console.log('📊 getOverallStats - Input phase:', JSON.stringify(phase), 'Type:', typeof phase)
+
     if (phase && phase !== 'ALL') {
       whereClause = 'WHERE phase_name = ?'
       params.push(phase)
+      console.log('📊 getOverallStats - Using WHERE clause with params:', params)
+    } else {
+      console.log('📊 getOverallStats - No WHERE clause (ALL phases)')
     }
 
-    const stmt = database.prepare(`
+    const sql = `
       SELECT
         tssr_overall_status,
         COUNT(*) as count
@@ -51,8 +56,36 @@ const sitesQueries = {
       ${whereClause}
       GROUP BY tssr_overall_status
       ORDER BY count DESC
-    `)
-    return stmt.all(...params)
+    `
+    
+    console.log('📊 getOverallStats - SQL:', sql)
+    console.log('📊 getOverallStats - Params:', params)
+    
+    const stmt = database.prepare(sql)
+    const results = stmt.all(...params)
+    
+    console.log('📊 getOverallStats - Results type:', typeof results, Array.isArray(results))
+    console.log('📊 getOverallStats - Results length:', results?.length)
+    console.log('📊 getOverallStats - First 3 results:', results.slice(0, 3))
+    
+    if (results.length > 0) {
+      const total = results.reduce((sum, r) => sum + (r.count || 0), 0)
+      console.log('📊 getOverallStats - Total count from results:', total)
+    } else {
+      console.log('⚠️ getOverallStats - NO RESULTS RETURNED!')
+      // Try without WHERE to see if data exists
+      const testStmt = database.prepare('SELECT COUNT(*) as total FROM sites')
+      const testResult = testStmt.get()
+      console.log('⚠️ getOverallStats - Total sites in DB (no filter):', testResult.total)
+      
+      if (phase && phase !== 'ALL') {
+        const phaseStmt = database.prepare('SELECT COUNT(*) as total FROM sites WHERE phase_name = ?')
+        const phaseResult = phaseStmt.get(phase)
+        console.log('⚠️ getOverallStats - Total sites for phase', phase, ':', phaseResult.total)
+      }
+    }
+    
+    return results
   },
 
   getDepartmentStats: (phase) => {
@@ -230,74 +263,105 @@ sitesQueries.getPartOfStats = (phase) => {
 
 // Get overview statistics for dashboard with Part Of breakdown
 sitesQueries.getOverviewStats = (phase) => {
-  const database = db.getDB()
-  let whereClause = ''
-  let params = []
-
-  if (phase && phase !== 'ALL') {
-    whereClause = 'WHERE phase_name = ?'
-    params.push(phase)
+  // Default values to prevent NaN issues
+  const defaults = {
+    total: 0, total_thin_layer: 0, total_full_swap: 0, total_swap_existing: 0,
+    survey_done: 0, survey_thin_layer: 0, survey_full_swap: 0, survey_swap_existing: 0,
+    tssr_ready_count: 0, ready_thin_layer: 0, ready_full_swap: 0, ready_swap_existing: 0,
+    tssr_submitted: 0, submitted_thin_layer: 0, submitted_full_swap: 0, submitted_swap_existing: 0,
+    approved: 0, approved_thin_layer: 0, approved_full_swap: 0, approved_swap_existing: 0,
+    rfi: 0, rfi_thin_layer: 0, rfi_full_swap: 0, rfi_swap_existing: 0
   }
 
-  // Helper to categorize part_of values (handles 'Exsting' typo in Excel)
-  const partOfCase = `
-    CASE
-      WHEN LOWER(TRIM(part_of)) IN ('thinlayer', 'thin layer') THEN 'thinLayer'
-      WHEN LOWER(TRIM(part_of)) IN ('full swap') THEN 'fullSwap'
-      WHEN LOWER(TRIM(part_of)) LIKE '%swap%exsting%'
-        OR LOWER(TRIM(part_of)) LIKE '%swap%existing%'
-        OR LOWER(TRIM(part_of)) LIKE '%swap for ex%thin%' THEN 'swapExisting'
-      ELSE 'notSpecified'
-    END
-  `
+  try {
+    const database = db.getDB()
+    let whereClause = ''
+    let params = []
 
-  const stmt = database.prepare(`
-    SELECT
-      -- Total Scope
-      COUNT(*) as total,
-      SUM(CASE WHEN ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as total_thin_layer,
-      SUM(CASE WHEN ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as total_full_swap,
-      SUM(CASE WHEN ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as total_swap_existing,
+    if (phase && phase !== 'ALL') {
+      whereClause = 'WHERE phase_name = ?'
+      params.push(phase)
+    }
 
-      -- Survey Done (ts_survey_ac is not empty)
-      SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' THEN 1 ELSE 0 END) as survey_done,
-      SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as survey_thin_layer,
-      SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as survey_full_swap,
-      SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as survey_swap_existing,
+    // Helper to categorize part_of values (handles 'Exsting' typo in Excel)
+    // Actual values: 'ThinLayer', 'Full Swap', 'Swap For Exsting Thin layer'
+    const partOfCase = `
+      CASE
+        WHEN LOWER(TRIM(part_of)) = 'thinlayer' THEN 'thinLayer'
+        WHEN LOWER(TRIM(part_of)) = 'full swap' THEN 'fullSwap'
+        WHEN LOWER(TRIM(part_of)) LIKE '%swap%for%exsting%'
+          OR LOWER(TRIM(part_of)) LIKE '%swap%for%existing%'
+          OR LOWER(TRIM(part_of)) LIKE '%swap%existing%'
+          OR LOWER(TRIM(part_of)) LIKE '%swap%exsting%' THEN 'swapExisting'
+        ELSE 'notSpecified'
+      END
+    `
 
-      -- TSSR Ready (tssr_ready = 1 or 'Yes')
-      SUM(CASE WHEN tssr_ready = 1 OR LOWER(tssr_ready) = 'yes' THEN 1 ELSE 0 END) as tssr_ready_count,
-      SUM(CASE WHEN (tssr_ready = 1 OR LOWER(tssr_ready) = 'yes') AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as ready_thin_layer,
-      SUM(CASE WHEN (tssr_ready = 1 OR LOWER(tssr_ready) = 'yes') AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as ready_full_swap,
-      SUM(CASE WHEN (tssr_ready = 1 OR LOWER(tssr_ready) = 'yes') AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as ready_swap_existing,
+    // Helper to check TSSR Ready (handles 'TSSR Ready' text, 'yes', or 1)
+    const tssrReadyCheck = `
+      (tssr_ready IS NOT NULL AND (
+        tssr_ready = 1
+        OR LOWER(TRIM(tssr_ready)) = 'yes'
+        OR LOWER(TRIM(tssr_ready)) LIKE '%tssr%ready%'
+        OR LOWER(TRIM(tssr_ready)) LIKE '%ready%'
+      ))
+    `
 
-      -- TSSR Submitted (version is not empty)
-      SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' THEN 1 ELSE 0 END) as tssr_submitted,
-      SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as submitted_thin_layer,
-      SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as submitted_full_swap,
-      SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as submitted_swap_existing,
+    const stmt = database.prepare(`
+      SELECT
+        -- Total Scope
+        COUNT(*) as total,
+        SUM(CASE WHEN ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as total_thin_layer,
+        SUM(CASE WHEN ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as total_full_swap,
+        SUM(CASE WHEN ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as total_swap_existing,
 
-      -- Approved
-      SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved,
-      SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as approved_thin_layer,
-      SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as approved_full_swap,
-      SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as approved_swap_existing,
+        -- Survey Done (ts_survey_ac is not empty)
+        SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' THEN 1 ELSE 0 END) as survey_done,
+        SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as survey_thin_layer,
+        SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as survey_full_swap,
+        SUM(CASE WHEN ts_survey_ac IS NOT NULL AND TRIM(ts_survey_ac) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as survey_swap_existing,
 
-      -- RFI (rfi_status is not empty)
-      SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' THEN 1 ELSE 0 END) as rfi,
-      SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as rfi_thin_layer,
-      SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as rfi_full_swap,
-      SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as rfi_swap_existing
-    FROM sites
-    ${whereClause}
-  `)
+        -- TSSR Ready
+        SUM(CASE WHEN ${tssrReadyCheck} THEN 1 ELSE 0 END) as tssr_ready_count,
+        SUM(CASE WHEN ${tssrReadyCheck} AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as ready_thin_layer,
+        SUM(CASE WHEN ${tssrReadyCheck} AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as ready_full_swap,
+        SUM(CASE WHEN ${tssrReadyCheck} AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as ready_swap_existing,
 
-  const result = stmt.get(...params)
+        -- TSSR Submitted (version is not empty)
+        SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' THEN 1 ELSE 0 END) as tssr_submitted,
+        SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as submitted_thin_layer,
+        SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as submitted_full_swap,
+        SUM(CASE WHEN version IS NOT NULL AND TRIM(version) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as submitted_swap_existing,
 
-  // Debug output
-  console.log('📊 Overview Stats Result:', JSON.stringify(result, null, 2))
+        -- Approved
+        SUM(CASE WHEN tssr_overall_status = 'Approved' THEN 1 ELSE 0 END) as approved,
+        SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as approved_thin_layer,
+        SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as approved_full_swap,
+        SUM(CASE WHEN tssr_overall_status = 'Approved' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as approved_swap_existing,
 
-  return result
+        -- RFI (rfi_status is not empty)
+        SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' THEN 1 ELSE 0 END) as rfi,
+        SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'thinLayer' THEN 1 ELSE 0 END) as rfi_thin_layer,
+        SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'fullSwap' THEN 1 ELSE 0 END) as rfi_full_swap,
+        SUM(CASE WHEN rfi_status IS NOT NULL AND TRIM(rfi_status) != '' AND ${partOfCase} = 'swapExisting' THEN 1 ELSE 0 END) as rfi_swap_existing
+      FROM sites
+      ${whereClause}
+    `)
+
+    const result = stmt.get(...params)
+    console.log('📊 Overview Stats Result:', JSON.stringify(result, null, 2))
+
+    // Return result with defaults for null values
+    if (!result) return defaults
+
+    return Object.keys(defaults).reduce((acc, key) => {
+      acc[key] = result[key] ?? defaults[key]
+      return acc
+    }, {})
+  } catch (error) {
+    console.error('❌ getOverviewStats error:', error)
+    return defaults
+  }
 }
 
 // Get overview table (pivot: status rows x part_of columns)
@@ -407,25 +471,65 @@ sitesQueries.getContractorDetailedStats = (phase) => {
   let whereClause = ''
   let params = []
 
+  console.log('👷 getContractorDetailedStats - Input phase:', JSON.stringify(phase), 'Type:', typeof phase)
+
   if (phase && phase !== 'ALL') {
     whereClause = 'WHERE phase_name = ?'
     params.push(phase)
   }
 
-  // Get all unique contractors
-  const contractorsStmt = database.prepare(`
+  const contractorsSql = `
     SELECT DISTINCT tssr_subcon as name
     FROM sites
     ${whereClause}
     ${whereClause ? 'AND' : 'WHERE'} tssr_subcon IS NOT NULL AND tssr_subcon != ''
     ORDER BY tssr_subcon
-  `)
+  `
+  
+  console.log('👷 getContractorDetailedStats - SQL:', contractorsSql)
+  console.log('👷 getContractorDetailedStats - Params:', params)
+  
+  const contractorsStmt = database.prepare(contractorsSql)
   const contractors = contractorsStmt.all(...params)
+  
+  // Ensure contractors is always an array
+  const contractorsArray = Array.isArray(contractors) ? contractors : []
 
-  return contractors.map(contractor => {
+  console.log('👷 Found contractors:', contractorsArray.length)
+  console.log('👷 First 3 contractor names:', contractorsArray.slice(0, 3).map(c => c.name))
+
+  if (contractorsArray.length === 0) {
+    console.log('⚠️ No contractors found!')
+    // Test if any contractors exist in DB
+    const testStmt = database.prepare(`
+      SELECT COUNT(DISTINCT tssr_subcon) as count 
+      FROM sites 
+      WHERE tssr_subcon IS NOT NULL AND tssr_subcon != ''
+    `)
+    const testResult = testStmt.get()
+    console.log('⚠️ Total unique contractors in DB:', testResult.count)
+    
+    if (phase && phase !== 'ALL') {
+      const phaseTestStmt = database.prepare(`
+        SELECT COUNT(DISTINCT tssr_subcon) as count 
+        FROM sites 
+        WHERE phase_name = ? AND tssr_subcon IS NOT NULL AND tssr_subcon != ''
+      `)
+      const phaseTestResult = phaseTestStmt.get(phase)
+      console.log('⚠️ Contractors for phase', phase, ':', phaseTestResult.count)
+    }
+  }
+
+  const result = contractorsArray.map((contractor, index) => {
     const contractorName = contractor.name
     const contractorParams = phase && phase !== 'ALL' ? [phase, contractorName] : [contractorName]
     const phaseCondition = phase && phase !== 'ALL' ? 'phase_name = ? AND' : ''
+
+    if (index === 0) {
+      console.log('👷 Processing first contractor:', contractorName)
+      console.log('👷 Phase condition:', phaseCondition || 'none')
+      console.log('👷 Params for queries:', contractorParams)
+    }
 
     // Get counts by status
     const statusStmt = database.prepare(`
@@ -437,6 +541,10 @@ sitesQueries.getContractorDetailedStats = (phase) => {
       GROUP BY tssr_overall_status
     `)
     const statusCounts = statusStmt.all(...contractorParams)
+
+    if (index === 0) {
+      console.log('👷 Status counts for first contractor:', statusCounts)
+    }
 
     // Get total sites
     const totalStmt = database.prepare(`
@@ -517,6 +625,13 @@ sitesQueries.getContractorDetailedStats = (phase) => {
       rejectionCount: rejectionCount
     }
   })
+  
+  console.log('👷 Returning', result.length, 'contractors with detailed stats')
+  if (result.length > 0) {
+    console.log('👷 First contractor result:', JSON.stringify(result[0], null, 2))
+  }
+  
+  return result
 }
 
 /**

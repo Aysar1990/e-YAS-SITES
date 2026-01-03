@@ -1,0 +1,5323 @@
+[
+  {
+    "timestamp": 1767312015346,
+    "summary": {
+      "timestamp": 1767311835324,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.01
+    }
+  },
+  {
+    "timestamp": 1767312075354,
+    "summary": {
+      "timestamp": 1767311835324,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.01
+    }
+  },
+  {
+    "timestamp": 1767312135364,
+    "summary": {
+      "timestamp": 1767312135333,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.03
+    }
+  },
+  {
+    "timestamp": 1767312195364,
+    "summary": {
+      "timestamp": 1767312135333,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.03
+    }
+  },
+  {
+    "timestamp": 1767312255373,
+    "summary": {
+      "timestamp": 1767312135333,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.03
+    }
+  },
+  {
+    "timestamp": 1767312315385,
+    "summary": {
+      "timestamp": 1767312135333,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.03
+    }
+  },
+  {
+    "timestamp": 1767312375400,
+    "summary": {
+      "timestamp": 1767312135333,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.03
+    }
+  },
+  {
+    "timestamp": 1767312664409,
+    "summary": {
+      "timestamp": 1767312604406,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.05
+    }
+  },
+  {
+    "timestamp": 1767312724414,
+    "summary": {
+      "timestamp": 1767312604406,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.05
+    }
+  },
+  {
+    "timestamp": 1767312784428,
+    "summary": {
+      "timestamp": 1767312604406,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.05
+    }
+  },
+  {
+    "timestamp": 1767312844429,
+    "summary": {
+      "timestamp": 1767312604406,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.05
+    }
+  },
+  {
+    "timestamp": 1767312904434,
+    "summary": {
+      "timestamp": 1767312904418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.06
+    }
+  },
+  {
+    "timestamp": 1767312964437,
+    "summary": {
+      "timestamp": 1767312904418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.06
+    }
+  },
+  {
+    "timestamp": 1767313024444,
+    "summary": {
+      "timestamp": 1767312904418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.06
+    }
+  },
+  {
+    "timestamp": 1767313084455,
+    "summary": {
+      "timestamp": 1767312904418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.06
+    }
+  },
+  {
+    "timestamp": 1767313144462,
+    "summary": {
+      "timestamp": 1767312904418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.06
+    }
+  },
+  {
+    "timestamp": 1767313204469,
+    "summary": {
+      "timestamp": 1767313204423,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313264477,
+    "summary": {
+      "timestamp": 1767313204423,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313324478,
+    "summary": {
+      "timestamp": 1767313204423,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313384482,
+    "summary": {
+      "timestamp": 1767313204423,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313444496,
+    "summary": {
+      "timestamp": 1767313204423,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313504496,
+    "summary": {
+      "timestamp": 1767313504433,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313564510,
+    "summary": {
+      "timestamp": 1767313504433,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767313624521,
+    "summary": {
+      "timestamp": 1767313504433,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 28,
+      "cpuUsage": 2.07
+    }
+  },
+  {
+    "timestamp": 1767315687714,
+    "summary": {
+      "timestamp": 1767315627701,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.21
+    }
+  },
+  {
+    "timestamp": 1767316045371,
+    "summary": {
+      "timestamp": 1767315985368,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.23
+    }
+  },
+  {
+    "timestamp": 1767316105384,
+    "summary": {
+      "timestamp": 1767315985368,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.23
+    }
+  },
+  {
+    "timestamp": 1767316165396,
+    "summary": {
+      "timestamp": 1767315985368,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.23
+    }
+  },
+  {
+    "timestamp": 1767316225396,
+    "summary": {
+      "timestamp": 1767315985368,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.23
+    }
+  },
+  {
+    "timestamp": 1767316285397,
+    "summary": {
+      "timestamp": 1767316285381,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316345409,
+    "summary": {
+      "timestamp": 1767316285381,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316405423,
+    "summary": {
+      "timestamp": 1767316285381,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316465425,
+    "summary": {
+      "timestamp": 1767316285381,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316525440,
+    "summary": {
+      "timestamp": 1767316285381,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316585447,
+    "summary": {
+      "timestamp": 1767316585384,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 35,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316645462,
+    "summary": {
+      "timestamp": 1767316585384,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 35,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316705464,
+    "summary": {
+      "timestamp": 1767316585384,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 35,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316765470,
+    "summary": {
+      "timestamp": 1767316585384,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 35,
+      "cpuUsage": 2.25
+    }
+  },
+  {
+    "timestamp": 1767316885863,
+    "summary": {
+      "timestamp": 1767316825857,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.26
+    }
+  },
+  {
+    "timestamp": 1767316945866,
+    "summary": {
+      "timestamp": 1767316825857,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.26
+    }
+  },
+  {
+    "timestamp": 1767317005871,
+    "summary": {
+      "timestamp": 1767316825857,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.26
+    }
+  },
+  {
+    "timestamp": 1767317065884,
+    "summary": {
+      "timestamp": 1767316825857,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.26
+    }
+  },
+  {
+    "timestamp": 1767317125899,
+    "summary": {
+      "timestamp": 1767317125866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.27
+    }
+  },
+  {
+    "timestamp": 1767317185911,
+    "summary": {
+      "timestamp": 1767317125866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.27
+    }
+  },
+  {
+    "timestamp": 1767317245912,
+    "summary": {
+      "timestamp": 1767317125866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.27
+    }
+  },
+  {
+    "timestamp": 1767317305914,
+    "summary": {
+      "timestamp": 1767317125866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.27
+    }
+  },
+  {
+    "timestamp": 1767317365918,
+    "summary": {
+      "timestamp": 1767317125866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.27
+    }
+  },
+  {
+    "timestamp": 1767317425929,
+    "summary": {
+      "timestamp": 1767317425866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.29
+    }
+  },
+  {
+    "timestamp": 1767317485936,
+    "summary": {
+      "timestamp": 1767317425866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.29
+    }
+  },
+  {
+    "timestamp": 1767317545938,
+    "summary": {
+      "timestamp": 1767317425866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.29
+    }
+  },
+  {
+    "timestamp": 1767317605950,
+    "summary": {
+      "timestamp": 1767317425866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.29
+    }
+  },
+  {
+    "timestamp": 1767317665951,
+    "summary": {
+      "timestamp": 1767317425866,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.29
+    }
+  },
+  {
+    "timestamp": 1767317725957,
+    "summary": {
+      "timestamp": 1767317725878,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.32
+    }
+  },
+  {
+    "timestamp": 1767317785961,
+    "summary": {
+      "timestamp": 1767317725878,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.32
+    }
+  },
+  {
+    "timestamp": 1767317845972,
+    "summary": {
+      "timestamp": 1767317725878,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.32
+    }
+  },
+  {
+    "timestamp": 1767317905979,
+    "summary": {
+      "timestamp": 1767317725878,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.32
+    }
+  },
+  {
+    "timestamp": 1767317965986,
+    "summary": {
+      "timestamp": 1767317725878,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.32
+    }
+  },
+  {
+    "timestamp": 1767318025995,
+    "summary": {
+      "timestamp": 1767318025886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.34
+    }
+  },
+  {
+    "timestamp": 1767318086004,
+    "summary": {
+      "timestamp": 1767318025886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.34
+    }
+  },
+  {
+    "timestamp": 1767318146007,
+    "summary": {
+      "timestamp": 1767318025886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.34
+    }
+  },
+  {
+    "timestamp": 1767318206014,
+    "summary": {
+      "timestamp": 1767318025886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.34
+    }
+  },
+  {
+    "timestamp": 1767318266028,
+    "summary": {
+      "timestamp": 1767318025886,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.34
+    }
+  },
+  {
+    "timestamp": 1767318326034,
+    "summary": {
+      "timestamp": 1767318325891,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767318386041,
+    "summary": {
+      "timestamp": 1767318325891,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767318446055,
+    "summary": {
+      "timestamp": 1767318325891,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767318506062,
+    "summary": {
+      "timestamp": 1767318325891,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767318566064,
+    "summary": {
+      "timestamp": 1767318325891,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767318626071,
+    "summary": {
+      "timestamp": 1767318625900,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.38
+    }
+  },
+  {
+    "timestamp": 1767318686084,
+    "summary": {
+      "timestamp": 1767318625900,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.38
+    }
+  },
+  {
+    "timestamp": 1767318746098,
+    "summary": {
+      "timestamp": 1767318625900,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.38
+    }
+  },
+  {
+    "timestamp": 1767318806100,
+    "summary": {
+      "timestamp": 1767318625900,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.38
+    }
+  },
+  {
+    "timestamp": 1767318866105,
+    "summary": {
+      "timestamp": 1767318625900,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.38
+    }
+  },
+  {
+    "timestamp": 1767318926120,
+    "summary": {
+      "timestamp": 1767318925915,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.43
+    }
+  },
+  {
+    "timestamp": 1767318986127,
+    "summary": {
+      "timestamp": 1767318925915,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.43
+    }
+  },
+  {
+    "timestamp": 1767319046138,
+    "summary": {
+      "timestamp": 1767318925915,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.43
+    }
+  },
+  {
+    "timestamp": 1767319106152,
+    "summary": {
+      "timestamp": 1767318925915,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.43
+    }
+  },
+  {
+    "timestamp": 1767319166152,
+    "summary": {
+      "timestamp": 1767318925915,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.43
+    }
+  },
+  {
+    "timestamp": 1767319226160,
+    "summary": {
+      "timestamp": 1767319225929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.48
+    }
+  },
+  {
+    "timestamp": 1767319286174,
+    "summary": {
+      "timestamp": 1767319225929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.48
+    }
+  },
+  {
+    "timestamp": 1767319346183,
+    "summary": {
+      "timestamp": 1767319225929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.48
+    }
+  },
+  {
+    "timestamp": 1767319406183,
+    "summary": {
+      "timestamp": 1767319225929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.48
+    }
+  },
+  {
+    "timestamp": 1767319466183,
+    "summary": {
+      "timestamp": 1767319225929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.48
+    }
+  },
+  {
+    "timestamp": 1767319526195,
+    "summary": {
+      "timestamp": 1767319525942,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767319586205,
+    "summary": {
+      "timestamp": 1767319525942,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767319646213,
+    "summary": {
+      "timestamp": 1767319525942,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767319706216,
+    "summary": {
+      "timestamp": 1767319525942,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767319766222,
+    "summary": {
+      "timestamp": 1767319525942,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 42,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767319826227,
+    "summary": {
+      "timestamp": 1767319825950,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767319886241,
+    "summary": {
+      "timestamp": 1767319825950,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767319946254,
+    "summary": {
+      "timestamp": 1767319825950,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767320006265,
+    "summary": {
+      "timestamp": 1767319825950,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767320066267,
+    "summary": {
+      "timestamp": 1767319825950,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767320126278,
+    "summary": {
+      "timestamp": 1767320125964,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.61
+    }
+  },
+  {
+    "timestamp": 1767320186288,
+    "summary": {
+      "timestamp": 1767320125964,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.61
+    }
+  },
+  {
+    "timestamp": 1767320246301,
+    "summary": {
+      "timestamp": 1767320125964,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.61
+    }
+  },
+  {
+    "timestamp": 1767320306317,
+    "summary": {
+      "timestamp": 1767320125964,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.61
+    }
+  },
+  {
+    "timestamp": 1767320366329,
+    "summary": {
+      "timestamp": 1767320125964,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": []
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.61
+    }
+  },
+  {
+    "timestamp": 1767320539582,
+    "summary": {
+      "timestamp": 1767320479584,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 33,
+      "cpuUsage": 2.71
+    }
+  },
+  {
+    "timestamp": 1767320599582,
+    "summary": {
+      "timestamp": 1767320479584,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 33,
+      "cpuUsage": 2.71
+    }
+  },
+  {
+    "timestamp": 1767320659597,
+    "summary": {
+      "timestamp": 1767320479584,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 33,
+      "cpuUsage": 2.71
+    }
+  },
+  {
+    "timestamp": 1767320719602,
+    "summary": {
+      "timestamp": 1767320479584,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 33,
+      "cpuUsage": 2.71
+    }
+  },
+  {
+    "timestamp": 1767320779614,
+    "summary": {
+      "timestamp": 1767320779585,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 47,
+      "cpuUsage": 2.75
+    }
+  },
+  {
+    "timestamp": 1767320839617,
+    "summary": {
+      "timestamp": 1767320779585,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 47,
+      "cpuUsage": 2.75
+    }
+  },
+  {
+    "timestamp": 1767320899631,
+    "summary": {
+      "timestamp": 1767320779585,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 47,
+      "cpuUsage": 2.75
+    }
+  },
+  {
+    "timestamp": 1767320959641,
+    "summary": {
+      "timestamp": 1767320779585,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 47,
+      "cpuUsage": 2.75
+    }
+  },
+  {
+    "timestamp": 1767321019647,
+    "summary": {
+      "timestamp": 1767320779585,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 47,
+      "cpuUsage": 2.75
+    }
+  },
+  {
+    "timestamp": 1767321079657,
+    "summary": {
+      "timestamp": 1767321079597,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.76
+    }
+  },
+  {
+    "timestamp": 1767321139673,
+    "summary": {
+      "timestamp": 1767321079597,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.76
+    }
+  },
+  {
+    "timestamp": 1767321199676,
+    "summary": {
+      "timestamp": 1767321079597,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.76
+    }
+  },
+  {
+    "timestamp": 1767321259687,
+    "summary": {
+      "timestamp": 1767321079597,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.76
+    }
+  },
+  {
+    "timestamp": 1767321319689,
+    "summary": {
+      "timestamp": 1767321079597,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.76
+    }
+  },
+  {
+    "timestamp": 1767321379695,
+    "summary": {
+      "timestamp": 1767321379603,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 43,
+      "cpuUsage": 2.77
+    }
+  },
+  {
+    "timestamp": 1767321515180,
+    "summary": {
+      "timestamp": 1767321455177,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.78
+    }
+  },
+  {
+    "timestamp": 1767321575191,
+    "summary": {
+      "timestamp": 1767321455177,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.78
+    }
+  },
+  {
+    "timestamp": 1767321635195,
+    "summary": {
+      "timestamp": 1767321455177,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.78
+    }
+  },
+  {
+    "timestamp": 1767321695197,
+    "summary": {
+      "timestamp": 1767321455177,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.78
+    }
+  },
+  {
+    "timestamp": 1767323318921,
+    "summary": {
+      "timestamp": 1767323258913,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.88
+    }
+  },
+  {
+    "timestamp": 1767323378936,
+    "summary": {
+      "timestamp": 1767323258913,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.88
+    }
+  },
+  {
+    "timestamp": 1767323438937,
+    "summary": {
+      "timestamp": 1767323258913,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.88
+    }
+  },
+  {
+    "timestamp": 1767323498945,
+    "summary": {
+      "timestamp": 1767323258913,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.88
+    }
+  },
+  {
+    "timestamp": 1767323558949,
+    "summary": {
+      "timestamp": 1767323558920,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767323618952,
+    "summary": {
+      "timestamp": 1767323558920,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767323678964,
+    "summary": {
+      "timestamp": 1767323558920,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767323738965,
+    "summary": {
+      "timestamp": 1767323558920,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767323798965,
+    "summary": {
+      "timestamp": 1767323558920,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767323858974,
+    "summary": {
+      "timestamp": 1767323858929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767323918980,
+    "summary": {
+      "timestamp": 1767323858929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767323978980,
+    "summary": {
+      "timestamp": 1767323858929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324038990,
+    "summary": {
+      "timestamp": 1767323858929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324099002,
+    "summary": {
+      "timestamp": 1767323858929,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324159014,
+    "summary": {
+      "timestamp": 1767324158938,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.91
+    }
+  },
+  {
+    "timestamp": 1767324219025,
+    "summary": {
+      "timestamp": 1767324158938,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.91
+    }
+  },
+  {
+    "timestamp": 1767324279039,
+    "summary": {
+      "timestamp": 1767324158938,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.91
+    }
+  },
+  {
+    "timestamp": 1767324339049,
+    "summary": {
+      "timestamp": 1767324158938,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.91
+    }
+  },
+  {
+    "timestamp": 1767324399056,
+    "summary": {
+      "timestamp": 1767324158938,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.91
+    }
+  },
+  {
+    "timestamp": 1767324459063,
+    "summary": {
+      "timestamp": 1767324458941,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324519064,
+    "summary": {
+      "timestamp": 1767324458941,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324579065,
+    "summary": {
+      "timestamp": 1767324458941,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324639073,
+    "summary": {
+      "timestamp": 1767324458941,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324699103,
+    "summary": {
+      "timestamp": 1767324458941,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.92
+    }
+  },
+  {
+    "timestamp": 1767324759118,
+    "summary": {
+      "timestamp": 1767324758948,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.95
+    }
+  },
+  {
+    "timestamp": 1767324819130,
+    "summary": {
+      "timestamp": 1767324758948,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.95
+    }
+  },
+  {
+    "timestamp": 1767324879136,
+    "summary": {
+      "timestamp": 1767324758948,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.95
+    }
+  },
+  {
+    "timestamp": 1767329303584,
+    "summary": {
+      "timestamp": 1767324758948,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 49,
+      "cpuUsage": 2.95
+    }
+  },
+  {
+    "timestamp": 1767329446186,
+    "summary": {
+      "timestamp": 1767329303589,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 50,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767329514294,
+    "summary": {
+      "timestamp": 1767329303589,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 50,
+      "cpuUsage": 2.9
+    }
+  },
+  {
+    "timestamp": 1767354284789,
+    "summary": {
+      "timestamp": 1767354224770,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767354344776,
+    "summary": {
+      "timestamp": 1767354224770,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767354404789,
+    "summary": {
+      "timestamp": 1767354224770,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767354464803,
+    "summary": {
+      "timestamp": 1767354224770,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767354524812,
+    "summary": {
+      "timestamp": 1767354524783,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767354584824,
+    "summary": {
+      "timestamp": 1767354524783,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767354644838,
+    "summary": {
+      "timestamp": 1767354524783,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767354704839,
+    "summary": {
+      "timestamp": 1767354524783,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767354764850,
+    "summary": {
+      "timestamp": 1767354524783,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767354824857,
+    "summary": {
+      "timestamp": 1767354824796,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767354884870,
+    "summary": {
+      "timestamp": 1767354824796,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767354944880,
+    "summary": {
+      "timestamp": 1767354824796,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767355004884,
+    "summary": {
+      "timestamp": 1767354824796,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767355064900,
+    "summary": {
+      "timestamp": 1767354824796,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 27,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767355854743,
+    "summary": {
+      "timestamp": 1767355794743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767355914751,
+    "summary": {
+      "timestamp": 1767355794743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767355974752,
+    "summary": {
+      "timestamp": 1767355794743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767356034754,
+    "summary": {
+      "timestamp": 1767355794743,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.57
+    }
+  },
+  {
+    "timestamp": 1767356094756,
+    "summary": {
+      "timestamp": 1767356094742,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.63
+    }
+  },
+  {
+    "timestamp": 1767356154763,
+    "summary": {
+      "timestamp": 1767356094742,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.63
+    }
+  },
+  {
+    "timestamp": 1767356214766,
+    "summary": {
+      "timestamp": 1767356094742,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.63
+    }
+  },
+  {
+    "timestamp": 1767356274775,
+    "summary": {
+      "timestamp": 1767356094742,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.63
+    }
+  },
+  {
+    "timestamp": 1767356334790,
+    "summary": {
+      "timestamp": 1767356094742,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 45,
+      "cpuUsage": 2.63
+    }
+  },
+  {
+    "timestamp": 1767356394792,
+    "summary": {
+      "timestamp": 1767356394748,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 51,
+      "cpuUsage": 2.64
+    }
+  },
+  {
+    "timestamp": 1767356454796,
+    "summary": {
+      "timestamp": 1767356394748,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 51,
+      "cpuUsage": 2.64
+    }
+  },
+  {
+    "timestamp": 1767356514809,
+    "summary": {
+      "timestamp": 1767356394748,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 51,
+      "cpuUsage": 2.64
+    }
+  },
+  {
+    "timestamp": 1767356574811,
+    "summary": {
+      "timestamp": 1767356394748,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 51,
+      "cpuUsage": 2.64
+    }
+  },
+  {
+    "timestamp": 1767356634818,
+    "summary": {
+      "timestamp": 1767356394748,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 51,
+      "cpuUsage": 2.64
+    }
+  },
+  {
+    "timestamp": 1767356769843,
+    "summary": {
+      "timestamp": 1767356709842,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356813206,
+    "summary": {
+      "timestamp": 1767356753208,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356829858,
+    "summary": {
+      "timestamp": 1767356709842,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356873216,
+    "summary": {
+      "timestamp": 1767356753208,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356889862,
+    "summary": {
+      "timestamp": 1767356709842,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356933220,
+    "summary": {
+      "timestamp": 1767356753208,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767356949876,
+    "summary": {
+      "timestamp": 1767356709842,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 30,
+      "cpuUsage": 2.67
+    }
+  },
+  {
+    "timestamp": 1767357009884,
+    "summary": {
+      "timestamp": 1767357009855,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 48,
+      "cpuUsage": 2.71
+    }
+  },
+  {
+    "timestamp": 1767382644268,
+    "summary": {
+      "timestamp": 1767382584254,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.35
+    }
+  },
+  {
+    "timestamp": 1767382704258,
+    "summary": {
+      "timestamp": 1767382584254,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.35
+    }
+  },
+  {
+    "timestamp": 1767382764265,
+    "summary": {
+      "timestamp": 1767382584254,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.35
+    }
+  },
+  {
+    "timestamp": 1767382824278,
+    "summary": {
+      "timestamp": 1767382584254,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 31,
+      "cpuUsage": 2.35
+    }
+  },
+  {
+    "timestamp": 1767382884286,
+    "summary": {
+      "timestamp": 1767382884257,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767382944300,
+    "summary": {
+      "timestamp": 1767382884257,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767383004314,
+    "summary": {
+      "timestamp": 1767382884257,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767383064323,
+    "summary": {
+      "timestamp": 1767382884257,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.36
+    }
+  },
+  {
+    "timestamp": 1767383167380,
+    "summary": {
+      "timestamp": 1767383107379,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.37
+    }
+  },
+  {
+    "timestamp": 1767383227386,
+    "summary": {
+      "timestamp": 1767383107379,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.37
+    }
+  },
+  {
+    "timestamp": 1767383287392,
+    "summary": {
+      "timestamp": 1767383107379,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.37
+    }
+  },
+  {
+    "timestamp": 1767383347399,
+    "summary": {
+      "timestamp": 1767383107379,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.37
+    }
+  },
+  {
+    "timestamp": 1767383407401,
+    "summary": {
+      "timestamp": 1767383407388,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.39
+    }
+  },
+  {
+    "timestamp": 1767383467411,
+    "summary": {
+      "timestamp": 1767383407388,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.39
+    }
+  },
+  {
+    "timestamp": 1767383527413,
+    "summary": {
+      "timestamp": 1767383407388,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.39
+    }
+  },
+  {
+    "timestamp": 1767383587420,
+    "summary": {
+      "timestamp": 1767383407388,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.39
+    }
+  },
+  {
+    "timestamp": 1767383647426,
+    "summary": {
+      "timestamp": 1767383407388,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 24,
+      "cpuUsage": 2.39
+    }
+  },
+  {
+    "timestamp": 1767383707433,
+    "summary": {
+      "timestamp": 1767383707403,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767383767440,
+    "summary": {
+      "timestamp": 1767383707403,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767383827459,
+    "summary": {
+      "timestamp": 1767383707403,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767383887462,
+    "summary": {
+      "timestamp": 1767383707403,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767383947462,
+    "summary": {
+      "timestamp": 1767383707403,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384007472,
+    "summary": {
+      "timestamp": 1767384007413,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384067473,
+    "summary": {
+      "timestamp": 1767384007413,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384127479,
+    "summary": {
+      "timestamp": 1767384007413,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384187481,
+    "summary": {
+      "timestamp": 1767384007413,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384247489,
+    "summary": {
+      "timestamp": 1767384007413,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384307496,
+    "summary": {
+      "timestamp": 1767384307418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384367502,
+    "summary": {
+      "timestamp": 1767384307418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384427512,
+    "summary": {
+      "timestamp": 1767384307418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384487514,
+    "summary": {
+      "timestamp": 1767384307418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384547513,
+    "summary": {
+      "timestamp": 1767384307418,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 25,
+      "cpuUsage": 2.41
+    }
+  },
+  {
+    "timestamp": 1767384607517,
+    "summary": {
+      "timestamp": 1767384607424,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.4
+    }
+  },
+  {
+    "timestamp": 1767384667524,
+    "summary": {
+      "timestamp": 1767384607424,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.4
+    }
+  },
+  {
+    "timestamp": 1767384727527,
+    "summary": {
+      "timestamp": 1767384607424,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.4
+    }
+  },
+  {
+    "timestamp": 1767384787540,
+    "summary": {
+      "timestamp": 1767384607424,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 26,
+      "cpuUsage": 2.4
+    }
+  },
+  {
+    "timestamp": 1767395859561,
+    "summary": {
+      "timestamp": 1767395799551,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767395919569,
+    "summary": {
+      "timestamp": 1767395799551,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767395979569,
+    "summary": {
+      "timestamp": 1767395799551,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767396039577,
+    "summary": {
+      "timestamp": 1767395799551,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 23,
+      "cpuUsage": 2.52
+    }
+  },
+  {
+    "timestamp": 1767396099588,
+    "summary": {
+      "timestamp": 1767396099560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 38,
+      "cpuUsage": 2.53
+    }
+  },
+  {
+    "timestamp": 1767396159592,
+    "summary": {
+      "timestamp": 1767396099560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 38,
+      "cpuUsage": 2.53
+    }
+  },
+  {
+    "timestamp": 1767396219597,
+    "summary": {
+      "timestamp": 1767396099560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 38,
+      "cpuUsage": 2.53
+    }
+  },
+  {
+    "timestamp": 1767396279598,
+    "summary": {
+      "timestamp": 1767396099560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 38,
+      "cpuUsage": 2.53
+    }
+  },
+  {
+    "timestamp": 1767396339601,
+    "summary": {
+      "timestamp": 1767396099560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 38,
+      "cpuUsage": 2.53
+    }
+  },
+  {
+    "timestamp": 1767396399605,
+    "summary": {
+      "timestamp": 1767396399560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396459607,
+    "summary": {
+      "timestamp": 1767396399560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396519613,
+    "summary": {
+      "timestamp": 1767396399560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396579622,
+    "summary": {
+      "timestamp": 1767396399560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396639631,
+    "summary": {
+      "timestamp": 1767396399560,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396699635,
+    "summary": {
+      "timestamp": 1767396699575,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396759648,
+    "summary": {
+      "timestamp": 1767396699575,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396819662,
+    "summary": {
+      "timestamp": 1767396699575,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396879669,
+    "summary": {
+      "timestamp": 1767396699575,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396939676,
+    "summary": {
+      "timestamp": 1767396699575,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.54
+    }
+  },
+  {
+    "timestamp": 1767396999685,
+    "summary": {
+      "timestamp": 1767396999577,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767397059696,
+    "summary": {
+      "timestamp": 1767396999577,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.55
+    }
+  },
+  {
+    "timestamp": 1767397119710,
+    "summary": {
+      "timestamp": 1767396999577,
+      "healthScore": 100,
+      "overallHealth": "good",
+      "components": {
+        "memory": "good",
+        "queries": "good",
+        "errors": "good"
+      },
+      "recommendations": [
+        {
+          "type": "bundle",
+          "severity": "medium",
+          "message": "Large bundle size. Consider code splitting or removing unused dependencies.",
+          "value": 5.94
+        }
+      ]
+    },
+    "system": {
+      "heapUsed": 39,
+      "cpuUsage": 2.55
+    }
+  }
+]

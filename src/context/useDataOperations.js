@@ -54,8 +54,12 @@ export const useDataOperations = (api, user, activePhase) => {
 
   // Fetch data
   const fetchData = useCallback(async () => {
-    if (!user) return
+    if (!user) {
+      console.log('⚠️ fetchData - No user, skipping')
+      return
+    }
 
+    console.log('📥 fetchData - Starting fetch for phase:', activePhase)
     setLoading(true)
     setError(null)
 
@@ -73,17 +77,28 @@ export const useDataOperations = (api, user, activePhase) => {
         }),
       ])
 
+      console.log('📥 fetchData - dataResult:', dataResult?.success, 'sites:', dataResult?.sites?.length)
+      console.log('📥 fetchData - statsResult:', statsResult?.success)
+      
+      if (statsResult?.success) {
+        console.log('📊 Stats breakdown:', statsResult.stats?.statusBreakdown)
+        console.log('📊 Overview stats:', statsResult.stats?.overviewStats)
+      }
+
       if (dataResult.success) {
         setSites(dataResult.sites)
       } else {
+        console.error('❌ getData failed:', dataResult.error)
         setError(dataResult.error)
       }
 
       if (statsResult.success) {
         setStats(statsResult.stats)
+      } else {
+        console.error('❌ getStats failed:', statsResult.error)
       }
     } catch (err) {
-      console.error('Data fetch error:', err)
+      console.error('❌ Data fetch error:', err)
       setError(err.message)
     } finally {
       setLoading(false)

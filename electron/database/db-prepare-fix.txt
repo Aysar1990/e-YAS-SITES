@@ -1,0 +1,46 @@
+
+==================================================
+إضافة دالة prepare() إلى DatabaseManager
+المسار: electron/database/db.js
+الموقع: بعد السطر 835 (بعد دالة exec مباشرة)
+==================================================
+
+// أضف هذا الكود بعد دالة exec() وقبل دالة transaction():
+
+  /**
+   * Prepare SQL statement (uses current adapter, prefers SQLite for sites table)
+   * @param {string} sql - SQL query string
+   * @returns {Object} Statement object with run(), get(), all() methods
+   */
+  prepare(sql) {
+    if (!this.currentAdapter) {
+      throw new Error('Database not initialized')
+    }
+
+    // Tables that should always use SQLite (local-only)
+    const localOnlyTables = ['settings', 'users', 'phases', 'import_history', 'change_requests', 'audit_logs', 'rejections', 'rejections_log', 'nokia_reviews', 'sites_cache', 'sites']
+    const sqlLower = sql.toLowerCase()
+    const usesLocalTable = localOnlyTables.some(table =>
+      sqlLower.includes(`from ${table}`) ||
+      sqlLower.includes(`into ${table}`) ||
+      sqlLower.includes(`update ${table}`)
+    )
+
+    // Always use SQLite for prepare (better performance for batch operations)
+    if (this.sqliteAdapter && (usesLocalTable || this.currentAdapter === this.sqliteAdapter)) {
+      return this.sqliteAdapter.prepare(sql)
+    }
+
+    return this.currentAdapter.prepare(sql)
+  }
+
+==================================================
+الشرح:
+==================================================
+
+المشكلة: DatabaseManager لا يحتوي على دالة prepare()
+السبب: عند استيراد البيانات من صفحة Import، يستدعي 
+       singleFileProcessor.js الدالة db.prepare()
+الحل: إضافة دالة wrapper تستدعي sqliteAdapter.prepare()
+
+هذا التصليح يجعل عملية الاستيراد تعمل بشكل صحيح!

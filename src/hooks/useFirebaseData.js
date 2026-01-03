@@ -12,8 +12,9 @@ import { useData } from '../context/DataContext'
 /**
  * Legacy compatibility wrapper for useFirebaseData
  * Returns the same structure as the old Firebase hook for backward compatibility
+ * @param {Object} options - Optional configuration (ignored, kept for compatibility)
  */
-export const useFirebaseData = () => {
+export const useFirebaseData = (options = {}) => {
   const dataContext = useData()
 
   // Map to old Firebase hook structure for compatibility
@@ -37,9 +38,11 @@ export const useFirebaseData = () => {
     syncStatus: dataContext.syncStatus,
     connectionStatus: dataContext.connectionStatus || 'connected',
 
-    // Legacy flags (Firebase removed)
+    // Legacy flags - mark as connected so local data is used
     isFirebaseEnabled: false,
     firebaseConnected: false,
+    connected: true,  // This flag determines if data should be used
+    lastUpdate: new Date().toISOString(),
 
     // Stats helpers
     statsByPartOf: dataContext.statsByPartOf,

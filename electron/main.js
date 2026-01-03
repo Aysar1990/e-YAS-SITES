@@ -1,12 +1,9 @@
-/**
- * TSSR Monitor - Electron Main Process
- * Entry point for the Electron application
- * @module electron/main
- */
-
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const fs = require('fs')
+
+// Load environment variables from .env file
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') })
 
 // Database and queries
 const db = require('./database/db')
@@ -166,8 +163,56 @@ ipcMain.handle('close-detached-window', async (event, windowId) => {
 app.whenReady().then(async () => {
   console.log('🚀 Starting YAS TSSR Monitor...')
 
-  // Initialize database (Supabase only)
-  await db.initialize()
+  // CRITICAL FIX: Initialize database with explicit SQLite path
+  const sqlitePath = path.join(__dirname, '..', 'data', 'tssr.db')
+  console.log('💾 SQLite database path:', sqlitePath)
+  
+  // Ensure data directory exists
+  const dataDir = path.dirname(sqlitePath)
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true })
+    console.log('📁 Created data directory:', dataDir)
+  }
+  
+  await db.initialize({
+    sqlitePath: sqlitePath
+  })
+
+  // Check adapter type
+  const sqliteAdapter = db.getSQLiteAdapter()
+  if (sqliteAdapter) {
+    const adapterType = sqliteAdapter.getAdapterType()
+    console.log('🔍 SQLite Adapter Type:', adapterType)
+    
+    if (adapterType === 'in-memory') {
+      console.error('❌ CRITICAL: SQLite is using in-memory mode!')
+      console.error('   Data will not persist after app closes!')
+      console.error('   Install better-sqlite3: npm install better-sqlite3')
+    } else {
+      console.log('✅ SQLite using persistent storage:', sqliteAdapter.getPath())
+    }
+  }
+
+  // Sync data from Supabase to SQLite if online
+  const mode = db.getMode()
+  if (mode.isOnline) {
+    console.log('🔄 Online mode detected - syncing data from cloud to local SQLite...')
+    try {
+      const syncResult = await db.fullSyncFromCloud()
+      console.log(`✅ Synced ${syncResult.count} sites from Supabase to SQLite`)
+      
+      // CRITICAL: Save to disk immediately after sync
+      if (sqliteAdapter && sqliteAdapter.save) {
+        sqliteAdapter.save()
+        console.log('💾 SQLite data saved to disk')
+      }
+    } catch (syncError) {
+      console.warn('⚠️ Failed to sync from cloud:', syncError.message)
+      console.warn('   Dashboard stats may show zeros until sync completes')
+    }
+  } else {
+    console.log('📴 Offline mode - using local SQLite data')
+  }
 
   // Create main window
   mainWindow = createWindow(startExcelWatcher)
@@ -272,6 +317,8 @@ app.whenReady().then(async () => {
 
 // Window closed
 app.on('window-all-closed', () => {
+  console.log('🔒 Closing application - saving data...')
+  
   dataSync.stop()
 
   // Stop live sync watcher
@@ -284,6 +331,13 @@ app.on('window-all-closed', () => {
     excelWatcher.stop()
   }
 
+  // CRITICAL: Save SQLite before closing
+  const sqliteAdapter = db.getSQLiteAdapter()
+  if (sqliteAdapter && sqliteAdapter.save) {
+    sqliteAdapter.save()
+    console.log('💾 SQLite data saved to disk')
+  }
+
   db.close()
 
   if (process.platform !== 'darwin') {
@@ -293,6 +347,15 @@ app.on('window-all-closed', () => {
 
 // Before quit
 app.on('before-quit', async () => {
+  console.log('⚠️ Application quitting - final save...')
+  
+  // CRITICAL: Final save before quit
+  const sqliteAdapter = db.getSQLiteAdapter()
+  if (sqliteAdapter && sqliteAdapter.save) {
+    sqliteAdapter.save()
+    console.log('💾 Final SQLite save complete')
+  }
+  
   if (apiServer) await apiServer.stop()
   if (wsServer) await wsServer.stop()
 

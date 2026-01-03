@@ -261,17 +261,40 @@ const Contractors = () => {
 
       try {
         const api = getApi()
+        console.log('🔍 Contractors - API:', api ? 'Available' : 'Not available')
+        console.log('🔍 Contractors - getContractorDetailedStats:', api?.getContractorDetailedStats ? 'Found' : 'Not found')
+        
         if (api && api.getContractorDetailedStats) {
+          console.log('🔍 Contractors - Fetching for phase:', activePhase)
           const result = await api.getContractorDetailedStats({ phase: activePhase })
-          if (result.success) {
-            setContractors(result.contractors || [])
+          console.log('🔍 Contractors - Result:', result)
+          
+          if (result && result.success) {
+            const contractorsData = result.contractors
+            console.log('🔍 Contractors - Data type:', typeof contractorsData, Array.isArray(contractorsData))
+            console.log('🔍 Contractors - Data length:', contractorsData?.length)
+            
+            // Ensure it's an array
+            if (Array.isArray(contractorsData)) {
+              setContractors(contractorsData)
+            } else {
+              console.error('❌ Contractors data is not an array:', contractorsData)
+              setContractors([])
+              setError('Invalid data format received')
+            }
           } else {
-            setError(result.error)
+            console.error('❌ Contractors - Result not successful:', result)
+            setContractors([])
+            setError(result?.error || 'Failed to fetch contractors')
           }
         } else {
+          console.error('❌ Contractors - API not available or method missing')
+          setContractors([])
           setError('API not available')
         }
       } catch (err) {
+        console.error('❌ Contractors - Fetch error:', err)
+        setContractors([])
         setError(err.message)
       } finally {
         setLoading(false)
@@ -281,8 +304,8 @@ const Contractors = () => {
     fetchData()
   }, [activePhase])
 
-  // Sort contractors
-  const sortedContractors = [...contractors].sort((a, b) => {
+  // Sort contractors - with safety check
+  const sortedContractors = Array.isArray(contractors) ? [...contractors].sort((a, b) => {
     if (sortBy === 'total') return b.totalSites - a.totalSites
     if (sortBy === 'approved') {
       const aApproved = a.statusCounts?.find(s => s.status === 'Approved')?.count || 0
@@ -291,11 +314,12 @@ const Contractors = () => {
     }
     if (sortBy === 'name') return a.name.localeCompare(b.name)
     return 0
-  })
+  }) : []
 
-  // Calculate totals
-  const totalSitesAll = contractors.reduce((sum, c) => sum + (c.totalSites || 0), 0)
-  const totalContractors = contractors.length
+  // Calculate totals - with safety check
+  const contractorsArray = Array.isArray(contractors) ? contractors : []
+  const totalSitesAll = contractorsArray.reduce((sum, c) => sum + (c.totalSites || 0), 0)
+  const totalContractors = contractorsArray.length
 
   return (
     <MainLayout>
@@ -315,8 +339,8 @@ const Contractors = () => {
                 onChange={(e) => setActivePhase(e.target.value)}
               >
                 <option value="ALL">All Phases</option>
-                {phases.map((phase) => (
-                  <option key={phase.phase_name} value={phase.phase_name}>
+                {phases.map((phase, index) => (
+                  <option key={`${phase.phase_name}-${index}`} value={phase.phase_name}>
                     {phase.phase_name} ({phase.count})
                   </option>
                 ))}

@@ -29,18 +29,18 @@ function createAuthRoutes(db, broadcast, logAction) {
       const ip_address = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress
       const user_agent = req.headers['user-agent']
 
-      // Rate limiting check
-      if (loginRateLimiter.isBlocked(req)) {
-        const blockTime = loginRateLimiter.getBlockTimeRemaining(req)
-        if (logAction) {
-          logAction(null, req.body?.username || 'unknown', 'LOGIN_BLOCKED', 'user', null, null,
-            { reason: 'Rate limit exceeded', blockTimeRemaining: blockTime }, ip_address, user_agent)
-        }
-        return res.status(429).json({
-          error: 'Too many login attempts. Please try again later.',
-          retryAfter: blockTime
-        })
-      }
+      // Rate limiting DISABLED
+      // if (loginRateLimiter.isBlocked(req)) {
+      //   const blockTime = loginRateLimiter.getBlockTimeRemaining(req)
+      //   if (logAction) {
+      //     logAction(null, req.body?.username || 'unknown', 'LOGIN_BLOCKED', 'user', null, null,
+      //       { reason: 'Rate limit exceeded', blockTimeRemaining: blockTime }, ip_address, user_agent)
+      //   }
+      //   return res.status(429).json({
+      //     error: 'Too many login attempts. Please try again later.',
+      //     retryAfter: blockTime
+      //   })
+      // }
 
       const { username, password } = req.body
 
@@ -57,8 +57,9 @@ function createAuthRoutes(db, broadcast, logAction) {
       const user = db.prepare('SELECT * FROM users WHERE username = ?').get(sanitizeString(username))
 
       if (!user) {
-        loginRateLimiter.recordAttempt(req, false)
-        const remaining = loginRateLimiter.getRemainingAttempts(req)
+        // loginRateLimiter.recordAttempt(req, false)
+        // const remaining = loginRateLimiter.getRemainingAttempts(req)
+        const remaining = 999
         if (logAction) {
           logAction(null, username, 'LOGIN_FAILED', 'user', null, null,
             { reason: 'User not found', attemptsRemaining: remaining }, ip_address, user_agent)
@@ -69,22 +70,24 @@ function createAuthRoutes(db, broadcast, logAction) {
         })
       }
 
-      // Check password with bcrypt
+      // Check password with bcrypt - use password_hash column
+      const storedHash = user.password_hash || user.password
       let passwordValid = false
-      if (user.password.startsWith('$2')) {
-        passwordValid = await bcrypt.compare(password, user.password)
-      } else {
-        passwordValid = user.password === password
+      if (storedHash && storedHash.startsWith('$2')) {
+        passwordValid = await bcrypt.compare(password, storedHash)
+      } else if (storedHash) {
+        passwordValid = storedHash === password
         if (passwordValid) {
           const hashedPassword = await bcrypt.hash(password, BCRYPT_ROUNDS)
-          db.prepare('UPDATE users SET password = ? WHERE id = ?').run(hashedPassword, user.id)
+          db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hashedPassword, user.id)
           console.log(`[Security] Upgraded password hash for user: ${username}`)
         }
       }
 
       if (!passwordValid) {
-        loginRateLimiter.recordAttempt(req, false)
-        const remaining = loginRateLimiter.getRemainingAttempts(req)
+        // loginRateLimiter.recordAttempt(req, false)
+        // const remaining = loginRateLimiter.getRemainingAttempts(req)
+        const remaining = 999
         if (logAction) {
           logAction(null, username, 'LOGIN_FAILED', 'user', null, null,
             { reason: 'Invalid credentials', attemptsRemaining: remaining }, ip_address, user_agent)
@@ -95,7 +98,7 @@ function createAuthRoutes(db, broadcast, logAction) {
         })
       }
 
-      loginRateLimiter.recordAttempt(req, true)
+      // loginRateLimiter.recordAttempt(req, true)
 
       const token = jwt.sign(
         { id: user.id, username: user.username, role: user.role, contractor_name: user.contractor_name },

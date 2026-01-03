@@ -554,3 +554,181 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   Department Status Section
+   ============================================ */
+.cd-departments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cd-dept-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.cd-dept-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Department Colors */
+.cd-dept-card.ti {
+  border-top: 3px solid #f59e0b;
+}
+
+.cd-dept-card.rf-plan {
+  border-top: 3px solid #3b82f6;
+}
+
+.cd-dept-card.rf-opt {
+  border-top: 3px solid #8b5cf6;
+}
+
+.cd-dept-card.civil {
+  border-top: 3px solid #10b981;
+}
+
+.cd-dept-card.mw {
+  border-top: 3px solid #14b8a6;
+}
+
+.cd-dept-card.nokia {
+  border-top: 3px solid #FF8566;
+}
+
+.cd-dept-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cd-dept-icon {
+  font-size: 20px;
+}
+
+.cd-dept-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.cd-dept-statuses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.cd-dept-statuses::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cd-dept-statuses::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.cd-dept-statuses::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.cd-dept-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.cd-dept-status-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.cd-dept-status-label {
+  font-size: 13px;
+  color: #9ca3af;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cd-dept-status-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 133, 102, 0.15);
+  padding: 4px 12px;
+  border-radius: 20px;
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Department-specific count colors */
+.cd-dept-card.ti .cd-dept-status-count {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.cd-dept-card.rf-plan .cd-dept-status-count {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.cd-dept-card.rf-opt .cd-dept-status-count {
+  background: rgba(139, 92, 246, 0.2);
+  color: #8b5cf6;
+}
+
+.cd-dept-card.civil .cd-dept-status-count {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.cd-dept-card.mw .cd-dept-status-count {
+  background: rgba(20, 184, 166, 0.2);
+  color: #14b8a6;
+}
+
+.cd-dept-card.nokia .cd-dept-status-count {
+  background: rgba(255, 133, 102, 0.2);
+  color: #FF8566;
+}
+
+.cd-dept-no-data {
+  text-align: center;
+  color: #6b7280;
+  font-size: 13px;
+  padding: 20px;
+}
+
+/* Responsive for Departments */
+@media (max-width: 1200px) {
+  .cd-departments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cd-departments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-dept-statuses {
+    max-height: 150px;
+  }
+}

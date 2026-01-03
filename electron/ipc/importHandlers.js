@@ -413,8 +413,9 @@ function registerImportHandlers(ipcMain, deps) {
       })
 
       // ✅ CRITICAL: Force save database after import
-      if (db && typeof db.save === 'function') {
-        db.save()
+      const sqliteAdapter = db.getSQLiteAdapter ? db.getSQLiteAdapter() : db
+      if (sqliteAdapter && sqliteAdapter.save) {
+        sqliteAdapter.save()
         console.log('💾 Database saved after batch import (import handler)')
       }
 
@@ -621,8 +622,9 @@ function registerImportHandlers(ipcMain, deps) {
       })
 
       // ✅ CRITICAL: Force save database after single file import
-      if (db && typeof db.save === 'function') {
-        db.save()
+      const sqliteAdapter = db.getSQLiteAdapter ? db.getSQLiteAdapter() : db
+      if (sqliteAdapter && sqliteAdapter.save) {
+        sqliteAdapter.save()
         console.log('💾 Database saved after single file import')
       }
 
@@ -745,8 +747,9 @@ function registerImportHandlers(ipcMain, deps) {
       })
 
       // ✅ CRITICAL: Force save database after web import
-      if (db && typeof db.save === 'function') {
-        db.save()
+      const sqliteAdapter = db.getSQLiteAdapter ? db.getSQLiteAdapter() : db
+      if (sqliteAdapter && sqliteAdapter.save) {
+        sqliteAdapter.save()
         console.log('💾 Database saved after web import')
       }
 

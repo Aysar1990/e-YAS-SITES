@@ -20,6 +20,8 @@ yarn-error.log*
 # data/tssr.db
 # data/*.db
 # data/*.db-journal
+data/*.corrupted.*
+data/*_backup_*.db
 
 # Environment
 .env
@@ -75,6 +77,8 @@ fix-chokidar.bat
 CREATE_DUMMY_EXCEL.md
 FIX_CHOKIDAR_ISSUE.md
 firebase-sync/server/config/firebase-key.json
+scripts/cleanup-old/
+tests/electron-dev/
 
 firebase-sync/server/config/firebase-key.json
 .vercel

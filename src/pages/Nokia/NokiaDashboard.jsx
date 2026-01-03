@@ -156,8 +156,8 @@ const NokiaDashboard = () => {
               <label>Phase:</label>
               <select value={activePhase} onChange={(e) => setActivePhase(e.target.value)}>
                 <option value="ALL">All Phases</option>
-                {phases.map((phase) => (
-                  <option key={phase.phase_name} value={phase.phase_name}>
+                {phases.map((phase, index) => (
+                  <option key={`${phase.phase_name}-${index}`} value={phase.phase_name}>
                     {phase.phase_name} ({phase.count})
                   </option>
                 ))}
