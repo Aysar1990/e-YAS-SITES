@@ -8,7 +8,14 @@
 const { dialog, shell } = require('electron')
 const path = require('path')
 const os = require('os')
+const fs = require('fs')
 const reportGenerator = require('../services/reportGenerator')
+const {
+  isNonEmptyString,
+  isArray,
+  isPlainObject,
+  sanitizeString
+} = require('../utils/validation')
 
 /**
  * Registers report-related IPC handlers
@@ -26,14 +33,52 @@ function registerReportHandlers(ipcMain, deps) {
    */
   ipcMain.handle('generate-full-report', async (event, { sites, outputPath }) => {
     try {
-      console.log(`📊 Generating full report for ${sites.length} sites`)
+      // Input validation
+      if (!sites || !isArray(sites)) {
+        return {
+          success: false,
+          error: 'Sites must be a valid array'
+        }
+      }
 
-      // Use provided path or default to Downloads folder
-      const finalPath = outputPath || path.join(
+      if (sites.length === 0) {
+        return {
+          success: false,
+          error: 'No sites data to generate report'
+        }
+      }
+
+      // Validate sites array size (prevent DoS)
+      if (sites.length > 100000) {
+        return {
+          success: false,
+          error: 'Too many sites. Maximum 100,000 sites per report'
+        }
+      }
+
+      // Validate output path if provided
+      let finalPath = path.join(
         os.homedir(),
         'Downloads',
         reportGenerator.generateFilename('TSSR_Full_Report')
       )
+
+      if (outputPath) {
+        if (!isNonEmptyString(outputPath)) {
+          return {
+            success: false,
+            error: 'Output path must be a non-empty string'
+          }
+        }
+        finalPath = sanitizeString(outputPath)
+
+        // Ensure .xlsx extension
+        if (!finalPath.endsWith('.xlsx')) {
+          finalPath += '.xlsx'
+        }
+      }
+
+      console.log(`📊 Generating full report for ${sites.length} sites`)
 
       const result = await reportGenerator.generateFullReport(sites, finalPath)
 
@@ -58,15 +103,66 @@ function registerReportHandlers(ipcMain, deps) {
    */
   ipcMain.handle('generate-phase-report', async (event, { sites, phase, outputPath }) => {
     try {
-      console.log(`📊 Generating phase report for ${phase}: ${sites.length} sites`)
+      // Input validation
+      if (!sites || !isArray(sites)) {
+        return {
+          success: false,
+          error: 'Sites must be a valid array'
+        }
+      }
 
-      const finalPath = outputPath || path.join(
+      if (sites.length === 0) {
+        return {
+          success: false,
+          error: 'No sites data to generate report'
+        }
+      }
+
+      // Validate sites array size
+      if (sites.length > 100000) {
+        return {
+          success: false,
+          error: 'Too many sites. Maximum 100,000 sites per report'
+        }
+      }
+
+      // Validate phase if provided
+      let sanitizedPhase = 'ALL'
+      if (phase) {
+        if (!isNonEmptyString(phase)) {
+          return {
+            success: false,
+            error: 'Phase must be a non-empty string'
+          }
+        }
+        sanitizedPhase = sanitizeString(phase)
+      }
+
+      // Validate output path if provided
+      let finalPath = path.join(
         os.homedir(),
         'Downloads',
-        reportGenerator.generateFilename(`TSSR_Phase_${phase || 'ALL'}`)
+        reportGenerator.generateFilename(`TSSR_Phase_${sanitizedPhase}`)
       )
 
-      const result = await reportGenerator.generatePhaseReport(sites, phase, finalPath)
+      if (outputPath) {
+        if (!isNonEmptyString(outputPath)) {
+          return {
+            success: false,
+            error: 'Output path must be a non-empty string'
+          }
+        }
+        finalPath = sanitizeString(outputPath)
+
+        // Ensure .xlsx extension
+        if (!finalPath.endsWith('.xlsx')) {
+          finalPath += '.xlsx'
+        }
+      }
+
+      console.log(`📊 Generating phase report for ${sanitizedPhase}: ${sites.length} sites`)
+
+      const result = await reportGenerator.generatePhaseReport(sites, sanitizedPhase, finalPath)
 
       if (result.success) {
         console.log(`✅ Phase report generated: ${result.path}`)
@@ -158,8 +254,37 @@ function registerReportHandlers(ipcMain, deps) {
    */
   ipcMain.handle('open-exported-file', async (event, { filePath }) => {
     try {
-      console.log(`📂 Opening file: ${filePath}`)
-      await shell.openPath(filePath)
+      // Input validation
+      if (!filePath || !isNonEmptyString(filePath)) {
+        return {
+          success: false,
+          error: 'File path is required and must be a non-empty string'
+        }
+      }
+
+      const sanitizedPath = sanitizeString(filePath)
+
+      // Validate file exists
+      if (!fs.existsSync(sanitizedPath)) {
+        return {
+          success: false,
+          error: 'File not found'
+        }
+      }
+
+      // Validate file extension (only allow safe file types)
+      const ext = path.extname(sanitizedPath).toLowerCase()
+      const allowedExtensions = ['.xlsx', '.xls', '.csv', '.pdf', '.txt']
+
+      if (!allowedExtensions.includes(ext)) {
+        return {
+          success: false,
+          error: `File type not allowed. Only ${allowedExtensions.join(', ')} files can be opened`
+        }
+      }
+
+      console.log(`📂 Opening file: ${sanitizedPath}`)
+      await shell.openPath(sanitizedPath)
       return { success: true }
     } catch (error) {
       console.error('Open exported file error:', error)

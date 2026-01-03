@@ -6,6 +6,13 @@
  */
 
 const db = require('../database/db')
+const {
+  isNonEmptyString,
+  isPositiveInteger,
+  isPlainObject,
+  isValidId,
+  sanitizeString
+} = require('../utils/validation')
 
 /**
  * Registers sync IPC handlers
@@ -85,6 +92,14 @@ function registerSyncHandlers(ipcMain, deps) {
 
   ipcMain.handle('toggle-live-sync', async (event, { enabled }) => {
     try {
+      // Input validation
+      if (typeof enabled !== 'boolean') {
+        return {
+          success: false,
+          error: 'Enabled must be a boolean value',
+        }
+      }
+
       settingsQueries.setSetting('live_sync_enabled', enabled ? '1' : '0')
 
       const liveSyncWatcher = getLiveSyncWatcher()
@@ -94,6 +109,8 @@ function registerSyncHandlers(ipcMain, deps) {
         liveSyncWatcher.stop()
         setLiveSyncWatcher(null)
       }
+
+      console.log(`[SYNC] Live sync ${enabled ? 'enabled' : 'disabled'}`)
 
       return { success: true, enabled }
     } catch (error) {
@@ -219,7 +236,28 @@ function registerSyncHandlers(ipcMain, deps) {
    */
   ipcMain.handle('set-conflict-strategy', async (event, { strategy }) => {
     try {
-      const result = db.setConflictStrategy(strategy)
+      // Input validation
+      if (!strategy || !isNonEmptyString(strategy)) {
+        return {
+          success: false,
+          error: 'Strategy is required and must be a non-empty string'
+        }
+      }
+
+      // Validate strategy value
+      const validStrategies = ['local', 'remote', 'manual', 'latest', 'oldest']
+      const sanitizedStrategy = sanitizeString(strategy).toLowerCase()
+
+      if (!validStrategies.includes(sanitizedStrategy)) {
+        return {
+          success: false,
+          error: `Invalid strategy. Must be one of: ${validStrategies.join(', ')}`
+        }
+      }
+
+      console.log(`[SYNC] Conflict strategy set to: ${sanitizedStrategy}`)
+
+      const result = db.setConflictStrategy(sanitizedStrategy)
       return { success: true, ...result }
     } catch (error) {
       return {
@@ -260,9 +298,50 @@ function registerSyncHandlers(ipcMain, deps) {
    */
   ipcMain.handle('resolve-conflict', async (event, { conflictId, resolution, mergedData }) => {
     try {
-      const result = await db.resolveConflict(conflictId, resolution, mergedData)
+      // Input validation
+      if (!conflictId || !isValidId(conflictId)) {
+        return {
+          success: false,
+          error: 'Valid conflict ID is required'
+        }
+      }
+
+      if (!resolution || !isNonEmptyString(resolution)) {
+        return {
+          success: false,
+          error: 'Resolution is required and must be a non-empty string'
+        }
+      }
+
+      // Validate resolution value
+      const validResolutions = ['local', 'remote', 'merged']
+      const sanitizedResolution = sanitizeString(resolution).toLowerCase()
+
+      if (!validResolutions.includes(sanitizedResolution)) {
+        return {
+          success: false,
+          error: `Invalid resolution. Must be one of: ${validResolutions.join(', ')}`
+        }
+      }
+
+      // Validate merged data if resolution is 'merged'
+      if (sanitizedResolution === 'merged') {
+        if (!mergedData || !isPlainObject(mergedData)) {
+          return {
+            success: false,
+            error: 'Merged data must be a valid object when resolution is "merged"'
+          }
+        }
+      }
+
+      const sanitizedConflictId = typeof conflictId === 'string' ? sanitizeString(conflictId) : conflictId
+
+      console.log(`[SYNC] Resolving conflict ${sanitizedConflictId} with: ${sanitizedResolution}`)
+
+      const result = await db.resolveConflict(sanitizedConflictId, sanitizedResolution, mergedData)
       return result
     } catch (error) {
+      console.error('[SYNC] Resolve conflict error:', error)
       return {
         success: false,
         error: error.message
@@ -275,9 +354,31 @@ function registerSyncHandlers(ipcMain, deps) {
    */
   ipcMain.handle('resolve-all-conflicts', async (event, { strategy }) => {
     try {
-      const result = await db.resolveAllConflicts(strategy)
+      // Input validation
+      if (!strategy || !isNonEmptyString(strategy)) {
+        return {
+          success: false,
+          error: 'Strategy is required and must be a non-empty string'
+        }
+      }
+
+      // Validate strategy value
+      const validStrategies = ['local', 'remote', 'latest', 'oldest']
+      const sanitizedStrategy = sanitizeString(strategy).toLowerCase()
+
+      if (!validStrategies.includes(sanitizedStrategy)) {
+        return {
+          success: false,
+          error: `Invalid strategy. Must be one of: ${validStrategies.join(', ')}`
+        }
+      }
+
+      console.log(`[SYNC] Resolving all conflicts with: ${sanitizedStrategy}`)
+
+      const result = await db.resolveAllConflicts(sanitizedStrategy)
       return result
     } catch (error) {
+      console.error('[SYNC] Resolve all conflicts error:', error)
       return {
         success: false,
         error: error.message
@@ -308,9 +409,33 @@ function registerSyncHandlers(ipcMain, deps) {
    */
   ipcMain.handle('clear-resolved-conflicts', async (event, { olderThanDays }) => {
     try {
-      const result = db.clearResolvedConflicts(olderThanDays || 7)
+      // Input validation
+      let days = 7 // Default value
+
+      if (olderThanDays !== undefined && olderThanDays !== null) {
+        if (!isPositiveInteger(olderThanDays)) {
+          return {
+            success: false,
+            error: 'olderThanDays must be a positive integer'
+          }
+        }
+
+        if (olderThanDays < 1 || olderThanDays > 365) {
+          return {
+            success: false,
+            error: 'olderThanDays must be between 1 and 365'
+          }
+        }
+
+        days = olderThanDays
+      }
+
+      console.log(`[SYNC] Clearing resolved conflicts older than ${days} days`)
+
+      const result = db.clearResolvedConflicts(days)
       return result
     } catch (error) {
+      console.error('[SYNC] Clear resolved conflicts error:', error)
       return {
         success: false,
         error: error.message
