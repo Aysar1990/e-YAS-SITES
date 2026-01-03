@@ -22,6 +22,7 @@ yarn-error.log*
 # data/*.db-journal
 data/*.corrupted.*
 data/*_backup_*.db
+data/archive-corrupted/
 
 # Environment
 .env
