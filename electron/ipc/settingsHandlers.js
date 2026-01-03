@@ -8,6 +8,12 @@
 
 const { dialog } = require('electron')
 const db = require('../database/db')
+const {
+  isNonEmptyString,
+  isPlainObject,
+  sanitizeString,
+  validateDatabaseConfig
+} = require('../utils/validation')
 
 /**
  * Registers settings IPC handlers
@@ -155,11 +161,44 @@ function registerSettingsHandlers(ipcMain, deps) {
    */
   ipcMain.handle('test-database-connection', async (event, type, config) => {
     try {
+      // Validate database type
+      if (!type || !['sqlite', 'supabase'].includes(type)) {
+        return {
+          success: false,
+          message: 'Invalid database type. Must be "sqlite" or "supabase"'
+        }
+      }
+
       if (type === 'supabase') {
-        if (!config || !config.url || !config.key) {
+        // Validate config object
+        if (!config || !isPlainObject(config)) {
           return {
             success: false,
-            message: 'Supabase URL and API key are required'
+            message: 'Config must be a valid object for Supabase'
+          }
+        }
+
+        if (!config.url || !isNonEmptyString(config.url)) {
+          return {
+            success: false,
+            message: 'Supabase URL is required'
+          }
+        }
+
+        if (!config.key || !isNonEmptyString(config.key)) {
+          return {
+            success: false,
+            message: 'Supabase API key is required'
+          }
+        }
+
+        // Validate using utility function
+        try {
+          validateDatabaseConfig(config)
+        } catch (validationError) {
+          return {
+            success: false,
+            message: validationError.message
           }
         }
 
@@ -221,25 +260,59 @@ function registerSettingsHandlers(ipcMain, deps) {
 
   /**
    * Set Supabase configuration
+   * ⚠️ SECURITY: This handler allows changing database configuration
+   * TODO: Add role-based permission check (admin-only)
    */
   ipcMain.handle('set-supabase-config', async (event, url, key) => {
     try {
-      if (!url || !key) {
+      // Input validation
+      if (!url || !isNonEmptyString(url)) {
         return {
           success: false,
-          message: 'Supabase URL and API key are required'
+          message: 'Supabase URL is required and must be a non-empty string'
         }
       }
 
+      if (!key || !isNonEmptyString(key)) {
+        return {
+          success: false,
+          message: 'Supabase API key is required and must be a non-empty string'
+        }
+      }
+
+      // Validate URL format
+      const urlPattern = /^https:\/\/[a-z0-9-]+\.supabase\.co$/
+      if (!urlPattern.test(url)) {
+        return {
+          success: false,
+          message: 'Invalid Supabase URL format. Expected: https://your-project.supabase.co'
+        }
+      }
+
+      // Validate key format (JWT token starting with eyJ)
+      if (!key.startsWith('eyJ')) {
+        return {
+          success: false,
+          message: 'Invalid Supabase API key format'
+        }
+      }
+
+      // Sanitize inputs
+      const sanitizedUrl = sanitizeString(url).trim()
+      const sanitizedKey = key.trim() // Don't sanitize JWT token heavily
+
       // Save to settings
-      settingsQueries.setSetting('supabase_url', url)
-      settingsQueries.setSetting('supabase_key', key)
+      settingsQueries.setSetting('supabase_url', sanitizedUrl)
+      settingsQueries.setSetting('supabase_key', sanitizedKey)
+
+      console.log('[SECURITY] Supabase configuration updated')
 
       return {
         success: true,
         message: 'Supabase configuration saved successfully'
       }
     } catch (error) {
+      console.error('[SECURITY] Failed to update Supabase config:', error)
       return {
         success: false,
         message: error.message

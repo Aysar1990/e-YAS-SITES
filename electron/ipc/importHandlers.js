@@ -15,6 +15,12 @@ const {
   parseFile,
   processSingleFile
 } = require('../services/importProcessors/singleFileProcessor')
+const {
+  isNonEmptyString,
+  isArray,
+  isPlainObject,
+  sanitizeString
+} = require('../utils/validation')
 
 // Store active import jobs
 const activeImports = new Map()
@@ -39,13 +45,50 @@ function registerImportHandlers(ipcMain, deps) {
     const importId = `import_${Date.now()}`
 
     try {
-      console.log(`📥 Starting batch import: ${filePath}`)
-
-      // Validate file exists
-      if (!fs.existsSync(filePath)) {
+      // Input validation
+      if (!filePath || !isNonEmptyString(filePath)) {
         return {
           success: false,
-          error: `File not found: ${filePath}`
+          error: 'File path is required'
+        }
+      }
+
+      // Sanitize file path
+      const sanitizedPath = sanitizeString(filePath)
+
+      // Validate file extension
+      const ext = path.extname(sanitizedPath).toLowerCase()
+      if (!['.xlsx', '.xlsm', '.xls'].includes(ext)) {
+        return {
+          success: false,
+          error: 'Invalid file type. Only Excel files (.xlsx, .xlsm, .xls) are supported'
+        }
+      }
+
+      // Validate options object
+      if (options && !isPlainObject(options)) {
+        return {
+          success: false,
+          error: 'Options must be a valid object'
+        }
+      }
+
+      console.log(`📥 Starting batch import: ${sanitizedPath}`)
+
+      // Validate file exists
+      if (!fs.existsSync(sanitizedPath)) {
+        return {
+          success: false,
+          error: `File not found: ${sanitizedPath}`
+        }
+      }
+
+      // Validate file size (max 50MB to prevent DoS)
+      const stats = fs.statSync(sanitizedPath)
+      if (stats.size > 50 * 1024 * 1024) {
+        return {
+          success: false,
+          error: 'File too large. Maximum size is 50MB'
         }
       }
 
@@ -74,7 +117,7 @@ function registerImportHandlers(ipcMain, deps) {
       }
 
       // Process file
-      const result = await processor.processFile(filePath, onProgress)
+      const result = await processor.processFile(sanitizedPath, onProgress)
 
       // Update status
       activeImports.set(importId, {
@@ -384,7 +427,71 @@ function registerImportHandlers(ipcMain, deps) {
     const importId = `batch_${Date.now()}`
 
     try {
-      console.log(`📥 Starting batch import: ${filePaths.length} files`)
+      // Input validation
+      if (!filePaths || !isArray(filePaths)) {
+        return {
+          success: false,
+          error: 'File paths must be an array'
+        }
+      }
+
+      // Validate array size (prevent DoS)
+      if (filePaths.length === 0) {
+        return {
+          success: false,
+          error: 'No files to import'
+        }
+      }
+
+      if (filePaths.length > 100) {
+        return {
+          success: false,
+          error: 'Too many files. Maximum 100 files per batch'
+        }
+      }
+
+      // Validate and sanitize each file path
+      const sanitizedPaths = []
+      for (const filePath of filePaths) {
+        if (!filePath || !isNonEmptyString(filePath)) {
+          return {
+            success: false,
+            error: 'All file paths must be non-empty strings'
+          }
+        }
+
+        const sanitizedPath = sanitizeString(filePath)
+
+        // Validate file extension
+        const ext = path.extname(sanitizedPath).toLowerCase()
+        if (!['.xlsx', '.xlsm', '.xls'].includes(ext)) {
+          return {
+            success: false,
+            error: `Invalid file type: ${path.basename(sanitizedPath)}. Only Excel files are supported`
+          }
+        }
+
+        // Check file exists
+        if (!fs.existsSync(sanitizedPath)) {
+          return {
+            success: false,
+            error: `File not found: ${path.basename(sanitizedPath)}`
+          }
+        }
+
+        // Validate file size
+        const stats = fs.statSync(sanitizedPath)
+        if (stats.size > 50 * 1024 * 1024) {
+          return {
+            success: false,
+            error: `File too large: ${path.basename(sanitizedPath)}. Maximum size is 50MB`
+          }
+        }
+
+        sanitizedPaths.push(sanitizedPath)
+      }
+
+      console.log(`📥 Starting batch import: ${sanitizedPaths.length} files`)
 
       const mainWindow = getMainWindow()
 
@@ -392,7 +499,7 @@ function registerImportHandlers(ipcMain, deps) {
       activeImports.set(importId, {
         status: IMPORT_STATUS.PROCESSING,
         startTime: new Date().toISOString(),
-        fileCount: filePaths.length
+        fileCount: sanitizedPaths.length
       })
 
       // Progress callback for BatchProcessor
@@ -407,7 +514,7 @@ function registerImportHandlers(ipcMain, deps) {
       }
 
       // Use processMultipleFiles which wraps BatchProcessor with transactions
-      const result = await processMultipleFiles(db, filePaths, onProgress, {
+      const result = await processMultipleFiles(db, sanitizedPaths, onProgress, {
         batchSize: 500,
         validateBeforeInsert: true
       })
@@ -441,7 +548,7 @@ function registerImportHandlers(ipcMain, deps) {
       // Log action
       if (logAction) {
         logAction('BATCH_IMPORT', {
-          fileCount: filePaths.length,
+          fileCount: sanitizedPaths.length,
           totalRecords: result.totalRecords,
           inserted: result.inserted,
           updated: result.updated,
@@ -454,7 +561,7 @@ function registerImportHandlers(ipcMain, deps) {
       return {
         success: true,
         importId,
-        fileCount: filePaths.length,
+        fileCount: sanitizedPaths.length,
         totalRecords: result.totalRecords,
         inserted: result.inserted,
         updated: result.updated,

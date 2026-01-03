@@ -8,6 +8,14 @@
 
 // Import calculations services (Day 12)
 const calculations = require('../services/calculations')
+const {
+  isNonEmptyString,
+  isValidId,
+  isPlainObject,
+  sanitizeString,
+  validateFilters,
+  validateSiteData
+} = require('../utils/validation')
 
 /**
  * Registers data-related IPC handlers
@@ -24,12 +32,37 @@ function registerDataHandlers(ipcMain, deps) {
 
   ipcMain.handle('get-data', async (event, { role, contractorName, phase }) => {
     try {
+      // Input validation
+      const validRoles = ['admin', 'management', 'contractor', 'nokia']
+      if (!role || !validRoles.includes(role)) {
+        return {
+          success: false,
+          error: 'Invalid role',
+          sites: [],
+          count: 0,
+        }
+      }
+
+      // Validate contractor name for contractor role
+      if (role === 'contractor' && (!contractorName || !isNonEmptyString(contractorName))) {
+        return {
+          success: false,
+          error: 'Contractor name is required for contractor role',
+          sites: [],
+          count: 0,
+        }
+      }
+
+      // Sanitize inputs
+      const sanitizedContractorName = contractorName ? sanitizeString(contractorName) : null
+      const sanitizedPhase = phase ? sanitizeString(phase) : null
+
       let sites = []
 
-      console.log(`📥 IPC - get-data called: role=${role}, phase=${phase}`)
+      console.log(`📥 IPC - get-data called: role=${role}, phase=${sanitizedPhase}`)
 
       if (role === 'contractor') {
-        sites = await contractorsQueries.getContractorSites(contractorName, phase)
+        sites = await contractorsQueries.getContractorSites(sanitizedContractorName, sanitizedPhase)
       } else {
         sites = await sitesQueries.getAllSites(phase)
       }
@@ -219,7 +252,20 @@ function registerDataHandlers(ipcMain, deps) {
 
   ipcMain.handle('search-sites', async (event, { query, phase }) => {
     try {
-      const sites = await sitesQueries.searchSites(query, phase)
+      // Input validation
+      if (query && !isNonEmptyString(query)) {
+        return {
+          success: false,
+          error: 'Search query must be a non-empty string',
+          sites: [],
+        }
+      }
+
+      // Sanitize inputs
+      const sanitizedQuery = query ? sanitizeString(query) : ''
+      const sanitizedPhase = phase ? sanitizeString(phase) : null
+
+      const sites = await sitesQueries.searchSites(sanitizedQuery, sanitizedPhase)
       return {
         success: true,
         sites: sites || [],
@@ -228,6 +274,7 @@ function registerDataHandlers(ipcMain, deps) {
       return {
         success: false,
         error: error.message,
+        sites: [],
       }
     }
   })
@@ -235,10 +282,37 @@ function registerDataHandlers(ipcMain, deps) {
   // Update site with validation and workflow checks (Day 12)
   ipcMain.handle('update-site', async (event, { siteId, phaseName, updates, username }) => {
     try {
-      console.log(`📝 update-site: siteId=${siteId}, phase=${phaseName}`)
+      // Input validation
+      if (!siteId || !isValidId(siteId)) {
+        return { success: false, error: 'Valid site ID is required' }
+      }
+
+      if (!phaseName || !isNonEmptyString(phaseName)) {
+        return { success: false, error: 'Phase name is required' }
+      }
+
+      if (!updates || !isPlainObject(updates)) {
+        return { success: false, error: 'Updates must be a valid object' }
+      }
+
+      // Sanitize phase name
+      const sanitizedPhaseName = sanitizeString(phaseName)
+      const sanitizedSiteId = typeof siteId === 'string' ? sanitizeString(siteId) : siteId
+
+      // Validate site data updates
+      try {
+        validateSiteData(updates)
+      } catch (validationError) {
+        return {
+          success: false,
+          error: `Validation failed: ${validationError.message}`
+        }
+      }
+
+      console.log(`📝 update-site: siteId=${sanitizedSiteId}, phase=${sanitizedPhaseName}`)
 
       // 1. Get current site state
-      const currentSite = await sitesQueries.getSiteById(siteId, phaseName)
+      const currentSite = await sitesQueries.getSiteById(sanitizedSiteId, sanitizedPhaseName)
       if (!currentSite) {
         return { success: false, error: 'Site not found' }
       }
@@ -283,7 +357,7 @@ function registerDataHandlers(ipcMain, deps) {
       }
 
       // 5. Persist to database
-      const updatedSite = await sitesQueries.updateSite(siteId, phaseName, finalUpdates)
+      const updatedSite = await sitesQueries.updateSite(sanitizedSiteId, sanitizedPhaseName, finalUpdates)
 
       if (!updatedSite) {
         return { success: false, error: 'Failed to update site' }

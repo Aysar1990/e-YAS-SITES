@@ -5,6 +5,7 @@
  */
 
 const bcrypt = require('bcryptjs')
+const { isNonEmptyString, sanitizeString } = require('../utils/validation')
 
 /**
  * Registers authentication IPC handlers
@@ -19,8 +20,33 @@ function registerAuthHandlers(ipcMain, deps) {
 
   ipcMain.handle('login', async (event, { username, password }) => {
     try {
+      // Input validation
+      if (!username || !isNonEmptyString(username)) {
+        return {
+          success: false,
+          error: 'Username is required',
+        }
+      }
+
+      if (!password || !isNonEmptyString(password)) {
+        return {
+          success: false,
+          error: 'Password is required',
+        }
+      }
+
+      // Sanitize username (prevent injection attacks)
+      const sanitizedUsername = sanitizeString(username)
+
+      if (sanitizedUsername.length < 3 || sanitizedUsername.length > 50) {
+        return {
+          success: false,
+          error: 'Invalid username format',
+        }
+      }
+
       // Get user by username only
-      const user = await authQueries.getUserByUsername(username)
+      const user = await authQueries.getUserByUsername(sanitizedUsername)
 
       if (!user || !user.is_active) {
         await logAction(null, username, 'LOGIN_FAILED', 'user', null, null, { reason: 'User not found or inactive' })
